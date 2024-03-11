@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400&family=Raleway:ital,wght@0,300;1,300&display=swap');
+  
+$blue10:#DDF9FF;
+$blue20:#00CFFF;
+$blue30:#0096B9;
+$blue40:#2E3537;
+
+*, *::after, *::before {
+  box-sizing:border-box;
+}
+
+html {
+  height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  background-color:$blue40;
+  margin: 0px;
+  min-height: 100%;
+}
+.container {
+  width: 80%;
+  min-height: 100%;
+  margin: auto; 
+  padding:40px 40px 100px 40px;
+}
+
+.header {
+  text-align: right;
+}
+
+main {
+// background-color:white;
+ display:flex;
+}
+
+.columnThin {
+  flex:25%;
+//  min-height:100%;
+//  float: left;
+//  position: relative;
+  padding-right: 10px;
+  border-right: solid $blue20;
+//  background-color:black;
+}
+.columnWide {
+  width: 75%;
+//  min-height:100%;
+//  float: left;
+//  position: relative;
+  padding-left: 20px;
+//  background-color:black;
+}
+
+.subsection{
+  margin-bottom:1.5rem;
+  margin-top: 1rem;
+}
+.experienceItem{
+  margin-bottom:1.2rem;
+}
+.companywhen{
+  position:relative;
+  float:left;
+  width: 40%;
+}
+.titledesc{
+  position:relative;
+  float:left;
+  width: 60%;
+}
+
+.contactList{
+  position:relative;
+  right: -1rem;
+}
+.contactBtn {
+  padding:1.25rem;
+  display: inline-block;
+  border-radius:4px;
+  }
+.contactBtn:hover{
+    outline:solid $blue10;
+    cursor: pointer;
+   .contactIcon{
+     color:$blue10;
+   }
+  }
+.contactBtn:focus-within{
+    outline:solid $blue10;
+    cursor: pointer;
+   .contactIcon{
+     color:$blue10;
+     outline: 0;
+   }
+  }
+.contactIcon{
+  color: $blue30;
+  font-size: 1.25em;
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  margin:0px;
+  color: $blue20;
+  font-size: 4rem;
+  font-weight:200;
+  letter-spacing: 0.05em;
+  line-height:4rem;
+}
+h2 {
+  font-size: 1.5em;
+  color: $blue20;
+  font-weight: 200;
+  margin-bottom:4px; 
+}
+h3 {
+  font-size: 1.375rem;
+  color: $blue10;
+  font-weight: 300;
+  margin-bottom:4px; 
+}
+
+p, li{
+  font-size: 1em;
+  color: $blue10;
+  margin:0px;
+  font-weight:200;
+}
+p{
+  margin-bottom:4px;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: $blue20;
+}
+p>a:hover, :focus{
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 10px 16px;
+  background-color: $blue10;
+  color: $blue40;
+  border-radius:16px;
+  opacity: 1;
+}
+.skip:focus {
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  opacity: 1;
+}

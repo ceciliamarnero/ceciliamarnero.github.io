@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400&family=Raleway:ital,wght@0,300;1,300&display=swap");
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  background-color: #2E3537;
+  margin: 0px;
+  min-height: 100%;
+}
+
+.container {
+  width: 80%;
+  min-height: 100%;
+  margin: auto;
+  padding: 40px 40px 100px 40px;
+}
+
+.header {
+  text-align: right;
+}
+
+main {
+  display: flex;
+}
+
+.columnThin {
+  flex: 25%;
+  padding-right: 10px;
+  border-right: solid #00CFFF;
+}
+
+.columnWide {
+  width: 75%;
+  padding-left: 20px;
+}
+
+.subsection {
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.experienceItem {
+  margin-bottom: 1.2rem;
+}
+
+.companywhen {
+  position: relative;
+  float: left;
+  width: 40%;
+}
+
+.titledesc {
+  position: relative;
+  float: left;
+  width: 60%;
+}
+
+.contactList {
+  position: relative;
+  right: -1rem;
+}
+
+.contactBtn {
+  padding: 1.25rem;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.contactBtn:hover {
+  outline: solid #DDF9FF;
+  cursor: pointer;
+}
+.contactBtn:hover .contactIcon {
+  color: #DDF9FF;
+}
+
+.contactBtn:focus-within {
+  outline: solid #DDF9FF;
+  cursor: pointer;
+}
+.contactBtn:focus-within .contactIcon {
+  color: #DDF9FF;
+  outline: 0;
+}
+
+.contactIcon {
+  color: #0096B9;
+  font-size: 1.25em;
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  margin: 0px;
+  color: #00CFFF;
+  font-size: 4rem;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #00CFFF;
+  font-weight: 200;
+  margin-bottom: 4px;
+}
+
+h3 {
+  font-size: 1.375rem;
+  color: #DDF9FF;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+p, li {
+  font-size: 1em;
+  color: #DDF9FF;
+  margin: 0px;
+  font-weight: 200;
+}
+
+p {
+  margin-bottom: 4px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #00CFFF;
+}
+
+p > a:hover, :focus {
+  text-decoration: underline;
+  text-underline-position: under;
+  color: #DDF9FF;
+}
+
+/* p>a:focus{
+  text-decoration: underline;
+  text-underline-position: under;
+  color: $blue20;
+} */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 10px 16px;
+  background-color: #DDF9FF;
+  color: #2E3537;
+  border-radius: 16px;
+  opacity: 1;
+}
+
+.skip:focus {
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

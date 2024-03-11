@@ -141,14 +141,8 @@ a {
 p > a:hover, :focus {
   text-decoration: underline;
   text-underline-position: under;
-  color: #DDF9FF;
 }
 
-/* p>a:focus{
-  text-decoration: underline;
-  text-underline-position: under;
-  color: $blue20;
-} */
 .clearfix::after {
   content: "";
   clear: both;
@@ -173,4 +167,4 @@ p > a:hover, :focus {
   opacity: 1;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=index.css.map */

@@ -15,29 +15,63 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
   min-height: 100%;
-  margin: auto;
-  padding: 40px 40px 100px 40px;
+  padding: 10px 10px 40px 10px;
+}
+@media only screen and (min-width: 481px) {
+  .container {
+    width: 90%;
+    padding: 20px 0px 40px 0px;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .container {
+    padding: 40px 0px 40px 0px;
+    width: 80%;
+    margin: auto;
+  }
 }
 
 .header {
-  text-align: right;
+  text-align: center;
+}
+@media only screen and (min-width: 481px) {
+  .header {
+    text-align: right;
+  }
 }
 
 main {
   display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 481px) {
+  main {
+    flex-direction: row;
+  }
 }
 
 .columnThin {
-  flex: 25%;
-  padding-right: 10px;
-  border-right: solid #00CFFF;
+  order: 2;
+}
+@media only screen and (min-width: 481px) {
+  .columnThin {
+    order: 1;
+    padding-right: 1rem;
+    border-right: 1px solid #0096B9;
+  }
 }
 
 .columnWide {
-  width: 75%;
-  padding-left: 20px;
+  order: 1;
+}
+@media only screen and (min-width: 481px) {
+  .columnWide {
+    order: 2;
+    padding-left: 1rem;
+  }
 }
 
 .subsection {
@@ -47,29 +81,62 @@ main {
 
 .experienceItem {
   margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 769px) {
+  .experienceItem {
+    flex-direction: row;
+  }
 }
 
 .companywhen {
-  position: relative;
-  float: left;
-  width: 40%;
+  order: 1;
+  margin-right: 0.5rem;
+}
+@media only screen and (min-width: 769px) {
+  .companywhen {
+    flex: 1;
+  }
 }
 
 .titledesc {
-  position: relative;
-  float: left;
-  width: 60%;
+  order: 2;
+}
+@media only screen and (min-width: 769px) {
+  .titledesc {
+    flex: 3;
+  }
 }
 
 .contactList {
-  position: relative;
-  right: -1rem;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 481px) {
+  .contactList {
+    justify-content: flex-end;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    right: -16px;
+  }
 }
 
 .contactBtn {
-  padding: 1.25rem;
-  display: inline-block;
+  padding: 0.5rem;
+  flex-basis: 40%;
   border-radius: 4px;
+}
+@media only screen and (min-width: 481px) {
+  .contactBtn {
+    justify-content: flex-end;
+    flex-basis: 5%;
+    padding: 1rem;
+  }
 }
 
 .contactBtn:hover {
@@ -98,14 +165,26 @@ h1 {
   font-family: "Raleway", sans-serif;
   margin: 0px;
   color: #00CFFF;
-  font-size: 4rem;
+  font-size: 2rem;
+  line-height: 2rem;
   font-weight: 200;
-  letter-spacing: 0.05em;
-  line-height: 4rem;
+  letter-spacing: 0.04rem;
+}
+@media only screen and (min-width: 481px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+@media only screen and (min-width: 769px) {
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: #00CFFF;
   font-weight: 200;
   margin-bottom: 4px;
@@ -115,6 +194,7 @@ h3 {
   font-size: 1.375rem;
   color: #DDF9FF;
   font-weight: 300;
+  margin-top: 0px;
   margin-bottom: 4px;
 }
 
@@ -126,7 +206,7 @@ p, li {
 }
 
 p {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 li {

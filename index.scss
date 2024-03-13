@@ -3,7 +3,8 @@
 $blue10:#DDF9FF;
 $blue20:#00CFFF;
 $blue30:#0096B9;
-$blue40:#2E3537;
+$blue40:#106F85;
+$blue50:#2E3537;
 
 
 @mixin mobile {
@@ -36,7 +37,7 @@ html {
 }
 
 body {
-  background-color:$blue40;
+  background-color:$blue50;
   margin: 0px;
   min-height: 100%;
 }
@@ -63,7 +64,53 @@ body {
  }
 }
 
-main {
+nav {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ @include tablet{
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+ }}
+
+.btnRegular {
+  border-radius: 8px;
+  box-shadow: none;
+  flex-basis: 40%;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin: 0.2rem;
+  border-color: $blue30;
+  background-color: $blue50;
+  color: $blue30;
+  @include tablet{
+    border: none;
+    background-color: $blue50;
+  }
+}
+
+.btnRegular:hover{
+  color: $blue10;
+  outline: 1px solid $blue10 ;
+}
+
+
+
+.btnPrimary {
+  border-radius: 8px;
+  flex-basis: 40%;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin: 0.2rem;
+  color: $blue50;
+  border: none;
+  background-color: $blue10;
+}
+
+
+
+
+
+.sectionResume {
  display:flex;
  flex-direction: column;
  @include tablet{
@@ -133,12 +180,24 @@ main {
     position: relative;
     right: -16px;
   }
-
 }
+
+.sectionContact{
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sectionContact > .contactList2 > p > i{
+  box-sizing: border-box;
+  margin: 0 1rem 0 0;
+}
+
 .contactBtn {
   padding:0.5rem;
   flex-basis: 40%;
   border-radius:4px;
+  text-align: center;
   @include tablet{
     justify-content: flex-end;
     flex-basis: 5%;
@@ -203,9 +262,7 @@ h3 {
 
 
 .aboutme > h3 {
-  @include tablet {
     margin-top:1.5rem; 
-  }
 }
 
 .aboutme > img {
@@ -247,7 +304,7 @@ p>a:hover, :focus{
   z-index: 999;
   padding: 10px 16px;
   background-color: $blue10;
-  color: $blue40;
+  color: $blue50;
   border-radius:16px;
   opacity: 1;
 }

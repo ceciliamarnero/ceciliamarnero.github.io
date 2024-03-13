@@ -58,9 +58,11 @@ main {
 }
 @media only screen and (min-width: 481px) {
   .columnThin {
+    box-sizing: border-box;
+    flex: 1;
     order: 1;
     padding-right: 1rem;
-    border-right: 1px solid #0096B9;
+    border-right: 1px solid #00CFFF;
   }
 }
 
@@ -69,6 +71,8 @@ main {
 }
 @media only screen and (min-width: 481px) {
   .columnWide {
+    box-sizing: border-box;
+    flex: 3;
     order: 2;
     padding-left: 1rem;
   }
@@ -92,7 +96,7 @@ main {
 
 .companywhen {
   order: 1;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 @media only screen and (min-width: 769px) {
   .companywhen {
@@ -198,6 +202,12 @@ h3 {
   margin-bottom: 4px;
 }
 
+@media only screen and (min-width: 481px) {
+  .aboutme > h3 {
+    margin-top: 1.5rem;
+  }
+}
+
 p, li {
   font-size: 1em;
   color: #DDF9FF;
@@ -227,6 +237,10 @@ p > a:hover, :focus {
   content: "";
   clear: both;
   display: table;
+}
+
+img {
+  width: 100%;
 }
 
 .skip {

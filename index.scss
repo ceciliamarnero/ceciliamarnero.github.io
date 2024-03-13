@@ -208,6 +208,10 @@ h3 {
   }
 }
 
+.aboutme > img {
+  width: 100%;
+}
+
 p, li{
   font-size: 1em;
   color: $blue10;
@@ -235,9 +239,7 @@ p>a:hover, :focus{
   display: table;
 }
 
-img{
-  width: 100%;
-}
+
 
 .skip {
   position: absolute;

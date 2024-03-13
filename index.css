@@ -208,6 +208,10 @@ h3 {
   }
 }
 
+.aboutme > img {
+  width: 100%;
+}
+
 p, li {
   font-size: 1em;
   color: #DDF9FF;
@@ -237,10 +241,6 @@ p > a:hover, :focus {
   content: "";
   clear: both;
   display: table;
-}
-
-img {
-  width: 100%;
 }
 
 .skip {

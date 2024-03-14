@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400&family=Raleway:ital,wght@0,300;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400&family=Raleway:ital,wght@0,300;1,300&display=swap");
 *,
 *::after,
 *::before {
@@ -94,6 +94,10 @@ nav {
 
 .btnRegular:first-child {
   padding-left: 0rem;
+}
+
+.fa-house {
+  margin-right: 4px;
 }
 
 .btnPrimary {
@@ -302,6 +306,14 @@ p > a:hover,
   text-underline-position: under;
 }
 
+.dates {
+  font-weight: 100;
+}
+
+strong {
+  font-weight: 400;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -324,10 +336,6 @@ p > a:hover,
   top: 10%;
   transform: translateX(-50%);
   opacity: 1;
-}
-
-.fa-house {
-  margin-right: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */

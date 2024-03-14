@@ -47,11 +47,11 @@ body {
   padding:10px 10px 40px 10px;
   @include tablet() {
     width: 90%;
-    padding:20px 0px 40px 0px;
+    padding:10px 0px 40px 0px;
     margin: auto;
  }
   @include desktop {
-    padding:40px 0px 40px 0px;
+    padding:10px 0px 40px 0px;
     width: 80%;
     margin: auto;
  }
@@ -69,42 +69,51 @@ nav {
  justify-content: center;
  flex-wrap: wrap;
  @include tablet{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   flex-wrap: nowrap;
  }}
 
-.btnRegular {
+.btn{
+  box-sizing: border-box;
   border-radius: 8px;
   box-shadow: none;
   flex-basis: 40%;
+  margin: 0 0.3rem 0.3rem 0.3rem;
   padding: 0.5rem 2rem 0.5rem 2rem;
-  margin: 0.2rem;
-  border-color: $blue30;
-  background-color: $blue50;
+}
+
+.btnRegular{
   color: $blue30;
+  border: 1px solid $blue30;
+  background-color: $blue50;
   @include tablet{
     border: none;
     background-color: $blue50;
   }
 }
 
-.btnRegular:hover{
+.btnPrimary {
+  font-weight: 300;
+  color: $blue10;
+  border: 1px solid $blue30;
+  background-color: $blue40;
+}
+
+.btn:hover{
   color: $blue10;
   outline: 1px solid $blue10 ;
 }
 
-
-
-.btnPrimary {
-  border-radius: 8px;
-  flex-basis: 40%;
-  padding: 0.5rem 2rem 0.5rem 2rem;
-  margin: 0.2rem;
-  color: $blue50;
-  border: none;
-  background-color: $blue10;
+.btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
+
+
+
+
 
 
 

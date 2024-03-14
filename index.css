@@ -22,13 +22,13 @@ body {
 @media only screen and (min-width: 481px) {
   .container {
     width: 90%;
-    padding: 20px 0px 40px 0px;
+    padding: 10px 0px 40px 0px;
     margin: auto;
   }
 }
 @media only screen and (min-width: 769px) {
   .container {
-    padding: 40px 0px 40px 0px;
+    padding: 10px 0px 40px 0px;
     width: 80%;
     margin: auto;
   }
@@ -50,21 +50,25 @@ nav {
 }
 @media only screen and (min-width: 481px) {
   nav {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     flex-wrap: nowrap;
   }
 }
 
-.btnRegular {
+.btn {
+  box-sizing: border-box;
   border-radius: 8px;
   box-shadow: none;
   flex-basis: 40%;
+  margin: 0 0.3rem 0.3rem 0.3rem;
   padding: 0.5rem 2rem 0.5rem 2rem;
-  margin: 0.2rem;
-  border-color: #0096B9;
-  background-color: #2E3537;
+}
+
+.btnRegular {
   color: #0096B9;
+  border: 1px solid #0096B9;
+  background-color: #2E3537;
 }
 @media only screen and (min-width: 481px) {
   .btnRegular {
@@ -73,19 +77,22 @@ nav {
   }
 }
 
-.btnRegular:hover {
+.btnPrimary {
+  font-weight: 300;
+  color: #DDF9FF;
+  border: 1px solid #0096B9;
+  background-color: #106F85;
+}
+
+.btn:hover {
   color: #DDF9FF;
   outline: 1px solid #DDF9FF;
 }
 
-.btnPrimary {
-  border-radius: 8px;
-  flex-basis: 40%;
-  padding: 0.5rem 2rem 0.5rem 2rem;
-  margin: 0.2rem;
-  color: #2E3537;
-  border: none;
-  background-color: #DDF9FF;
+.btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .sectionResume {

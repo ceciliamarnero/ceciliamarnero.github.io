@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a85f38aa04.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
+        <a tabindex="1" href="#sectionAboutme" class="skip">Skip to main content</a>
+        <nav>
+            <button tabindex="-1" class="btn btnRegular"><a tabindex="2"href="index.html">Resume</a></button>
+            <button tabindex="-1" class="btn btnRegular disabled"><a tabindex="-1" href="aboutme.html">About me</a></button>
+            <button tabindex="-1" class="btn btnRegular"><a tabindex="3" href="#">Portfolio</a></button>
+            <button tabindex="-1" class="btn btnPrimary"><a tabindex="4" href="contact.html">Contact</a></button>
+          </nav>
         <div class="header">
             <h1>About me</h1>
-            <a href="#sectionAboutme" class="skip">Skip to main content</a>
+           
         </div>
 
         <main class="sectionAboutme" id="sectionAboutme">

@@ -338,4 +338,112 @@ strong {
   opacity: 1;
 }
 
+.level1 {
+  margin: 2rem 0 1rem 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+}
+@media only screen and (min-width: 481px) {
+  .level1 {
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: auto;
+    min-height: 80vh;
+  }
+}
+
+.level2 {
+  display: flex;
+  flex-flow: row wrap;
+}
+@media only screen and (min-width: 481px) {
+  .level2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.level31 {
+  order: 2;
+  margin: 2rem 0 0 0;
+}
+@media only screen and (min-width: 481px) {
+  .level31 {
+    order: 1;
+    margin: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.level32 {
+  order: 1;
+  display: flex;
+}
+@media only screen and (min-width: 481px) {
+  .level32 {
+    order: 2;
+    display: flex;
+    width: 50%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.level32 > img {
+  width: 100%;
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  left: -0.4rem;
+  margin-top: 3rem;
+}
+@media only screen and (min-width: 481px) {
+  .socialLinks {
+    margin-top: 3rem;
+    position: relative;
+    left: -1rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: flex-end;
+  }
+}
+
+.socialLink {
+  color: #00CFFF;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin-right: 3rem;
+}
+@media only screen and (min-width: 481px) {
+  .socialLink {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
+
+.socialLink:hover,
+:focus-visible {
+  color: #DDF9FF;
+  outline: 1px solid #DDF9FF;
+}
+
 /*# sourceMappingURL=style.css.map */

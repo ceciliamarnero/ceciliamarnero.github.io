@@ -353,24 +353,27 @@ strong {
   }
 }
 
-.level2 {
+.textillustration {
+  margin: 2rem 0 1rem 1rem;
   display: flex;
   flex-flow: row wrap;
 }
 @media only screen and (min-width: 481px) {
-  .level2 {
+  .textillustration {
     display: flex;
+    margin: auto;
     justify-content: flex-end;
     align-items: flex-end;
+    min-height: 80vh;
   }
 }
 
-.level31 {
+.text {
   order: 2;
   margin: 2rem 0 0 0;
 }
 @media only screen and (min-width: 481px) {
-  .level31 {
+  .text {
     order: 1;
     margin: 0;
     width: 50%;
@@ -380,12 +383,12 @@ strong {
   }
 }
 
-.level32 {
+.illustration {
   order: 1;
   display: flex;
 }
 @media only screen and (min-width: 481px) {
-  .level32 {
+  .illustration {
     order: 2;
     display: flex;
     width: 50%;
@@ -394,16 +397,8 @@ strong {
   }
 }
 
-.level32 > img {
+.illustration > img {
   width: 100%;
-}
-
-.option {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .socialLinks {
@@ -419,6 +414,7 @@ strong {
     margin-top: 3rem;
     position: relative;
     left: -1rem;
+    bottom: -1rem;
     width: 70%;
     display: flex;
     justify-content: space-between;

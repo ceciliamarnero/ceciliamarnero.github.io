@@ -146,17 +146,16 @@ nav {
   text-decoration: none;
 }
 
-a:hover,
-:focus {
+a:focus-visible {
+  color: $blue10;
+  text-decoration: none;
+}
+
+a:hover{
   color: $blue10;
   text-decoration: underline;
   text-decoration-thickness: 0.2rem;
   text-underline-position: under;
-}
-
-a:active {
-  text-decoration: none;
-  outline: none;
 }
 
 .btn.disabled {
@@ -164,13 +163,6 @@ a:active {
   opacity: 0.5;
   pointer-events: none;
 }
-
-
-
-
-
-
-
 
 .sectionResume {
   display: flex;
@@ -347,8 +339,8 @@ strong {
   left: -9999px;
   z-index: 999;
   padding: 10px 16px;
-  background-color: $blue10;
-  color: $blue50;
+  background-color: $blue40;
+  color: $blue10;
   border-radius: 16px;
   opacity: 1;
 }
@@ -360,23 +352,6 @@ strong {
   opacity: 1;
 }
 
-.landing {
-  // background: linear-gradient(19deg, rgba(2,0,36,1) 0%, rgba(16,111,133,1) 68%, rgba(0,207,255,1) 100%);
-}
-
-.level1 {
-  margin: 2rem 0 1rem 1rem;
-  display: flex;
-  flex-flow: row nowrap;
- 
-  @include tablet {
-    flex-flow: column nowrap;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin: auto;
-    min-height: 80vh;
-  }
-}
 
 .textillustration {
   margin: 2rem 0 1rem 1rem;

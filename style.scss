@@ -4,7 +4,7 @@ $blue10: #DDF9FF;
 $blue20: #00CFFF;
 $blue30: #00ABD1;
 $blue40: #106F85;
-$blue50: #2E3537;
+$blue50: rgb(46, 53, 55);
 
 @mixin mobile {
   @media only screen and (max-width: 480px) {
@@ -309,8 +309,11 @@ li {
   list-style-type: none;
 }
 
-p>a {
+a{
   text-decoration: none;
+}
+
+p>a {
   color: $blue30;
 }
 
@@ -440,62 +443,69 @@ strong {
   outline: 1px solid $blue10 ;
 }
 
-
 .gallery{
   margin-top: 1rem;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: flex-start;
   @include tablet{
-    height: 70vh;
-    flex-flow: row wrap;
-    align-items:flex-start;
-    justify-content: center;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
   }
-
+  
 }
 
 .preview{
-  background-color: white;
-  min-width: 100%;
-  min-height: 200px;
-  border: 1px solid $blue40;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  border-radius: 0.25rem;  
+  display: grid;
+  margin: 20px auto;
   overflow: hidden;
-  background-size:contain;
   @include tablet{
-    height: 45%;
-    min-width: 40%;
-    max-width: 49%;
-    min-height: 20%;
-    margin-right: 2rem;
+    margin: 0;
   }
 }
 
-.description{
-  padding: 0.5rem;
-  background-color: rgba(46,53,55,0.9);
-}
-
 .image{
-  opacity: 0.8;
-  overflow: hidden;
+  z-index:-99;
+  grid-column: 1;
+  grid-row: 1;
   max-width: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
 }
 
-.image:hover, .image:focus-visible{
-  opacity: 1;
+.overlay{
+  grid-column: 1;
+  grid-row: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.description{
+  align-self: end;
+  grid-column: 1;
+  grid-row: 1;
+  padding: 0.5rem;
+  background-color: rgba(46, 53, 55, 0.9);
 }
 
 
-a.preview, a:hover{
+a.preview:hover{
+  outline: 0.2rem solid $blue10;
+  outline-offset: 4px;
   text-decoration: none;
-  opacity: 1;
+  transition: none;
 }
+
+a.preview{
+  &:hover{
+    .overlay{
+      opacity: 0;
+    }
+  }
+}
+
+
 
 p.text, h2.text{
   margin: 0;

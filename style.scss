@@ -436,3 +436,46 @@ strong {
   color: $blue10;
   outline: 1px solid $blue10 ;
 }
+
+
+.gallery{
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  @include tablet{
+    flex-flow: row wrap;
+    align-items:flex-start;
+    justify-content: center;
+  }
+
+}
+
+.preview{
+  min-width: 100%;
+  margin-bottom: 1rem;
+ // border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+
+  @include tablet{
+    background-color: black;
+    color: white;
+    min-width: 40%;
+    max-width: 49%;
+    min-height: 20%;
+    margin-right: 2rem;
+  }
+}
+
+.preview > .image{
+  background-color: white;
+  width: 100%;
+  flex:1;
+}
+
+.preview > .description{
+  background-color: grey;
+  flex: 0 0 20%;
+}

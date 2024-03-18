@@ -151,7 +151,7 @@ a:focus-visible {
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   color: $blue10;
   text-decoration: underline;
   text-decoration-thickness: 0.2rem;
@@ -309,7 +309,7 @@ li {
   list-style-type: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -355,24 +355,27 @@ strong {
   opacity: 1;
 }
 
-
+.presentation{
+  margin-bottom: 2rem;
+}
 .textillustration {
   margin: 2rem 0 1rem 1rem;
   display: flex;
   flex-flow: row wrap;
+
   @include tablet {
     display: flex;
     margin: auto;
-    //flex-flow: column nowrap;
     justify-content: flex-end;
     align-items: flex-end;
-    min-height: 80vh;
+    min-height: 70vh;
   }
 }
 
 .text {
   order: 2;
   margin: 2rem 0 0 0;
+
   @include tablet {
     order: 1;
     margin: 0;
@@ -384,9 +387,10 @@ strong {
 }
 
 .illustration {
- // background-color: white;
+  // background-color: white;
   order: 1;
   display: flex;
+
   @include tablet {
     order: 2;
     display: flex;
@@ -396,9 +400,9 @@ strong {
   }
 }
 
-.illustration>img { 
-//background: rgb(46,53,55);
-//background: linear-gradient(120deg, rgba(46,53,55,1) 0%, rgba(16,111,133,1) 80%, rgba(0,207,255,1) 100%);
+.illustration>img {
+  //background: rgb(46,53,55);
+  //background: linear-gradient(120deg, rgba(46,53,55,1) 0%, rgba(16,111,133,1) 80%, rgba(0,207,255,1) 100%);
   width: 100%;
 }
 
@@ -410,6 +414,7 @@ strong {
   position: relative;
   left: -0.4rem;
   margin-top: 3rem;
+
   @include tablet {
     margin-top: 3rem;
     position: relative;
@@ -430,6 +435,7 @@ strong {
   font-size: 1.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin-right: 3rem;
+
   @include tablet {
     padding: 1rem 1rem 1rem 1rem;
   }
@@ -443,30 +449,31 @@ strong {
   outline: 1px solid $blue10 ;
 }
 
-.gallery{
+.gallery {
   margin-top: 1rem;
-  @include tablet{
+
+  @include tablet {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
   }
-  
+
 }
 
-.preview{
-  border-radius: 0.25rem;  
+.preview {
+  border-radius: 0.25rem;
   display: grid;
   margin: 20px auto;
   overflow: hidden;
-  @include tablet{
+
+  @include tablet {
     margin: 0;
   }
 }
 
-.image{
-  z-index:-99;
+.image {
+  z-index: -99;
   grid-column: 1;
   grid-row: 1;
   max-width: 100%;
@@ -475,13 +482,13 @@ strong {
   overflow: hidden;
 }
 
-.overlay{
+.overlay {
   grid-column: 1;
   grid-row: 1;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.description{
+.description {
   align-self: end;
   grid-column: 1;
   grid-row: 1;
@@ -490,25 +497,35 @@ strong {
 }
 
 
-a.preview:hover{
+a.preview:hover {
   outline: 0.2rem solid $blue10;
   outline-offset: 4px;
   text-decoration: none;
   transition: none;
 }
 
-a.preview{
-  &:hover{
-    .overlay{
+a.preview {
+  &:hover {
+    .overlay {
       opacity: 0;
     }
   }
 }
 
-.casename, .caseinfo, .caseintro{
+.casename,
+.caseinfo,
+.caseintro {
   margin: 0;
 }
 
-.caseinfo{
+.caseinfo {
   font-size: 0.8rem;
+}
+
+.signature {
+  text-align: center;
+  display: block;
+  color: $blue40;
+  margin: 2rem auto;
+  padding-bottom: 1rem;
 }

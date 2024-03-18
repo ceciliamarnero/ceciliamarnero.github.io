@@ -474,7 +474,7 @@ strong {
   align-self: end;
   grid-column: 1;
   grid-row: 1;
-  padding: 0.5rem;
+  padding: 0.25rem;
   background-color: rgba(46, 53, 55, 0.9);
 }
 
@@ -489,8 +489,12 @@ a.preview:hover .overlay {
   opacity: 0;
 }
 
-p.text, h2.text {
+.casename, .caseinfo, .caseintro {
   margin: 0;
+}
+
+.caseinfo {
+  font-size: 0.8rem;
 }
 
 /*# sourceMappingURL=style.css.map */

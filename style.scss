@@ -44,7 +44,7 @@ body {
 .container {
   width: 100%;
   min-height: 100%;
-  padding: 10px 10px 40px 10px;
+  padding: 1rem 10px 20px 1rem;
 
   @include tablet() {
     width: 90%;
@@ -231,22 +231,6 @@ a:hover {
 }
 
 
-.sectionContact {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-
-  @include tablet {
-    width: 80%;
-    ;
-  }
-}
-
-.sectionContact>.contactList>p>i {
-  box-sizing: border-box;
-  margin: 0 1rem 0 0;
-}
-
 
 h1 {
   font-family: "Raleway", sans-serif;
@@ -268,7 +252,7 @@ h1 {
   }
 }
 
-h2, .welcome {
+h2, .intro {
   font-size: 1.5rem;
   color: $blue20;
   font-weight: 200;
@@ -355,96 +339,92 @@ strong {
   opacity: 1;
 }
 
-.presentation{
-  margin-bottom: 2rem;
-}
 
-.textillustration {
-  margin: 2rem 0 1rem 1rem;
+.landing-wrapper {
+  margin-top: 1rem;
   display: flex;
-  flex-flow: row wrap;
-
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  
   @include tablet {
-    display: flex;
-    margin: auto;
-    justify-content: flex-end;
-    align-items: flex-end;
     min-height: 70vh;
+    //margin: 50px 0 1rem 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    justify-content: center;
+    align-items: flex-end;
   }
 }
 
-.text {
+.welcome-wrapper {
   order: 2;
-  margin: 2rem 0 0 0;
-
+  margin-top: 1rem ;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   @include tablet {
     order: 1;
     margin: 0;
     width: 50%;
-    display: flex;
-    flex-direction: column;
+    //display: flex;
+    //flex-flow: column nowrap;
     justify-content: flex-end;
   }
 }
 
 .illustration {
-  // background-color: white;
   order: 1;
-  display: flex;
+  width: 50%;
+  margin: auto;
+  
 
   @include tablet {
     order: 2;
+    margin: 0;
     display: flex;
-    width: 50%;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: self-end;
   }
 }
 
 .illustration>img {
-  //background: rgb(46,53,55);
-  //background: linear-gradient(120deg, rgba(46,53,55,1) 0%, rgba(16,111,133,1) 80%, rgba(0,207,255,1) 100%);
   width: 100%;
 }
 
 
-.socialLinks {
+.contacts-wrapper {
+  justify-self: flex-end;
+  align-self: center;
+  margin-top: 1rem;
+  width: 80%;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  position: relative;
-  left: -0.4rem;
-  margin-top: 3rem;
 
   @include tablet {
-    margin-top: 3rem;
+    justify-self: flex-start;
+    align-self: flex-start;
     position: relative;
     left: -1rem;
     bottom: -1rem;
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    justify-self: flex-end;
+    align-items:flex-start;
   }
 
 }
 
-.socialLink {
+.contact-link {
   color: $blue20;
   border-radius: 0.5rem;
   font-size: 1.5rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  margin-right: 3rem;
-
-  @include tablet {
-    padding: 1rem 1rem 1rem 1rem;
-  }
-
-
+  padding: 1rem 1rem 1rem 1rem;
 }
 
-.socialLink:hover,
+.contact-link:hover,
 :focus-visible {
   color: $blue10;
   outline: 1px solid $blue10 ;

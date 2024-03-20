@@ -19,7 +19,7 @@ body {
 .container {
   width: 100%;
   min-height: 100%;
-  padding: 10px 10px 40px 10px;
+  padding: 1rem 10px 20px 1rem;
 }
 @media only screen and (min-width: 481px) {
   .container {
@@ -217,22 +217,6 @@ a:hover {
   }
 }
 
-.sectionContact {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-}
-@media only screen and (min-width: 481px) {
-  .sectionContact {
-    width: 80%;
-  }
-}
-
-.sectionContact > .contactList > p > i {
-  box-sizing: border-box;
-  margin: 0 1rem 0 0;
-}
-
 h1 {
   font-family: "Raleway", sans-serif;
   margin: 0px;
@@ -255,7 +239,7 @@ h1 {
   }
 }
 
-h2, .welcome {
+h2, .intro {
   font-size: 1.5rem;
   color: #00CFFF;
   font-weight: 200;
@@ -340,51 +324,51 @@ strong {
   opacity: 1;
 }
 
-.presentation {
-  margin-bottom: 2rem;
-}
-
-.textillustration {
-  margin: 2rem 0 1rem 1rem;
+.landing-wrapper {
+  margin-top: 1rem;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 @media only screen and (min-width: 481px) {
-  .textillustration {
-    display: flex;
-    margin: auto;
-    justify-content: flex-end;
-    align-items: flex-end;
+  .landing-wrapper {
     min-height: 70vh;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    justify-content: center;
+    align-items: flex-end;
   }
 }
 
-.text {
+.welcome-wrapper {
   order: 2;
-  margin: 2rem 0 0 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
 @media only screen and (min-width: 481px) {
-  .text {
+  .welcome-wrapper {
     order: 1;
     margin: 0;
     width: 50%;
-    display: flex;
-    flex-direction: column;
     justify-content: flex-end;
   }
 }
 
 .illustration {
   order: 1;
-  display: flex;
+  width: 50%;
+  margin: auto;
 }
 @media only screen and (min-width: 481px) {
   .illustration {
     order: 2;
+    margin: 0;
     display: flex;
-    width: 50%;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: self-end;
   }
 }
 
@@ -392,42 +376,37 @@ strong {
   width: 100%;
 }
 
-.socialLinks {
+.contacts-wrapper {
+  justify-self: flex-end;
+  align-self: center;
+  margin-top: 1rem;
+  width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  position: relative;
-  left: -0.4rem;
-  margin-top: 3rem;
 }
 @media only screen and (min-width: 481px) {
-  .socialLinks {
-    margin-top: 3rem;
+  .contacts-wrapper {
+    justify-self: flex-start;
+    align-self: flex-start;
     position: relative;
     left: -1rem;
     bottom: -1rem;
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    justify-self: flex-end;
+    align-items: flex-start;
   }
 }
 
-.socialLink {
+.contact-link {
   color: #00CFFF;
   border-radius: 0.5rem;
   font-size: 1.5rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  margin-right: 3rem;
-}
-@media only screen and (min-width: 481px) {
-  .socialLink {
-    padding: 1rem 1rem 1rem 1rem;
-  }
+  padding: 1rem 1rem 1rem 1rem;
 }
 
-.socialLink:hover,
+.contact-link:hover,
 :focus-visible {
   color: #DDF9FF;
   outline: 1px solid #DDF9FF;

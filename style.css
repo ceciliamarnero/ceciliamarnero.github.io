@@ -490,8 +490,8 @@ a.preview:hover .overlay {
 .signature {
   text-align: center;
   display: block;
-  color: #106F85;
-  margin: 0;
+  color: #00ABD1;
+  font-weight: 200;
   padding: 1rem;
 }
 

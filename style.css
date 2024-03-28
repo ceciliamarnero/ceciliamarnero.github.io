@@ -273,7 +273,9 @@ li {
   font-weight: 200;
 }
 
-p {
+p,
+ul {
+  padding-left: 0;
   margin-bottom: 8px;
 }
 

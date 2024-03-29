@@ -86,6 +86,8 @@ nav {
 
   @include tablet {
     display: block;
+    position: relative;
+    left: -1rem;
   }
 }
 
@@ -114,34 +116,8 @@ nav {
   }
 }
 
-.btnRegular:first-child {
-  padding-left: 0rem;
-}
-
 .fa-house {
   margin-right: 4px;
-}
-
-.btnPrimary {
-  color: $blue10;
-  background-color: $blue40;
-  font-weight: 300;
-  float: right;
-  padding: 0.5rem 0rem;
-
-  @include tablet {
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-  }
-
-  @include desktop {
-    padding: 0.5rem 3rem;
-  }
-}
-
-.btnPrimary>a {
-  color: $blue10;
-  text-decoration: none;
 }
 
 .btnRegular>a {

@@ -65,6 +65,8 @@ nav {
 @media only screen and (min-width: 481px) {
   nav {
     display: block;
+    position: relative;
+    left: -1rem;
   }
 }
 
@@ -94,36 +96,8 @@ nav {
   }
 }
 
-.btnRegular:first-child {
-  padding-left: 0rem;
-}
-
 .fa-house {
   margin-right: 4px;
-}
-
-.btnPrimary {
-  color: #DDF9FF;
-  background-color: #106F85;
-  font-weight: 300;
-  float: right;
-  padding: 0.5rem 0rem;
-}
-@media only screen and (min-width: 481px) {
-  .btnPrimary {
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-  }
-}
-@media only screen and (min-width: 769px) {
-  .btnPrimary {
-    padding: 0.5rem 3rem;
-  }
-}
-
-.btnPrimary > a {
-  color: #DDF9FF;
-  text-decoration: none;
 }
 
 .btnRegular > a {

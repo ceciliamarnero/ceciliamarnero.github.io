@@ -39,8 +39,8 @@ html {
 }
 
 body {
- height: 100%;
- margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 .container {
@@ -120,28 +120,40 @@ nav {
   margin-right: 4px;
 }
 
-.btnRegular>a {
+a.btnRegular {
   color: $blue30;
   text-decoration: none;
 }
+a.btnRegular.disabled {
+  opacity: 0.5;
+}
 
-a:focus-visible {
+
+a.btnRegular:not(.disabled):hover {
+  color: $blue10;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.5rem;
+  text-underline-position: under;
+}
+
+a.btnRegular.disabled:hover {
+  cursor: not-allowed;
+}
+
+p>a:focus-visible {
   color: $blue10;
   text-decoration: none;
 }
 
-a:hover {
+p>a:hover {
   color: $blue10;
   text-decoration: underline;
   text-decoration-thickness: 0.2rem;
   text-underline-position: under;
 }
 
-.btn.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
-}
+
 
 .sectionResume {
   display: flex;
@@ -265,8 +277,8 @@ li {
   font-weight: 200;
 }
 
-p
-,ul {
+p,
+ul {
   padding-left: 0;
   margin-bottom: 8px;
 }
@@ -328,7 +340,7 @@ strong {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: flex-start;
-  
+
   @include tablet {
     min-height: 70vh;
     display: flex;
@@ -343,7 +355,7 @@ strong {
 .text-wrapper {
   order: 2;
   margin-top: 1rem;
-  
+
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -507,7 +519,7 @@ a.preview {
   width: auto;
 }
 
-.main404-wrapper{
+.main404-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -516,17 +528,19 @@ a.preview {
 
 .wrapper404 {
   min-height: 70vh;
+
   @include tablet {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    
+
   }
 }
 
 .text404 {
-  order:1;
+  order: 1;
   margin-top: 3rem;
+
   @include tablet {
     align-self: flex-end;
     max-width: 400px;
@@ -538,6 +552,7 @@ a.preview {
   display: flex;
   justify-content: flex-end;
   display: none;
+
   @include tablet {
     display: inherit;
     order: 2;

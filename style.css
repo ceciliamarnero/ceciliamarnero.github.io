@@ -100,27 +100,37 @@ nav {
   margin-right: 4px;
 }
 
-.btnRegular > a {
+a.btnRegular {
   color: #00ABD1;
   text-decoration: none;
 }
 
-a:focus-visible {
+a.btnRegular.disabled {
+  opacity: 0.5;
+}
+
+a.btnRegular:not(.disabled):hover {
+  color: #DDF9FF;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.5rem;
+  text-underline-position: under;
+}
+
+a.btnRegular.disabled:hover {
+  cursor: not-allowed;
+}
+
+p > a:focus-visible {
   color: #DDF9FF;
   text-decoration: none;
 }
 
-a:hover {
+p > a:hover {
   color: #DDF9FF;
   text-decoration: underline;
   text-decoration-thickness: 0.2rem;
   text-underline-position: under;
-}
-
-.btn.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 .sectionResume {

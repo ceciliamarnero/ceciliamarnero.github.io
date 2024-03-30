@@ -15,7 +15,7 @@
 <body class="clearfix">
     <div class="container clearfix">
         <nav>
-            <a class="btn btnRegular disabled" thref="index.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a class="btn btnRegular disabled" tabindex="-1" aria-disabled="true" href="index.html"><i class="fa-solid fa-house"></i>Home</a>
             <a class="btn btnRegular" href="portfolio.html">Portfolio</a>
             <a class="btn btnRegular" href="resume.html">Resume</a>
             <a class="btn btnRegular" href="aboutme.html">About me</a>
@@ -29,15 +29,18 @@
                     </p>
                     <div class="contacts-wrapper">
                         <a class="contact-link" href="mailto:ceciliamarnero@gmail.com">
+                            <title>Send email</title>
                             <i aria-hidden="true" class="fa-regular fa-envelope"></i>
                             <span class="visible-hidden">Send email</span>
                         </a>
                         <a class="contact-link" href="https://www.linkedin.com/in/cecilia-marnero/">
+                            <title>Go to Linkedin profile</title>
                             <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
                             <span class="visible-hidden">Linkedin profile</span>
                         </a>
 
                         <a class="contact-link" href="call:+543513908250">
+                            <title>Call to +543513908250</title>
                             <i aria-hidden="true" class="fa-solid fa-phone"></i>
                             <span class="visible-hidden">Call to</span>
                         </a>

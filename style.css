@@ -73,10 +73,7 @@ nav {
 .btn {
   font-family: "Raleway", sans-serif;
   text-align: center;
-  display: inline-block;
-  box-sizing: border-box;
   border-radius: 0.5rem;
-  text-decoration: none;
   box-shadow: none;
   margin: 0.3rem;
   flex-basis: 40%;
@@ -89,15 +86,33 @@ nav {
 
 .btnRegular {
   color: #00ABD1;
-  background-color: #2e3537;
   border: 1px solid #00ABD1;
   padding: 0.5rem 0rem;
 }
+.btnRegular:not(.disabled):hover, .btnRegular:not(.disabled):focus-visible {
+  color: #DDF9FF;
+  border: 1px solid #DDF9FF;
+  outline-offset: 0;
+  outline: 2px solid #DDF9FF;
+  text-decoration: none;
+}
+.btnRegular.disabled {
+  opacity: 0.5;
+}
+.btnRegular.disabled:hover {
+  cursor: not-allowed;
+}
 @media only screen and (min-width: 481px) {
   .btnRegular {
-    padding: 0.5rem 1rem;
     border: none;
-    background-color: #2e3537;
+    padding: 0.5rem 1rem;
+  }
+  .btnRegular:not(.disabled):hover, .btnRegular:not(.disabled):focus-visible {
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.5rem;
   }
 }
 
@@ -105,46 +120,19 @@ nav {
   margin-right: 4px;
 }
 
-a.btnRegular {
+p > a {
   color: #00ABD1;
-  text-decoration: none;
 }
-
-a.btnRegular.disabled {
-  opacity: 0.5;
-}
-
-a.btnRegular:not(.disabled):hover {
-  color: #DDF9FF;
-  border: 1px solid #DDF9FF;
-  outline: 2px solid #DDF9FF;
-  text-decoration: none;
-}
-@media only screen and (min-width: 481px) {
-  a.btnRegular:not(.disabled):hover {
-    border: none;
-    outline: none;
-    text-decoration: underline;
-    text-decoration-thickness: 0.2rem;
-    text-underline-offset: 0.5rem;
-    text-underline-position: under;
-  }
-}
-
-a.btnRegular.disabled:hover {
-  cursor: not-allowed;
-}
-
-p > a:focus-visible {
-  color: #DDF9FF;
-  text-decoration: none;
-}
-
 p > a:hover {
   color: #DDF9FF;
   text-decoration: underline;
   text-decoration-thickness: 0.2rem;
   text-underline-position: under;
+}
+p > a:focus-visible {
+  color: #DDF9FF;
+  outline-color: #DDF9FF;
+  text-decoration: none;
 }
 
 .sectionResume {
@@ -162,7 +150,6 @@ p > a:hover {
 }
 @media only screen and (min-width: 481px) {
   .columnThin {
-    box-sizing: border-box;
     flex: 1;
     order: 1;
     padding-right: 1rem;
@@ -175,7 +162,6 @@ p > a:hover {
 }
 @media only screen and (min-width: 481px) {
   .columnWide {
-    box-sizing: border-box;
     flex: 3;
     order: 2;
     padding-left: 1rem;
@@ -247,7 +233,8 @@ h2,
   margin-bottom: 4px;
 }
 
-h3 {
+h3,
+.title {
   font-size: 1.375rem;
   color: #DDF9FF;
   font-weight: 300;
@@ -258,7 +245,6 @@ h3 {
 .aboutme > h3 {
   margin-top: 1.5rem;
 }
-
 .aboutme > img {
   width: 100%;
 }
@@ -285,16 +271,6 @@ a {
   text-decoration: none;
 }
 
-p > a {
-  color: #00ABD1;
-}
-
-p > a:hover,
-:focus {
-  text-decoration: underline;
-  text-underline-position: under;
-}
-
 .dates {
   font-weight: 100;
 }
@@ -317,9 +293,10 @@ strong {
   background-color: #106F85;
   color: #DDF9FF;
   border-radius: 16px;
+  border: 1px solid #DDF9FF;
+  outline-color: #DDF9FF;
   opacity: 1;
 }
-
 .skip:focus {
   left: 50%;
   top: 10%;
@@ -339,8 +316,8 @@ strong {
     min-height: 70vh;
     display: flex;
     flex-flow: row nowrap;
-    margin: auto;
     justify-content: center;
+    margin: auto;
     align-items: flex-end;
     border-bottom: 1px solid #7E78BB;
   }
@@ -397,9 +374,6 @@ strong {
     left: -1rem;
     bottom: -1rem;
     width: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
   }
 }
 
@@ -407,11 +381,9 @@ strong {
   color: #00CFFF;
   border-radius: 0.5rem;
   font-size: 1.5rem;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem;
 }
-
-.contact-link:hover,
-:focus-visible {
+.contact-link:hover, .contact-link:focus-visible {
   color: #DDF9FF;
   outline: 1px solid #DDF9FF;
 }
@@ -422,6 +394,8 @@ strong {
 @media only screen and (min-width: 481px) {
   .gallery {
     height: 100vh;
+    margin: 0 auto;
+    max-width: 830px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -430,9 +404,10 @@ strong {
 
 .preview {
   border-radius: 0.25rem;
+  margin: 1rem auto;
   display: grid;
-  margin: 20px auto;
   overflow: hidden;
+  max-width: 400px;
 }
 @media only screen and (min-width: 481px) {
   .preview {
@@ -444,10 +419,16 @@ strong {
   z-index: -99;
   grid-column: 1;
   grid-row: 1;
-  max-width: 100%;
   width: 100%;
+  height: auto;
   display: block;
   overflow: hidden;
+}
+@media only screen and (min-width: 481px) {
+  .image {
+    max-height: 100%;
+    width: auto;
+  }
 }
 
 .overlay {
@@ -470,7 +451,6 @@ a.preview:hover {
   text-decoration: none;
   transition: none;
 }
-
 a.preview:hover .overlay {
   opacity: 0;
 }

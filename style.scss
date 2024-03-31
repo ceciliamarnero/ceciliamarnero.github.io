@@ -48,7 +48,7 @@ body {
   position: relative;
   padding: 1rem 10px 20px 1rem;
 
-  @include tablet() {
+  @include tablet {
     width: 90%;
     padding: 10px 0px 40px 0px;
     margin: 0 auto;
@@ -71,7 +71,7 @@ body {
     margin-bottom: 1rem;
   }
 
-  @include desktop() {
+  @include desktop {
     text-align: right;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -85,7 +85,6 @@ nav {
   width: 100%;
 
   @include tablet {
-    //display: block;
     justify-content: flex-start;
     position: relative;
     left: -1rem;
@@ -95,10 +94,7 @@ nav {
 .btn {
   font-family: "Raleway", sans-serif;
   text-align: center;
-  display: inline-block;
-  box-sizing: border-box;
   border-radius: 0.5rem;
-  text-decoration: none;
   box-shadow: none;
   margin: 0.3rem;
   flex-basis: 40%;
@@ -110,14 +106,41 @@ nav {
 
 .btnRegular {
   color: $blue30;
-  background-color: $blue50;
   border: 1px solid $blue30;
   padding: 0.5rem 0rem;
 
+  &:not(.disabled):hover,
+  &:not(.disabled):focus-visible {
+    color: $blue10;
+    border: 1px solid $blue10;
+    //outline to avoid effect of movement, offset zero to prevent 2 lines
+    outline-offset: 0;
+    outline: 2px solid $blue10;
+    text-decoration: none;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+
   @include tablet {
-    padding: 0.5rem 1rem;
     border: none;
-    background-color: $blue50;
+    padding: 0.5rem 1rem;
+
+    &:not(.disabled):hover,
+    &:not(.disabled):focus-visible {
+      border: none;
+      outline: none;
+      text-decoration: underline;
+      text-decoration-thickness: 0.2rem;
+      text-underline-offset: 0.5rem;
+    }
+
   }
 }
 
@@ -125,47 +148,22 @@ nav {
   margin-right: 4px;
 }
 
-a.btnRegular {
+
+p>a {
   color: $blue30;
-  text-decoration: none;
-}
 
-a.btnRegular.disabled {
-  opacity: 0.5;
-}
-
-
-a.btnRegular:not(.disabled):hover {
-  color: $blue10;
-  border: 1px solid $blue10;
-  //outlive to prevent effect of movement
-  outline: 2px solid $blue10;
-  text-decoration: none;
-  
-  @include tablet {
-    border: none;
-    outline: none;
+  &:hover {
+    color: $blue10;
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
-    text-underline-offset: 0.5rem;
     text-underline-position: under;
   }
-}
 
-a.btnRegular.disabled:hover {
-  cursor: not-allowed;
-}
-
-p>a:focus-visible {
-  color: $blue10;
-  text-decoration: none;
-}
-
-p>a:hover {
-  color: $blue10;
-  text-decoration: underline;
-  text-decoration-thickness: 0.2rem;
-  text-underline-position: under;
+  &:focus-visible {
+    color: $blue10;
+    outline-color: $blue10;
+    text-decoration: none;
+  }
 }
 
 
@@ -183,7 +181,6 @@ p>a:hover {
   order: 2;
 
   @include tablet {
-    box-sizing: border-box;
     flex: 1;
     order: 1;
     padding-right: 1rem;
@@ -196,7 +193,6 @@ p>a:hover {
   order: 1;
 
   @include tablet {
-    box-sizing: border-box;
     flex: 3;
     order: 2;
     padding-left: 1rem;
@@ -214,7 +210,7 @@ p>a:hover {
   display: flex;
   flex-direction: column;
 
-  @include desktop() {
+  @include desktop {
     flex-direction: row;
   }
 }
@@ -235,8 +231,6 @@ p>a:hover {
     flex: 3;
   }
 }
-
-
 
 h1 {
   font-family: "Raleway", sans-serif;
@@ -266,23 +260,27 @@ h2,
   margin-bottom: 4px;
 }
 
-h3 {
+h3,
+.title {
   font-size: 1.375rem;
   color: $blue10;
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 4px;
-
 }
 
 
-.aboutme>h3 {
-  margin-top: 1.5rem;
+.aboutme {
+  &>h3 {
+    margin-top: 1.5rem;
+  }
+
+  &>img {
+    width: 100%;
+  }
+
 }
 
-.aboutme>img {
-  width: 100%;
-}
 
 p,
 li {
@@ -306,15 +304,6 @@ a {
   text-decoration: none;
 }
 
-p>a {
-  color: $blue30;
-}
-
-p>a:hover,
-:focus {
-  text-decoration: underline;
-  text-underline-position: under;
-}
 
 .dates {
   font-weight: 100;
@@ -338,15 +327,18 @@ strong {
   background-color: $blue40;
   color: $blue10;
   border-radius: 16px;
+  border: 1px solid $blue10;
+  outline-color: $blue10;
   opacity: 1;
+
+  &:focus {
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
 }
 
-.skip:focus {
-  left: 50%;
-  top: 10%;
-  transform: translateX(-50%);
-  opacity: 1;
-}
 
 
 .landing-wrapper {
@@ -360,8 +352,8 @@ strong {
     min-height: 70vh;
     display: flex;
     flex-flow: row nowrap;
-    margin: auto;
     justify-content: center;
+    margin: auto;
     align-items: flex-end;
     border-bottom: 1px solid $baseline;
   }
@@ -370,7 +362,6 @@ strong {
 .text-wrapper {
   order: 2;
   margin-top: 1rem;
-
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -416,9 +407,6 @@ strong {
     left: -1rem;
     bottom: -1rem;
     width: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
   }
 
 }
@@ -427,13 +415,14 @@ strong {
   color: $blue20;
   border-radius: 0.5rem;
   font-size: 1.5rem;
-  padding: 1rem 1rem 1rem 1rem;
-}
+  padding: 1rem;
 
-.contact-link:hover,
-:focus-visible {
-  color: $blue10;
-  outline: 1px solid $blue10 ;
+  &:hover,
+  &:focus-visible {
+    color: $blue10;
+    outline: 1px solid $blue10;
+  }
+
 }
 
 .gallery {
@@ -441,19 +430,20 @@ strong {
 
   @include tablet {
     height: 100vh;
+    margin: 0 auto;
+    max-width: 830px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-
 }
 
 .preview {
   border-radius: 0.25rem;
+  margin: 1rem auto;
   display: grid;
-  margin: 20px auto;
   overflow: hidden;
-
+  max-width: 400px;
   @include tablet {
     margin: 0;
   }
@@ -463,10 +453,14 @@ strong {
   z-index: -99;
   grid-column: 1;
   grid-row: 1;
-  max-width: 100%;
   width: 100%;
+  height: auto;
   display: block;
   overflow: hidden;
+  @include tablet{
+    max-height: 100%;
+    width: auto;
+  }
 }
 
 .overlay {
@@ -489,15 +483,13 @@ a.preview:hover {
   outline-offset: 4px;
   text-decoration: none;
   transition: none;
-}
 
-a.preview {
-  &:hover {
-    .overlay {
-      opacity: 0;
-    }
+  .overlay {
+    opacity: 0;
   }
 }
+
+
 
 .casename,
 .caseinfo,

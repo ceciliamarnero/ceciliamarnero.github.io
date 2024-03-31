@@ -85,7 +85,8 @@ nav {
   width: 100%;
 
   @include tablet {
-    display: block;
+    //display: block;
+    justify-content: flex-start;
     position: relative;
     left: -1rem;
   }
@@ -99,8 +100,12 @@ nav {
   border-radius: 0.5rem;
   text-decoration: none;
   box-shadow: none;
-  flex-basis: 40%;
   margin: 0.3rem;
+  flex-basis: 40%;
+
+  @include tablet {
+    flex-basis: auto;
+  }
 }
 
 .btnRegular {
@@ -124,6 +129,7 @@ a.btnRegular {
   color: $blue30;
   text-decoration: none;
 }
+
 a.btnRegular.disabled {
   opacity: 0.5;
 }
@@ -131,10 +137,18 @@ a.btnRegular.disabled {
 
 a.btnRegular:not(.disabled):hover {
   color: $blue10;
-  text-decoration: underline;
-  text-decoration-thickness: 0.2rem;
-  text-underline-offset: 0.5rem;
-  text-underline-position: under;
+  border: 1px solid $blue10;
+  outline: 2px solid $blue10;
+  text-decoration: none;
+
+  @include tablet {
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.5rem;
+    text-underline-position: under;
+  }
 }
 
 a.btnRegular.disabled:hover {

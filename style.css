@@ -64,7 +64,7 @@ nav {
 }
 @media only screen and (min-width: 481px) {
   nav {
-    display: block;
+    justify-content: flex-start;
     position: relative;
     left: -1rem;
   }
@@ -78,8 +78,13 @@ nav {
   border-radius: 0.5rem;
   text-decoration: none;
   box-shadow: none;
-  flex-basis: 40%;
   margin: 0.3rem;
+  flex-basis: 40%;
+}
+@media only screen and (min-width: 481px) {
+  .btn {
+    flex-basis: auto;
+  }
 }
 
 .btnRegular {
@@ -111,10 +116,19 @@ a.btnRegular.disabled {
 
 a.btnRegular:not(.disabled):hover {
   color: #DDF9FF;
-  text-decoration: underline;
-  text-decoration-thickness: 0.2rem;
-  text-underline-offset: 0.5rem;
-  text-underline-position: under;
+  border: 1px solid #DDF9FF;
+  outline: 2px solid #DDF9FF;
+  text-decoration: none;
+}
+@media only screen and (min-width: 481px) {
+  a.btnRegular:not(.disabled):hover {
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.5rem;
+    text-underline-position: under;
+  }
 }
 
 a.btnRegular.disabled:hover {

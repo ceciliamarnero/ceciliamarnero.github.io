@@ -138,9 +138,10 @@ a.btnRegular.disabled {
 a.btnRegular:not(.disabled):hover {
   color: $blue10;
   border: 1px solid $blue10;
+  //outlive to prevent effect of movement
   outline: 2px solid $blue10;
   text-decoration: none;
-
+  
   @include tablet {
     border: none;
     outline: none;

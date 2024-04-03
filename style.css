@@ -248,6 +248,9 @@ h3,
 .aboutme > img {
   width: 100%;
 }
+.aboutme > picture > img {
+  width: 100%;
+}
 
 p,
 li {

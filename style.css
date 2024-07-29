@@ -542,4 +542,13 @@ a.preview:hover .overlay {
   width: 100%;
 }
 
+#sectionAboutme {
+  margin: 0 auto;
+}
+@media only screen and (min-width: 481px) {
+  #sectionAboutme {
+    max-width: 700px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

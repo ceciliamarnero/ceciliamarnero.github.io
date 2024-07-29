@@ -575,3 +575,10 @@ a.preview:hover {
 .image404 {
   width: 100%;
 }
+
+#sectionAboutme{
+  margin:0 auto; 
+  @include tablet {
+    max-width: 700px;
+  } 
+}

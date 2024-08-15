@@ -170,7 +170,7 @@ p > a:focus-visible {
 
 .subsection {
   margin-bottom: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .experienceItem {
@@ -252,22 +252,26 @@ h3,
   width: 100%;
 }
 
-p,
-li {
+p {
   font-size: 1em;
   color: #DDF9FF;
   margin: 0px;
   font-weight: 200;
-}
-
-p,
-ul {
-  padding-left: 0;
+  padding-left: 0px;
   margin-bottom: 8px;
 }
 
+ul {
+  color: #DDF9FF;
+  font-weight: 200;
+  padding-left: 22px;
+  margin: 0px 0px 8px 0px;
+  text-indent: -22px;
+}
+
 li {
-  list-style-type: none;
+  list-style-position: inside;
+  margin-bottom: 8px;
 }
 
 a {

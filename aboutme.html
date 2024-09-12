@@ -13,49 +13,47 @@
 
 <body>
     <div class="container">
-        <a tabindex="1" href="#sectionAboutme" class="skip">Skip to main content</a>
+        <a tabindex="1" href="#aboutMe" class="skip">Skip to main content</a>
         <nav>
-            <a class="btn btnRegular" href="index.html"><i class="fa-solid fa-house"></i>Home</a>
-            <a class="btn btnRegular" href="portfolio.html">Portfolio</a>
-            <a class="btn btnRegular" href="resume.html">Resume</a>
-            <a class="btn btnRegular disabled" tabindex="-1" href="aboutme.html">About me</a>
+            <a class="btn" href="index.html"><i class="icon fa-solid fa-house"></i>Home</a>
+            <a class="btn" href="portfolio.html">Portfolio</a>
+            <a class="btn" href="resume.html">Resume</a>
+            <a class="btn disabled" tabindex="-1" href="aboutme.html">About me</a>
         </nav>
-        <main class="sectionAboutme" id="sectionAboutme"> 
-        <div class="header">
-            <h1>About me</h1>
-        </div>
-            <div class="aboutme">
-                <h2>Let me introduce myself</h2>
-                <p>Hi! My name is Cecilia (<em>seh-see-lyah</em>) and I’m a software engineer turned UI designer from
-                    Argentina.</p>
-                <p>I’ve been fascinated by digital interfaces since the beginning of my career, reading and studying UX
-                    even
-                    before it got to be called that way. Either by writing user manuals, or designing the best-looking
-                    documents, presentations, reports, etc, throughout my entire career I’ve put users’ needs first.
-                    Before
-                    UI, I worked with analysts, testers, developers, and more, so I understand how software is made and
-                    I
-                    speak fluent “Programmer” 😉</p>
-                <p>I'm a team player, I participate but also encourage others to be part of the process, I believe that
-                    everyone has something great to share, we just need to listen.</p>
-                <h3>What do I do when I’m not browsing fonts</h3>
-                <p>I live in <a href="https://maps.app.goo.gl/Wn9v9P8YTJXZEYrC9">Córdoba, Argentina</a>. I love to read,
-                    travel, walk, and have picnics at the park or any spot with the sky over and grass under.</p>
-                <p>I love animals, I foster puppies or I volunteer from time to time in animal rescue missions,
-                    but at home, I work for Frida, who’s my dog and boss, she asked me to mention her so here she is:</p>
+        <main class="sectionAboutme">
+            <div class="header">
+                <h1>About me</h1>
+            </div>
+            <div class="aboutme" id="aboutMe">
+                <p><strong>My name is Cecilia (<em>seh-see-lyah</em>) and I’m a software engineer and UX/UI designer living in <a href="https://maps.app.goo.gl/Wn9v9P8YTJXZEYrC9">Córdoba, Argentina.</a></strong></p>
+                <p>I’ve driven a user-centered approach throughout my entire career, whether it’s writing clear user manuals or designing the most effective and visually coherent screens, reports, presentations or documents, all while learning UX and improving my design skills. Additionally, my background working across various phases of the software development process has given me a thorough understanding of how software works, allowing me to develop solutions that are both usable and feasible.</p>
+                <p>I'm a team player, I contribute and encourage other to participate too, I believe everyone has great insights to share, we just need to listen.</p>
+                <h2>What do I do when I’m not browsing fonts</h2>
+                <p>I love animals and I often foster puppies or I volunteer in animal rescue missions. I also enjoy reading, traveling, and playing with my dog Frida:</p>
                 <picture>
-                    <source media="(max-width: 480px)" srcset="images/frida-small.jpeg" />
+                    <source media="(max-width: 480px)" srcset="images/frida-small.jpeg">
                     <img src="images/frida.jpg" alt="dog Frida happy at the park">
                 </picture>
             </div>
         </main>
-
+        <footer>
+            <div class="contacts-wrapper-tiny">
+                <a class="contact-link-tiny" href="mailto:ceciliamarnero@gmail.com" title="Send email">
+                    <i aria-hidden="true" class="fa-solid fa-envelope"></i>
+                    <span class="visible-hidden">Send email</span>
+                </a>
+                <a class="contact-link-tiny" href="https://www.linkedin.com/in/cecilia-marnero/" title="Go to Linkedin Profile">
+                    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+                    <span class="visible-hidden">Linkedin profile</span>
+                </a>
+                <a class="contact-link-tiny" href="call:+543513908250" title="Call +543513908250">
+                    <i aria-hidden="true" class="fa-solid fa-phone"></i>
+                    <span class="visible-hidden">Call to</span>
+                </a>
+            </div>
+            <div class="signature">Cecilia Marnero <span aria-hidden="true">&#129481;</span> 2024</div>
+        </footer>
     </div>
-
-
-    <footer>
-        <div class="signature">Cecilia Marnero <span aria-hidden="true">&#129481;</span> 2024</div>
-    </footer>
 </body>
 
 </html>

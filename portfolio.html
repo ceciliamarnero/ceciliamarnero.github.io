@@ -13,64 +13,75 @@
 </head>
 
 <body>
-    <div class="container clearfix">
-        <a tabindex="1" href="#sectionResume" class="skip">Skip to main content</a>
+    <div class="container">
+        <a tabindex="1" href="#gallery" class="skip">Skip to main content</a>
         <nav>
-            <a class="btn btnRegular" href="index.html"><i class="fa-solid fa-house"></i>Home</a>
-            <a class="btn btnRegular disabled" tabindex="-1" href="portfolio.html">Portfolio</a>
-            <a class="btn btnRegular" href="resume.html">Resume</a>
-            <a class="btn btnRegular" href="aboutme.html">About me</a>
+            <a class="btn" href="index.html"><i class="icon fa-solid fa-house"></i>Home</a>
+            <a class="btn disabled" tabindex="-1" href="portfolio.html">Portfolio</a>
+            <a class="btn" href="resume.html">Resume</a>
+            <a class="btn" href="aboutme.html">About me</a>
         </nav>
-        <!--_________HEADER-->
-        <section class="header clearfix">
-            <h1>Portfolio</h1>
-        </section><!--/header-->
-        <div class="gallery">
-            <a class="preview"
-                href="https://www.figma.com/proto/XkzbhAhc6PeGvKYAU2G0xq/duolingo?type=design&node-id=2-10&t=3vc7B8uAAhLZuWRV-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A10&mode=design">
-                <div class="overlay"></div>
-                <img class="image" alt="" src="images/thumbnail-duo.svg" >
-                <div class="description">
-                    <h2 class="descriptiontext casename">Duolingo</h2>
-                    <p class="descriptiontext caseintro">A little fix I wanted to do</p>
-                    <p class="descriptiontext caseinfo">Opens presentation in Figma.com</p>
-                </div>
-            </a>
-            <a class="preview"
-                href="https://www.figma.com/proto/MCXPuVyET4Xx9S7izpvm93/chatbot?type=design&node-id=189-436&t=qbB718pudTvNkXCW-8&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=189%3A436&hide-ui=1">
-                <div class="overlay"></div>
-                <img class="image" alt="" src="images/thumbnail-chatbot.png">
-                <div class="description">
-                    <h2 class="descriptiontext casename">Chatbot</h2>
-                    <p class="descriptiontext caseintro">A new feature we had to apply for yesterday</p>
-                    <p class="descriptiontext caseinfo">Opens prototype in Figma.com</p>
-                </div>
-            </a>
-            <a class="preview"
-                href="https://preview.webflow.com/preview/ceciliamarnero-portfolio?utm_medium=preview_link&utm_source=designer&utm_content=ceciliamarnero-portfolio&preview=45c58119c41df07135486938b967d70e&pageId=632a4e5a2af4ddc27a4c6161&itemId=632a4ead4d9fe9b539c5d5b2&workflow=preview">
-                <div class="overlay"></div>
-                <img class="image" alt="" src="images/thumbnail-webflow.jpeg">
-                <div class="description">
-                    <h2 class="descriptiontext casename">Webflow</h2>
-                    <p class="descriptiontext caseintro">A page I built in Webflow</p>
-                    <p class="descriptiontext caseinfo">Opens page in Webflow.com</p>
-                </div>
-            </a>
-            <a class="preview"
-                href="https://www.figma.com/file/bckqc39xhFAYHQoC6XzQR9/Design-System-Cecilia?type=design&node-id=845-8701&mode=design&t=nDUe4XCqXVTdRrNz-4">
-                <div class="overlay"></div>
-                <img class="image" alt="" src="images/thumbnail-designsystem.png">
-                <div class="description">
-                    <h2 class="descriptiontext casename">Design System</h2>
-                    <p class="descriptiontext caseintro">Designed for DS Memorisely course</p>
-                    <p class="descriptiontext caseinfo">Opens presentation in Figma.com</p>
-                </div>
-            </a>
-        </div>
+        <main>
+            <div class="header">
+                <h1>Portfolio</h1>
+            </div><!--/header-->
+            <div class="gallery" id="gallery">
+                <a class="card" href="https://www.figma.com/proto/XkzbhAhc6PeGvKYAU2G0xq/duolingo?type=design&node-id=2-10&t=3vc7B8uAAhLZuWRV-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A10&mode=design">
+                    <div class="overlay"></div>
+                    <img class="image" alt="" src="images/thumbnail-duolingo.svg">
+                    <div class="description">
+                        <div class="mainInfo">
+                            <p class="tags">#UX #UI #Fictional #bugFix #B2C</p>
+                            <h2 class="name">Duolingo</h2>
+                            <p class="introCase">A bug fix to prevent users’ frustration and restore consistency.</p>
+                        </div>
+                        <p class="info">Opens presentation in Figma.</p>
+                    </div>
+                </a>
+                <a class="card" href="https://www.figma.com/proto/MCXPuVyET4Xx9S7izpvm93/chatbot?type=design&node-id=189-436&t=qbB718pudTvNkXCW-8&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=189%3A436&hide-ui=1">
+                    <div class="overlay"></div>
+                    <img class="image" alt="" src="images/thumbnail-chatbot.png">
+                    <div class="description">
+                        <div class="mainInfo">
+                            <p class="tags">#UX #UI #NewFeature #Research #B2B</p>
+                            <h2 class="name">Chatbot</h2>
+                            <p class="introCase">A new feature we had to design and build urgently.</p>
+                        </div>
+                        <p class="info">Opens presentation in Figma.</p>
+                    </div>
+                </a>
+                <a class="card" href="https://www.figma.com/file/bckqc39xhFAYHQoC6XzQR9/Design-System-Cecilia?type=design&node-id=845-8701&mode=design&t=nDUe4XCqXVTdRrNz-4">
+                    <div class="overlay"></div>
+                    <img class="image" alt="" src="images/thumbnail-designsystem.png">
+                    <div class="description">
+                        <div class="mainInfo">
+                            <p class="tags">#UX #DesignSystem</p>
+                            <h2 class="name">Design System</h2>
+                            <p class="introCase">Designed for DS Memorisely course.</p>
+                        </div>
+                        <p class="info">Opens presentation in Figma.</p>
+                    </div>
+                </a>
+            </div>
+        </main>
+        <footer>
+            <div class="contacts-wrapper-tiny">
+                <a class="contact-link-tiny" href="mailto:ceciliamarnero@gmail.com" title="Send email">
+                    <i aria-hidden="true" class="fa-solid fa-envelope"></i>
+                    <span class="visible-hidden">Send email</span>
+                </a>
+                <a class="contact-link-tiny" href="https://www.linkedin.com/in/cecilia-marnero/" title="Go to Linkedin Profile">
+                    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+                    <span class="visible-hidden">Linkedin profile</span>
+                </a>
+                <a class="contact-link-tiny" href="call:+543513908250" title="Call +543513908250">
+                    <i aria-hidden="true" class="fa-solid fa-phone"></i>
+                    <span class="visible-hidden">Call to</span>
+                </a>
+            </div>
+            <div class="signature">Cecilia Marnero <span aria-hidden="true">&#129481;</span> 2024</div>
+        </footer>
     </div>
-
-<footer>
-    <div class="signature">Cecilia Marnero <span aria-hidden="true">&#129481;</span> 2024</div>
-</footer>
 </body>
+
 </html>

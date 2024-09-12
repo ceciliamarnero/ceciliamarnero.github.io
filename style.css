@@ -68,15 +68,13 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  margin-bottom: 0;
-  padding: 16px 0 16px 0;
+  padding: 16px 0;
 }
 footer .contacts-wrapper-tiny {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 188px;
+  width: 176px;
 }
 footer .contacts-wrapper-tiny .contact-link-tiny {
   color: #00ABD1;
@@ -95,6 +93,7 @@ footer .contacts-wrapper-tiny .contact-link-tiny:hover, footer .contacts-wrapper
 }
 footer .signature {
   font-weight: 200;
+  width: 160px;
 }
 
 nav {

@@ -93,15 +93,13 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  margin-bottom: 0;
-  padding: 16px 0 16px 0;
+  padding: 16px 0;
 
   .contacts-wrapper-tiny {
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: space-between;
-    width: 188px;
+    width: 176px; //signature's length + button padding * 2
 
     .contact-link-tiny {
       color: $blue30;
@@ -125,6 +123,7 @@ footer {
 
   .signature {
     font-weight: 200;
+    width: 160px;
   }
 
 }

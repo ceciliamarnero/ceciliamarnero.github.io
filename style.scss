@@ -46,8 +46,9 @@ body {
 }
 
 .container {
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
+  //height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,52 +83,10 @@ body {
 }
 
 main {
+  flex-grow: 1;
   margin-bottom: 60px;
 }
 
-footer {
-  color: $blue30;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0;
-
-  .contacts-wrapper-tiny {
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    width: 176px; //signature's length + button padding * 2
-
-    .contact-link-tiny {
-      color: $blue30;
-      border-radius: 0.25em;
-      font-size: 1em;
-      padding: 0.5em;
-
-      i {
-        width: 20px;
-        height: 20px;
-        text-align: center;
-      }
-
-      &:hover,
-      &:focus-visible {
-        color: $blue10;
-        outline: 1px solid $blue10;
-      }
-    }
-  }
-
-  .signature {
-    font-weight: 200;
-    width: 160px;
-  }
-
-}
-
-//                        nav & buttons
 nav {
   display: flex;
   justify-content: center;
@@ -141,46 +100,45 @@ nav {
   }
 }
 
-.btn {
+footer {
+  position: relative;
+  bottom: 0;
+  color: $blue30;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+
+  .contacts-wrapper-tiny {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 176px; //signature's length + button padding * 2
+    font-size: 16px;
+  }
+
+  .signature {
+    font-weight: 200;
+    width: 160px;
+  }
+
+}
+
+//                        BUTTONS
+.btn-nav {
+  //               btn-nav for mobile
   text-align: center;
   font-family: "IBM Plex Sans", sans-serif;
   border-radius: 0.5em;
-  padding: 0.5em 0em;
   box-shadow: none;
-
-  &.CTA {
-    padding: 16px;
-    margin: 16px 0 16px 0;
-    width: 180px;
-    background-color: $blue20 ;
-    color: $blue50;
-
-    &:hover,
-    :focus-visible {
-      background-color: $blue10 ;
-    }
-  }
-
-  >.icon {
-    margin-right: 4px;
-  }
-}
-
-nav .btn {
-  //               btn@nav only for mobile
   color: $blue30;
   border: 1px solid $blue20;
   outline: 1px solid transparent;
+  padding: 0.5em 0em;
   margin: 0.3em;
   flex-basis: 40%;
-
-  &:not(.disabled):hover,
-  &:not(.disabled):focus-visible {
-    color: $blue10;
-    border: 1px solid $blue50;
-    outline: 1px solid $blue10;
-    text-decoration-thickness: 0.2em;
-  }
 
   &.disabled {
     opacity: 0.5;
@@ -190,7 +148,20 @@ nav .btn {
     }
   }
 
-  //               btn@nav for tablet and bigger
+  >.icon {
+    margin-right: 4px;
+  }
+
+  &:not(.disabled):hover,
+  &:not(.disabled):focus-visible {
+    color: $blue10;
+    border: 1px solid $blue50;
+    outline: 1px solid $blue10;
+    text-decoration-thickness: 0.2em;
+  }
+
+  //               btn-nav for tablet and bigger
+  // do not move up! tablet:hover has same specificity that btn:hover so mobile is applied if is last
   @include tablet {
     flex-basis: auto;
     padding: 0.5rem 1em;
@@ -208,18 +179,39 @@ nav .btn {
       //outline to avoid effect of movement, offset zero to prevent 2 lines
       outline-offset: 0;
     }
-
-    &.disabled {
-      opacity: 0.5;
-
-      &:hover {
-        cursor: not-allowed;
-      }
-    }
   }
 }
 
-// SKIP TO CONTENT button        
+.btn-CTA {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  border-radius: 0.25em;
+  padding: 16px;
+  margin: 16px 0;
+  width: 180px;
+  background-color: $blue20 ;
+  color: $blue50;
+
+  &:hover,
+  :focus-visible {
+    background-color: $blue10 ;
+  }
+}
+
+.btn-contact {
+  color: inherit;
+  font-size: inherit;
+  border-radius: 4px;
+  padding: 0.5em;
+
+  &:hover,
+  &:focus-visible {
+    color: $blue10;
+    outline: 1px solid $blue10;
+  }
+}
+
+//          skip to content
 .skip {
   position: absolute;
   left: -9999px;
@@ -240,7 +232,7 @@ nav .btn {
   }
 }
 
-//            DOWNLOAD PDF 
+//           downloadPDF
 .downloadPDF {
   color: $blue30;
   padding: 8px;
@@ -278,7 +270,7 @@ nav .btn {
 //                        TEXT STYLES
 
 h1 {
-  font-family: "IBM Plex Serif", "helvetica", serif;
+  font-family: "IBM Plex Serif", "Helvetica", serif;
   color: $accent10;
   margin: 0px;
   font-size: 2em;
@@ -483,7 +475,8 @@ strong {
         align-items: flex-start;
         justify-content: flex-end;
       }
-// TOP = header + intro
+
+      // TOP = header + intro
       .top {
         display: flex;
         flex-flow: column nowrap;
@@ -509,7 +502,8 @@ strong {
           }
         }
       }
-// bottom = lets + contact buttons
+
+      // bottom = lets + contact buttons
       .bottom {
         display: flex;
         justify-content: center;
@@ -524,12 +518,15 @@ strong {
           padding: 0;
           text-align: center;
         }
+
         .contacts-wrapper {
           align-self: center;
           width: 80%;
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
+          font-size: 24px;
+          color: $blue20;
 
           @include tablet {
             justify-self: flex-start;
@@ -539,18 +536,7 @@ strong {
             width: 60%;
           }
 
-          .contact-link {
-            color: $blue20;
-            border-radius: 0.5em;
-            font-size: 1.5em;
-            padding: 0.5em;
 
-            &:hover,
-            &:focus-visible {
-              color: $blue10;
-              outline: 1px solid $blue10;
-            }
-          }
         }
       }
     }
@@ -599,15 +585,20 @@ strong {
 
   .card {
     border-radius: 0.25em;
+    box-shadow: 0px 4px 20px 0 rgba(0, 0, 0, 0.25);
     display: grid;
-    grid-template-rows: 4fr minmax(140px, auto);
     grid-template-areas: "img" "desc";
+    grid-template-rows: 1fr 1fr;
     overflow: hidden;
     min-width: 200px;
     max-width: 400px;
-    max-height: 422px;
-    //border: 1px solid $blue10;
-    box-shadow: 0px 4px 20px 0 rgba(0, 0, 0, 0.25);
+  
+    max-height: 300px;
+
+    @include desktop(){
+      max-height: 400px;
+      grid-template-rows: 2fr 1fr;
+    }
 
     .description {
       grid-area: desc;
@@ -618,9 +609,6 @@ strong {
       align-items: center;
       justify-content: space-between;
 
-      @include tablet {
-        // height: 120px; // to force all the descs to look even
-      }
 
       & p {
         margin: 0;

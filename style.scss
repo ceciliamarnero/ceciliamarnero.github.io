@@ -77,7 +77,7 @@ body {
   }
 
   @include desktop {
-    text-align: right;
+    text-align: left;
     margin: 0.5em 0;
   }
 }
@@ -368,6 +368,7 @@ strong {
   flex-direction: column;
 
   @include tablet {
+    margin-top: 16px;
     flex-direction: row;
   }
 

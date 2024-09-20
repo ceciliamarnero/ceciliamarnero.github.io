@@ -243,11 +243,11 @@ footer {
   position: relative;
 
   .label {
-    text-align: right;
+    text-align: left;
     white-space: nowrap;
     pointer-events: none;
     position: absolute;
-    right: 90%;
+    left: 100%;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;

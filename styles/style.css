@@ -24,6 +24,7 @@ body {
   flex-flow: column wrap;
   justify-content: space-between;
   min-height: 100vh;
+  max-width: 1200px;
   margin: 0 auto;
   width: 95%;
 }
@@ -43,16 +44,14 @@ nav {
   fill: #fcbf45;
   color: #fcbf45;
 }
-
-.nav-contact {
+nav .nav-contact {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-end;
   height: 100%;
   gap: 4px;
 }
-
-.nav-nav {
+nav .nav-nav {
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
@@ -64,10 +63,15 @@ section {
   border-width: 1px;
   color: hsla(40, 97%, 63%, 0.5);
   row-gap: 16px;
-  padding: 16px 8px;
+  padding: 16px 0px;
 }
 section.section-hero {
   padding: 16px 8px 8px 8px;
+}
+@media only screen and (min-width: 481px) {
+  section {
+    padding: 16px 8px;
+  }
 }
 
 .resume {
@@ -114,7 +118,11 @@ section.section-hero {
     padding: 0;
     max-width: 700px;
   }
+  .resume .jump-menu {
+    display: none;
+  }
   .resume .resume-top {
+    border: none;
     flex-flow: row nowrap;
     gap: 16px;
   }
@@ -144,6 +152,45 @@ section.section-hero {
 @media only screen and (min-width: 1400px) {
   .resume .resume-left {
     min-width: 240px;
+  }
+}
+
+.jump-menu {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-radius: 1px;
+  border-style: none none dashed none;
+  border-width: 1px;
+  color: hsla(40, 97%, 63%, 0.5);
+}
+.jump-menu .link {
+  padding: 0;
+  width: 45%;
+  height: 24px;
+}
+.jump-menu .link .link-icon-below {
+  display: none;
+}
+@media only screen and (min-width: 481px) {
+  .jump-menu {
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 16px;
+    border: none;
+    padding: 0;
+  }
+  .jump-menu .link {
+    width: auto;
+    height: auto;
+  }
+  .jump-menu .link .link-icon-below {
+    display: block;
+    visibility: hidden;
   }
 }
 
@@ -221,10 +268,9 @@ a.link {
   flex-grow: 0;
   font-weight: 400;
 }
-a.link .icon-hidden.link-icon-below,
 a.link .icon-hidden .link-icon-right,
 a.link .icon-hidden .link-icon-new {
-  visibility: hidden;
+  display: none;
 }
 a.link.inline {
   padding: 0;
@@ -251,7 +297,8 @@ a.link:not(.disabled):hover {
   text-underline-offset: 2px;
 }
 a.link:not(.disabled):hover .link-icon-top,
-a.link:not(.disabled):hover .link-icon-below {
+a.link:not(.disabled):hover .link-icon-below,
+a.link:not(.disabled):hover .link-icon-new {
   visibility: visible;
   animation: bounce 0.8s infinite;
 }
@@ -281,7 +328,177 @@ header {
   margin: 20px 0;
 }
 header.no-tag p.tag {
-  visibility: hidden;
+  display: none;
+}
+
+.table-case {
+  display: grid;
+  padding: 8px;
+  border-radius: 1px;
+  border-style: dashed;
+  border-width: 1px;
+  color: hsla(40, 97%, 63%, 0.5);
+  max-width: 360px;
+  grid-template-columns: auto;
+  grid-template-areas: "label-client" "data-client" "label-role" "data-role" "label-team" "data-team" "label-skills1" "data-skills1" "label-skills2" "data-skills2" "label-tools" "data-tools";
+}
+.table-case .label {
+  color: #fcbf45;
+}
+.table-case .label-client {
+  grid-area: label-client;
+}
+.table-case .data-client {
+  grid-area: data-client;
+}
+.table-case .label-role {
+  grid-area: label-role;
+}
+.table-case .data-role {
+  grid-area: data-role;
+}
+.table-case .label-team {
+  grid-area: label-team;
+}
+.table-case .data-team {
+  grid-area: data-team;
+}
+.table-case .label-skills1 {
+  grid-area: label-skills1;
+}
+.table-case .data-skills1 {
+  grid-area: data-skills1;
+}
+.table-case .label-skills2 {
+  grid-area: label-skills2;
+}
+.table-case .data-skills2 {
+  grid-area: data-skills2;
+}
+.table-case .label-tools {
+  grid-area: label-tools;
+}
+.table-case .data-tools {
+  grid-area: data-tools;
+}
+@media only screen and (min-width: 481px) {
+  .table-case {
+    padding: 16px;
+    max-width: 400px;
+    grid-template-columns: 49% 49%;
+    grid-template-areas: "label-client label-role" "data-client data-role" "label-team label-skills1" "data-team data-skills1" "label-skills2 label-tools" "data-skills2 data-tools";
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .table-case {
+    max-width: 700px;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto auto 16px auto auto;
+    grid-template-areas: "label-client label-role label-team" "data-client data-role data-team" "label-skills1 label-skills2 label-tools" "data-skills1 data-skills2 data-tools";
+    padding: 16px 24px;
+    column-gap: 16px;
+  }
+}
+.table-case .cell {
+  display: block;
+  padding: 1px;
+  overflow-wrap: break-word;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-content: center;
+  margin: 4px auto;
+  gap: 16px;
+  width: 98%;
+}
+@media only screen and (min-width: 481px) {
+  .gallery {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}
+
+.card {
+  border-radius: 1px;
+  outline: 1px dashed hsla(40, 97%, 63%, 0.5);
+  outline-offset: 4px;
+  padding: 8px;
+  width: 96%;
+  height: auto;
+}
+.card .card-top {
+  width: 100%;
+  text-align: center;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.card .card-top h3.card-title {
+  color: #FCFCFC;
+  padding: 0;
+}
+.card .image img {
+  border-radius: 2px;
+  width: 100%;
+  object-fit: fill;
+}
+.card .card-bottom {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+}
+.card .card-bottom .card-details {
+  overflow-wrap: break-word;
+  width: 100%;
+  height: auto;
+  margin: 8px 0;
+}
+.card .card-bottom .card-button {
+  margin: 0 auto;
+  padding: 8px 0;
+}
+@media only screen and (min-width: 481px) {
+  .card {
+    width: 284px;
+  }
+  .card .card-top {
+    height: 100px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .card .card-top h3.card-title {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  .card .card-top .tags {
+    text-align: left;
+  }
+  .card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.card:hover {
+  border-radius: 1px;
+  outline: 1px solid #FCFCFC;
+  outline-offset: 4px;
 }
 
 h2 {
@@ -341,13 +558,26 @@ li {
   margin-left: 16px;
 }
 
+.tags {
+  height: auto;
+  width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
 .tag {
+  display: inline-block;
+  white-space: nowrap;
   text-align: center;
   line-height: 14px;
   font-size: 14px;
-  margin: 0px;
+  margin: 0 2px;
   font-weight: 400;
   color: hsla(40, 97%, 63%, 0.8);
+}
+.tag:before {
+  content: "#";
+  margin: 0;
 }
 
 .experience-dates {

@@ -23,9 +23,28 @@ $black: #010101;
     color: $yellow050;
 }
 
+@mixin outline-dashed() {
+    border-radius: 1px;
+    outline: 1px dashed $yellow050;
+    outline-offset: 4px;
+}
+
+@mixin outline-hover {
+    border-radius: 1px;
+    outline: 1px solid $white000;
+    outline-offset: 4px;
+}
+
 @mixin border-dashed-top {
     border-radius: 1px;
     border-style: dashed none none none;
+    border-width: 1px;
+    color: $yellow050;
+}
+
+@mixin border-dashed-bottom {
+    border-radius: 1px;
+    border-style: none none dashed none;
     border-width: 1px;
     color: $yellow050;
 }
@@ -83,6 +102,7 @@ body {
     flex-flow: column wrap;
     justify-content: space-between;
     min-height: 100vh;
+    max-width: 1200px;
     margin: 0 auto;
     width: 95%;
 }
@@ -98,33 +118,37 @@ nav {
     padding: 16px 0;
     fill: $yellow100;
     color: $yellow100;
-}
 
-.nav-contact {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-end;
-    height: 100%;
-    gap: 4px;
-}
+    .nav-contact {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-end;
+        height: 100%;
+        gap: 4px;
+    }
 
-.nav-nav {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 16px;
+    .nav-nav {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 16px;
+    }
 }
 
 section {
     @include border-dashed();
     row-gap: 16px;
-    padding: 16px 8px;
+    padding: 16px 0px;
 
     &.section-hero {
         padding: 16px 8px 8px 8px;
     }
 
-}
+    @include tablet {
 
+        padding: 16px 8px;
+    }
+
+}
 
 .resume {
     padding: 8px;
@@ -172,7 +196,13 @@ section {
         padding: 0;
         max-width: $desktop-text-width;
 
+        .jump-menu {
+            display: none;
+        }
+
+
         .resume-top {
+            border: none;
             flex-flow: row nowrap;
             gap: 16px;
 
@@ -218,8 +248,46 @@ section {
 
 }
 
+.jump-menu {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 8px;
+    @include border-dashed-bottom;
 
+    .link {
+        .link-icon-below {
+            display: none;
+        }
 
+        padding: 0;
+        width: 45%;
+        height: 24px;
+    }
+
+    @include tablet {
+        flex-flow: row nowrap;
+        justify-content: center;
+        gap: 16px;
+        border: none;
+        padding: 0;
+        
+        .link {
+            width: auto;
+            height: auto;
+            .link-icon-below{
+                display: block;
+                visibility: hidden;
+            }
+            
+        }
+
+    }
+
+}
 
 footer {
     padding: 16px 8px;
@@ -241,7 +309,7 @@ footer {
     fill: $yellow100;
     height: 30px;
 
-    &.disabled {        
+    &.disabled {
         pointer-events: none;
     }
 
@@ -315,10 +383,9 @@ a.link {
 
     .icon-hidden {
 
-        &.link-icon-below,
         .link-icon-right,
         .link-icon-new {
-            visibility: hidden;
+            display: none;
         }
     }
 
@@ -350,7 +417,8 @@ a.link {
         text-underline-offset: 2px;
 
         .link-icon-top,
-        .link-icon-below {
+        .link-icon-below,
+        .link-icon-new {
             visibility: visible;
             animation: bounce 0.8s infinite;
         }
@@ -387,10 +455,229 @@ header {
 
     &.no-tag {
         p.tag {
-            visibility: hidden;
+            display: none;
         }
     }
 }
+
+.table-case {
+    display: grid;
+    padding: 8px;
+    @include border-dashed();
+    max-width: $mobile-text-width;
+    grid-template-columns: auto;
+    //grid-template-rows: auto auto 16px auto auto;
+    grid-template-areas:
+        "label-client"
+        "data-client"
+        "label-role"
+        "data-role"
+        "label-team"
+        "data-team"
+        "label-skills1"
+        "data-skills1"
+        "label-skills2"
+        "data-skills2"
+        "label-tools"
+        "data-tools";
+
+    .label {
+        color: $yellow100;
+    }
+
+    .label-client {
+        grid-area: label-client;
+    }
+
+    .data-client {
+        grid-area: data-client;
+    }
+
+    .label-role {
+        grid-area: label-role;
+    }
+
+    .data-role {
+        grid-area: data-role;
+    }
+
+    .label-team {
+        grid-area: label-team;
+    }
+
+    .data-team {
+        grid-area: data-team;
+    }
+
+    .label-skills1 {
+        grid-area: label-skills1;
+    }
+
+    .data-skills1 {
+        grid-area: data-skills1;
+    }
+
+    .label-skills2 {
+        grid-area: label-skills2;
+    }
+
+    .data-skills2 {
+        grid-area: data-skills2;
+    }
+
+    .label-tools {
+        grid-area: label-tools;
+    }
+
+    .data-tools {
+        grid-area: data-tools;
+    }
+
+    @include tablet() {
+        padding: 16px;
+        max-width: $tablet-text-width;
+        grid-template-columns: 49% 49%;
+        //grid-template-rows: auto auto 16px auto auto;
+        grid-template-areas:
+            "label-client label-role"
+            "data-client data-role"
+            "label-team label-skills1"
+            "data-team data-skills1"
+            "label-skills2 label-tools"
+            "data-skills2 data-tools";
+    }
+
+    @include desktop() {
+        max-width: $desktop-text-width;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: auto auto 16px auto auto;
+        grid-template-areas: "label-client label-role label-team"
+            "data-client data-role data-team"
+            "label-skills1 label-skills2 label-tools"
+            "data-skills1 data-skills2 data-tools";
+        padding: 16px 24px;
+        column-gap: 16px;
+    }
+
+
+    .cell {
+        display: block;
+        padding: 1px;
+        overflow-wrap: break-word;
+    }
+
+
+}
+
+.gallery {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: center;
+    margin: 4px auto;
+    gap: 16px;
+    width: 98%;
+
+    @include tablet {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+.card {
+    @include outline-dashed;
+    padding: 8px;
+    width: 96%;
+    height: auto;
+
+    .card-top {
+        width: 100%;
+        text-align: center;
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
+        h3.card-title {
+            color: $white000;
+            padding: 0;
+        }
+
+
+    }
+
+    .image {
+        img {
+            border-radius: 2px;
+            width: 100%;
+            //display: block;
+            //overflow: hidden;
+            object-fit: fill;
+        }
+    }
+
+    .card-bottom {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100px;
+
+
+        .card-details {
+            overflow-wrap: break-word;
+            width: 100%;
+            height: auto;
+            margin: 8px 0;
+        }
+
+        .card-button {
+            margin: 0 auto;
+            padding: 8px 0;
+        }
+    }
+
+    @include tablet {
+        width: 284px;
+
+        .card-top {
+            height: 100px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            h3.card-title {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+            }
+
+            .tags {
+                text-align: left;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            overflow: hidden;
+        }
+    }
+}
+
+.card:hover {
+    @include outline-hover;
+}
+
+// TEXT STYLES
+
 
 h2 {
     text-align: center;
@@ -447,13 +734,28 @@ li {
     margin-left: 16px;
 }
 
+.tags {
+    height: auto;
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
 .tag {
+    display: inline-block;
+    white-space: nowrap;
     text-align: center;
     line-height: 14px;
     font-size: 14px;
-    margin: 0px;
+    margin: 0 2px;
     font-weight: 400;
     color: $yellow080;
+
+    &:before {
+        content: "#";
+        margin: 0;
+    }
+
 }
 
 .experience-dates {

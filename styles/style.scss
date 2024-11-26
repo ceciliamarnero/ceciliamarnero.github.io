@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 
+*::after,
+*,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 // NUMERIC VALUES
 $mobile-text-width : 360px;
@@ -11,51 +18,10 @@ $yellow050: hsla(40, 97%, 63%, 0.50);
 $yellow080: hsla(40, 97%, 63%, 0.80);
 $yellow100: #fcbf45;
 $yellow110: #fae3b6;
-$white000: #FCFCFC;
-$white010: #FEFEFE;
+$white000: #f9f9f9;
 $black: #010101;
 
-// BORDER
-@mixin border-dashed {
-    border-radius: 1px;
-    border-style: dashed;
-    border-width: 1px;
-    color: $yellow050;
-}
-
-@mixin outline-dashed() {
-    border-radius: 1px;
-    outline: 1px dashed $yellow050;
-    outline-offset: 4px;
-}
-
-@mixin outline-hover {
-    border-radius: 1px;
-    outline: 1px solid $white000;
-    outline-offset: 4px;
-}
-
-@mixin border-dashed-top {
-    border-radius: 1px;
-    border-style: dashed none none none;
-    border-width: 1px;
-    color: $yellow050;
-}
-
-@mixin border-dashed-bottom {
-    border-radius: 1px;
-    border-style: none none dashed none;
-    border-width: 1px;
-    color: $yellow050;
-}
-
-@mixin border-test {
-    border-radius: 1px;
-    border-style: dashed;
-    border-width: 2px;
-    color: red;
-}
-
+// DIMENSIONS
 @mixin mobile {
     @media only screen and (max-width: 480px) {
         @content;
@@ -74,19 +40,43 @@ $black: #010101;
     }
 }
 
-*::after,
-*,
-*::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+// BORDERS
+@mixin outline-dashed() {
+    border-radius: 1px;
+    outline: 1px dashed $yellow050;
+    outline-offset: 4px;
 }
+
+@mixin outline-hover {
+    border-radius: 1px;
+    outline: 1px solid $white000;
+    outline-offset: 4px;
+}
+
+@mixin border-dashed ($border1, $border2, $border3, $border4) {
+    color: $yellow050;
+    border-radius: 1px;
+    border-style: dashed;
+    border-top-width: $border1;
+    border-right-width: $border2;
+    border-bottom-width: $border3;
+    border-left-width: $border4;
+}
+
+@mixin border-test {
+    border-radius: 1px;
+    border-style: dashed;
+    border-width: 2px;
+    color: red;
+}
+
 
 //        BIG SECTIONS
 
 html,
 body {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
     background-color: black;
     color: $white000;
     font-size: 14px;
@@ -107,8 +97,16 @@ body {
     width: 95%;
 }
 
-.wrapper-main {
-    @include border-dashed;
+section {
+    @include border-dashed(1px, 1px, 1px, 1px);
+    row-gap: 8px;
+    padding: 16px 0px;
+
+    @include tablet {
+        row-gap: 16px;
+        padding: 32px 8px;
+    }
+
 }
 
 nav {
@@ -131,23 +129,68 @@ nav {
         display: flex;
         flex-flow: row wrap;
         gap: 16px;
+
+        .link-nav-nav {
+            @include tablet {
+                position: relative;
+                right: -4px; //to make the last text aligns with the exact edge of the whole container
+            }
+        }
     }
 }
 
-section {
-    @include border-dashed();
-    row-gap: 16px;
-    padding: 16px 0px;
+.jump-menu {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 8px;
+    @include border-dashed (0, 0, 1px, 0);
 
-    &.section-hero {
-        padding: 16px 8px 8px 8px;
+    .link {
+        .link-icon-below {
+            display: none;
+        }
+
+        padding: 0;
+        width: 45%;
+        height: 24px;
     }
 
     @include tablet {
+        flex-flow: row nowrap;
+        justify-content: center;
+        gap: 16px;
+        border: none;
+        padding: 0;
 
-        padding: 16px 8px;
+        .link {
+            width: auto;
+            height: auto;
+
+            .link-icon-below {
+                display: block;
+                visibility: hidden;
+            }
+
+        }
+
     }
 
+}
+
+footer {
+    max-width: 100%;
+    padding: 16px 8px;
+    margin-top: 40px;
+    text-align: center;
+    @include border-dashed (1px, 0, 0, 0);
+
+    .heart {
+        margin-right: 4px;
+    }
 }
 
 .resume {
@@ -163,6 +206,13 @@ section {
             order: 1;
             display: flex;
             flex-flow: column nowrap;
+
+            .language-p,
+            .language-h4 {
+                margin: 0px;
+                display: inline-block;
+                width: 80px;
+            }
 
             @include tablet {
                 flex-flow: row nowrap;
@@ -200,7 +250,6 @@ section {
             display: none;
         }
 
-
         .resume-top {
             border: none;
             flex-flow: row nowrap;
@@ -237,98 +286,15 @@ section {
         }
     }
 
-    // ends tablet
-
     @include desktop() {
         .resume-left {
             min-width: 240px;
         }
     }
-
-
-}
-
-.jump-menu {
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-    padding-bottom: 8px;
-    @include border-dashed-bottom;
-
-    .link {
-        .link-icon-below {
-            display: none;
-        }
-
-        padding: 0;
-        width: 45%;
-        height: 24px;
-    }
-
-    @include tablet {
-        flex-flow: row nowrap;
-        justify-content: center;
-        gap: 16px;
-        border: none;
-        padding: 0;
-        
-        .link {
-            width: auto;
-            height: auto;
-            .link-icon-below{
-                display: block;
-                visibility: hidden;
-            }
-            
-        }
-
-    }
-
-}
-
-footer {
-    padding: 16px 8px;
-    margin-top: 40px;
-    text-align: center;
-    @include border-dashed-top;
 }
 
 
-
-//      SMALL ELEMENTS
-.link-nav-contact:hover .icon-contact path {
-    fill: $yellow110;
-    stroke: $yellow110;
-    stroke-width: 0.5;
-}
-
-.link-home {
-    fill: $yellow100;
-    height: 30px;
-
-    &.disabled {
-        pointer-events: none;
-    }
-
-    &:hover {
-        #logo-background {
-            fill: $yellow110;
-        }
-
-        outline: solid 2px $yellow110;
-    }
-}
-
-.link-nav-nav {
-    @include tablet {
-        position: relative;
-        right: -4px; //to make the last text aligns with the exact edge of the whole container
-    }
-}
-
+//      ICONS ANIMATIONS
 @keyframes bounce {
 
     0%,
@@ -368,102 +334,12 @@ footer {
 
 }
 
-a.link {
-    padding: 4px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row nowrap;
-    color: $yellow100;
-    fill: $yellow100;
-    text-decoration: none;
-    width: auto;
-    flex-grow: 0;
-    font-weight: 400;
-
-    .icon-hidden {
-
-        .link-icon-right,
-        .link-icon-new {
-            display: none;
-        }
-    }
-
-    &.inline {
-        padding: 0;
-    }
-
-    &.disabled {
-        color: $yellow030;
-        pointer-events: none;
-    }
-
-    &:focus-visible {
-        color: $yellow110;
-        outline-color: $yellow110;
-        outline-style: none;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-position: under;
-        text-underline-offset: 4px;
-    }
-
-    &:not(.disabled):hover {
-        color: $yellow110;
-        fill: $yellow110;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-position: under;
-        text-underline-offset: 2px;
-
-        .link-icon-top,
-        .link-icon-below,
-        .link-icon-new {
-            visibility: visible;
-            animation: bounce 0.8s infinite;
-        }
-
-        .link-icon-right {
-            visibility: visible;
-            animation: bounce-right 0.8s infinite;
-        }
-
-        .link-icon-new {
-            visibility: visible;
-
-            .link-icon-new-arrow {
-                animation: bounce-out 0.8s infinite;
-            }
-        }
-    }
-}
-
-
-.language-p,
-.language-h4 {
-    margin: 0px;
-    display: inline-block;
-    width: 80px;
-}
-
-.heart {
-    margin-right: 4px;
-}
-
-header {
-    margin: 20px 0;
-
-    &.no-tag {
-        p.tag {
-            display: none;
-        }
-    }
-}
+//      STRUCTURES
 
 .table-case {
     display: grid;
     padding: 8px;
-    @include border-dashed();
+    @include border-dashed(1px, 1px, 1px, 1px);
     max-width: $mobile-text-width;
     grid-template-columns: auto;
     //grid-template-rows: auto auto 16px auto auto;
@@ -670,19 +546,183 @@ header {
             overflow: hidden;
         }
     }
+
+    .card:hover {
+        @include outline-hover;
+    }
 }
 
-.card:hover {
-    @include outline-hover;
+header {
+    margin: 0;
+
+    &.no-tag {
+        p.tag {
+            display: none;
+        }
+    }
+}
+
+// WRAPPERS 
+.wrapper-border {
+    @include border-dashed (1px, 1px, 1px, 1px);
+}
+
+.wrapper-content {
+    gap: 16px;
+}
+
+.wrapper-text {
+    max-width: $mobile-text-width;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @include tablet() {
+        max-width: $desktop-text-width;
+    }
+
+}
+
+.wrapper-contacts {
+    width: auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 8px;
+
+    p.contact {
+        margin: 0;
+        display: flex;
+        flex-flow: column nowrap; // no column-center bc needs to change on tablet
+        align-items: center;
+        width: auto;
+
+        .label-contact {
+            order: 1;
+        }
+    }
+
+    @include tablet {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+
+        p.contact {
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 8px;
+
+            .label-contact {
+                order: 0;
+                width: 70px;
+            }
+        }
+    }
+}
+
+.wrapper-backTo {
+    margin: 16px 0;
+}
+
+.column-center {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a.link {
+    padding: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    color: $yellow100;
+    fill: $yellow100;
+    text-decoration: none;
+    width: auto;
+    flex-grow: 0;
+    font-weight: 400;
+
+    .icon-hidden {
+
+        // some icons are hidden to every state, 
+        // others are hidden but appear on hover
+        .link-icon-right,
+        .link-icon-new {
+            display: none;
+        }
+    }
+
+    &.inline {
+        padding: 0;
+    }
+
+    &.disabled {
+        color: $yellow030;
+        pointer-events: none;
+    }
+
+    &:focus-visible {
+        color: $yellow110;
+        outline-color: $yellow110;
+        outline-style: none;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-position: under;
+        text-underline-offset: 4px;
+    }
+
+    &:not(.disabled):hover {
+        color: $yellow110;
+        fill: $yellow110;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-position: under;
+        text-underline-offset: 2px;
+
+        svg {
+            visibility: visible;
+        }
+
+        // icons have diff behaviours/animations
+        .link-icon-home {
+            outline: solid 2px $yellow110;
+
+            #logo-background {
+                fill: $yellow110;
+            }
+        }
+
+        .link-icon-contact path {
+            fill: $yellow110;
+            stroke: $yellow110;
+            stroke-width: 0.5;
+        }
+
+        .link-icon-top,
+        .link-icon-below {
+            animation: bounce 0.8s infinite;
+        }
+
+        .link-icon-right {
+            animation: bounce-right 0.8s infinite;
+        }
+
+        .link-icon-new {
+            .link-icon-new-arrow {
+                animation: bounce-out 0.8s infinite;
+            }
+        }
+    }
 }
 
 // TEXT STYLES
-
-
 h2 {
     text-align: center;
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 300;
     color: $white000;
     margin: 0;
 
@@ -694,7 +734,7 @@ h2 {
 h3 {
     margin: 0;
     padding: 16px 0;
-    font-weight: 500;
+    font-weight: 300;
     color: $white000;
     font-size: 22px;
 
@@ -706,15 +746,8 @@ h3 {
 h4 {
     margin: 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     color: $yellow100;
-}
-
-h5 {
-    margin-top: 16px;
-    font-size: 16px;
-    font-weight: 500;
-    color: $white000;
 }
 
 ul {
@@ -725,9 +758,15 @@ ul {
 p,
 li {
     margin: 0 0 4px 0;
+    line-height: 20px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     color: $white000;
+    max-width: $mobile-text-width;
+
+    @include tablet {
+        max-width: $desktop-text-width;
+    }
 }
 
 li {
@@ -764,66 +803,36 @@ li {
 }
 
 strong {
-    font-weight: 600;
+    font-weight: 500;
 }
 
-p.short {
-    text-align: center;
-    margin-bottom: 16px;
-}
+// @keyframes scale {
+//     from {
+//         transform: scale(1, 1.1);
+//     }
 
-.wrapper-contacts {
-    width: auto;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    gap: 8px;
+//     to {
+//         transform: scale(1.1, 1);
+//     }
+// }
 
-    @include tablet {
-        flex-flow: column nowrap;
-        align-items: flex-start;
-    }
-}
+// .pop {
+//     font-weight: 700;
+//     animation: scale 1s infinite;
+//     font-size: 72px;
+//     color: red;
+//     //text-shadow: 5px 5px 4px blue, 7px 7px 4px red, 9px 9px 4px rgb(30, 0, 255);
+//     /*background: -webkit-linear-gradient(#80FF9D, #8CF3FE, #FF30CB);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent; */
+// }
 
-p.contact {
-    margin: 0;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    width: auto;
+// .normal {
+//     font-weight: initial;
+//     font-size: initial;
+//     color: initial;
+// }
 
-    @include tablet {
-        flex-flow: row nowrap;
-        align-items: center;
-
-    }
-
-    .label-contact {
-        order: 1;
-        display: inline-block;
-        width: auto;
-
-        @include tablet {
-            order: 0;
-            width: 80px;
-
-        }
-
-
-    }
-}
-
-.wrapper-read-more {
-    margin: 8px 0;
-}
-
-.wrapper-backTo {
-    margin: 16px 0;
-}
-
-.column-center {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-}
+// .red {
+//     color: red;
+// }

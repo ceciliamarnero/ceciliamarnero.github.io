@@ -44,7 +44,7 @@ section {
 @media only screen and (min-width: 481px) {
   section {
     row-gap: 16px;
-    padding: 32px 8px;
+    padding: 32px 8px 16px 8px;
   }
 }
 
@@ -68,6 +68,12 @@ nav .nav-nav {
   flex-flow: row wrap;
   gap: 16px;
 }
+@media only screen and (min-width: 481px) {
+  nav .nav-nav .link-nav-nav {
+    position: relative;
+    right: -4px;
+  }
+}
 
 .jump-menu {
   margin: 0 auto;
@@ -77,6 +83,8 @@ nav .nav-nav {
   align-items: center;
   gap: 4px;
   padding-bottom: 8px;
+}
+.jump-menu:not(.no-border) {
   color: hsla(40, 97%, 63%, 0.5);
   border-radius: 1px;
   border-style: dashed;
@@ -124,6 +132,9 @@ footer {
   border-bottom-width: 0;
   border-left-width: 0;
 }
+footer .heart {
+  margin-right: 4px;
+}
 
 .resume {
   padding: 8px;
@@ -138,6 +149,12 @@ footer {
   order: 1;
   display: flex;
   flex-flow: column nowrap;
+}
+.resume .resume-top .resume-left .language-p,
+.resume .resume-top .resume-left .language-h4 {
+  margin: 0px;
+  display: inline-block;
+  width: 80px;
 }
 @media only screen and (min-width: 481px) {
   .resume .resume-top .resume-left {
@@ -402,6 +419,13 @@ footer {
   outline-offset: 4px;
 }
 
+header {
+  margin: 0;
+}
+header.no-tag p.tag {
+  display: none;
+}
+
 .wrapper-border {
   color: hsla(40, 97%, 63%, 0.5);
   border-radius: 1px;
@@ -420,6 +444,7 @@ footer {
   max-width: 360px;
 }
 .wrapper-text img {
+  margin: 12px 0;
   width: 100%;
   height: auto;
 }
@@ -435,6 +460,7 @@ footer {
   flex-flow: column wrap;
   align-items: center;
   gap: 8px;
+  margin-bottom: 16px;
 }
 .wrapper-contacts p.contact {
   margin: 0;
@@ -539,31 +565,6 @@ a.link:not(.disabled):hover .link-icon-new .link-icon-new-arrow {
   animation: bounce-out 0.8s infinite;
 }
 
-@media only screen and (min-width: 481px) {
-  .link-nav-nav {
-    position: relative;
-    right: -4px;
-  }
-}
-
-.language-p,
-.language-h4 {
-  margin: 0px;
-  display: inline-block;
-  width: 80px;
-}
-
-.heart {
-  margin-right: 4px;
-}
-
-header {
-  margin: 0;
-}
-header.no-tag p.tag {
-  display: none;
-}
-
 h2 {
   text-align: center;
   font-size: 32px;
@@ -604,9 +605,9 @@ ul {
 
 p,
 li {
-  margin: 0 0 4px 0;
-  line-height: 20px;
+  margin: 0 0 12px 0;
   font-size: 14px;
+  line-height: 21px;
   font-weight: 300;
   color: #f9f9f9;
   max-width: 360px;

@@ -104,7 +104,7 @@ section {
 
     @include tablet {
         row-gap: 16px;
-        padding: 32px 8px;
+        padding: 32px 8px 16px 8px;
     }
 
 }
@@ -147,7 +147,10 @@ nav {
     align-items: center;
     gap: 4px;
     padding-bottom: 8px;
-    @include border-dashed (0, 0, 1px, 0);
+
+    &:not(.no-border) {
+        @include border-dashed (0, 0, 1px, 0);
+    }
 
     .link {
         .link-icon-below {
@@ -575,6 +578,7 @@ header {
     max-width: $mobile-text-width;
 
     img {
+        margin: 12px 0;
         width: 100%;
         height: auto;
     }
@@ -591,6 +595,7 @@ header {
     flex-flow: column wrap;
     align-items: center;
     gap: 8px;
+    margin-bottom: 16px;
 
     p.contact {
         margin: 0;
@@ -757,9 +762,9 @@ ul {
 
 p,
 li {
-    margin: 0 0 4px 0;
-    line-height: 20px;
+    margin: 0 0 12px 0;
     font-size: 14px;
+    line-height: 21px;
     font-weight: 300;
     color: $white000;
     max-width: $mobile-text-width;

@@ -1,7 +1,7 @@
-<svg width="142" height="30" viewBox="0 1 142 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="142" height="38" viewBox="0 1 142 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <title>Home Logo</title>
 <desc>Go to home page</desc>
-<rect id="logo-background" width="142" height="30" fill="#FCBF45" />
+<rect id="logo-background" width="142" height="30"/>
 <mask id="path-1-inside-1_375_1968" fill="white">
 <path d="M2 4H138V25H2V4Z" />
 </mask>

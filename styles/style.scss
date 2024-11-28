@@ -9,9 +9,7 @@
 }
 
 // NUMERIC VALUES
-$mobile-text-width : 360px;
-$tablet-text-width : 400px;
-$desktop-text-width : 700px;
+$max-text-width : 700px;
 // COLORS
 $yellow030: hsla(40, 97%, 63%, 0.30);
 $yellow050: hsla(40, 97%, 63%, 0.50);
@@ -117,6 +115,16 @@ nav {
     fill: $yellow100;
     color: $yellow100;
 
+    .link-home {
+        display: block;
+        height: 38px;
+
+        .link-icon-home {
+            fill: $yellow100;
+        }
+
+    }
+
     .nav-contact {
         display: flex;
         flex-flow: row wrap;
@@ -140,7 +148,8 @@ nav {
 }
 
 .jump-menu {
-    margin: 0 auto;
+    //margin: 0 auto;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -247,7 +256,7 @@ footer {
         display: flex;
         flex-flow: column nowrap;
         padding: 0;
-        max-width: $desktop-text-width;
+        max-width: $max-text-width;
 
         .jump-menu {
             display: none;
@@ -343,26 +352,37 @@ footer {
     display: grid;
     padding: 8px;
     @include border-dashed(1px, 1px, 1px, 1px);
-    max-width: $mobile-text-width;
-    grid-template-columns: auto;
-    //grid-template-rows: auto auto 16px auto auto;
-    grid-template-areas:
-        "label-client"
-        "data-client"
-        "label-role"
-        "data-role"
-        "label-team"
-        "data-team"
-        "label-skills1"
-        "data-skills1"
-        "label-skills2"
-        "data-skills2"
-        "label-tools"
-        "data-tools";
+    width: 100%;
+    max-width: $max-text-width;
 
-    .label {
-        color: $yellow100;
+    p.data {
+        line-height: 150%;
+        margin: 0;
+        width: 100%;
+        overflow-wrap: break-word;
     }
+
+    p.label {
+        line-height: 100%;
+        margin: 12px 0 2px 0;
+        color: $yellow100;
+        width: 100%;
+    }
+
+    grid-template-columns: auto;
+    grid-template-areas: "label-client"
+    "data-client"
+    "label-role"
+    "data-role"
+    "label-team"
+    "data-team"
+    "label-skills1"
+    "data-skills1"
+    "label-skills2"
+    "data-skills2"
+    "label-tools"
+    "data-tools";
+
 
     .label-client {
         grid-area: label-client;
@@ -413,8 +433,14 @@ footer {
     }
 
     @include tablet() {
-        padding: 16px;
-        max-width: $tablet-text-width;
+        width: 80%;
+        column-gap: 8px;
+        margin:auto;
+        margin-top: 0;
+        margin-bottom: 48px;
+        //4 to compensate padding of labels at the first row
+        padding: 4px 16px 16px 16px;
+        //padding: 16px;
         grid-template-columns: 49% 49%;
         //grid-template-rows: auto auto 16px auto auto;
         grid-template-areas:
@@ -427,25 +453,15 @@ footer {
     }
 
     @include desktop() {
-        max-width: $desktop-text-width;
-        grid-template-columns: 33% 33% 33%;
-        grid-template-rows: auto auto 16px auto auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas: "label-client label-role label-team"
             "data-client data-role data-team"
             "label-skills1 label-skills2 label-tools"
             "data-skills1 data-skills2 data-tools";
-        padding: 16px 24px;
+        padding: 4px 24px 16px 24px;
         column-gap: 16px;
     }
-
-
-    .cell {
-        display: block;
-        padding: 1px;
-        overflow-wrap: break-word;
-    }
-
-
 }
 
 .gallery {
@@ -455,7 +471,7 @@ footer {
     align-content: center;
     margin: 4px auto;
     gap: 16px;
-    width: 98%;
+    //width: 98%;
 
     @include tablet {
         flex-flow: row wrap;
@@ -464,9 +480,10 @@ footer {
 }
 
 .card {
+    max-width: 280px;
     @include outline-dashed;
     padding: 8px;
-    width: 96%;
+    //width: 96%;
     height: auto;
 
     .card-top {
@@ -555,6 +572,53 @@ footer {
     }
 }
 
+
+.card-process{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 98%;
+    max-width: $max-text-width;
+    margin: 0;
+
+    img{
+        border: 1px solid $yellow080;
+    }
+    .text{
+        width: 100%; 
+            
+        p.card-title, p.card-details{
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        li.card-title {
+            text-align: left;
+            margin: 0 0 4px 16px;
+            padding: 0;
+            ::marker{
+                color: $yellow100;
+                font-weight: 400;
+            }
+        }
+
+        h4.card-details{
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+@include tablet {
+    flex-flow: row nowrap;
+    gap: 8px;
+    padding: 8px 8px 8px 0;
+}
+
+}
+
 header {
     margin: 0;
 
@@ -575,18 +639,14 @@ header {
 }
 
 .wrapper-text {
-    max-width: $mobile-text-width;
+    width: 94%;
+    max-width: $max-text-width;
 
     img {
         margin: 12px 0;
         width: 100%;
         height: auto;
     }
-
-    @include tablet() {
-        max-width: $desktop-text-width;
-    }
-
 }
 
 .wrapper-contacts {
@@ -635,6 +695,7 @@ header {
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
 }
 
 a.link {
@@ -692,12 +753,9 @@ a.link {
         }
 
         // icons have diff behaviours/animations
-        .link-icon-home {
+        .link-icon-home #logo-background {
             outline: solid 2px $yellow110;
-
-            #logo-background {
-                fill: $yellow110;
-            }
+            fill: $yellow110;
         }
 
         .link-icon-contact path {
@@ -724,6 +782,12 @@ a.link {
 }
 
 // TEXT STYLES
+h1 {
+    height: 38px;
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
     text-align: center;
     font-size: 32px;
@@ -738,7 +802,7 @@ h2 {
 
 h3 {
     margin: 0;
-    padding: 16px 0;
+    padding: 16px 0 8px 0;
     font-weight: 300;
     color: $white000;
     font-size: 22px;
@@ -749,10 +813,16 @@ h3 {
 }
 
 h4 {
-    margin: 0;
+    margin: 4px 0 0 0;
     font-size: 16px;
     font-weight: 400;
     color: $yellow100;
+}
+
+h5{
+    color: $yellow100;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 ul {
@@ -767,10 +837,12 @@ li {
     line-height: 21px;
     font-weight: 300;
     color: $white000;
-    max-width: $mobile-text-width;
+    //
+    width: 94%;
+    max-width: $max-text-width;
 
-    @include tablet {
-        max-width: $desktop-text-width;
+    &.center {
+        text-align: center;
     }
 }
 
@@ -811,6 +883,23 @@ strong {
     font-weight: 500;
 }
 
+details {
+
+    p,
+    li {
+        margin: 0 0 0 20px;
+    }
+}
+
+.diagram{
+    margin: 8px 0 32px 0;
+}
+
+figcaption,
+details summary {
+    color: $yellow080;
+}
+
 // @keyframes scale {
 //     from {
 //         transform: scale(1, 1.1);
@@ -841,3 +930,12 @@ strong {
 // .red {
 //     color: red;
 // }
+
+
+img {
+    border-radius: 2px;
+    width: 100%;
+    //display: block;
+    //overflow: hidden;
+    object-fit: fill;
+}

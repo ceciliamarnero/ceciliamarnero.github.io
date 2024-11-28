@@ -56,6 +56,13 @@ nav {
   fill: #fcbf45;
   color: #fcbf45;
 }
+nav .link-home {
+  display: block;
+  height: 38px;
+}
+nav .link-home .link-icon-home {
+  fill: #fcbf45;
+}
 nav .nav-contact {
   display: flex;
   flex-flow: row wrap;
@@ -76,7 +83,7 @@ nav .nav-nav {
 }
 
 .jump-menu {
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -257,12 +264,22 @@ footer .heart {
   border-right-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
-  max-width: 360px;
+  width: 100%;
+  max-width: 700px;
   grid-template-columns: auto;
   grid-template-areas: "label-client" "data-client" "label-role" "data-role" "label-team" "data-team" "label-skills1" "data-skills1" "label-skills2" "data-skills2" "label-tools" "data-tools";
 }
-.table-case .label {
+.table-case p.data {
+  line-height: 150%;
+  margin: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+.table-case p.label {
+  line-height: 100%;
+  margin: 12px 0 2px 0;
   color: #fcbf45;
+  width: 100%;
 }
 .table-case .label-client {
   grid-area: label-client;
@@ -302,26 +319,24 @@ footer .heart {
 }
 @media only screen and (min-width: 481px) {
   .table-case {
-    padding: 16px;
-    max-width: 400px;
+    width: 80%;
+    column-gap: 8px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 48px;
+    padding: 4px 16px 16px 16px;
     grid-template-columns: 49% 49%;
     grid-template-areas: "label-client label-role" "data-client data-role" "label-team label-skills1" "data-team data-skills1" "label-skills2 label-tools" "data-skills2 data-tools";
   }
 }
 @media only screen and (min-width: 1400px) {
   .table-case {
-    max-width: 700px;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: auto auto 16px auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "label-client label-role label-team" "data-client data-role data-team" "label-skills1 label-skills2 label-tools" "data-skills1 data-skills2 data-tools";
-    padding: 16px 24px;
+    padding: 4px 24px 16px 24px;
     column-gap: 16px;
   }
-}
-.table-case .cell {
-  display: block;
-  padding: 1px;
-  overflow-wrap: break-word;
 }
 
 .gallery {
@@ -331,7 +346,6 @@ footer .heart {
   align-content: center;
   margin: 4px auto;
   gap: 16px;
-  width: 98%;
 }
 @media only screen and (min-width: 481px) {
   .gallery {
@@ -341,11 +355,11 @@ footer .heart {
 }
 
 .card {
+  max-width: 280px;
   border-radius: 1px;
   outline: 1px dashed hsla(40, 97%, 63%, 0.5);
   outline-offset: 4px;
   padding: 8px;
-  width: 96%;
   height: auto;
 }
 .card .card-top {
@@ -419,6 +433,48 @@ footer .heart {
   outline-offset: 4px;
 }
 
+.card-process {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 98%;
+  max-width: 700px;
+  margin: 0;
+}
+.card-process img {
+  border: 1px solid hsla(40, 97%, 63%, 0.8);
+}
+.card-process .text {
+  width: 100%;
+}
+.card-process .text p.card-title, .card-process .text p.card-details {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.card-process .text li.card-title {
+  text-align: left;
+  margin: 0 0 4px 16px;
+  padding: 0;
+}
+.card-process .text li.card-title ::marker {
+  color: #fcbf45;
+  font-weight: 400;
+}
+.card-process .text h4.card-details {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (min-width: 481px) {
+  .card-process {
+    flex-flow: row nowrap;
+    gap: 8px;
+    padding: 8px 8px 8px 0;
+  }
+}
+
 header {
   margin: 0;
 }
@@ -441,17 +497,13 @@ header.no-tag p.tag {
 }
 
 .wrapper-text {
-  max-width: 360px;
+  width: 94%;
+  max-width: 700px;
 }
 .wrapper-text img {
   margin: 12px 0;
   width: 100%;
   height: auto;
-}
-@media only screen and (min-width: 481px) {
-  .wrapper-text {
-    max-width: 700px;
-  }
 }
 
 .wrapper-contacts {
@@ -497,6 +549,7 @@ header.no-tag p.tag {
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
 }
 
 a.link {
@@ -543,10 +596,8 @@ a.link:not(.disabled):hover {
 a.link:not(.disabled):hover svg {
   visibility: visible;
 }
-a.link:not(.disabled):hover .link-icon-home {
-  outline: solid 2px #fae3b6;
-}
 a.link:not(.disabled):hover .link-icon-home #logo-background {
+  outline: solid 2px #fae3b6;
   fill: #fae3b6;
 }
 a.link:not(.disabled):hover .link-icon-contact path {
@@ -565,6 +616,12 @@ a.link:not(.disabled):hover .link-icon-new .link-icon-new-arrow {
   animation: bounce-out 0.8s infinite;
 }
 
+h1 {
+  height: 38px;
+  margin: 0;
+  padding: 0;
+}
+
 h2 {
   text-align: center;
   font-size: 32px;
@@ -580,7 +637,7 @@ h2 {
 
 h3 {
   margin: 0;
-  padding: 16px 0;
+  padding: 16px 0 8px 0;
   font-weight: 300;
   color: #f9f9f9;
   font-size: 22px;
@@ -592,10 +649,16 @@ h3 {
 }
 
 h4 {
-  margin: 0;
+  margin: 4px 0 0 0;
   font-size: 16px;
   font-weight: 400;
   color: #fcbf45;
+}
+
+h5 {
+  color: #fcbf45;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 ul {
@@ -610,13 +673,12 @@ li {
   line-height: 21px;
   font-weight: 300;
   color: #f9f9f9;
-  max-width: 360px;
+  width: 94%;
+  max-width: 700px;
 }
-@media only screen and (min-width: 481px) {
-  p,
-  li {
-    max-width: 700px;
-  }
+p.center,
+li.center {
+  text-align: center;
 }
 
 li {
@@ -652,6 +714,26 @@ li {
 
 strong {
   font-weight: 500;
+}
+
+details p,
+details li {
+  margin: 0 0 0 20px;
+}
+
+.diagram {
+  margin: 8px 0 32px 0;
+}
+
+figcaption,
+details summary {
+  color: hsla(40, 97%, 63%, 0.8);
+}
+
+img {
+  border-radius: 2px;
+  width: 100%;
+  object-fit: fill;
 }
 
 /*# sourceMappingURL=style.css.map */

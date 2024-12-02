@@ -201,7 +201,10 @@ footer {
     @include border-dashed (1px, 0, 0, 0);
 
     .heart {
+        display: inline;
         margin-right: 4px;
+        height: 100%;
+        width: auto;
     }
 }
 
@@ -341,7 +344,7 @@ footer {
     }
 
     50% {
-        transform: translate(10%, -10%);
+        transform: translate(12%, -20%);
     }
 
 }
@@ -435,7 +438,7 @@ footer {
     @include tablet() {
         width: 80%;
         column-gap: 8px;
-        margin:auto;
+        margin: auto;
         margin-top: 0;
         margin-bottom: 48px;
         //4 to compensate padding of labels at the first row
@@ -471,7 +474,7 @@ footer {
     align-content: center;
     margin: 4px auto;
     gap: 16px;
-    //width: 98%;
+    width: 98%;
 
     @include tablet {
         flex-flow: row wrap;
@@ -480,48 +483,52 @@ footer {
 }
 
 .card {
-    max-width: 280px;
     @include outline-dashed;
     padding: 8px;
-    //width: 96%;
-    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
 
     .card-top {
-        width: 100%;
-        text-align: center;
         height: auto;
+        text-align: center;
+        width: 100%;
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 8px;
+        align-items: stretch;
+        justify-content: space-between;
+        padding-bottom: 4px;
 
         h3.card-title {
             color: $white000;
             padding: 0;
         }
 
-
+        .tags {
+            margin: 0;
+        }
     }
 
-    .image {
+    .card-image {
+        height: 240px;
+        width: 100%;
+        overflow: hidden;
+        border: .5px solid $yellow030;
+
         img {
-            border-radius: 2px;
             width: 100%;
-            //display: block;
-            //overflow: hidden;
-            object-fit: fill;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 
     .card-bottom {
+        width: 100%;
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 100px;
-
+        align-items: flex-start;
+        justify-content: stretch;
 
         .card-details {
             overflow-wrap: break-word;
@@ -537,14 +544,15 @@ footer {
     }
 
     @include tablet {
-        width: 284px;
+        max-width: 280px;
+        width: 100%;
 
         .card-top {
-            height: 100px;
+            height: 80px;
             display: flex;
             flex-flow: column nowrap;
-            align-items: flex-start;
-            justify-content: space-between;
+            align-items: stretch;
+            justify-content: center;
 
             h3.card-title {
                 width: 100%;
@@ -559,64 +567,96 @@ footer {
             }
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            overflow: hidden;
+        .card-image {
+            height: 200px;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .card-bottom {
+            height: 100px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: space-between;
         }
     }
 
-    .card:hover {
-        @include outline-hover;
-    }
+}
+
+.card:hover {
+    @include outline-hover;
 }
 
 
-.card-process{
+.card-process {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
     width: 98%;
     max-width: $max-text-width;
-    margin: 0;
+    padding: 0 8px;
+    margin: 8px 0;
 
-    img{
+    .card-process-image {
         border: 1px solid $yellow080;
     }
-    .text{
-        width: 100%; 
-            
-        p.card-title, p.card-details{
+
+    .card-process-text {
+        width: 100%;
+
+        p.card-process-title,
+        p.card-process-details {
             text-align: left;
             margin: 0;
             padding: 0;
             width: 100%;
         }
 
-        li.card-title {
+        li.card-process-title {
             text-align: left;
             margin: 0 0 4px 16px;
             padding: 0;
-            ::marker{
+
+            ::marker {
                 color: $yellow100;
                 font-weight: 400;
             }
         }
 
-        h4.card-details{
+        h4.card-process-details {
             text-align: left;
             margin: 0;
             padding: 0;
         }
     }
 
-@include tablet {
-    flex-flow: row nowrap;
-    gap: 8px;
-    padding: 8px 8px 8px 0;
-}
+    .card-process-image {
+        order: 1;
+    }
 
+    @include tablet {
+        width: 100%;
+        flex-flow: row nowrap;
+        gap: 8px;
+        padding: 0;
+        margin: 8px;
+        align-items: stretch;
+        justify-content: center;
+
+        .card-process-image {
+            order: 0;
+            flex-basis: 15%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
 }
 
 header {
@@ -639,7 +679,7 @@ header {
 }
 
 .wrapper-text {
-    width: 94%;
+    width: 98%;
     max-width: $max-text-width;
 
     img {
@@ -789,8 +829,8 @@ h1 {
 }
 
 h2 {
-    text-align: center;
     font-size: 32px;
+    text-align: center;
     font-weight: 300;
     color: $white000;
     margin: 0;
@@ -801,11 +841,11 @@ h2 {
 }
 
 h3 {
+    font-size: 22px;
     margin: 0;
     padding: 16px 0 8px 0;
     font-weight: 300;
     color: $white000;
-    font-size: 22px;
 
     @include tablet {
         font-size: 26px;
@@ -813,16 +853,17 @@ h3 {
 }
 
 h4 {
-    margin: 4px 0 0 0;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    font-weight: 300;
     color: $yellow100;
 }
 
-h5{
+h5 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 4px 0 0 0;
     color: $yellow100;
-    font-size: 14px;
-    font-weight: 500;
 }
 
 ul {
@@ -832,14 +873,11 @@ ul {
 
 p,
 li {
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
     font-size: 14px;
     line-height: 21px;
     font-weight: 300;
     color: $white000;
-    //
-    width: 94%;
-    max-width: $max-text-width;
 
     &.center {
         text-align: center;
@@ -891,7 +929,7 @@ details {
     }
 }
 
-.diagram{
+.diagram {
     margin: 8px 0 32px 0;
 }
 
@@ -938,4 +976,8 @@ img {
     //display: block;
     //overflow: hidden;
     object-fit: fill;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
 }

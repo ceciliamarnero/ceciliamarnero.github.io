@@ -41,10 +41,13 @@ section {
   row-gap: 8px;
   padding: 16px 0px;
 }
+section.hero {
+  padding: 120px 8px 0 8px;
+}
 @media only screen and (min-width: 481px) {
   section {
     row-gap: 16px;
-    padding: 32px 8px 16px 8px;
+    padding: 48px 8px 32px 8px;
   }
 }
 
@@ -342,6 +345,31 @@ footer .heart {
   }
 }
 
+.case-image {
+  height: 100px;
+  width: auto;
+  max-width: 700px;
+  position: relative;
+}
+.case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media only screen and (min-width: 481px) {
+  .case-image {
+    width: 80%;
+    height: auto;
+  }
+  .case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 .gallery {
   display: flex;
   flex-flow: column wrap;
@@ -358,6 +386,16 @@ footer .heart {
   }
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
 .card {
   border-radius: 1px;
   outline: 1px dashed hsla(40, 97%, 63%, 0.5);
@@ -417,6 +455,9 @@ footer .heart {
   .card {
     max-width: 280px;
     width: 100%;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
   }
   .card .card-top {
     height: 80px;
@@ -461,7 +502,7 @@ footer .heart {
   align-items: center;
   width: 98%;
   max-width: 700px;
-  padding: 0 8px;
+  padding: 0 8px 0 0;
   margin: 8px 0;
 }
 .card-process .card-process-image {
@@ -500,13 +541,14 @@ footer .heart {
     flex-flow: row nowrap;
     gap: 8px;
     padding: 0;
-    margin: 8px;
+    margin: 8px 8px 8px 0;
     align-items: stretch;
     justify-content: center;
   }
   .card-process .card-process-image {
     order: 0;
-    flex-basis: 15%;
+    min-width: 100px;
+    flex-grow: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -677,6 +719,12 @@ h2 {
   }
 }
 
+.landing h2 {
+  animation: appear ease-in;
+  animation-timeline: view();
+  animation-range: entry 0;
+}
+
 h3 {
   font-size: 22px;
   margin: 0;
@@ -779,6 +827,284 @@ img {
   height: auto;
   display: block;
   overflow: hidden;
+}
+
+.wrapper-visual {
+  max-width: 700px;
+  margin: 24px auto;
+  background-color: aliceblue;
+  padding: 16px;
+}
+.wrapper-visual img {
+  margin: 0;
+}
+.wrapper-visual h4,
+.wrapper-visual h5,
+.wrapper-visual h6 {
+  text-align: center;
+}
+.wrapper-visual h4,
+.wrapper-visual h5,
+.wrapper-visual p {
+  margin: 0;
+  padding: 0;
+  color: #010101;
+}
+.wrapper-visual p {
+  font-size: 12px;
+  line-height: 14px;
+}
+.wrapper-visual .icon-do,
+.wrapper-visual .icon-dont {
+  height: 16px;
+  width: 16px;
+}
+.wrapper-visual .w-100 {
+  width: 100%;
+}
+.wrapper-visual .w-auto {
+  width: auto;
+}
+.wrapper-visual .wrapper-visual-col {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+.wrapper-visual .wrapper-visual-col.gap-8 {
+  row-gap: 8px;
+}
+.wrapper-visual .wrapper-visual-col.gap-16 {
+  row-gap: 16px;
+}
+.wrapper-visual .wrapper-visual-col.gap-32 {
+  row-gap: 32px;
+}
+.wrapper-visual .wrapper-visual-col.gap-40 {
+  row-gap: 40px;
+}
+.wrapper-visual .wrapper-visual-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.wrapper-visual .wrapper-visual-row.gap-8 {
+  column-gap: 8px;
+}
+.wrapper-visual .wrapper-visual-row.gap-16 {
+  column-gap: 16px;
+}
+.wrapper-visual .wrapper-visual-row.gap-32 {
+  column-gap: 32px;
+}
+.wrapper-visual .wrapper-visual-row.gap-40 {
+  column-gap: 40px;
+}
+.wrapper-visual .wrapper-visual-col-row {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper-visual .wrapper-visual-col-row.gap-16-32, .wrapper-visual .wrapper-visual-col-row.gap-16-40 {
+  row-gap: 16px;
+}
+.wrapper-visual .wrapper-visual-col-row.gap-24-32 {
+  row-gap: 24px;
+}
+@media only screen and (min-width: 481px) {
+  .wrapper-visual .wrapper-visual-col-row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  }
+  .wrapper-visual .wrapper-visual-col-row.gap-16-32, .wrapper-visual .wrapper-visual-col-row.gap-24-32 {
+    column-gap: 32px;
+  }
+  .wrapper-visual .wrapper-visual-col-row.gap-16-40 {
+    column-gap: 40px;
+  }
+}
+
+.wrapper-visual .color-watch {
+  height: 20px;
+  width: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.wrapper-visual .color-watch img {
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.wrapper-shapes {
+  width: 340px;
+  flex-grow: 1;
+}
+.wrapper-shapes img {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.wrapper-shapes .icon-do,
+.wrapper-shapes .icon-dont {
+  flex-grow: 1;
+}
+.wrapper-shapes .text {
+  flex-basis: 260px;
+}
+
+.wrapper-symbols {
+  flex-grow: 0;
+}
+.wrapper-symbols .symbol .image {
+  width: 103px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  overflow: hidden;
+}
+.wrapper-symbols .symbol .image img {
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+@media only screen and (min-width: 481px) {
+  .wrapper-symbols .symbol .image {
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+.wrapper-symbols .symbol .text {
+  width: 100%;
+}
+
+.character {
+  column-gap: 4px;
+  height: 85px;
+  min-width: 295px;
+  max-width: 400px;
+}
+.character .title {
+  text-align: right;
+  width: 100px;
+  flex-grow: 0;
+  margin: auto;
+}
+.character .image {
+  max-width: 67px;
+  min-width: 55px;
+  height: 85px;
+  flex-grow: 0;
+  overflow: hidden;
+  position: relative;
+}
+.character .image img {
+  height: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+}
+.character .desc {
+  flex-grow: 1;
+  height: 100%;
+  flex-grow: 1;
+  position: relative;
+}
+.character .char1-desc p:nth-child(1) {
+  position: absolute;
+  top: 12px;
+}
+.character .char1-desc p:nth-child(2) {
+  position: absolute;
+  top: 42px;
+}
+.character .char2-desc p:nth-child(1) {
+  position: absolute;
+  top: 3px;
+}
+.character .char2-desc p:nth-child(2) {
+  position: absolute;
+  top: 42px;
+}
+
+.wrapper-visual .pins {
+  align-items: normal;
+  flex-wrap: wrap;
+}
+.wrapper-visual .pins .pin {
+  max-width: 232px;
+  align-items: center;
+}
+.wrapper-visual .pins .pin .image {
+  width: 44px;
+  height: 58px;
+  flex-grow: 0;
+}
+.wrapper-visual .pins .pin .desc {
+  flex-grow: 1;
+}
+
+.wrapper-visual .cars {
+  flex-wrap: wrap;
+}
+.wrapper-visual .cars .car {
+  width: 80px;
+}
+
+.wrapper-visual .alignments {
+  flex-wrap: wrap;
+  width: auto;
+  flex-grow: 0;
+}
+.wrapper-visual .alignments .alignment {
+  width: 80px;
+  height: auto;
+}
+
+.wrapper-visual .lines .comparison .line {
+  width: 100px;
+  height: auto;
+}
+
+.wrapper-visual .annotations img {
+  max-width: 400px;
+}
+
+.wrapper-visual .composition img {
+  width: 300px;
+  height: auto;
+}
+
+.wrapper-visual .comparison {
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 16px;
+  width: auto;
+}
+
+.wrapper-visual .layouts .layout .icon {
+  padding: 8px 0;
+}
+.wrapper-visual .layouts .layout .icon img.icon-do,
+.wrapper-visual .layouts .layout .icon img.icon-dont {
+  width: 24px;
+  height: 24px;
+}
+.wrapper-visual .layouts .layout img {
+  width: 300px;
+  height: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

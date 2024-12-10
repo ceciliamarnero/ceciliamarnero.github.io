@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<symbol id="color1" viewBox="0 0 46 46">
+<circle cx="23" cy="23" r="23" fill="#0080FF"/>
+</symbol>
+<symbol id="color2" viewBox="0 0 46 46">
+<circle cx="23" cy="23" r="23" fill="#0A427A"/>
+</symbol>
+<symbol id="color3" viewBox="0 0 46 46">
+<circle cx="23" cy="23" r="23" fill="#196EC1"/>
+</symbol>
+<symbol id="color4" viewBox="0 0 46 46">
+<circle cx="23" cy="23" r="22.5" fill="white" stroke="#BBBBBB"/>
+</symbol>
+<symbol id="color5" viewBox="0 0 46 46">
+<circle cx="23.3333" cy="23" r="23" fill="#BABABA"/>
+</symbol>
+<symbol id="color6" viewBox="0 0 46 46">
+<circle cx="23.6667" cy="23" r="23" fill="#A1A1A1"/>
+</symbol>
+<symbol id="color7" viewBox="0 0 46 46">
+<circle cx="23" cy="23" r="23" fill="#474747"/>
+</symbol>
+</svg>

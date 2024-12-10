@@ -100,15 +100,25 @@ section {
     row-gap: 8px;
     padding: 16px 0px;
 
-    &.hero {
-        padding: 120px 8px 0 8px;
+    .hero {
+        //padding: 120px 8px 16px 8px;
+        margin-bottom: 16px;
+
+        .name{
+            background-color: $yellow100;
+            color: #010101;
+            padding: 0 4px;
+
+        }
     }
 
-
     @include tablet {
-
         row-gap: 16px;
         padding: 48px 8px 32px 8px;
+
+        &.section-hero{
+            padding: 120px 8px 0 8px;
+        }
     }
 
 }
@@ -518,12 +528,12 @@ footer {
 @keyframes appear {
     from {
         opacity: 0;
-        scale: 0.5;
+        //scale: 0.5;
     }
 
     to {
         opacity: 1;
-        scale: 1;
+        //scale: 1;
     }
 }
 
@@ -533,6 +543,10 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+
+    &.hide {
+        display: none;
+    }
 
     .card-top {
         height: auto;
@@ -806,13 +820,17 @@ a.link {
     font-weight: 400;
 
     .icon-hidden {
-
         // some icons are hidden to every state, 
         // others are hidden but appear on hover
         .link-icon-right,
         .link-icon-new {
             display: none;
         }
+    }
+
+    &.cta{
+        margin: 0 0 20px 0;
+        font-size: 28px;
     }
 
     &.inline {
@@ -891,7 +909,6 @@ h2 {
 
     @include tablet {
         font-size: 54px;
-
     }
 }
 
@@ -905,7 +922,7 @@ h2 {
 h3 {
     font-size: 22px;
     margin: 0;
-    padding: 16px 0 8px 0;
+    padding-top: 16px;
     font-weight: 300;
     color: $white000;
 
@@ -916,7 +933,7 @@ h3 {
 
 h4 {
     font-size: 20px;
-    margin: 16px 0 4px 0;
+    margin: 8px 0 4px 0;
     font-weight: 300;
     color: $yellow100;
 }
@@ -927,6 +944,30 @@ h5 {
     margin: 4px 0 0 0;
     color: $yellow100;
 }
+
+.hero-intro {
+    margin: 10px 0 20px 0;
+
+    p {
+        font-size: 32px;
+        text-align: center;
+        line-height: 60px;
+        
+        color: $white000;
+        margin: 0;
+
+        strong.highlight {
+            color: $yellow100;
+            font-weight: 500;
+        }
+
+        @include tablet {
+            font-size: 54px;
+        }
+    }
+}
+
+
 
 ul {
     margin: 0;
@@ -1053,7 +1094,7 @@ img {
 // VISUALS
 .wrapper-visual {
     max-width: $max-text-width;
-    margin: 24px auto;
+    margin: 8px auto 24px auto;
     background-color: aliceblue;
     padding: 8px;
 
@@ -1079,10 +1120,14 @@ img {
         color: $black;
     }
 
-    ol,ul{
-        margin-left: 6px;
+    ol,
+    ul {
+        margin: 0 6px;
+
     }
-    p, li {
+
+    p,
+    li {
         color: $black;
         font-size: 12px;
         line-height: 14px;
@@ -1155,6 +1200,7 @@ img {
         flex-flow: column wrap;
         align-items: center;
         justify-content: center;
+        width: 100%;
 
         //
         &.gap-16-32,
@@ -1212,15 +1258,7 @@ img {
     .shape {
         align-items: center;
 
-        .image {
-            width: 36px;
-            height: 36px;
-            flex-shrink: 0;
-            flex-grow: 0;
-        }
-
         .icon {
-            flex-grow: 1;
             width: 32px;
 
             .icon-do,
@@ -1281,6 +1319,7 @@ img {
 
 .example.wrapper-visual-col {
     margin: 24px 0;
+    max-width: 400px;
 
     img {
         width: 200px;
@@ -1414,24 +1453,29 @@ img {
     .pin {
         width: 220px;
         align-items: center;
+        justify-content: flex-start;
 
         .image {
-            width: 44px;
-            height: 58px;
+            width: 45px;
+            height: 59px;
             flex-grow: 0;
+            flex-shrink: 0;
         }
 
         .desc {
-            flex-grow: 1;
+            width: 100%;
+            flex-grow: 0;
+            flex-shrink: 1;
         }
     }
 }
 
 .wrapper-visual .cars {
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .car {
-        width: 100px;
+        max-width: 100px;
     }
 }
 
@@ -1493,10 +1537,11 @@ img {
             min-height: 100px;
 
             ul {
-                &.do{
+                &.do {
                     list-style-image: url("../images/visuals/do-bullet.svg")
                 }
-                &.dont{
+
+                &.dont {
                     list-style-image: url("../images/visuals/dont-bullet.svg")
                 }
             }

@@ -41,13 +41,21 @@ section {
   row-gap: 8px;
   padding: 16px 0px;
 }
-section.hero {
-  padding: 120px 8px 0 8px;
+section .hero {
+  margin-bottom: 16px;
+}
+section .hero .name {
+  background-color: #fcbf45;
+  color: #010101;
+  padding: 0 4px;
 }
 @media only screen and (min-width: 481px) {
   section {
     row-gap: 16px;
     padding: 48px 8px 32px 8px;
+  }
+  section.section-hero {
+    padding: 120px 8px 0 8px;
   }
 }
 
@@ -389,11 +397,9 @@ footer .heart {
 @keyframes appear {
   from {
     opacity: 0;
-    scale: 0.5;
   }
   to {
     opacity: 1;
-    scale: 1;
   }
 }
 .card {
@@ -404,6 +410,9 @@ footer .heart {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
+}
+.card.hide {
+  display: none;
 }
 .card .card-top {
   height: auto;
@@ -653,6 +662,10 @@ a.link .icon-hidden .link-icon-right,
 a.link .icon-hidden .link-icon-new {
   display: none;
 }
+a.link.cta {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+}
 a.link.inline {
   padding: 0;
 }
@@ -728,7 +741,7 @@ h2 {
 h3 {
   font-size: 22px;
   margin: 0;
-  padding: 16px 0 8px 0;
+  padding-top: 16px;
   font-weight: 300;
   color: #f9f9f9;
 }
@@ -740,7 +753,7 @@ h3 {
 
 h4 {
   font-size: 20px;
-  margin: 16px 0 4px 0;
+  margin: 8px 0 4px 0;
   font-weight: 300;
   color: #fcbf45;
 }
@@ -750,6 +763,26 @@ h5 {
   font-weight: 400;
   margin: 4px 0 0 0;
   color: #fcbf45;
+}
+
+.hero-intro {
+  margin: 10px 0 20px 0;
+}
+.hero-intro p {
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+  color: #f9f9f9;
+  margin: 0;
+}
+.hero-intro p strong.highlight {
+  color: #fcbf45;
+  font-weight: 500;
+}
+@media only screen and (min-width: 481px) {
+  .hero-intro p {
+    font-size: 54px;
+  }
 }
 
 ul {
@@ -836,7 +869,7 @@ img {
 
 .wrapper-visual {
   max-width: 700px;
-  margin: 24px auto;
+  margin: 8px auto 24px auto;
   background-color: aliceblue;
   padding: 8px;
 }
@@ -860,10 +893,12 @@ img {
   padding: 0;
   color: #010101;
 }
-.wrapper-visual ol, .wrapper-visual ul {
-  margin-left: 6px;
+.wrapper-visual ol,
+.wrapper-visual ul {
+  margin: 0 6px;
 }
-.wrapper-visual p, .wrapper-visual li {
+.wrapper-visual p,
+.wrapper-visual li {
   color: #010101;
   font-size: 12px;
   line-height: 14px;
@@ -922,6 +957,7 @@ img {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .wrapper-visual .wrapper-visual-col-row.gap-16-32, .wrapper-visual .wrapper-visual-col-row.gap-16-16, .wrapper-visual .wrapper-visual-col-row.gap-16-40 {
   row-gap: 16px;
@@ -966,14 +1002,7 @@ img {
 .wrapper-visual .wrapper-shapes .shape {
   align-items: center;
 }
-.wrapper-visual .wrapper-shapes .shape .image {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  flex-grow: 0;
-}
 .wrapper-visual .wrapper-shapes .shape .icon {
-  flex-grow: 1;
   width: 32px;
 }
 .wrapper-visual .wrapper-shapes .shape .icon .icon-do,
@@ -1023,6 +1052,7 @@ img {
 
 .example.wrapper-visual-col {
   margin: 24px 0;
+  max-width: 400px;
 }
 .example.wrapper-visual-col img {
   width: 200px;
@@ -1126,21 +1156,26 @@ img {
 .wrapper-visual .pins .pin {
   width: 220px;
   align-items: center;
+  justify-content: flex-start;
 }
 .wrapper-visual .pins .pin .image {
-  width: 44px;
-  height: 58px;
+  width: 45px;
+  height: 59px;
   flex-grow: 0;
+  flex-shrink: 0;
 }
 .wrapper-visual .pins .pin .desc {
-  flex-grow: 1;
+  width: 100%;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 .wrapper-visual .cars {
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .wrapper-visual .cars .car {
-  width: 100px;
+  max-width: 100px;
 }
 
 .wrapper-visual .alignments {

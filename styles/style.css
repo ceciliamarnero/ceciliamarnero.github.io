@@ -590,6 +590,7 @@ header.no-tag p.tag {
 
 .wrapper-text {
   width: 98%;
+  padding: 0 8px;
   max-width: 700px;
 }
 .wrapper-text img {
@@ -793,7 +794,6 @@ ul {
 p,
 li {
   margin: 0 0 8px 0;
-  padding: 0 8px;
   font-size: 14px;
   line-height: 21px;
   font-weight: 300;

@@ -516,9 +516,11 @@ footer .heart {
 }
 .card-process .card-process-image {
   border: 1px solid hsla(40, 97%, 63%, 0.8);
+  min-width: 40px;
+  display: none;
 }
 .card-process .card-process-text {
-  width: 100%;
+  width: 80%;
 }
 .card-process .card-process-text p.card-process-title,
 .card-process .card-process-text p.card-process-details {
@@ -540,9 +542,6 @@ footer .heart {
   text-align: left;
   margin: 0;
   padding: 0;
-}
-.card-process .card-process-image {
-  order: 1;
 }
 @media only screen and (min-width: 481px) {
   .card-process {
@@ -766,21 +765,22 @@ h5 {
 }
 
 .hero-intro {
-  margin: 10px 0 20px 0;
+  margin: 10px 0 36px 0;
 }
-.hero-intro p {
-  font-size: 32px;
-  text-align: center;
-  line-height: 60px;
-  color: #f9f9f9;
-  margin: 0;
-}
-.hero-intro p strong.highlight {
+.hero-intro strong.highlight {
   color: #fcbf45;
   font-weight: 500;
 }
+.hero-intro p {
+  color: #f9f9f9;
+  margin: 0;
+  font-size: 32px;
+  text-align: center;
+  line-height: 40px;
+}
 @media only screen and (min-width: 481px) {
   .hero-intro p {
+    line-height: 60px;
     font-size: 54px;
   }
 }
@@ -793,6 +793,7 @@ ul {
 p,
 li {
   margin: 0 0 8px 0;
+  padding: 0 8px;
   font-size: 14px;
   line-height: 21px;
   font-weight: 300;

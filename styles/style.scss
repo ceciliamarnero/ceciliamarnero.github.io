@@ -101,14 +101,12 @@ section {
     padding: 16px 0px;
 
     .hero {
-        //padding: 120px 8px 16px 8px;
         margin-bottom: 16px;
 
-        .name{
+        .name {
             background-color: $yellow100;
             color: #010101;
             padding: 0 4px;
-
         }
     }
 
@@ -116,7 +114,7 @@ section {
         row-gap: 16px;
         padding: 48px 8px 32px 8px;
 
-        &.section-hero{
+        &.section-hero {
             padding: 120px 8px 0 8px;
         }
     }
@@ -666,10 +664,12 @@ footer {
 
     .card-process-image {
         border: 1px solid $yellow080;
+        min-width: 40px;
+        display: none;
     }
 
     .card-process-text {
-        width: 100%;
+        width: 80%;
 
         p.card-process-title,
         p.card-process-details {
@@ -698,10 +698,6 @@ footer {
         }
     }
 
-    .card-process-image {
-        order: 1;
-    }
-
     @include tablet {
         width: 100%;
         flex-flow: row nowrap;
@@ -711,7 +707,7 @@ footer {
         align-items: stretch;
         justify-content: center;
 
-        .card-process-image {
+        .card-process-image {            
             order: 0;
             min-width: 100px;
             flex-grow: 0;
@@ -820,6 +816,7 @@ a.link {
     font-weight: 400;
 
     .icon-hidden {
+
         // some icons are hidden to every state, 
         // others are hidden but appear on hover
         .link-icon-right,
@@ -828,7 +825,7 @@ a.link {
         }
     }
 
-    &.cta{
+    &.cta {
         margin: 0 0 20px 0;
         font-size: 28px;
     }
@@ -946,22 +943,23 @@ h5 {
 }
 
 .hero-intro {
-    margin: 10px 0 20px 0;
+    margin: 10px 0 36px 0;
+
+    strong.highlight {
+        color: $yellow100;
+        font-weight: 500;
+    }
 
     p {
-        font-size: 32px;
-        text-align: center;
-        line-height: 60px;
-        
         color: $white000;
         margin: 0;
 
-        strong.highlight {
-            color: $yellow100;
-            font-weight: 500;
-        }
-
+        font-size: 32px;
+        text-align: center;
+        line-height: 40px;
+        
         @include tablet {
+            line-height: 60px;
             font-size: 54px;
         }
     }
@@ -977,6 +975,7 @@ ul {
 p,
 li {
     margin: 0 0 8px 0;
+    padding: 0 8px;
     font-size: 14px;
     line-height: 21px;
     font-weight: 300;

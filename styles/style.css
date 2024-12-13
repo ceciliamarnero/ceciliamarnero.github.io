@@ -67,11 +67,12 @@ nav {
   fill: #fcbf45;
   color: #fcbf45;
 }
-nav .link-home {
+nav a.link-home {
   display: block;
   height: 38px;
+  padding: 0;
 }
-nav .link-home .link-icon-home {
+nav a.link-home .icon-home {
   fill: #fcbf45;
 }
 nav .nav-contact {
@@ -116,9 +117,6 @@ nav .nav-nav {
   width: 45%;
   height: 24px;
 }
-.jump-menu .link .link-icon-below {
-  display: none;
-}
 @media only screen and (min-width: 481px) {
   .jump-menu {
     flex-flow: row nowrap;
@@ -130,10 +128,6 @@ nav .nav-nav {
   .jump-menu .link {
     width: auto;
     height: auto;
-  }
-  .jump-menu .link .link-icon-below {
-    display: block;
-    visibility: hidden;
   }
 }
 
@@ -658,9 +652,8 @@ a.link {
   flex-grow: 0;
   font-weight: 400;
 }
-a.link .icon-hidden .link-icon-right,
-a.link .icon-hidden .link-icon-new {
-  display: none;
+a.link .hidden {
+  visibility: hidden;
 }
 a.link.cta {
   margin: 0 0 20px 0;
@@ -668,10 +661,6 @@ a.link.cta {
 }
 a.link.inline {
   padding: 0;
-}
-a.link[disabled] {
-  color: hsla(40, 97%, 63%, 0.3);
-  pointer-events: none;
 }
 a.link:focus-visible {
   color: #fae3b6;
@@ -682,7 +671,7 @@ a.link:focus-visible {
   text-underline-position: under;
   text-underline-offset: 4px;
 }
-a.link:not(.disabled):hover {
+a.link:hover {
   color: #fae3b6;
   fill: #fae3b6;
   text-decoration: underline;
@@ -690,26 +679,26 @@ a.link:not(.disabled):hover {
   text-underline-position: under;
   text-underline-offset: 2px;
 }
-a.link:not(.disabled):hover svg {
+a.link:hover svg {
   visibility: visible;
 }
-a.link:not(.disabled):hover .link-icon-home #logo-background {
+a.link:hover .icon-home #logo-background {
   outline: solid 2px #fae3b6;
   fill: #fae3b6;
 }
-a.link:not(.disabled):hover .link-icon-contact path {
+a.link:hover .icon-contact path {
   fill: #fae3b6;
   stroke: #fae3b6;
   stroke-width: 0.5;
 }
-a.link:not(.disabled):hover .link-icon-top,
-a.link:not(.disabled):hover .link-icon-below {
+a.link:hover .icon-top,
+a.link:hover .icon-below {
   animation: bounce 0.8s infinite;
 }
-a.link:not(.disabled):hover .link-icon-right {
+a.link:hover .icon-go-to {
   animation: bounce-right 0.8s infinite;
 }
-a.link:not(.disabled):hover .link-icon-new .link-icon-new-arrow {
+a.link:hover .icon-new-page .icon-new-page-arrow {
   animation: bounce-out 0.8s infinite;
 }
 

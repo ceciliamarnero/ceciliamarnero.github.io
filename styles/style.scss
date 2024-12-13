@@ -128,15 +128,15 @@ nav {
     padding: 16px 0;
     fill: $yellow100;
     color: $yellow100;
-
-    .link-home {
+    //    
+    a.link-home {
         display: block;
         height: 38px;
+        padding: 0;
 
-        .link-icon-home {
+        .icon-home {
             fill: $yellow100;
         }
-
     }
 
     .nav-contact {
@@ -176,10 +176,6 @@ nav {
     }
 
     .link {
-        .link-icon-below {
-            display: none;
-        }
-
         padding: 0;
         width: 45%;
         height: 24px;
@@ -195,14 +191,7 @@ nav {
         .link {
             width: auto;
             height: auto;
-
-            .link-icon-below {
-                display: block;
-                visibility: hidden;
-            }
-
         }
-
     }
 
 }
@@ -816,13 +805,14 @@ a.link {
     flex-grow: 0;
     font-weight: 400;
 
-    .icon-hidden {
-        // some icons are hidden to every state, 
-        // others are hidden but appear on hover
-        .link-icon-right,
-        .link-icon-new {
-            display: none;
-        }
+    .hidden {
+        // some icons are hidden at every state, 
+        // others are hidden by default but appear on hover
+        //&.icon-go-to,
+        //&.icon-new-page{
+            //display: none;
+            visibility: hidden;
+        //}
     }
 
     &.cta {
@@ -832,11 +822,6 @@ a.link {
 
     &.inline {
         padding: 0;
-    }
-
-    &[disabled] {
-        color: $yellow030;
-        pointer-events: none;
     }
 
     &:focus-visible {
@@ -849,7 +834,7 @@ a.link {
         text-underline-offset: 4px;
     }
 
-    &:not(.disabled):hover {
+    &:hover{
         color: $yellow110;
         fill: $yellow110;
         text-decoration: underline;
@@ -862,28 +847,28 @@ a.link {
         }
 
         // icons have diff behaviours/animations
-        .link-icon-home #logo-background {
+        .icon-home #logo-background {
             outline: solid 2px $yellow110;
             fill: $yellow110;
         }
 
-        .link-icon-contact path {
+        .icon-contact path {
             fill: $yellow110;
             stroke: $yellow110;
             stroke-width: 0.5;
         }
 
-        .link-icon-top,
-        .link-icon-below {
+        .icon-top,
+        .icon-below {
             animation: bounce 0.8s infinite;
         }
 
-        .link-icon-right {
+        .icon-go-to {
             animation: bounce-right 0.8s infinite;
         }
 
-        .link-icon-new {
-            .link-icon-new-arrow {
+        .icon-new-page{
+            .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
             }
         }

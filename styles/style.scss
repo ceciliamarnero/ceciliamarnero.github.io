@@ -68,9 +68,9 @@ $black: #010101;
     color: red;
 }
 
-
+//////////////////////
 //        BIG SECTIONS
-
+//////////////////////
 html,
 body {
     font-family: 'Montserrat', sans-serif;
@@ -128,6 +128,7 @@ nav {
     padding: 16px 0;
     fill: $yellow100;
     color: $yellow100;
+
     //    
     a.link-home {
         display: block;
@@ -311,8 +312,7 @@ footer {
     }
 }
 
-
-//      ICONS ANIMATIONS
+//      ANIMATIONS
 @keyframes bounce {
 
     0%,
@@ -352,8 +352,19 @@ footer {
 
 }
 
-//      STRUCTURES
+@keyframes appear {
+    from {
+        opacity: 0;
+        //scale: 0.5;
+    }
 
+    to {
+        opacity: 1;
+        //scale: 1;
+    }
+}
+
+//      STRUCTURES
 .table-case {
     display: grid;
     padding: 8px;
@@ -512,18 +523,6 @@ footer {
     }
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        //scale: 0.5;
-    }
-
-    to {
-        opacity: 1;
-        //scale: 1;
-    }
-}
-
 .card {
     @include outline-dashed;
     padding: 8px;
@@ -641,7 +640,6 @@ footer {
     @include outline-hover;
 }
 
-
 .card-process {
     display: flex;
     flex-flow: row nowrap;
@@ -696,7 +694,7 @@ footer {
         align-items: stretch;
         justify-content: center;
 
-        .card-process-image {            
+        .card-process-image {
             order: 0;
             min-width: 100px;
             flex-grow: 0;
@@ -810,8 +808,8 @@ a.link {
         // others are hidden by default but appear on hover
         //&.icon-go-to,
         //&.icon-new-page{
-            //display: none;
-            visibility: hidden;
+        //display: none;
+        visibility: hidden;
         //}
     }
 
@@ -834,7 +832,7 @@ a.link {
         text-underline-offset: 4px;
     }
 
-    &:hover{
+    &:hover {
         color: $yellow110;
         fill: $yellow110;
         text-decoration: underline;
@@ -867,12 +865,40 @@ a.link {
             animation: bounce-right 0.8s infinite;
         }
 
-        .icon-new-page{
+        .icon-new-page {
             .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
             }
         }
     }
+}
+
+.tags {
+    height: auto;
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.diagram {
+    margin: 8px 0 32px 0;
+}
+
+figcaption,
+details summary {
+    color: $yellow080;
+}
+
+img {
+    border-radius: 2px;
+    width: 100%;
+    //display: block;
+    //overflow: hidden;
+    object-fit: fill;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
 }
 
 // TEXT STYLES
@@ -942,15 +968,13 @@ h5 {
         font-size: 32px;
         text-align: center;
         line-height: 40px;
-        
+
         @include tablet {
             line-height: 60px;
             font-size: 54px;
         }
     }
 }
-
-
 
 ul {
     margin: 0;
@@ -977,13 +1001,6 @@ ol {
 
 li {
     margin-left: 16px;
-}
-
-.tags {
-    height: auto;
-    width: 100%;
-    overflow-wrap: break-word;
-    text-align: center;
 }
 
 .tag {
@@ -1019,60 +1036,6 @@ details {
         margin: 0 0 0 20px;
     }
 }
-
-.diagram {
-    margin: 8px 0 32px 0;
-}
-
-figcaption,
-details summary {
-    color: $yellow080;
-}
-
-// @keyframes scale {
-//     from {
-//         transform: scale(1, 1.1);
-//     }
-
-//     to {
-//         transform: scale(1.1, 1);
-//     }
-// }
-
-// .pop {
-//     font-weight: 700;
-//     animation: scale 1s infinite;
-//     font-size: 72px;
-//     color: red;
-//     //text-shadow: 5px 5px 4px blue, 7px 7px 4px red, 9px 9px 4px rgb(30, 0, 255);
-//     /*background: -webkit-linear-gradient(#80FF9D, #8CF3FE, #FF30CB);
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent; */
-// }
-
-// .normal {
-//     font-weight: initial;
-//     font-size: initial;
-//     color: initial;
-// }
-
-// .red {
-//     color: red;
-// }
-
-
-img {
-    border-radius: 2px;
-    width: 100%;
-    //display: block;
-    //overflow: hidden;
-    object-fit: fill;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    overflow: hidden;
-}
-
 
 // VISUALS
 .wrapper-visual {

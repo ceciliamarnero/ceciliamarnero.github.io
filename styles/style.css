@@ -262,6 +262,14 @@ footer .heart {
     transform: translate(12%, -20%);
   }
 }
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .table-case {
   display: grid;
   padding: 8px;
@@ -388,14 +396,6 @@ footer .heart {
   }
 }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .card {
   border-radius: 1px;
   outline: 1px dashed hsla(40, 97%, 63%, 0.5);
@@ -702,6 +702,32 @@ a.link:hover .icon-new-page .icon-new-page-arrow {
   animation: bounce-out 0.8s infinite;
 }
 
+.tags {
+  height: auto;
+  width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.diagram {
+  margin: 8px 0 32px 0;
+}
+
+figcaption,
+details summary {
+  color: hsla(40, 97%, 63%, 0.8);
+}
+
+img {
+  border-radius: 2px;
+  width: 100%;
+  object-fit: fill;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
 h1 {
   height: 38px;
   margin: 0;
@@ -802,13 +828,6 @@ li {
   margin-left: 16px;
 }
 
-.tags {
-  height: auto;
-  width: 100%;
-  overflow-wrap: break-word;
-  text-align: center;
-}
-
 .tag {
   display: inline-block;
   white-space: nowrap;
@@ -836,25 +855,6 @@ strong {
 details p,
 details li {
   margin: 0 0 0 20px;
-}
-
-.diagram {
-  margin: 8px 0 32px 0;
-}
-
-figcaption,
-details summary {
-  color: hsla(40, 97%, 63%, 0.8);
-}
-
-img {
-  border-radius: 2px;
-  width: 100%;
-  object-fit: fill;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  overflow: hidden;
 }
 
 .wrapper-visual {

@@ -817,7 +817,6 @@ a.link {
     font-weight: 400;
 
     .icon-hidden {
-
         // some icons are hidden to every state, 
         // others are hidden but appear on hover
         .link-icon-right,
@@ -835,7 +834,7 @@ a.link {
         padding: 0;
     }
 
-    &.disabled {
+    &[disabled] {
         color: $yellow030;
         pointer-events: none;
     }

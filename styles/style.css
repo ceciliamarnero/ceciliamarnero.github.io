@@ -669,7 +669,7 @@ a.link.cta {
 a.link.inline {
   padding: 0;
 }
-a.link.disabled {
+a.link[disabled] {
   color: hsla(40, 97%, 63%, 0.3);
   pointer-events: none;
 }

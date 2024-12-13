@@ -81,7 +81,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    overflow-x: hidden;
+    //overflow-x: hidden;
     //@include border-test;
 }
 
@@ -121,6 +121,15 @@ section {
 
 }
 
+.wrapper-nav{
+    position: fixed;
+    width: 95%;
+    left: 50%; /* Start at the middle of the viewport */
+    transform: translateX(-50%);
+    @include border-dashed(0,0 ,1px , 0); 
+    background-color: rgba($color: $black, $alpha: .8);
+}
+
 nav {
     display: flex;
     flex-flow: row wrap;
@@ -128,7 +137,6 @@ nav {
     padding: 16px 0;
     fill: $yellow100;
     color: $yellow100;
-
     //    
     a.link-home {
         display: block;

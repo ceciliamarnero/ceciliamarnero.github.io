@@ -214,100 +214,101 @@ footer {
 
 .resume {
     padding: 8px;
-
-    .resume-top {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        column-gap: 4px;
-
-        .resume-left {
-            order: 1;
-            display: flex;
-            flex-flow: column nowrap;
-
-            .language-p,
-            .language-h4 {
-                margin: 0px;
-                display: inline-block;
-                width: 80px;
-            }
-
-            @include tablet {
-                flex-flow: row nowrap;
-                gap: 24px;
-            }
-
-            @include desktop() {
-                flex-flow: column nowrap;
-            }
-        }
-
-        .resume-right {
-            order: 0;
-        }
+    max-width: $max-text-width;
+    h3{
+        margin-bottom: 8px;
+    }
+    h4{
+        margin-bottom: 0;
     }
 
-    .wrapper-experience {
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 4px;
-        margin-bottom: 12px;
+    .wrapper-education, .wrapper-skill{
+        margin-bottom: 4px;
+    }
+
+    .wrapper-experience {        
+        column-gap: 4px;
+        margin-bottom: 16px;
 
         .wrapper-experience-header {
             min-width: 240px;
+
+            .experience-role {
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+
+            .experience-company {
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .experience-dates {
+                font-size: 14px;
+                font-weight: 300;
+                margin-bottom: 0;
+            }
+        }
+        ul {
+            margin-top: 0;
+        }
+    }
+    // educ + lang
+    .resume-small {
+        border: none;
+
+        .education {
+            max-width: 400px;
+        }
+
+        .languages {
+            width: 100%;
+
+            h3 {
+                margin-bottom: 8px;
+            }
+
+            .language-p,
+            .language-h4 {
+                margin-bottom: 4px;
+                margin-top: 0px;
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            .language-h4 {
+                min-width: 80px;
+            }
+
+        }
+    }
+    .jump-menu > .link > svg.icon-below {
+        display: none;
+    }
+
+    .resume-row {
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include tablet {
+            flex-flow: row nowrap;
+            column-gap: 32px;
+            justify-content: flex-start;
         }
     }
 
-    @include tablet() {
-        display: flex;
-        flex-flow: column nowrap;
+    @include tablet {
+        .resume-skills, .resume-small, .resume-experience{
+            margin-bottom: 16px;
+        }
         padding: 0;
-        max-width: $max-text-width;
+
+        .wrapper-experience>.wrapper-experience-header>.experience-role {
+            margin-bottom: 8px;        
+        }
 
         .jump-menu {
             display: none;
-        }
-
-        .resume-top {
-            border: none;
-            flex-flow: row nowrap;
-            gap: 16px;
-
-            // educ + lang
-            .resume-left {
-                display: flex;
-                flex-flow: column nowrap;
-                align-items: flex-start;
-                gap: 16px;
-                min-width: 240px;
-            }
-
-            //skills
-            .resume-right {
-                order: 1;
-            }
-        }
-
-        .wrapper-skill {
-            margin-bottom: 12px;
-        }
-
-        .wrapper-experience {
-            display: flex;
-            flex-flow: row nowrap;
-            column-gap: 4px;
-            margin-bottom: 12px;
-
-            .wrapper-experience-header {
-                min-width: 240px;
-            }
-        }
-    }
-
-    @include desktop() {
-        .resume-left {
-            min-width: 240px;
         }
     }
 }
@@ -1020,10 +1021,7 @@ li {
 
 }
 
-.experience-dates {
-    font-size: 14px;
-    font-weight: 300;
-}
+
 
 strong {
     font-weight: 500;

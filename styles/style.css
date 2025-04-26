@@ -153,88 +153,88 @@ footer .heart {
 
 .resume {
   padding: 8px;
+  max-width: 700px;
 }
-.resume .resume-top {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  column-gap: 4px;
+.resume h3 {
+  margin-bottom: 8px;
 }
-.resume .resume-top .resume-left {
-  order: 1;
-  display: flex;
-  flex-flow: column nowrap;
+.resume h4 {
+  margin-bottom: 0;
 }
-.resume .resume-top .resume-left .language-p,
-.resume .resume-top .resume-left .language-h4 {
-  margin: 0px;
-  display: inline-block;
-  width: 80px;
-}
-@media only screen and (min-width: 481px) {
-  .resume .resume-top .resume-left {
-    flex-flow: row nowrap;
-    gap: 24px;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .resume .resume-top .resume-left {
-    flex-flow: column nowrap;
-  }
-}
-.resume .resume-top .resume-right {
-  order: 0;
+.resume .wrapper-education, .resume .wrapper-skill {
+  margin-bottom: 4px;
 }
 .resume .wrapper-experience {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 4px;
-  margin-bottom: 12px;
+  column-gap: 4px;
+  margin-bottom: 16px;
 }
 .resume .wrapper-experience .wrapper-experience-header {
   min-width: 240px;
 }
+.resume .wrapper-experience .wrapper-experience-header .experience-role {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.resume .wrapper-experience .wrapper-experience-header .experience-company {
+  margin: 0;
+  font-size: 16px;
+}
+.resume .wrapper-experience .wrapper-experience-header .experience-dates {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.resume .wrapper-experience ul {
+  margin-top: 0;
+}
+.resume .resume-small {
+  border: none;
+}
+.resume .resume-small .education {
+  max-width: 400px;
+}
+.resume .resume-small .languages {
+  width: 100%;
+}
+.resume .resume-small .languages h3 {
+  margin-bottom: 8px;
+}
+.resume .resume-small .languages .language-p,
+.resume .resume-small .languages .language-h4 {
+  margin-bottom: 4px;
+  margin-top: 0px;
+  display: inline-block;
+  font-size: 14px;
+}
+.resume .resume-small .languages .language-h4 {
+  min-width: 80px;
+}
+.resume .jump-menu > .link > svg.icon-below {
+  display: none;
+}
+.resume .resume-row {
+  display: flex;
+  flex-flow: column nowrap;
+}
+@media only screen and (min-width: 481px) {
+  .resume .resume-row {
+    flex-flow: row nowrap;
+    column-gap: 32px;
+    justify-content: flex-start;
+  }
+}
 @media only screen and (min-width: 481px) {
   .resume {
-    display: flex;
-    flex-flow: column nowrap;
     padding: 0;
-    max-width: 700px;
+  }
+  .resume .resume-skills, .resume .resume-small, .resume .resume-experience {
+    margin-bottom: 16px;
+  }
+  .resume .wrapper-experience > .wrapper-experience-header > .experience-role {
+    margin-bottom: 8px;
   }
   .resume .jump-menu {
     display: none;
-  }
-  .resume .resume-top {
-    border: none;
-    flex-flow: row nowrap;
-    gap: 16px;
-  }
-  .resume .resume-top .resume-left {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    gap: 16px;
-    min-width: 240px;
-  }
-  .resume .resume-top .resume-right {
-    order: 1;
-  }
-  .resume .wrapper-skill {
-    margin-bottom: 12px;
-  }
-  .resume .wrapper-experience {
-    display: flex;
-    flex-flow: row nowrap;
-    column-gap: 4px;
-    margin-bottom: 12px;
-  }
-  .resume .wrapper-experience .wrapper-experience-header {
-    min-width: 240px;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .resume .resume-left {
-    min-width: 240px;
   }
 }
 
@@ -841,11 +841,6 @@ li {
 .tag:before {
   content: "#";
   margin: 0;
-}
-
-.experience-dates {
-  font-size: 14px;
-  font-weight: 300;
 }
 
 strong {

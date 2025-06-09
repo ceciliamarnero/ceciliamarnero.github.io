@@ -1490,3 +1490,57 @@ details {
 
     }
 }
+.case-study{
+    h3{
+        padding: 40px 0 16px 0;
+    }
+    h4{
+        margin: 24px 0 8px 0;
+    }
+}
+
+
+.wrapper-grid{
+    width: 80%;
+}
+.grid{
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows: auto auto;
+
+    a{
+        padding: 0px;
+    }
+
+    h3{
+        padding-bottom: 16px;
+    }
+
+    ol{
+        margin: 0;
+    }
+    #short-brief{
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    #short-findings{
+        grid-column-start: 2;
+    }
+    #short-results{
+        border: 1px solid red;
+        grid-column-start: 3;
+        grid-row-start: 1;
+        grid-row-end: -1;
+    }
+    #short-solution{
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end:   2;        
+    }
+    #short-takeaways{
+        grid-row-start: 2;
+        grid-column-start: 2;
+    }
+}

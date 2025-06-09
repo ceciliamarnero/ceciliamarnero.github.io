@@ -1212,4 +1212,54 @@ details li {
   height: auto;
 }
 
+.case-study h3 {
+  padding: 40px 0 16px 0;
+}
+.case-study h4 {
+  margin: 24px 0 8px 0;
+}
+
+.wrapper-grid {
+  width: 80%;
+}
+
+.grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 25% 25% 50%;
+  grid-template-rows: auto auto;
+}
+.grid a {
+  padding: 0px;
+}
+.grid h3 {
+  padding-bottom: 16px;
+}
+.grid ol {
+  margin: 0;
+}
+.grid #short-brief {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.grid #short-findings {
+  grid-column-start: 2;
+}
+.grid #short-results {
+  border: 1px solid red;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+.grid #short-solution {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.grid #short-takeaways {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
 /*# sourceMappingURL=style.css.map */

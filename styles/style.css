@@ -31,7 +31,7 @@ body {
 }
 
 section {
-  color: hsla(40, 97%, 63%, 0.5);
+  color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -100,7 +100,7 @@ nav .nav-nav {
   padding-bottom: 8px;
 }
 .jump-menu:not(.no-border) {
-  color: hsla(40, 97%, 63%, 0.5);
+  color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 0;
@@ -132,7 +132,7 @@ footer {
   padding: 16px 8px;
   margin-top: 40px;
   text-align: center;
-  color: hsla(40, 97%, 63%, 0.5);
+  color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -157,7 +157,8 @@ footer .heart {
 .resume h4 {
   margin-bottom: 0;
 }
-.resume .wrapper-education, .resume .wrapper-skill {
+.resume .wrapper-education,
+.resume .wrapper-skill {
   margin-bottom: 4px;
 }
 .resume .wrapper-experience {
@@ -223,7 +224,9 @@ footer .heart {
   .resume {
     padding: 0;
   }
-  .resume .resume-skills, .resume .resume-small, .resume .resume-experience {
+  .resume .resume-skills,
+  .resume .resume-small,
+  .resume .resume-experience {
     margin-bottom: 16px;
   }
   .resume .wrapper-experience > .wrapper-experience-header > .experience-role {
@@ -269,7 +272,7 @@ footer .heart {
 .table-case {
   display: grid;
   padding: 8px;
-  color: hsla(40, 97%, 63%, 0.5);
+  color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -560,7 +563,7 @@ header.no-tag p.tag {
 }
 
 .wrapper-border {
-  color: hsla(40, 97%, 63%, 0.5);
+  color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -1215,75 +1218,102 @@ details li {
   margin: 24px 0 8px 0;
 }
 
-.block-grid {
+.cell {
+  color: hsla(40, 97%, 63%, 0.3);
+  border-radius: 1px;
+  border-style: dashed;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
   display: flex;
-  padding: 24px;
   flex-direction: column;
-  align-content: center;
   justify-content: space-between;
-}
-.block-grid#contact {
-  justify-content: center;
-}
-.block-grid .wrapper-text {
+  align-items: center;
+  margin: 0;
+  padding: 40px 32px;
+  width: 100%;
   height: 100%;
 }
-
-.grid-landing {
-  display: grid;
-  grid-template-columns: 44% 28% 28%;
-  grid-template-rows: 300px 240px;
+.cell h2,
+.cell h4 {
+  text-align: center;
+  margin-bottom: 12px;
 }
-.grid-landing #portfolio {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-.grid-landing #short-resume {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-.grid-landing #short-about-me {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-.grid-landing #contact {
-  grid-column-start: 2;
-  grid-column-end: -1;
-  grid-row-start: 2;
-  grid-row-end: 3;
+.cell ul,
+.cell ol,
+.cell a {
+  margin: 0;
+  padding: 0;
 }
 
-.grid-casestudy {
-  display: grid;
-  width: 80%;
-  gap: 40px;
-  grid-template-columns: 25% 25% 50%;
-  grid-template-rows: auto auto;
+.landing-grid {
+  display: flex;
+  flex-direction: column;
 }
-.grid-casestudy #short-brief {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 2;
+.landing-grid #portfolio {
+  grid-area: portfolio;
 }
-.grid-casestudy #short-findings {
-  grid-column-start: 2;
+.landing-grid #short-resume {
+  grid-area: career;
 }
-.grid-casestudy #short-results {
-  border: 1px solid red;
-  grid-column-start: 3;
-  grid-row-start: 1;
-  grid-row-end: -1;
+.landing-grid #short-about-me {
+  grid-area: aboutme;
 }
-.grid-casestudy #short-solution {
-  grid-row-start: 2;
-  grid-column-start: 1;
-  grid-column-end: 2;
+.landing-grid #contact {
+  grid-area: contact;
 }
-.grid-casestudy #short-takeaways {
-  grid-row-start: 2;
-  grid-column-start: 2;
+@media only screen and (min-width: 481px) {
+  .landing-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 600px 260px 260px;
+    grid-template-areas: "portfolio portfolio" "career aboutme" "contact contact";
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .landing-grid {
+    grid-template-columns: 44% 28% 28%;
+    grid-template-rows: 360px 240px;
+    grid-template-areas: "portfolio career aboutme" "portfolio contact contact";
+  }
+}
+
+.casestudy-grid {
+  display: flex;
+  flex-direction: column;
+}
+.casestudy-grid #short-brief {
+  grid-area: brief;
+}
+.casestudy-grid #short-findings {
+  grid-area: findings;
+}
+.casestudy-grid #short-results {
+  grid-area: results;
+}
+.casestudy-grid #short-solution {
+  grid-area: solution;
+}
+.casestudy-grid #short-takeaways {
+  grid-area: takeaways;
+}
+@media only screen and (min-width: 481px) {
+  .casestudy-grid {
+    display: grid;
+    column-gap: 0;
+    width: 90%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "brief findings" "solution takeaways" "results results";
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .casestudy-grid {
+    grid-template-columns: 30% 30% 40%;
+    grid-template-rows: 380px 380px;
+    grid-template-areas: "brief findings results" "solution takeaways results";
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

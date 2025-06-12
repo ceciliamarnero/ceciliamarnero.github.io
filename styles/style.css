@@ -39,6 +39,7 @@ section {
   border-bottom-width: 1px;
   border-left-width: 1px;
   row-gap: 8px;
+  padding: 32px 0px;
 }
 section .hero .name {
   background-color: #fcbf45;
@@ -1222,6 +1223,9 @@ details li {
 .cell#portfolio {
   justify-content: flex-start;
 }
+.cell#contact {
+  justify-content: center;
+}
 .cell h2 {
   text-align: center;
   margin-bottom: 8px;
@@ -1312,9 +1316,11 @@ details li {
 }
 
 .hero-intro {
-  padding: 32px 16px;
   display: flex;
   flex-direction: column;
+}
+.hero-intro h2 {
+  font-size: 48px;
 }
 .hero-intro .slogan {
   font-size: 32px;

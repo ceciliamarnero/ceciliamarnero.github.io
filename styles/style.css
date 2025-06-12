@@ -39,13 +39,10 @@ section {
   border-bottom-width: 1px;
   border-left-width: 1px;
   row-gap: 8px;
-  padding: 16px 0px;
-}
-section .hero {
-  padding: 60px;
 }
 section .hero .name {
   background-color: #fcbf45;
+  font-weight: 600;
   color: #010101;
   padding: 0 4px;
 }
@@ -130,15 +127,7 @@ nav .nav-nav {
 footer {
   max-width: 100%;
   padding: 16px 8px;
-  margin-top: 40px;
   text-align: center;
-  color: hsla(40, 97%, 63%, 0.3);
-  border-radius: 1px;
-  border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
 }
 footer .heart {
   display: inline;
@@ -269,8 +258,9 @@ footer .heart {
     opacity: 1;
   }
 }
-.table-case {
+.overview-grid {
   display: grid;
+  flex-direction: column;
   padding: 8px;
   color: hsla(40, 97%, 63%, 0.3);
   border-radius: 1px;
@@ -284,68 +274,65 @@ footer .heart {
   grid-template-columns: auto;
   grid-template-areas: "label-client" "data-client" "label-role" "data-role" "label-team" "data-team" "label-skills1" "data-skills1" "label-skills2" "data-skills2" "label-tools" "data-tools";
 }
-.table-case p.data {
+.overview-grid p.data {
   line-height: 150%;
   margin: 0;
   width: 100%;
   overflow-wrap: break-word;
 }
-.table-case p.label {
+.overview-grid p.label {
   line-height: 100%;
   margin: 12px 0 2px 0;
   color: #fcbf45;
   width: 100%;
 }
-.table-case .label-client {
+.overview-grid .label-client {
   grid-area: label-client;
 }
-.table-case .data-client {
+.overview-grid .data-client {
   grid-area: data-client;
 }
-.table-case .label-role {
+.overview-grid .label-role {
   grid-area: label-role;
 }
-.table-case .data-role {
+.overview-grid .data-role {
   grid-area: data-role;
 }
-.table-case .label-team {
+.overview-grid .label-team {
   grid-area: label-team;
 }
-.table-case .data-team {
+.overview-grid .data-team {
   grid-area: data-team;
 }
-.table-case .label-skills1 {
+.overview-grid .label-skills1 {
   grid-area: label-skills1;
 }
-.table-case .data-skills1 {
+.overview-grid .data-skills1 {
   grid-area: data-skills1;
 }
-.table-case .label-skills2 {
+.overview-grid .label-skills2 {
   grid-area: label-skills2;
 }
-.table-case .data-skills2 {
+.overview-grid .data-skills2 {
   grid-area: data-skills2;
 }
-.table-case .label-tools {
+.overview-grid .label-tools {
   grid-area: label-tools;
 }
-.table-case .data-tools {
+.overview-grid .data-tools {
   grid-area: data-tools;
 }
 @media only screen and (min-width: 481px) {
-  .table-case {
-    width: 80%;
+  .overview-grid {
     column-gap: 8px;
-    margin: auto;
-    margin-top: 0;
-    margin-bottom: 48px;
+    margin: 0 0 16px 0;
     padding: 4px 16px 16px 16px;
     grid-template-columns: 49% 49%;
-    grid-template-areas: "label-client label-role" "data-client data-role" "label-team label-skills1" "data-team data-skills1" "label-skills2 label-tools" "data-skills2 data-tools";
+    grid-template-areas: "label-client label-role" "data-client data-role" "label-team label-tools" "data-team data-tools" "label-skills1 label-skills2" "data-skills1 data-skills2";
   }
 }
 @media only screen and (min-width: 1400px) {
-  .table-case {
+  .overview-grid {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: "label-client label-role label-team" "data-client data-role data-team" "label-skills1 label-skills2 label-tools" "data-skills1 data-skills2 data-tools";
@@ -779,7 +766,7 @@ h5 {
 }
 .hero-intro strong.highlight {
   color: #fcbf45;
-  font-weight: 500;
+  font-weight: 600;
 }
 .hero-intro p {
   color: #f9f9f9;
@@ -1231,14 +1218,17 @@ details li {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 40px 32px;
+  padding: 32px;
   width: 100%;
   height: 100%;
 }
-.cell h2,
+.cell h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
 .cell h4 {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 .cell ul,
 .cell ol,
@@ -1273,8 +1263,8 @@ details li {
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
-    grid-template-columns: 44% 28% 28%;
-    grid-template-rows: 360px 240px;
+    grid-template-columns: 40% 30% 30%;
+    grid-template-rows: auto auto;
     grid-template-areas: "portfolio career aboutme" "portfolio contact contact";
   }
 }
@@ -1302,7 +1292,7 @@ details li {
   .casestudy-grid {
     display: grid;
     column-gap: 0;
-    width: 90%;
+    width: 100%;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto auto;
     grid-template-areas: "brief findings" "solution takeaways" "results results";
@@ -1311,9 +1301,23 @@ details li {
 @media only screen and (min-width: 1400px) {
   .casestudy-grid {
     grid-template-columns: 30% 30% 40%;
-    grid-template-rows: 380px 380px;
+    grid-template-rows: 440px 440px;
     grid-template-areas: "brief findings results" "solution takeaways results";
   }
+}
+
+.overview-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-intro {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-intro .slogan {
+  font-size: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

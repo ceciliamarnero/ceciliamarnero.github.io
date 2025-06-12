@@ -98,13 +98,15 @@ body {
 section {
     @include border-dashed(1px, 1px, 1px, 1px);
     row-gap: 8px;
-    padding: 16px 0px;
+    //padding: 16px 0px;
 
     .hero {
-        padding: 60px;
+        //padding: 60px;
+        //background-color: $yellow100;
 
         .name {
             background-color: $yellow100;
+            font-weight: 600;
             color: #010101;
             padding: 0 4px;
         }
@@ -195,9 +197,9 @@ nav {
 footer {
     max-width: 100%;
     padding: 16px 8px;
-    margin-top: 40px;
+    //margin-top: 40px;
     text-align: center;
-    @include border-dashed (1px, 0, 0, 0);
+    //@include border-dashed (1px, 0, 0, 0);
 
     .heart {
         display: inline;
@@ -371,8 +373,10 @@ footer {
 }
 
 //      STRUCTURES
-.table-case {
+.overview-grid {
     display: grid;
+    //display: flex;
+    flex-direction: column;
     padding: 8px;
     @include border-dashed(1px, 1px, 1px, 1px);
     width: 100%;
@@ -456,11 +460,9 @@ footer {
     }
 
     @include tablet() {
-        width: 80%;
+        //width: 80%;
         column-gap: 8px;
-        margin: auto;
-        margin-top: 0;
-        margin-bottom: 48px;
+        margin: 0 0 16px 0;
         //4 to compensate padding of labels at the first row
         padding: 4px 16px 16px 16px;
         //padding: 16px;
@@ -469,10 +471,10 @@ footer {
         grid-template-areas:
             "label-client label-role"
             "data-client data-role"
-            "label-team label-skills1"
-            "data-team data-skills1"
-            "label-skills2 label-tools"
-            "data-skills2 data-tools";
+            "label-team label-tools"
+            "data-team data-tools"
+            "label-skills1 label-skills2"
+            "data-skills1 data-skills2";
     }
 
     @include desktop() {
@@ -957,7 +959,7 @@ h5 {
 
     strong.highlight {
         color: $yellow100;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     p {
@@ -1018,8 +1020,6 @@ li {
     }
 
 }
-
-
 
 strong {
     font-weight: 500;
@@ -1508,6 +1508,8 @@ details {
 }
 
 
+// GRIDS
+
 .cell {
     @include border-dashed(1px, 1px, 1px, 1px);
     display: flex;
@@ -1515,14 +1517,17 @@ details {
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 40px 32px;
+    padding: 32px;
     width: 100%;
     height: 100%;
 
-    h2,
+    h2{
+        text-align: center;
+        margin-bottom: 8px;
+    }
     h4 {
         text-align: center;
-        margin-bottom: 12px;
+        margin-bottom: 4px;
     }
 
     ul,
@@ -1531,6 +1536,8 @@ details {
         margin: 0;
         padding: 0;
     }
+
+    
 }
 
 .landing-grid {
@@ -1563,8 +1570,8 @@ details {
     }
 
     @include desktop {
-        grid-template-columns: 44% 28% 28%;
-        grid-template-rows: 360px 240px;
+        grid-template-columns: 40% 30% 30%;
+        grid-template-rows: auto auto;
         grid-template-areas: "portfolio career aboutme"
             "portfolio contact contact";
     }
@@ -1598,7 +1605,9 @@ details {
     @include tablet {
         display: grid;
         column-gap: 0;
-        width: 90%;
+        //width: 90%;
+        width: 100%;
+
         grid-template-columns: 50% 50%;
         grid-template-rows: auto auto auto;
         grid-template-areas: "brief findings"
@@ -1608,8 +1617,24 @@ details {
 
     @include desktop {
         grid-template-columns: 30% 30% 40%;
-        grid-template-rows: 380px 380px;
-        grid-template-areas: "brief findings results"
+        grid-template-rows: 440px 440px;
+        grid-template-areas: "brief findings results" 
             "solution takeaways results";
+    }
+}
+
+.overview-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-intro{
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    //gap: 12px;
+
+    .slogan{
+        font-size: 32px;
     }
 }

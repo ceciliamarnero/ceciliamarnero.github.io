@@ -521,12 +521,12 @@ footer {
     flex-flow: column wrap;
     justify-content: flex-start;
     align-content: center;
-    gap: 16px;
+    gap: 24px;
     padding: 4px;
 
     @include tablet {
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: center;
     }
 }
 

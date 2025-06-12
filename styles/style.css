@@ -371,14 +371,13 @@ footer .heart {
   flex-flow: column wrap;
   justify-content: flex-start;
   align-content: center;
-  margin: 4px auto;
   gap: 16px;
-  width: 95%;
+  padding: 4px;
 }
 @media only screen and (min-width: 481px) {
   .gallery {
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
@@ -386,7 +385,7 @@ footer .heart {
   border-radius: 1px;
   outline: 1px dashed hsla(40, 97%, 63%, 0.5);
   outline-offset: 4px;
-  padding: 8px;
+  padding: 4px;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
@@ -401,15 +400,20 @@ footer .heart {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-bottom: 4px;
 }
 .card .card-top h3.card-title {
   color: #f9f9f9;
+  font-size: 16px;
   padding: 0;
+  margin: 4px;
 }
 .card .card-top .tags {
   margin: 0;
+}
+.card .card-top .tags .tag {
+  font-size: 12px;
 }
 .card .card-image {
   height: 160px;
@@ -429,8 +433,8 @@ footer .heart {
 .card .card-bottom .card-details {
   overflow-wrap: break-word;
   width: 100%;
-  min-height: 60px;
-  margin: 8px 0;
+  min-height: 40px;
+  margin: 4px 0;
 }
 .card .card-bottom .card-button {
   margin: 0 auto;
@@ -438,31 +442,30 @@ footer .heart {
 }
 @media only screen and (min-width: 481px) {
   .card {
-    max-width: 280px;
+    max-width: 220px;
     width: 100%;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0;
   }
   .card .card-top {
-    height: 80px;
+    height: 60px;
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-    justify-content: center;
   }
   .card .card-top h3.card-title {
     width: 100%;
     height: auto;
-    margin: 0;
     padding: 0;
     text-align: left;
   }
   .card .card-top .tags {
+    line-height: 12px;
     text-align: left;
   }
   .card .card-image {
-    height: 240px;
+    height: 100px;
     width: 100%;
     flex-grow: 1;
   }
@@ -472,12 +475,6 @@ footer .heart {
     align-items: center;
     justify-content: space-between;
   }
-}
-
-.card:hover {
-  border-radius: 1px;
-  outline: 1px solid #f9f9f9;
-  outline-offset: 4px;
 }
 
 .card-process {
@@ -1222,6 +1219,9 @@ details li {
   width: 100%;
   height: 100%;
 }
+.cell#portfolio {
+  justify-content: flex-start;
+}
 .cell h2 {
   text-align: center;
   margin-bottom: 8px;
@@ -1256,14 +1256,14 @@ details li {
 @media only screen and (min-width: 481px) {
   .landing-grid {
     display: grid;
+    grid-template-rows: auto auto auto;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 600px 260px 260px;
     grid-template-areas: "portfolio portfolio" "career aboutme" "contact contact";
   }
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
-    grid-template-columns: 40% 30% 30%;
+    grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: auto auto;
     grid-template-areas: "portfolio career aboutme" "portfolio contact contact";
   }

@@ -521,19 +521,18 @@ footer {
     flex-flow: column wrap;
     justify-content: flex-start;
     align-content: center;
-    margin: 4px auto;
     gap: 16px;
-    width: 95%;
+    padding: 4px;
 
     @include tablet {
         flex-flow: row wrap;
-        justify-content: center;
+        justify-content: space-between;
     }
 }
 
 .card {
     @include outline-dashed;
-    padding: 8px;
+    padding: 4px;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
@@ -549,16 +548,21 @@ footer {
         display: flex;
         flex-flow: column nowrap;
         align-items: stretch;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding-bottom: 4px;
 
         h3.card-title {
             color: $white000;
+            font-size: 16px;
             padding: 0;
+            margin: 4px;
         }
 
         .tags {
             margin: 0;
+            .tag {
+                font-size: 12px;
+            }
         }
     }
 
@@ -582,8 +586,8 @@ footer {
         .card-details {
             overflow-wrap: break-word;
             width: 100%;
-            min-height: 60px;
-            margin: 8px 0;
+            min-height: 40px;
+            margin: 4px 0;
         }
 
         .card-button {
@@ -593,7 +597,7 @@ footer {
     }
 
     @include tablet {
-        max-width: 280px;
+        max-width: 220px;
         width: 100%;
 
         animation: appear linear;
@@ -601,33 +605,31 @@ footer {
         animation-range: entry 0;
 
         .card-top {
-            height: 80px;
+            height: 60px;
             display: flex;
             flex-flow: column nowrap;
-            align-items: stretch;
-            justify-content: center;
+            align-items: stretch;            
 
             h3.card-title {
                 width: 100%;
                 height: auto;
-                margin: 0;
                 padding: 0;
                 text-align: left;
             }
 
             .tags {
+                line-height: 12px;
                 text-align: left;
             }
         }
 
         .card-image {
-            height: 240px;
+            height: 100px;
             width: 100%;
             flex-grow: 1;
         }
 
         .card-bottom {
-
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
@@ -637,9 +639,9 @@ footer {
 
 }
 
-.card:hover {
-    @include outline-hover;
-}
+//.card:hover {
+//    @include outline-hover;
+//}
 
 .card-process {
     display: flex;
@@ -1516,6 +1518,11 @@ details {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    &#portfolio{
+        justify-content: flex-start;
+    }
+
     margin: 0;
     padding: 32px;
     width: 100%;
@@ -1562,15 +1569,15 @@ details {
 
     @include tablet {
         display: grid;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 600px 260px 260px;
         grid-template-areas: "portfolio portfolio"
             "career aboutme"
             "contact contact";
     }
 
     @include desktop {
-        grid-template-columns: 40% 30% 30%;
+        grid-template-columns: 2fr 1fr 1fr;
         grid-template-rows: auto auto;
         grid-template-areas: "portfolio career aboutme"
             "portfolio contact contact";

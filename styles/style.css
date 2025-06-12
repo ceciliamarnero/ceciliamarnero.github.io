@@ -41,12 +41,6 @@ section {
   row-gap: 8px;
   padding: 32px 0px;
 }
-section .hero .name {
-  background-color: #fcbf45;
-  font-weight: 600;
-  color: #010101;
-  padding: 0 4px;
-}
 @media only screen and (min-width: 481px) {
   section {
     row-gap: 16px;
@@ -759,22 +753,28 @@ h5 {
   color: #fcbf45;
 }
 
-.hero-intro {
+#hero {
   margin: auto;
 }
-.hero-intro strong.highlight {
+#hero strong.highlight {
   color: #fcbf45;
   font-weight: 600;
 }
-.hero-intro p {
+#hero h2 {
   color: #f9f9f9;
   margin: 0;
   font-size: 32px;
   text-align: center;
   line-height: 40px;
 }
+#hero h2 .name {
+  background-color: #fcbf45;
+  font-weight: 600;
+  color: #010101;
+  padding: 0 4px;
+}
 @media only screen and (min-width: 481px) {
-  .hero-intro p {
+  #hero h2 {
     line-height: 60px;
     font-size: 54px;
   }
@@ -1245,6 +1245,9 @@ details li {
   display: flex;
   flex-direction: column;
 }
+.landing-grid #hero {
+  grid-area: hero;
+}
 .landing-grid #portfolio {
   grid-area: portfolio;
 }
@@ -1262,14 +1265,14 @@ details li {
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "portfolio portfolio" "career aboutme" "contact contact";
+    grid-template-areas: "hero hero" "portfolio portfolio" "career aboutme" "contact contact";
   }
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "portfolio career aboutme" "portfolio contact contact";
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "hero hero hero" "portfolio career aboutme" "portfolio contact contact";
   }
 }
 
@@ -1313,17 +1316,6 @@ details li {
 .overview-flex {
   display: flex;
   flex-direction: column;
-}
-
-.hero-intro {
-  display: flex;
-  flex-direction: column;
-}
-.hero-intro h2 {
-  font-size: 48px;
-}
-.hero-intro .slogan {
-  font-size: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -100,17 +100,8 @@ section {
     row-gap: 8px;
     padding: 32px 0px;
 
-    .hero {
-        //padding: 60px;
-        //background-color: $yellow100;
-
-        .name {
-            background-color: $yellow100;
-            font-weight: 600;
-            color: #010101;
-            padding: 0 4px;
-        }
-    }
+    
+    
 
     @include tablet {
         row-gap: 16px;
@@ -956,7 +947,7 @@ h5 {
     color: $yellow100;
 }
 
-.hero-intro {
+#hero {
     margin: auto;
 
     strong.highlight {
@@ -964,12 +955,18 @@ h5 {
         font-weight: 600;
     }
 
-    p {
+    h2 {
         color: $white000;
         margin: 0;
         font-size: 32px;
         text-align: center;
         line-height: 40px;
+        & .name {
+            background-color: $yellow100;
+            font-weight: 600;
+            color: #010101;
+            padding: 0 4px;
+        }
 
         @include tablet {
             line-height: 60px;
@@ -1510,7 +1507,6 @@ details {
 
 
 // GRIDS
-
 .cell {
     @include border-dashed(1px, 1px, 1px, 1px);
     display: flex;
@@ -1524,7 +1520,6 @@ details {
     &#contact{
         justify-content: center;
     }
-
 
     margin: 0;
     padding: 32px;
@@ -1545,15 +1540,16 @@ details {
     a {
         margin: 0;
         padding: 0;
-    }
-
-    
+    }    
 }
 
 .landing-grid {
     display: flex;
     flex-direction: column;
 
+    #hero {
+        grid-area: hero;
+    }
     #portfolio {
         grid-area: portfolio;
     }
@@ -1574,15 +1570,17 @@ details {
         display: grid;
         grid-template-rows: auto auto auto;
         grid-template-columns: 50% 50%;
-        grid-template-areas: "portfolio portfolio"
+        grid-template-areas: "hero hero"
+        "portfolio portfolio"
             "career aboutme"
             "contact contact";
     }
 
     @include desktop {
         grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: "portfolio career aboutme"
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "hero hero hero"
+        "portfolio career aboutme"
             "portfolio contact contact";
     }
 
@@ -1615,7 +1613,6 @@ details {
     @include tablet {
         display: grid;
         column-gap: 0;
-        //width: 90%;
         width: 100%;
 
         grid-template-columns: 50% 50%;
@@ -1636,16 +1633,4 @@ details {
 .overview-flex{
     display: flex;
     flex-direction: column;
-}
-
-.hero-intro{
-    display: flex;
-    flex-direction: column;
-    
-    h2{
-        font-size: 48px;
-    }
-    .slogan{
-        font-size: 32px;
-    }
 }

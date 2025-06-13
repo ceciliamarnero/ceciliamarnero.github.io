@@ -100,9 +100,6 @@ section {
     row-gap: 8px;
     padding: 32px 0px;
 
-    
-    
-
     @include tablet {
         row-gap: 16px;
     }
@@ -800,11 +797,7 @@ a.link {
     .hidden {
         // some icons are hidden at every state, 
         // others are hidden by default but appear on hover
-        //&.icon-go-to,
-        //&.icon-new-page{
-        //display: none;
         visibility: hidden;
-        //}
     }
 
     &.cta {

@@ -756,7 +756,7 @@ h5 {
 #hero {
   margin: auto;
 }
-#hero strong.highlight {
+#hero .highlight {
   color: #fcbf45;
   font-weight: 500;
   letter-spacing: 2px;

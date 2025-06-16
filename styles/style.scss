@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Be Vietnam Pro:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 
 *::after,
 *,
@@ -11,13 +13,21 @@
 // NUMERIC VALUES
 $max-text-width : 700px;
 // COLORS
+/* $yellow020: hsla(40, 97%, 63%, 0.20);
 $yellow030: hsla(40, 97%, 63%, 0.30);
 $yellow050: hsla(40, 97%, 63%, 0.50);
 $yellow080: hsla(40, 97%, 63%, 0.80);
 $yellow100: #fcbf45;
-$yellow110: #fae3b6;
+ */
+$yellow020: rgba(228, 228, 10, 0.2);
+$yellow030: rgba(228, 228, 10, 0.3);
+$yellow050: rgba(228, 228, 10, 0.5);
+$yellow080: rgba(228, 228, 10, 0.8);
+$yellow100: rgb(228, 228, 10);
+$yellow110: rgb(255, 255, 183);
+$pink000:#FC3B9C;
 $white000: #f9f9f9;
-$black: #010101;
+$black: #212121;
 
 // DIMENSIONS
 @mixin mobile {
@@ -51,14 +61,14 @@ $black: #010101;
     outline-offset: 4px;
 }
 
-@mixin border-dashed ($border1, $border2, $border3, $border4) {
-    color: $yellow030;
+@mixin border-dashed ($borderWidth, $color) {
+    color: $color;
     border-radius: 1px;
     border-style: dashed;
-    border-top-width: $border1;
-    border-right-width: $border2;
-    border-bottom-width: $border3;
-    border-left-width: $border4;
+    border-top-width: $borderWidth;
+    border-right-width: $borderWidth;
+    border-bottom-width: $borderWidth;
+    border-left-width: $borderWidth;
 }
 
 @mixin border-test {
@@ -73,7 +83,7 @@ $black: #010101;
 //////////////////////
 html,
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-weight: 300;
     background-color: black;
     color: $white000;
@@ -96,7 +106,7 @@ body {
 }
 
 section {
-    @include border-dashed(1px, 1px, 1px, 1px);
+    @include border-dashed(1px, $yellow030);
     row-gap: 8px;
     padding: 32px 0px;
 
@@ -158,7 +168,7 @@ nav {
     padding-bottom: 8px;
 
     &:not(.no-border) {
-        @include border-dashed (0, 0, 1px, 0);
+        @include border-dashed(1px, $yellow030);
     }
 
     .link {
@@ -185,15 +195,20 @@ nav {
 footer {
     max-width: 100%;
     padding: 16px 8px;
-    //margin-top: 40px;
     text-align: center;
-    //@include border-dashed (1px, 0, 0, 0);
-
+    .mate{
+        width: 12px;
+        display: inline;
+        margin-right: 4px;
+    }
     .heart {
         display: inline;
         margin-right: 4px;
         height: 100%;
         width: auto;
+    }
+    .link.inline{
+        color:$pink000;
     }
 }
 
@@ -201,17 +216,13 @@ footer {
     padding: 8px;
     max-width: $max-text-width;
 
-    h3 {
-        margin-bottom: 8px;
-    }
-
     h4 {
         margin-bottom: 0;
     }
 
     .wrapper-education,
     .wrapper-skill {
-        margin-bottom: 4px;
+        margin-bottom: 12px;
     }
 
     .wrapper-experience {
@@ -254,10 +265,6 @@ footer {
         .languages {
             width: 100%;
 
-            h3 {
-                margin-bottom: 8px;
-            }
-
             .language-p,
             .language-h4 {
                 margin-bottom: 4px;
@@ -293,7 +300,7 @@ footer {
         .resume-skills,
         .resume-small,
         .resume-experience {
-            margin-bottom: 16px;
+            margin-bottom: 32px;
         }
 
         padding: 0;
@@ -366,7 +373,7 @@ footer {
     //display: flex;
     flex-direction: column;
     padding: 8px;
-    @include border-dashed(1px, 1px, 1px, 1px);
+    @include border-dashed(1px, $yellow030);
     width: 100%;
     max-width: $max-text-width;
 
@@ -519,8 +526,9 @@ footer {
 }
 
 .card {
-    @include outline-dashed;
-    padding: 4px;
+    @include border-dashed(1px,$yellow030);
+    padding: 12px;
+    border-radius: 2xp;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
@@ -538,98 +546,80 @@ footer {
         align-items: stretch;
         justify-content: flex-start;
         padding-bottom: 4px;
+        gap: 4px;
 
         h3.card-title {
             color: $white000;
             font-size: 16px;
             padding: 0;
-            margin: 4px;
+            margin: 4px 0;
+            text-align: left;
+            width: 100%;
+            height: auto;
+            padding: 0;
         }
-
         .tags {
+            text-align: left;
             margin: 0;
+            line-height: 12px;
+
             .tag {
                 font-size: 12px;
             }
         }
-    }
-
-    .card-image {
-        height: 160px;
-        width: 100%;
-        overflow: hidden;
-        border: .5px solid $yellow030;
-
-        img {
+        .card-image {
+            height: 140px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            overflow: hidden;
+            border: .5px solid $yellow030;
+
+            img {
+                //width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
-    }
-
-    .card-bottom {
-        width: 100%;
-
         .card-details {
+            text-align: left;
             overflow-wrap: break-word;
             width: 100%;
             min-height: 40px;
             margin: 4px 0;
         }
+    }
 
-        .card-button {
-            margin: 0 auto;
-            padding: 8px 0;
-        }
+    .card-button {
+        margin: 0 auto;
+        padding: 8px 0;
     }
 
     @include tablet {
-        max-width: 220px;
+        max-width: 260px;
         width: 100%;
-
+        justify-content: space-between;
         animation: appear linear;
         animation-timeline: view();
         animation-range: entry 0;
 
         .card-top {
-            height: 60px;
             display: flex;
             flex-flow: column nowrap;
-            align-items: stretch;            
-
+            align-items: stretch;
+            justify-content: flex-start;            
             h3.card-title {
-                width: 100%;
-                height: auto;
-                padding: 0;
-                text-align: left;
+                height: 40px;
             }
-
             .tags {
-                line-height: 12px;
-                text-align: left;
+                height: 36px;
             }
-        }
-
-        .card-image {
-            height: 100px;
-            width: 100%;
-            flex-grow: 1;
-        }
-
-        .card-bottom {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            justify-content: space-between;
+            .card-details {
+                height: 60px;
+            }
         }
     }
 
 }
-
-//.card:hover {
-//    @include outline-hover;
-//}
 
 .card-process {
     display: flex;
@@ -713,7 +703,7 @@ header {
 
 // WRAPPERS 
 .wrapper-border {
-    @include border-dashed (1px, 1px, 1px, 1px);
+    @include border-dashed(1px, $yellow030);
 }
 
 .wrapper-content {
@@ -896,6 +886,7 @@ h1 {
 }
 
 h2 {
+    font-family: "IBM Plex Serif";
     font-size: 32px;
     text-align: center;
     font-weight: 300;
@@ -915,9 +906,10 @@ h2 {
 }
 
 h3 {
-    font-size: 22px;
+    font-size: 28px;
     margin: 0;
-    padding-top: 16px;
+    padding: 32px 0 16px 0;
+    font-family: "IBM Plex Serif";
     font-weight: 300;
     color: $white000;
 
@@ -929,7 +921,7 @@ h3 {
 h4 {
     font-size: 20px;
     margin: 8px 0 4px 0;
-    font-weight: 300;
+    font-weight: 200;
     color: $yellow100;
 }
 
@@ -942,8 +934,9 @@ h5 {
 
 #hero {
     margin: auto;
+    padding: 60px;
 
-     .highlight {
+    .highlight {
         color: $yellow100;
         font-weight: 500;
         letter-spacing: 2px;
@@ -952,9 +945,11 @@ h5 {
     h2 {
         color: $white000;
         margin: 0;
+        font-family: "Be Vietnam Pro";
         font-size: 32px;
         text-align: center;
         line-height: 40px;
+
         & .name {
             background-color: $yellow100;
             font-weight: 600;
@@ -979,7 +974,7 @@ li {
     margin: 0 0 8px 0;
     font-size: 14px;
     line-height: 21px;
-    font-weight: 300;
+    font-weight: 200;
     color: $white000;
 
     &.center {
@@ -1002,7 +997,7 @@ li {
     text-align: center;
     line-height: 14px;
     font-size: 14px;
-    margin: 0 2px;
+    margin: 0 4px 0 0;
     font-weight: 400;
     color: $yellow080;
 
@@ -1014,7 +1009,7 @@ li {
 }
 
 strong {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 details {
@@ -1502,28 +1497,31 @@ details {
 
 // GRIDS
 .cell {
-    @include border-dashed(1px, 1px, 1px, 1px);
+    @include border-dashed(1px, $yellow050);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    &#portfolio{
-        justify-content: flex-start;
-    }
-    &#contact{
-        justify-content: center;
-    }
-
     margin: 0;
     padding: 32px;
     width: 100%;
     height: 100%;
 
-    h2{
-        text-align: center;
-        margin-bottom: 8px;
+    &#portfolio {
+        justify-content: flex-start;
+        padding-left: 16px;
+        padding-right: 16px;
     }
+
+    &#contact {
+        justify-content: center;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
     h4 {
         text-align: center;
         margin-bottom: 4px;
@@ -1534,7 +1532,7 @@ details {
     a {
         margin: 0;
         padding: 0;
-    }    
+    }
 }
 
 .landing-grid {
@@ -1544,6 +1542,7 @@ details {
     #hero {
         grid-area: hero;
     }
+
     #portfolio {
         grid-area: portfolio;
     }
@@ -1565,17 +1564,17 @@ details {
         grid-template-rows: auto auto auto;
         grid-template-columns: 50% 50%;
         grid-template-areas: "hero hero"
-        "portfolio portfolio"
+            "portfolio portfolio"
             "career aboutme"
             "contact contact";
     }
 
     @include desktop {
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 2fr;
         grid-template-rows: auto auto auto;
         grid-template-areas: "hero hero hero"
-        "portfolio career aboutme"
-            "portfolio contact contact";
+            "career aboutme portfolio"
+            "contact contact portfolio";
     }
 
 }
@@ -1619,12 +1618,12 @@ details {
     @include desktop {
         grid-template-columns: 30% 30% 40%;
         grid-template-rows: 440px 440px;
-        grid-template-areas: "brief findings results" 
+        grid-template-areas: "brief findings results"
             "solution takeaways results";
     }
 }
 
-.overview-flex{
+.overview-flex {
     display: flex;
     flex-direction: column;
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 *::after,
 *,
 *::before {
@@ -7,9 +7,15 @@
   padding: 0;
 }
 
+/* $yellow020: hsla(40, 97%, 63%, 0.20);
+$yellow030: hsla(40, 97%, 63%, 0.30);
+$yellow050: hsla(40, 97%, 63%, 0.50);
+$yellow080: hsla(40, 97%, 63%, 0.80);
+$yellow100: #fcbf45;
+ */
 html,
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 300;
   background-color: black;
   color: #f9f9f9;
@@ -31,7 +37,7 @@ body {
 }
 
 section {
-  color: hsla(40, 97%, 63%, 0.3);
+  color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -52,8 +58,8 @@ nav {
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 16px 0;
-  fill: #fcbf45;
-  color: #fcbf45;
+  fill: rgb(228, 228, 10);
+  color: rgb(228, 228, 10);
 }
 nav a.link-home {
   display: block;
@@ -61,7 +67,7 @@ nav a.link-home {
   padding: 0;
 }
 nav a.link-home .icon-home {
-  fill: #fcbf45;
+  fill: rgb(228, 228, 10);
 }
 nav .nav-contact {
   display: flex;
@@ -92,13 +98,13 @@ nav .nav-nav {
   padding-bottom: 8px;
 }
 .jump-menu:not(.no-border) {
-  color: hsla(40, 97%, 63%, 0.3);
+  color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
   border-style: dashed;
-  border-top-width: 0;
-  border-right-width: 0;
+  border-top-width: 1px;
+  border-right-width: 1px;
   border-bottom-width: 1px;
-  border-left-width: 0;
+  border-left-width: 1px;
 }
 .jump-menu .link {
   padding: 0;
@@ -124,26 +130,31 @@ footer {
   padding: 16px 8px;
   text-align: center;
 }
+footer .mate {
+  width: 12px;
+  display: inline;
+  margin-right: 4px;
+}
 footer .heart {
   display: inline;
   margin-right: 4px;
   height: 100%;
   width: auto;
 }
+footer .link.inline {
+  color: #FC3B9C;
+}
 
 .resume {
   padding: 8px;
   max-width: 700px;
-}
-.resume h3 {
-  margin-bottom: 8px;
 }
 .resume h4 {
   margin-bottom: 0;
 }
 .resume .wrapper-education,
 .resume .wrapper-skill {
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 .resume .wrapper-experience {
   column-gap: 4px;
@@ -177,9 +188,6 @@ footer .heart {
 .resume .resume-small .languages {
   width: 100%;
 }
-.resume .resume-small .languages h3 {
-  margin-bottom: 8px;
-}
 .resume .resume-small .languages .language-p,
 .resume .resume-small .languages .language-h4 {
   margin-bottom: 4px;
@@ -211,7 +219,7 @@ footer .heart {
   .resume .resume-skills,
   .resume .resume-small,
   .resume .resume-experience {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
   .resume .wrapper-experience > .wrapper-experience-header > .experience-role {
     margin-bottom: 8px;
@@ -257,7 +265,7 @@ footer .heart {
   display: grid;
   flex-direction: column;
   padding: 8px;
-  color: hsla(40, 97%, 63%, 0.3);
+  color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -278,7 +286,7 @@ footer .heart {
 .overview-grid p.label {
   line-height: 100%;
   margin: 12px 0 2px 0;
-  color: #fcbf45;
+  color: rgb(228, 228, 10);
   width: 100%;
 }
 .overview-grid .label-client {
@@ -377,10 +385,15 @@ footer .heart {
 }
 
 .card {
+  color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
-  outline: 1px dashed hsla(40, 97%, 63%, 0.5);
-  outline-offset: 4px;
-  padding: 4px;
+  border-style: dashed;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  padding: 12px;
+  border-radius: 2xp;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
@@ -397,78 +410,71 @@ footer .heart {
   align-items: stretch;
   justify-content: flex-start;
   padding-bottom: 4px;
+  gap: 4px;
 }
 .card .card-top h3.card-title {
   color: #f9f9f9;
   font-size: 16px;
   padding: 0;
-  margin: 4px;
+  margin: 4px 0;
+  text-align: left;
+  width: 100%;
+  height: auto;
+  padding: 0;
 }
 .card .card-top .tags {
+  text-align: left;
   margin: 0;
+  line-height: 12px;
 }
 .card .card-top .tags .tag {
   font-size: 12px;
 }
-.card .card-image {
-  height: 160px;
+.card .card-top .card-image {
+  height: 140px;
   width: 100%;
   overflow: hidden;
-  border: 0.5px solid hsla(40, 97%, 63%, 0.3);
+  border: 0.5px solid rgba(228, 228, 10, 0.3);
 }
-.card .card-image img {
-  width: 100%;
+.card .card-top .card-image img {
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-.card .card-bottom {
-  width: 100%;
-}
-.card .card-bottom .card-details {
+.card .card-top .card-details {
+  text-align: left;
   overflow-wrap: break-word;
   width: 100%;
   min-height: 40px;
   margin: 4px 0;
 }
-.card .card-bottom .card-button {
+.card .card-button {
   margin: 0 auto;
   padding: 8px 0;
 }
 @media only screen and (min-width: 481px) {
   .card {
-    max-width: 220px;
+    max-width: 260px;
     width: 100%;
+    justify-content: space-between;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0;
   }
   .card .card-top {
-    height: 60px;
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
+    justify-content: flex-start;
   }
   .card .card-top h3.card-title {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    text-align: left;
+    height: 40px;
   }
   .card .card-top .tags {
-    line-height: 12px;
-    text-align: left;
+    height: 36px;
   }
-  .card .card-image {
-    height: 100px;
-    width: 100%;
-    flex-grow: 1;
-  }
-  .card .card-bottom {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-between;
+  .card .card-top .card-details {
+    height: 60px;
   }
 }
 
@@ -482,7 +488,7 @@ footer .heart {
   margin: 8px 0;
 }
 .card-process .card-process-image {
-  border: 1px solid hsla(40, 97%, 63%, 0.8);
+  border: 1px solid rgba(228, 228, 10, 0.8);
   min-width: 40px;
   display: none;
 }
@@ -502,7 +508,7 @@ footer .heart {
   padding: 0;
 }
 .card-process .card-process-text li.card-process-title ::marker {
-  color: #fcbf45;
+  color: rgb(228, 228, 10);
   font-weight: 400;
 }
 .card-process .card-process-text h4.card-process-details {
@@ -542,7 +548,7 @@ header.no-tag p.tag {
 }
 
 .wrapper-border {
-  color: hsla(40, 97%, 63%, 0.3);
+  color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -618,8 +624,8 @@ a.link {
   justify-content: center;
   align-items: center;
   flex-flow: row nowrap;
-  color: #fcbf45;
-  fill: #fcbf45;
+  color: rgb(228, 228, 10);
+  fill: rgb(228, 228, 10);
   text-decoration: none;
   width: auto;
   flex-grow: 0;
@@ -636,8 +642,8 @@ a.link.inline {
   padding: 0;
 }
 a.link:focus-visible {
-  color: #fae3b6;
-  outline-color: #fae3b6;
+  color: rgb(255, 255, 183);
+  outline-color: rgb(255, 255, 183);
   outline-style: none;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -645,8 +651,8 @@ a.link:focus-visible {
   text-underline-offset: 4px;
 }
 a.link:hover {
-  color: #fae3b6;
-  fill: #fae3b6;
+  color: rgb(255, 255, 183);
+  fill: rgb(255, 255, 183);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-position: under;
@@ -656,12 +662,12 @@ a.link:hover svg {
   visibility: visible;
 }
 a.link:hover .icon-home #logo-background {
-  outline: solid 2px #fae3b6;
-  fill: #fae3b6;
+  outline: solid 2px rgb(255, 255, 183);
+  fill: rgb(255, 255, 183);
 }
 a.link:hover .icon-contact path {
-  fill: #fae3b6;
-  stroke: #fae3b6;
+  fill: rgb(255, 255, 183);
+  stroke: rgb(255, 255, 183);
   stroke-width: 0.5;
 }
 a.link:hover .icon-top,
@@ -688,7 +694,7 @@ a.link:hover .icon-new-page .icon-new-page-arrow {
 
 figcaption,
 details summary {
-  color: hsla(40, 97%, 63%, 0.8);
+  color: rgba(228, 228, 10, 0.8);
 }
 
 img {
@@ -708,6 +714,7 @@ h1 {
 }
 
 h2 {
+  font-family: "IBM Plex Serif";
   font-size: 32px;
   text-align: center;
   font-weight: 300;
@@ -727,9 +734,10 @@ h2 {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 28px;
   margin: 0;
-  padding-top: 16px;
+  padding: 32px 0 16px 0;
+  font-family: "IBM Plex Serif";
   font-weight: 300;
   color: #f9f9f9;
 }
@@ -742,34 +750,36 @@ h3 {
 h4 {
   font-size: 20px;
   margin: 8px 0 4px 0;
-  font-weight: 300;
-  color: #fcbf45;
+  font-weight: 200;
+  color: rgb(228, 228, 10);
 }
 
 h5 {
   font-size: 16px;
   font-weight: 400;
   margin: 4px 0 0 0;
-  color: #fcbf45;
+  color: rgb(228, 228, 10);
 }
 
 #hero {
   margin: auto;
+  padding: 60px;
 }
 #hero .highlight {
-  color: #fcbf45;
+  color: rgb(228, 228, 10);
   font-weight: 500;
   letter-spacing: 2px;
 }
 #hero h2 {
   color: #f9f9f9;
   margin: 0;
+  font-family: "Be Vietnam Pro";
   font-size: 32px;
   text-align: center;
   line-height: 40px;
 }
 #hero h2 .name {
-  background-color: #fcbf45;
+  background-color: rgb(228, 228, 10);
   font-weight: 600;
   color: #010101;
   padding: 0 4px;
@@ -791,7 +801,7 @@ li {
   margin: 0 0 8px 0;
   font-size: 14px;
   line-height: 21px;
-  font-weight: 300;
+  font-weight: 200;
   color: #f9f9f9;
 }
 p.center,
@@ -814,9 +824,9 @@ li {
   text-align: center;
   line-height: 14px;
   font-size: 14px;
-  margin: 0 2px;
+  margin: 0 4px 0 0;
   font-weight: 400;
-  color: hsla(40, 97%, 63%, 0.8);
+  color: rgba(228, 228, 10, 0.8);
 }
 .tag:before {
   content: "#";
@@ -824,7 +834,7 @@ li {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 details p,
@@ -856,7 +866,7 @@ details li {
 .wrapper-visual p {
   margin: 0;
   padding: 0;
-  color: #010101;
+  color: #212121;
 }
 .wrapper-visual ol,
 .wrapper-visual ul {
@@ -864,7 +874,7 @@ details li {
 }
 .wrapper-visual p,
 .wrapper-visual li {
-  color: #010101;
+  color: #212121;
   font-size: 12px;
   line-height: 14px;
   margin-bottom: 0;
@@ -1205,7 +1215,7 @@ details li {
 }
 
 .cell {
-  color: hsla(40, 97%, 63%, 0.3);
+  color: rgba(228, 228, 10, 0.5);
   border-radius: 1px;
   border-style: dashed;
   border-top-width: 1px;
@@ -1223,13 +1233,15 @@ details li {
 }
 .cell#portfolio {
   justify-content: flex-start;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .cell#contact {
   justify-content: center;
 }
 .cell h2 {
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 .cell h4 {
   text-align: center;
@@ -1271,9 +1283,9 @@ details li {
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "hero hero hero" "portfolio career aboutme" "portfolio contact contact";
+    grid-template-areas: "hero hero hero" "career aboutme portfolio" "contact contact portfolio";
   }
 }
 

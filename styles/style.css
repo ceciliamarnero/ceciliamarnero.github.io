@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap");
 *::after,
 *,
 *::before {
@@ -129,6 +129,9 @@ footer {
   max-width: 100%;
   padding: 16px 8px;
   text-align: center;
+}
+footer p {
+  font-family: "Spline Sans Mono";
 }
 footer .mate {
   width: 12px;
@@ -642,8 +645,8 @@ a.link.inline {
   padding: 0;
 }
 a.link:focus-visible {
-  color: rgb(255, 255, 183);
-  outline-color: rgb(255, 255, 183);
+  color: rgb(255, 255, 230);
+  outline-color: rgb(255, 255, 230);
   outline-style: none;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -651,23 +654,24 @@ a.link:focus-visible {
   text-underline-offset: 4px;
 }
 a.link:hover {
-  color: rgb(255, 255, 183);
-  fill: rgb(255, 255, 183);
+  color: rgb(255, 255, 230);
+  fill: rgb(255, 255, 230);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
   text-underline-position: under;
   text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #FC3B9C;
 }
 a.link:hover svg {
   visibility: visible;
 }
 a.link:hover .icon-home #logo-background {
-  outline: solid 2px rgb(255, 255, 183);
-  fill: rgb(255, 255, 183);
+  outline: solid 2px rgb(255, 255, 230);
+  fill: rgb(255, 255, 230);
 }
 a.link:hover .icon-contact path {
-  fill: rgb(255, 255, 183);
-  stroke: rgb(255, 255, 183);
+  fill: rgb(255, 255, 230);
+  stroke: rgb(255, 255, 230);
   stroke-width: 0.5;
 }
 a.link:hover .icon-top,
@@ -714,11 +718,11 @@ h1 {
 }
 
 h2 {
-  font-family: "IBM Plex Serif";
+  font-family: "Spline Sans Mono";
   font-size: 32px;
   text-align: center;
   font-weight: 300;
-  color: #f9f9f9;
+  color: rgb(228, 228, 10);
   margin: 0;
 }
 @media only screen and (min-width: 481px) {
@@ -737,7 +741,7 @@ h3 {
   font-size: 28px;
   margin: 0;
   padding: 32px 0 16px 0;
-  font-family: "IBM Plex Serif";
+  font-family: "Spline Sans Mono";
   font-weight: 300;
   color: #f9f9f9;
 }
@@ -773,8 +777,8 @@ h5 {
 #hero h2 {
   color: #f9f9f9;
   margin: 0;
-  font-family: "Be Vietnam Pro";
-  font-size: 32px;
+  font-family: "Spline Sans Mono";
+  font-size: 26px;
   text-align: center;
   line-height: 40px;
 }
@@ -787,7 +791,7 @@ h5 {
 @media only screen and (min-width: 481px) {
   #hero h2 {
     line-height: 60px;
-    font-size: 54px;
+    font-size: 48px;
   }
 }
 

@@ -1,6 +1,6 @@
 //@import url('https://fonts.googleapis.com/css2?family=Be Vietnam Pro:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
+//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 
 *::after,
 *,
@@ -23,8 +23,8 @@ $yellow020: rgba(228, 228, 10, 0.2);
 $yellow030: rgba(228, 228, 10, 0.3);
 $yellow050: rgba(228, 228, 10, 0.5);
 $yellow080: rgba(228, 228, 10, 0.8);
-$yellow100: rgb(228, 228, 10);
-$yellow110: rgb(255, 255, 183);
+$yellow100: #e4e40a;
+$yellow110: rgb(255, 255, 230);
 $pink000:#FC3B9C;
 $white000: #f9f9f9;
 $black: #212121;
@@ -196,6 +196,9 @@ footer {
     max-width: 100%;
     padding: 16px 8px;
     text-align: center;
+    p{
+        font-family: "Spline Sans Mono";
+    }
     .mate{
         width: 12px;
         display: inline;
@@ -807,15 +810,17 @@ a.link {
         text-decoration-thickness: 1px;
         text-underline-position: under;
         text-underline-offset: 4px;
+        
     }
 
     &:hover {
         color: $yellow110;
         fill: $yellow110;
         text-decoration: underline;
-        text-decoration-thickness: 1px;
         text-underline-position: under;
         text-underline-offset: 2px;
+        text-decoration-thickness: 2px;
+        text-decoration-color: $pink000;
 
         svg {
             visibility: visible;
@@ -886,11 +891,12 @@ h1 {
 }
 
 h2 {
-    font-family: "IBM Plex Serif";
+    font-family: "Spline Sans Mono";
     font-size: 32px;
     text-align: center;
     font-weight: 300;
-    color: $white000;
+    //color: $white000;
+    color: $yellow100;
     margin: 0;
 
     @include tablet {
@@ -909,7 +915,7 @@ h3 {
     font-size: 28px;
     margin: 0;
     padding: 32px 0 16px 0;
-    font-family: "IBM Plex Serif";
+    font-family: "Spline Sans Mono";
     font-weight: 300;
     color: $white000;
 
@@ -945,8 +951,8 @@ h5 {
     h2 {
         color: $white000;
         margin: 0;
-        font-family: "Be Vietnam Pro";
-        font-size: 32px;
+        font-family: "Spline Sans Mono";
+        font-size: 26px;
         text-align: center;
         line-height: 40px;
 
@@ -959,7 +965,7 @@ h5 {
 
         @include tablet {
             line-height: 60px;
-            font-size: 54px;
+            font-size: 48px;
         }
     }
 }

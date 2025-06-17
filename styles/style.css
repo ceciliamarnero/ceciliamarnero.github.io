@@ -17,7 +17,7 @@ html,
 body {
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 300;
-  background-color: black;
+  background-color: #0e0e0e;
   color: #f9f9f9;
   font-size: 14px;
   width: 100%;
@@ -58,8 +58,8 @@ nav {
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 16px 0;
-  fill: rgb(228, 228, 10);
-  color: rgb(228, 228, 10);
+  fill: rgb(255, 255, 116);
+  color: rgb(255, 255, 116);
 }
 nav a.link-home {
   display: block;
@@ -67,7 +67,7 @@ nav a.link-home {
   padding: 0;
 }
 nav a.link-home .icon-home {
-  fill: rgb(228, 228, 10);
+  fill: rgb(255, 255, 116);
 }
 nav .nav-contact {
   display: flex;
@@ -80,6 +80,8 @@ nav .nav-nav {
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
+  font-size: 16px;
+  font-weight: 300;
 }
 @media only screen and (min-width: 481px) {
   nav .nav-nav .link-nav-nav {
@@ -99,12 +101,11 @@ nav .nav-nav {
 }
 .jump-menu:not(.no-border) {
   color: rgba(228, 228, 10, 0.3);
-  border-radius: 1px;
   border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 1px;
   border-bottom-width: 1px;
-  border-left-width: 1px;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
 }
 .jump-menu .link {
   padding: 0;
@@ -128,6 +129,7 @@ nav .nav-nav {
 footer {
   max-width: 100%;
   padding: 16px 8px;
+  margin-top: 40px;
   text-align: center;
 }
 footer p {
@@ -145,7 +147,11 @@ footer .heart {
   width: auto;
 }
 footer .link.inline {
-  color: #FC3B9C;
+  color: #fb54a8;
+}
+
+.wrapper-top {
+  margin-bottom: 20px;
 }
 
 .resume {
@@ -253,7 +259,7 @@ footer .link.inline {
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(12%, -20%);
+    transform: translate(9%, -12%);
   }
 }
 @keyframes appear {
@@ -289,7 +295,7 @@ footer .link.inline {
 .overview-grid p.label {
   line-height: 100%;
   margin: 12px 0 2px 0;
-  color: rgb(228, 228, 10);
+  color: #fb54a8;
   width: 100%;
 }
 .overview-grid .label-client {
@@ -377,11 +383,14 @@ footer .link.inline {
   flex-flow: column wrap;
   justify-content: flex-start;
   align-content: center;
-  gap: 24px;
   padding: 4px;
 }
 @media only screen and (min-width: 481px) {
   .gallery {
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 0;
+    gap: 24px;
     flex-flow: row wrap;
     justify-content: center;
   }
@@ -416,7 +425,7 @@ footer .link.inline {
   gap: 4px;
 }
 .card .card-top h3.card-title {
-  color: #f9f9f9;
+  color: #fb54a8;
   font-size: 16px;
   padding: 0;
   margin: 4px 0;
@@ -511,7 +520,7 @@ footer .link.inline {
   padding: 0;
 }
 .card-process .card-process-text li.card-process-title ::marker {
-  color: rgb(228, 228, 10);
+  color: rgb(255, 255, 116);
   font-weight: 400;
 }
 .card-process .card-process-text h4.card-process-details {
@@ -540,6 +549,7 @@ footer .link.inline {
   .card-process .card-process-image img {
     object-fit: cover;
     width: 100%;
+    display: block;
   }
 }
 
@@ -611,6 +621,7 @@ header.no-tag p.tag {
 
 .wrapper-backTo {
   margin: 16px 0;
+  font-size: 16px;
 }
 
 .column-center {
@@ -627,8 +638,8 @@ a.link {
   justify-content: center;
   align-items: center;
   flex-flow: row nowrap;
-  color: rgb(228, 228, 10);
-  fill: rgb(228, 228, 10);
+  color: rgb(255, 255, 116);
+  fill: rgb(255, 255, 116);
   text-decoration: none;
   width: auto;
   flex-grow: 0;
@@ -660,7 +671,7 @@ a.link:hover {
   text-underline-position: under;
   text-underline-offset: 2px;
   text-decoration-thickness: 2px;
-  text-decoration-color: #FC3B9C;
+  text-decoration-color: #fb54a8;
 }
 a.link:hover svg {
   visibility: visible;
@@ -722,7 +733,7 @@ h2 {
   font-size: 32px;
   text-align: center;
   font-weight: 300;
-  color: rgb(228, 228, 10);
+  color: #fb54a8;
   margin: 0;
 }
 @media only screen and (min-width: 481px) {
@@ -740,10 +751,10 @@ h2 {
 h3 {
   font-size: 28px;
   margin: 0;
-  padding: 32px 0 16px 0;
+  padding: 32px 0 8px 0;
   font-family: "Spline Sans Mono";
   font-weight: 300;
-  color: #f9f9f9;
+  color: #fb54a8;
 }
 @media only screen and (min-width: 481px) {
   h3 {
@@ -755,14 +766,14 @@ h4 {
   font-size: 20px;
   margin: 8px 0 4px 0;
   font-weight: 200;
-  color: rgb(228, 228, 10);
+  color: rgb(255, 255, 116);
 }
 
 h5 {
   font-size: 16px;
   font-weight: 400;
   margin: 4px 0 0 0;
-  color: rgb(228, 228, 10);
+  color: rgb(255, 255, 116);
 }
 
 #hero {
@@ -770,9 +781,11 @@ h5 {
   padding: 60px;
 }
 #hero .highlight {
-  color: rgb(228, 228, 10);
-  font-weight: 500;
+  color: #fb54a8;
+  color: #fb54a8;
+  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
   letter-spacing: 2px;
+  font-style: italic;
 }
 #hero h2 {
   color: #f9f9f9;
@@ -780,18 +793,19 @@ h5 {
   font-family: "Spline Sans Mono";
   font-size: 26px;
   text-align: center;
-  line-height: 40px;
+  line-height: 80px;
 }
 #hero h2 .name {
-  background-color: rgb(228, 228, 10);
-  font-weight: 600;
-  color: #010101;
+  font-weight: 500;
+  color: #fb54a8;
+  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
   padding: 0 4px;
 }
 @media only screen and (min-width: 481px) {
   #hero h2 {
-    line-height: 60px;
+    line-height: 80px;
     font-size: 48px;
+    line-height: 80px;
   }
 }
 
@@ -870,7 +884,7 @@ details li {
 .wrapper-visual p {
   margin: 0;
   padding: 0;
-  color: #212121;
+  color: #0e0e0e;
 }
 .wrapper-visual ol,
 .wrapper-visual ul {
@@ -878,7 +892,7 @@ details li {
 }
 .wrapper-visual p,
 .wrapper-visual li {
-  color: #212121;
+  color: #0e0e0e;
   font-size: 12px;
   line-height: 14px;
   margin-bottom: 0;
@@ -1219,13 +1233,6 @@ details li {
 }
 
 .cell {
-  color: rgba(228, 228, 10, 0.5);
-  border-radius: 1px;
-  border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1287,9 +1294,14 @@ details li {
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
-    grid-template-columns: 1fr 1fr 2fr;
+    /* grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "hero hero hero" "career aboutme portfolio" "contact contact portfolio";
+    grid-template-areas: "hero hero hero"
+        "career aboutme portfolio"
+        "contact contact portfolio"; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "hero hero hero hero" "portfolio portfolio portfolio portfolio" "career aboutme contact contact";
   }
 }
 

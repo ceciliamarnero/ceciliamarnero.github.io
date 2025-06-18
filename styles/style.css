@@ -45,7 +45,7 @@ section {
   border-bottom-width: 1px;
   border-left-width: 1px;
   row-gap: 8px;
-  padding: 32px 0px;
+  padding: 32px 0px 48px 0px;
 }
 @media only screen and (min-width: 481px) {
   section {
@@ -154,90 +154,6 @@ footer .link.inline {
   margin-bottom: 20px;
 }
 
-.resume {
-  padding: 8px;
-  max-width: 700px;
-}
-.resume h4 {
-  margin-bottom: 0;
-}
-.resume .wrapper-education,
-.resume .wrapper-skill {
-  margin-bottom: 12px;
-}
-.resume .wrapper-experience {
-  column-gap: 4px;
-  margin-bottom: 16px;
-}
-.resume .wrapper-experience .wrapper-experience-header {
-  min-width: 240px;
-}
-.resume .wrapper-experience .wrapper-experience-header .experience-role {
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-.resume .wrapper-experience .wrapper-experience-header .experience-company {
-  margin: 0;
-  font-size: 16px;
-}
-.resume .wrapper-experience .wrapper-experience-header .experience-dates {
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 0;
-}
-.resume .wrapper-experience ul {
-  margin-top: 0;
-}
-.resume .resume-small {
-  border: none;
-}
-.resume .resume-small .education {
-  max-width: 400px;
-}
-.resume .resume-small .languages {
-  width: 100%;
-}
-.resume .resume-small .languages .language-p,
-.resume .resume-small .languages .language-h4 {
-  margin-bottom: 4px;
-  margin-top: 0px;
-  display: inline-block;
-  font-size: 14px;
-}
-.resume .resume-small .languages .language-h4 {
-  min-width: 80px;
-}
-.resume .jump-menu > .link > svg.icon-below {
-  display: none;
-}
-.resume .resume-row {
-  display: flex;
-  flex-flow: column nowrap;
-}
-@media only screen and (min-width: 481px) {
-  .resume .resume-row {
-    flex-flow: row nowrap;
-    column-gap: 32px;
-    justify-content: flex-start;
-  }
-}
-@media only screen and (min-width: 481px) {
-  .resume {
-    padding: 0;
-  }
-  .resume .resume-skills,
-  .resume .resume-small,
-  .resume .resume-experience {
-    margin-bottom: 32px;
-  }
-  .resume .wrapper-experience > .wrapper-experience-header > .experience-role {
-    margin-bottom: 8px;
-  }
-  .resume .jump-menu {
-    display: none;
-  }
-}
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(5%);
@@ -259,7 +175,7 @@ footer .link.inline {
     transform: translate(0%, 0%);
   }
   50% {
-    transform: translate(9%, -12%);
+    transform: translate(7%, -9%);
   }
 }
 @keyframes appear {
@@ -782,7 +698,6 @@ h5 {
 }
 #hero .highlight {
   color: #fb54a8;
-  color: #fb54a8;
   text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
   letter-spacing: 2px;
   font-style: italic;
@@ -791,9 +706,9 @@ h5 {
   color: #f9f9f9;
   margin: 0;
   font-family: "Spline Sans Mono";
-  font-size: 26px;
+  font-size: 40px;
   text-align: center;
-  line-height: 80px;
+  line-height: 48px;
 }
 #hero h2 .name {
   font-weight: 500;
@@ -1342,9 +1257,164 @@ details li {
   }
 }
 
-.overview-flex {
+.resume-grid,
+.experience-grid {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
+  padding: 0 16px;
+}
+.resume-grid h3,
+.experience-grid h3 {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 481px) {
+  .resume-grid,
+  .experience-grid {
+    display: grid;
+    column-gap: 60px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .resume-grid,
+  .experience-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.resume h3 {
+  text-align: center;
+}
+.resume h4 {
+  font-size: 14px;
+}
+.resume .wrapper-experience > .wrapper-experience-header > .experience-role {
+  font-family: "Spline Sans Mono";
+  color: #fb54a8;
+}
+@media only screen and (min-width: 481px) {
+  .resume .jump-menu {
+    display: none;
+  }
+  .resume .jump-menu > .link > svg.icon-below {
+    display: none;
+  }
+}
+
+.languages .languages-grid {
+  max-width: 460px;
+  margin: auto;
+  display: grid;
+  row-gap: 8px;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: "lang1 level1 lang2 level2" "lang3 level3 lang4 level4";
+}
+.languages .languages-grid p.language-p,
+.languages .languages-grid h4.language-h4 {
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0;
+}
+
+.experience-grid {
+  padding: 0;
+  margin-bottom: 24px;
+}
+.experience-grid .wrapper-experience {
+  margin-bottom: 20px;
+}
+.experience-grid .wrapper-experience .wrapper-experience-header {
+  margin-bottom: 16px;
+}
+.experience-grid .wrapper-experience .experience-company,
+.experience-grid .wrapper-experience .experience-role,
+.experience-grid .wrapper-experience .experience-dates {
+  margin: 8px 0;
+}
+.experience-grid .wrapper-experience .experience-role {
+  font-size: 16px;
+}
+.experience-grid .wrapper-experience .experience-dates {
+  font-weight: 200;
+}
+.experience-grid .wrapper-experience ul {
+  margin-top: 0;
+}
+@media only screen and (min-width: 481px) {
+  .experience-grid {
+    grid-template-rows: auto auto;
+    grid-template-areas: "title title" "exp1 exp2" "exp3 exp4" "exp5 exp6";
+  }
+  .experience-grid .wrapper-experience {
+    margin-bottom: 40px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .experience-grid {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "title title title" "exp1 exp2 exp3" "exp4 exp5 exp6";
+  }
+}
+.experience-grid .title-experience {
+  grid-area: title;
+}
+.experience-grid .experience1 {
+  grid-area: exp1;
+}
+.experience-grid .experience2 {
+  grid-area: exp2;
+}
+.experience-grid .experience3 {
+  grid-area: exp3;
+}
+.experience-grid .experience4 {
+  grid-area: exp4;
+}
+.experience-grid .experience5 {
+  grid-area: exp5;
+}
+.experience-grid .experience6 {
+  grid-area: exp6;
+}
+
+.resume-grid .wrapper-education,
+.resume-grid .wrapper-skill {
+  margin-bottom: 16px;
+}
+@media only screen and (min-width: 481px) {
+  .resume-grid {
+    padding: 0 32px 32px 32px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "exp exp" "technical-skills soft-skills" "educ lang";
+  }
+  .resume-grid .wrapper-education,
+  .resume-grid .wrapper-skill {
+    margin-bottom: 24px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .resume-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "exp exp exp" "technical-skills soft-skills educ" "technical-skills soft-skills lang";
+  }
+}
+.resume-grid .experience-grid {
+  grid-area: exp;
+}
+.resume-grid .education {
+  grid-area: educ;
+}
+.resume-grid .languages {
+  grid-area: lang;
+}
+.resume-grid .wrapper-technical-skills {
+  grid-area: technical-skills;
+}
+.resume-grid .wrapper-soft-skills {
+  grid-area: soft-skills;
 }
 
 /*# sourceMappingURL=style.css.map */

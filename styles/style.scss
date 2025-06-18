@@ -832,20 +832,15 @@ h2 {
     animation: appear ease-in;
     animation-timeline: view();
     animation-range: entry 0;
-
 }
 
 h3 {
-    font-size: 28px;
+    font-size: 22px;
     margin: 0;
     padding: 32px 0 8px 0;
     font-family: "Spline Sans Mono";
     font-weight: 300;
     color: $pink000;
-
-    @include tablet {
-        font-size: 26px;
-    }
 }
 
 h4 {
@@ -883,8 +878,6 @@ h5 {
         line-height: 48px;
 
         & .name {
-            //background-color: $yellow100;
-            //background-color: $pink000;
             font-weight: 500;
             color: $pink000;
             text-shadow: 0 0 6px #fb54a866;
@@ -1143,10 +1136,8 @@ details {
 .wrapper-symbols {
     .symbols {
         align-items: flex-start;
-
         flex-grow: 0;
         max-width: 500px;
-        //align-items: stretch;
 
         .symbol {
             align-items: center;

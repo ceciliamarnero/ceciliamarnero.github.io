@@ -225,6 +225,7 @@ footer {
 
     .link.inline {
         color: $pink000;
+        font-weight: 400;
     }
 }
 
@@ -903,7 +904,7 @@ li {
     margin: 0 0 8px 0;
     font-size: 14px;
     line-height: 21px;
-    font-weight: 200;
+    font-weight: 300;
     color: $white000;
 
     &.center {
@@ -1715,7 +1716,7 @@ details {
 
     @include desktop {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 380px 380px;
+        grid-template-rows: auto auto;
         grid-template-areas: "brief research findings"
             "solution takeaways results";
     }

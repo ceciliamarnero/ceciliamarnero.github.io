@@ -73,14 +73,14 @@ nav .nav-contact {
 nav .nav-nav {
   display: flex;
   flex-flow: row wrap;
-  gap: 16px;
+  gap: 24px;
   font-size: 16px;
   font-weight: 300;
 }
 @media only screen and (min-width: 481px) {
   nav .nav-nav .link-nav-nav {
     position: relative;
-    right: -4px;
+    right: -8px;
   }
 }
 
@@ -130,9 +130,10 @@ footer p {
   font-family: "Spline Sans Mono";
 }
 footer .mate {
-  width: 12px;
+  width: 18px;
   display: inline;
-  margin-right: 4px;
+  margin-right: 8px;
+  margin-bottom: -4px;
 }
 footer .heart {
   display: inline;
@@ -543,7 +544,7 @@ header.no-tag p.tag {
 }
 
 a.link {
-  padding: 4px;
+  padding: 8px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -553,7 +554,8 @@ a.link {
   text-decoration: none;
   width: auto;
   flex-grow: 0;
-  font-weight: 400;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 a.link .hidden {
   visibility: hidden;
@@ -648,7 +650,7 @@ h2 {
 }
 @media only screen and (min-width: 481px) {
   h2 {
-    font-size: 36px;
+    font-size: 32px;
     margin-bottom: 24px;
   }
 }
@@ -683,10 +685,6 @@ h5 {
   color: rgb(255, 255, 116);
 }
 
-#hero {
-  margin: auto;
-  padding: 60px;
-}
 #hero .highlight {
   color: #fb54a8;
   text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
@@ -709,6 +707,7 @@ h5 {
 }
 @media only screen and (min-width: 481px) {
   #hero h2 {
+    padding: 60px;
     line-height: 80px;
     font-size: 48px;
     line-height: 80px;
@@ -735,11 +734,12 @@ li.center {
 
 ul,
 ol {
-  margin: 12px 0;
+  margin: 0;
 }
 
 li {
   margin-left: 16px;
+  margin-bottom: 8px;
 }
 
 .tag {
@@ -1159,37 +1159,23 @@ details li {
   }
 }
 
-.cell {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 32px;
-  width: 100%;
-  height: 100%;
-}
-.cell#portfolio {
+.landing-grid #portfolio {
+  padding: 16px 4px;
   justify-content: flex-start;
-  padding-left: 16px;
-  padding-right: 16px;
 }
-.cell#contact {
+@media only screen and (min-width: 481px) {
+  .landing-grid #portfolio {
+    padding: 32px 16px;
+    justify-content: flex-start;
+  }
+}
+.landing-grid #contact {
   justify-content: center;
+  align-items: center;
 }
-.cell h2 {
+.landing-grid h2 {
   text-align: center;
   margin-bottom: 16px;
-}
-.cell h4 {
-  text-align: center;
-  margin-bottom: 4px;
-}
-.cell ul,
-.cell ol,
-.cell a {
-  margin: 0;
-  padding: 0;
 }
 
 .landing-grid {
@@ -1214,58 +1200,16 @@ details li {
 @media only screen and (min-width: 481px) {
   .landing-grid {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
-    grid-template-columns: 50% 50%;
     grid-template-areas: "hero hero" "portfolio portfolio" "career aboutme" "contact contact";
   }
 }
 @media only screen and (min-width: 1400px) {
   .landing-grid {
-    /* grid-template-columns: 1fr 1fr 2fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "hero hero hero"
-        "career aboutme portfolio"
-        "contact contact portfolio"; */
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "hero hero hero hero" "portfolio portfolio portfolio portfolio" "career aboutme contact contact";
-  }
-}
-
-.casestudy-grid {
-  display: flex;
-  flex-direction: column;
-}
-.casestudy-grid #short-brief {
-  grid-area: brief;
-}
-.casestudy-grid #short-findings {
-  grid-area: findings;
-}
-.casestudy-grid #short-results {
-  grid-area: results;
-}
-.casestudy-grid #short-solution {
-  grid-area: solution;
-}
-.casestudy-grid #short-takeaways {
-  grid-area: takeaways;
-}
-@media only screen and (min-width: 481px) {
-  .casestudy-grid {
-    display: grid;
-    column-gap: 0;
-    width: 100%;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "brief findings" "solution takeaways" "results results";
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .casestudy-grid {
-    grid-template-columns: 30% 30% 40%;
-    grid-template-rows: 440px 440px;
-    grid-template-areas: "brief findings results" "solution takeaways results";
   }
 }
 
@@ -1298,17 +1242,14 @@ details li {
 }
 .resume-grid .wrapper-education,
 .resume-grid .wrapper-skill {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  width: 100%;
 }
 @media only screen and (min-width: 481px) {
   .resume-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "exp exp" "technical-skills soft-skills" "educ lang";
-  }
-  .resume-grid .wrapper-education,
-  .resume-grid .wrapper-skill {
-    margin-bottom: 24px;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -1337,9 +1278,6 @@ details li {
 .experience-grid {
   padding: 0;
 }
-.experience-grid .wrapper-experience {
-  margin-bottom: 24px;
-}
 .experience-grid .wrapper-experience .wrapper-experience-header {
   margin-bottom: 16px;
 }
@@ -1353,9 +1291,7 @@ details li {
 }
 .experience-grid .wrapper-experience .experience-dates {
   font-weight: 200;
-}
-.experience-grid .wrapper-experience ul {
-  margin-top: 0;
+  font-style: italic;
 }
 @media only screen and (min-width: 481px) {
   .experience-grid {
@@ -1363,7 +1299,7 @@ details li {
     grid-template-areas: "title title" "exp1 exp2" "exp3 exp4" "exp5 exp6";
   }
   .experience-grid .wrapper-experience {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -1399,6 +1335,7 @@ details li {
   margin: auto;
   display: grid;
   row-gap: 8px;
+  column-gap: 16px;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: auto auto;
   grid-template-areas: "lang1 level1 lang2 level2" "lang3 level3 lang4 level4";
@@ -1408,6 +1345,71 @@ details li {
   line-height: 20px;
   font-size: 14px;
   margin: 0;
+}
+
+.cell-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 16px;
+}
+.cell-grid.top {
+  justify-content: flex-start;
+}
+@media only screen and (min-width: 481px) {
+  .cell-grid {
+    padding: 32px;
+    row-gap: 4px;
+  }
+}
+
+.casestudy-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 481px) {
+  .casestudy-grid {
+    display: grid;
+    column-gap: 0;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "brief findings" "solution takeaways" "results results";
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .casestudy-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 380px 380px;
+    grid-template-areas: "brief research findings" "solution takeaways results";
+  }
+}
+.casestudy-grid h4 {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.casestudy-grid ul ::marker,
+.casestudy-grid ol ::marker {
+  color: #fb54a8;
+}
+.casestudy-grid #short-brief {
+  grid-area: brief;
+}
+.casestudy-grid #short-findings {
+  grid-area: findings;
+}
+.casestudy-grid #short-research {
+  grid-area: research;
+}
+.casestudy-grid #short-results {
+  grid-area: results;
+}
+.casestudy-grid #short-solution {
+  grid-area: solution;
+}
+.casestudy-grid #short-takeaways {
+  grid-area: takeaways;
 }
 
 /*# sourceMappingURL=style.css.map */

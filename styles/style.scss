@@ -24,7 +24,7 @@ $yellow020: rgba(228, 228, 10, 0.2);
 $yellow030: rgba(228, 228, 10, 0.3);
 $yellow050: rgba(228, 228, 10, 0.5);
 $yellow080: rgba(228, 228, 10, 0.8);
-$yellow100: rgb(255, 255, 116);
+$yellow100: #ffff74;
 $yellow110: rgb(255, 255, 230);
 //$pink000:#FC3B9C;
 $pink000: #fb54a8;
@@ -125,14 +125,15 @@ nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    align-items: center;
     padding: 16px 0;
     fill: $yellow100;
     color: $yellow100;
 
     //    
     a.link-home {
-        display: block;
-        height: 38px;
+       // display: inline-block;
+        height: 46px;
         padding: 0;
 
         .icon-home {
@@ -713,6 +714,19 @@ a.link {
     font-weight: 200;
     letter-spacing: 1px;
 
+    &.link-home svg #logo-background{
+        fill: $yellow100;
+    }
+
+    &.disabled {
+        color: $yellow050;
+        cursor: not-allowed;
+
+        svg {
+            fill: $yellow050;
+        }
+    }
+
     .hidden {
         // some icons are hidden at every state, 
         // others are hidden by default but appear on hover
@@ -728,17 +742,7 @@ a.link {
         padding: 0;
     }
 
-    &:focus-visible {
-        color: $yellow110;
-        outline-color: $yellow110;
-        outline-style: none;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-position: under;
-        text-underline-offset: 4px;
-
-    }
-
+    &:focus-visible,
     &:hover {
         color: $yellow110;
         fill: $yellow110;
@@ -753,9 +757,17 @@ a.link {
         }
 
         // icons have diff behaviours/animations
-        .icon-home #logo-background {
+        //#top > div > nav > h1 > a > svg > path:nth-child(6)
+        .icon-home  {
+            path {
+                fill: initial;
+            }
+
             outline: solid 2px $yellow110;
-            fill: $yellow110;
+            #logo-background {
+                fill: $yellow110;
+            }
+
         }
 
         .icon-contact path {
@@ -811,7 +823,8 @@ img {
 
 // TEXT STYLES
 h1 {
-    height: 38px;
+//    height: 38px;
+height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -1438,7 +1451,7 @@ details {
 }
 
 // GRIDS
-.landing-grid  {    
+.landing-grid {
     #portfolio {
         padding: 16px 4px;
         justify-content: flex-start;
@@ -1537,12 +1550,12 @@ details {
         width: 100%;
     }
 
-    @include tablet {    
+    @include tablet {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas: "exp exp"
-        "technical-skills soft-skills"
-        "educ lang"
+            "technical-skills soft-skills"
+            "educ lang"
     }
 
     @include desktop {
@@ -1578,7 +1591,7 @@ details {
 .experience-grid {
     padding: 0;
 
-    .wrapper-experience {        
+    .wrapper-experience {
         .wrapper-experience-header {
             margin-bottom: 16px;
         }
@@ -1654,16 +1667,56 @@ details {
     display: grid;
     row-gap: 8px;
     column-gap: 16px;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: "lang1 level1 lang2 level2"
-        "lang3 level3 lang4 level4";
+
+    .lang1 {
+        grid-area: lang1;
+    }
+
+    .lang2 {
+        grid-area: lang2;
+    }
+
+    .lang3 {
+        grid-area: lang3;
+    }
+
+    .lang4 {
+        grid-area: lang4;
+    }
+
+    .level1 {
+        grid-area: level1;
+    }
+
+    .level2 {
+        grid-area: level2;
+    }
+
+    .level3 {
+        grid-area: level3;
+    }
+
+    .level4 {
+        grid-area: level4;
+    }
+
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "lang1 level1"
+    "lang2 level2"
+    "lang3 level3"
+    "lang4 level4";
 
     p.language-p,
     h4.language-h4 {
         line-height: 20px;
         font-size: 14px;
         margin: 0;
+    }
+
+    @include desktop() {
+        grid-template-areas: "lang1 level1 lang2 level2"
+            "lang3 level3 lang4 level4";
     }
 
 }
@@ -1673,12 +1726,15 @@ details {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    &.top{
+
+    &.top {
         justify-content: flex-start;
 
     }
+
     padding: 32px 16px;
-    @include tablet{
+
+    @include tablet {
         padding: 32px;
         row-gap: 4px;
     }

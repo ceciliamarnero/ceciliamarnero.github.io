@@ -165,7 +165,7 @@ nav {
 }
 
 .jump-menu {
-    //margin: 0 auto;
+    margin: 40px 0 0 0;
     width: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -181,7 +181,7 @@ nav {
     .link {
         padding: 0;
         width: 45%;
-        height: 24px;
+        height: 31px;
     }
 
     @include tablet {
@@ -193,7 +193,6 @@ nav {
 
         .link {
             width: auto;
-            height: auto;
         }
     }
 
@@ -838,7 +837,7 @@ h2 {
 }
 
 h3 {
-    font-size: 22px;
+    font-size: 20px;
     margin: 0;
     padding: 32px 0 8px 0;
     font-family: "Spline Sans Mono";
@@ -847,7 +846,7 @@ h3 {
 }
 
 h4 {
-    font-size: 20px;
+    font-size: 16px;
     margin: 16px 0 4px 0;
     font-weight: 200;
     color: $yellow100;
@@ -1432,24 +1431,10 @@ details {
         text-align: center;
     }
 
-    h4 {
-        font-size: 14px;
-    }
-
     .experience-role {
         color: $pink000;
     }
 
-    @include tablet {
-
-        .jump-menu {
-            display: none;
-        }
-
-        .jump-menu>.link>svg.icon-below {
-            display: none;
-        }
-    }
 }
 
 // GRIDS
@@ -1723,7 +1708,6 @@ details {
 
     h4 {
         margin-bottom: 16px;
-        font-size: 16px;
     }
 
     ul,

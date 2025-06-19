@@ -85,6 +85,7 @@ nav .nav-nav {
 }
 
 .jump-menu {
+  margin: 40px 0 0 0;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -104,7 +105,7 @@ nav .nav-nav {
 .jump-menu .link {
   padding: 0;
   width: 45%;
-  height: 24px;
+  height: 31px;
 }
 @media only screen and (min-width: 481px) {
   .jump-menu {
@@ -116,7 +117,6 @@ nav .nav-nav {
   }
   .jump-menu .link {
     width: auto;
-    height: auto;
   }
 }
 
@@ -660,7 +660,7 @@ h2 {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
   padding: 32px 0 8px 0;
   font-family: "Spline Sans Mono";
@@ -669,7 +669,7 @@ h3 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 16px;
   margin: 16px 0 4px 0;
   font-weight: 200;
   color: rgb(255, 255, 116);
@@ -1142,19 +1142,8 @@ details li {
 .resume h3 {
   text-align: center;
 }
-.resume h4 {
-  font-size: 14px;
-}
 .resume .experience-role {
   color: #fb54a8;
-}
-@media only screen and (min-width: 481px) {
-  .resume .jump-menu {
-    display: none;
-  }
-  .resume .jump-menu > .link > svg.icon-below {
-    display: none;
-  }
 }
 
 .landing-grid #portfolio {
@@ -1385,7 +1374,6 @@ details li {
 }
 .casestudy-grid h4 {
   margin-bottom: 16px;
-  font-size: 16px;
 }
 .casestudy-grid ul ::marker,
 .casestudy-grid ol ::marker {

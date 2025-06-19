@@ -381,9 +381,6 @@ footer .link.inline {
     max-width: 260px;
     width: 100%;
     justify-content: space-between;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0;
   }
   .card .card-top {
     display: flex;

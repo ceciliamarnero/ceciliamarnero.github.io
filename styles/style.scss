@@ -522,9 +522,9 @@ footer {
         max-width: 260px;
         width: 100%;
         justify-content: space-between;
-        animation: appear linear;
-        animation-timeline: view();
-        animation-range: entry 0;
+        //animation: appear linear;
+        //animation-timeline: view();
+        //animation-range: entry 0;
 
         .card-top {
             display: flex;

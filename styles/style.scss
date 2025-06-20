@@ -132,7 +132,7 @@ nav {
 
     //    
     a.link-home {
-       // display: inline-block;
+        // display: inline-block;
         height: 46px;
         padding: 0;
 
@@ -714,7 +714,7 @@ a.link {
     font-weight: 200;
     letter-spacing: 1px;
 
-    &.link-home svg #logo-background{
+    &.link-home svg #logo-background {
         fill: $yellow100;
     }
 
@@ -742,8 +742,14 @@ a.link {
         padding: 0;
     }
 
+    &:disabled,
+    &[disabled] {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
     &:focus-visible,
-    &:hover {
+    &:hover:not(:disabled):not([disabled]) {
         color: $yellow110;
         fill: $yellow110;
         text-decoration: underline;
@@ -758,12 +764,13 @@ a.link {
 
         // icons have diff behaviours/animations
         //#top > div > nav > h1 > a > svg > path:nth-child(6)
-        .icon-home  {
+        .icon-home {
             path {
                 fill: initial;
             }
 
             outline: solid 2px $yellow110;
+
             #logo-background {
                 fill: $yellow110;
             }
@@ -824,7 +831,7 @@ img {
 // TEXT STYLES
 h1 {
     width: 202px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
-    height: 100%;   
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -860,7 +867,7 @@ h3 {
 
 h4 {
     font-size: 16px;
-    margin: 16px 0 4px 0;
+    margin: 0 0 4px 0;
     font-weight: 200;
     color: $yellow100;
     font-family: "Spline Sans Mono";
@@ -878,11 +885,11 @@ h5 {
         color: $pink000;
         text-shadow: 0 0 6px #fb54a866;
         font-family: "DM Serif Display";
-        
+
         letter-spacing: 2px;
         font-style: italic;
 
-        @include tablet(){
+        @include tablet() {
             font-size: 52px;
         }
     }
@@ -1639,7 +1646,7 @@ details {
             "exp4 exp5 exp6";
     }
 
-    h3{
+    h3 {
         grid-area: title;
     }
 
@@ -1670,10 +1677,11 @@ details {
 
 .languages .languages-grid {
     max-width: 460px;
-    margin: auto;
     display: grid;
     row-gap: 8px;
     column-gap: 16px;
+    justify-content: start;
+    justify-items: start;
 
     .lang1 {
         grid-area: lang1;
@@ -1804,10 +1812,10 @@ details {
         grid-area: takeaways;
     }
 
-    
+
 }
 
-.section-icon{
+.section-icon {
     height: 36px;
     width: 36px;
 }

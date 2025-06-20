@@ -1677,62 +1677,58 @@ details {
 .languages .languages-grid {
     max-width: 460px;
     display: grid;
-    row-gap: 8px;
     column-gap: 16px;
     justify-content: start;
     justify-items: start;
 
-    .lang1 {
-        grid-area: lang1;
+    div {
+        p.language-p,
+        h4.language-h4 {
+            line-height: 20px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        h4 {
+            width: 68px;
+        }
+        p{
+            width: 90px;
+        }
+
+        display: flex;
+        flex-flow: row wrap;
     }
 
-    .lang2 {
-        grid-area: lang2;
+    .lang-item1 {
+        grid-area: item1;
     }
 
-    .lang3 {
-        grid-area: lang3;
+    .lang-item2 {
+        grid-area: item2;
     }
 
-    .lang4 {
-        grid-area: lang4;
+    .lang-item3 {
+        grid-area: item3;
     }
 
-    .level1 {
-        grid-area: level1;
+    .lang-item4 {
+        grid-area: item4;
     }
 
-    .level2 {
-        grid-area: level2;
+    grid-template-areas: "item1"
+    "item2"
+    "item3"
+    "item4";
+
+
+    @include tablet() {
+        row-gap: 8px;
+        column-gap: 16px;
+        grid-template-areas:
+            "item1 item2"
+            "item3 item4"
     }
-
-    .level3 {
-        grid-area: level3;
-    }
-
-    .level4 {
-        grid-area: level4;
-    }
-
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: "lang1 level1"
-    "lang2 level2"
-    "lang3 level3"
-    "lang4 level4";
-
-    p.language-p,
-    h4.language-h4 {
-        line-height: 20px;
-        font-size: 14px;
-        margin: 0;
-    }
-
-    @include desktop() {
-        grid-template-areas: "lang1 level1 lang2 level2"
-            "lang3 level3 lang4 level4";
-    }
-
 }
 
 .cell-grid {

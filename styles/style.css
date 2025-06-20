@@ -1339,47 +1339,44 @@ details li {
 .languages .languages-grid {
   max-width: 460px;
   display: grid;
-  row-gap: 8px;
   column-gap: 16px;
   justify-content: start;
   justify-items: start;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto auto;
-  grid-template-areas: "lang1 level1" "lang2 level2" "lang3 level3" "lang4 level4";
+  grid-template-areas: "item1" "item2" "item3" "item4";
 }
-.languages .languages-grid .lang1 {
-  grid-area: lang1;
+.languages .languages-grid div {
+  display: flex;
+  flex-flow: row wrap;
 }
-.languages .languages-grid .lang2 {
-  grid-area: lang2;
-}
-.languages .languages-grid .lang3 {
-  grid-area: lang3;
-}
-.languages .languages-grid .lang4 {
-  grid-area: lang4;
-}
-.languages .languages-grid .level1 {
-  grid-area: level1;
-}
-.languages .languages-grid .level2 {
-  grid-area: level2;
-}
-.languages .languages-grid .level3 {
-  grid-area: level3;
-}
-.languages .languages-grid .level4 {
-  grid-area: level4;
-}
-.languages .languages-grid p.language-p,
-.languages .languages-grid h4.language-h4 {
+.languages .languages-grid div p.language-p,
+.languages .languages-grid div h4.language-h4 {
   line-height: 20px;
   font-size: 14px;
   margin: 0;
 }
-@media only screen and (min-width: 1400px) {
+.languages .languages-grid div h4 {
+  width: 68px;
+}
+.languages .languages-grid div p {
+  width: 90px;
+}
+.languages .languages-grid .lang-item1 {
+  grid-area: item1;
+}
+.languages .languages-grid .lang-item2 {
+  grid-area: item2;
+}
+.languages .languages-grid .lang-item3 {
+  grid-area: item3;
+}
+.languages .languages-grid .lang-item4 {
+  grid-area: item4;
+}
+@media only screen and (min-width: 481px) {
   .languages .languages-grid {
-    grid-template-areas: "lang1 level1 lang2 level2" "lang3 level3 lang4 level4";
+    row-gap: 8px;
+    column-gap: 16px;
+    grid-template-areas: "item1 item2" "item3 item4";
   }
 }
 

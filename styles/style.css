@@ -1310,7 +1310,7 @@ details li {
     grid-template-areas: "title title title" "exp1 exp2 exp3" "exp4 exp5 exp6";
   }
 }
-.experience-grid .title-experience {
+.experience-grid h3 {
   grid-area: title;
 }
 .experience-grid .experience1 {
@@ -1440,6 +1440,11 @@ details li {
 }
 .casestudy-grid #short-takeaways {
   grid-area: takeaways;
+}
+
+.section-icon {
+  height: 36px;
+  width: 36px;
 }
 
 /*# sourceMappingURL=style.css.map */

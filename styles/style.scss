@@ -1639,7 +1639,7 @@ details {
             "exp4 exp5 exp6";
     }
 
-    .title-experience {
+    h3{
         grid-area: title;
     }
 
@@ -1804,5 +1804,10 @@ details {
         grid-area: takeaways;
     }
 
+    
+}
 
+.section-icon{
+    height: 36px;
+    width: 36px;
 }

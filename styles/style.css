@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital@0;1&display=swap");
 *::after,
 *,
 *::before {
@@ -640,6 +640,7 @@ img {
 }
 
 h1 {
+  width: 202px;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -693,8 +694,14 @@ h5 {
 #hero .highlight {
   color: #fb54a8;
   text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
+  font-family: "DM Serif Display";
   letter-spacing: 2px;
   font-style: italic;
+}
+@media only screen and (min-width: 481px) {
+  #hero .highlight {
+    font-size: 52px;
+  }
 }
 #hero h2 {
   color: #f9f9f9;
@@ -703,6 +710,7 @@ h5 {
   font-size: 40px;
   text-align: center;
   line-height: 48px;
+  word-spacing: 1px;
 }
 #hero h2 .name {
   font-weight: 500;
@@ -1149,7 +1157,7 @@ details li {
 .resume h3 {
   text-align: center;
 }
-.resume .experience-role {
+.resume .experience-company {
   color: #fb54a8;
 }
 

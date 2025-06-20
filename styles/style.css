@@ -184,8 +184,8 @@ footer .link.inline {
 }
 .overview-grid {
   display: grid;
-  flex-direction: column;
-  padding: 8px;
+  gap: 8px;
+  padding: 16px;
   color: rgba(228, 228, 10, 0.3);
   border-radius: 1px;
   border-style: dashed;

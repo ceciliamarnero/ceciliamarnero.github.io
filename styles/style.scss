@@ -288,9 +288,8 @@ footer {
 //      STRUCTURES
 .overview-grid {
     display: grid;
-    //display: flex;
-    flex-direction: column;
-    padding: 8px;
+    gap: 8px;
+    padding: 16px;
     @include border-dashed(1px, $yellow030);
     width: 100%;
     max-width: $max-text-width;

@@ -49,12 +49,21 @@ section {
 
 nav {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-flow: column nowrap;
   align-items: center;
-  padding: 16px 0;
   fill: #ffff74;
   color: #ffff74;
+}
+@media only screen and (min-width: 481px) {
+  nav {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  nav h1 {
+    width: 202px;
+  }
 }
 nav a.link-home {
   height: 46px;
@@ -65,17 +74,15 @@ nav a.link-home .icon-home {
 }
 nav .nav-contact {
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-end;
-  height: 100%;
+  align-items: center;
+  flex-flow: row nowrap;
   gap: 4px;
+  height: 100%;
 }
 nav .nav-nav {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   gap: 24px;
-  font-size: 16px;
-  font-weight: 300;
 }
 @media only screen and (min-width: 481px) {
   nav .nav-nav .link-nav-nav {
@@ -555,6 +562,10 @@ a.link {
   font-weight: 200;
   letter-spacing: 1px;
 }
+a.link.link-nav-nav {
+  font-size: 16px;
+  font-weight: 300;
+}
 a.link.link-home svg #logo-background {
   fill: #ffff74;
 }
@@ -644,7 +655,6 @@ img {
 }
 
 h1 {
-  width: 202px;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -652,9 +662,9 @@ h1 {
 
 h2 {
   font-family: "Spline Sans Mono";
-  font-size: 32px;
+  font-size: 28px;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   color: #fb54a8;
   margin: 0;
 }

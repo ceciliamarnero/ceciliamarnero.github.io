@@ -901,9 +901,8 @@ h5 {
         font-family: "Spline Sans Mono";
         font-size: 2em;
         text-align: center;
-        line-height: 48px;
+        line-height: 1.3em;
         word-spacing: 1px;
-
         .name {
             font-weight: 500;
             color: $pink000;
@@ -926,10 +925,7 @@ h5 {
 
         @include tablet {
             padding: 60px;
-            line-height: 80px;
             font-size: 3em;
-            line-height: 80px;
-
         }
     }
 }

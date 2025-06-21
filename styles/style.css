@@ -716,7 +716,7 @@ h5 {
   font-family: "Spline Sans Mono";
   font-size: 2em;
   text-align: center;
-  line-height: 48px;
+  line-height: 1.3em;
   word-spacing: 1px;
 }
 #hero h2 .name {
@@ -741,9 +741,7 @@ h5 {
 @media only screen and (min-width: 481px) {
   #hero h2 {
     padding: 60px;
-    line-height: 80px;
     font-size: 3em;
-    line-height: 80px;
   }
 }
 

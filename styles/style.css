@@ -1,25 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap");
 *::after,
 *,
 *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-rendering: optimizeLegibility;
 }
 
-/* $yellow020: hsla(40, 97%, 63%, 0.20);
-$yellow030: hsla(40, 97%, 63%, 0.30);
-$yellow050: hsla(40, 97%, 63%, 0.50);
-$yellow080: hsla(40, 97%, 63%, 0.80);
-$yellow100: #fcbf45;
- */
 html,
 body {
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 300;
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 200;
   background-color: #0e0e0e;
   color: #f9f9f9;
-  font-size: 1em;
+  font-size: 16px;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -151,6 +146,7 @@ footer .heart {
 footer a.link.inline {
   color: #fb54a8;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .wrapper-top {
@@ -591,6 +587,7 @@ a.link.cta {
 a.link.inline {
   padding: 0;
   font-size: 1em;
+  line-height: 1em;
 }
 a.link:disabled, a.link[disabled] {
   opacity: 0.4;
@@ -710,41 +707,6 @@ h5 {
   color: #ffff74;
 }
 
-#hero h2 {
-  color: #f9f9f9;
-  margin: 0;
-  font-family: "Spline Sans Mono";
-  font-size: 2em;
-  text-align: center;
-  line-height: 1.3em;
-  word-spacing: 1px;
-}
-#hero h2 .name {
-  font-weight: 500;
-  color: #fb54a8;
-  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
-  padding: 0 4px;
-}
-#hero h2 .highlight {
-  color: #fb54a8;
-  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
-  font-family: "DM Serif Display";
-  letter-spacing: 2px;
-  font-style: italic;
-  font-size: 1.1em;
-}
-@media only screen and (min-width: 481px) {
-  #hero h2 .highlight {
-    font-size: 1.2em;
-  }
-}
-@media only screen and (min-width: 481px) {
-  #hero h2 {
-    padding: 60px;
-    font-size: 3em;
-  }
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -752,10 +714,10 @@ ul {
 
 p,
 li {
-  margin: 0 0 8px 0;
-  font-size: 0.875em;
-  line-height: 21px;
-  font-weight: 300;
+  margin: 0 0 14px 0;
+  font-size: 0.98em;
+  line-height: 23px;
+  font-weight: 200;
   color: #f9f9f9;
 }
 p.center,
@@ -795,6 +757,41 @@ strong {
 details p,
 details li {
   margin: 0 0 0 20px;
+}
+
+#hero h2 {
+  color: #f9f9f9;
+  margin: 0;
+  font-family: "Spline Sans Mono";
+  font-size: 2em;
+  text-align: center;
+  line-height: 1.3em;
+  word-spacing: 1px;
+}
+#hero h2 .name {
+  font-weight: 500;
+  color: #fb54a8;
+  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
+  padding: 0 4px;
+}
+#hero h2 .highlight {
+  color: #fb54a8;
+  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
+  font-family: "DM Serif Display";
+  letter-spacing: 2px;
+  font-style: italic;
+  font-size: 1.1em;
+}
+@media only screen and (min-width: 481px) {
+  #hero h2 .highlight {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 481px) {
+  #hero h2 {
+    padding: 60px;
+    font-size: 3em;
+  }
 }
 
 .wrapper-visual {
@@ -1175,9 +1172,6 @@ details li {
 .resume h3 {
   text-align: center;
 }
-.resume .experience-company {
-  color: #fb54a8;
-}
 
 .landing-grid #portfolio {
   padding: 16px 4px;
@@ -1299,19 +1293,25 @@ details li {
   padding: 24px 0;
 }
 .experience-grid .wrapper-experience .wrapper-experience-header {
-  margin-bottom: 16px;
+  margin: 24px 0 16px 0;
 }
-.experience-grid .wrapper-experience .experience-company,
-.experience-grid .wrapper-experience .experience-role,
-.experience-grid .wrapper-experience .experience-dates {
-  margin: 8px 0;
+.experience-grid .wrapper-experience .wrapper-experience-header p {
+  margin-bottom: 4px;
 }
-.experience-grid .wrapper-experience .experience-role {
-  font-size: 1em;
+.experience-grid .wrapper-experience .exp-company-dates {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.experience-grid .wrapper-experience .exp-company-dates p {
+  font-size: 0.9em;
+}
+.experience-grid .wrapper-experience .experience-company {
+  text-transform: uppercase;
+  font-variant: small-caps;
 }
 .experience-grid .wrapper-experience .experience-dates {
   font-weight: 200;
-  font-style: italic;
 }
 @media only screen and (min-width: 481px) {
   .experience-grid {
@@ -1365,11 +1365,11 @@ details li {
 .languages .languages-grid div p.language-p,
 .languages .languages-grid div h4.language-h4 {
   line-height: 20px;
-  font-size: 0.875em;
   margin: 0;
 }
 .languages .languages-grid div h4 {
   width: 68px;
+  font-size: 0.865em;
 }
 .languages .languages-grid div p {
   width: 90px;

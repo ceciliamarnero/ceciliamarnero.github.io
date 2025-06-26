@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap");
 *::after,
 *,
 *::before {
@@ -10,10 +10,11 @@
 
 html,
 body {
-  font-family: "Red Hat Text", sans-serif;
+  font-feature-settings: "smcp" on;
+  font-family: "Libre Franklin", sans-serif, sans-serif;
   font-weight: 200;
   background-color: #0e0e0e;
-  color: #f9f9f9;
+  color: #eeeeee;
   font-size: 16px;
   width: 100%;
   height: 100%;
@@ -129,7 +130,7 @@ footer {
   text-align: center;
 }
 footer p {
-  font-family: "Spline Sans Mono";
+  font-family: "Spline Sans Mono", serif;
 }
 footer .mate {
   width: 18px;
@@ -146,7 +147,6 @@ footer .heart {
 footer a.link.inline {
   color: #fb54a8;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
 .wrapper-top {
@@ -587,7 +587,7 @@ a.link.cta {
 a.link.inline {
   padding: 0;
   font-size: 1em;
-  line-height: 1em;
+  height: 1em;
 }
 a.link:disabled, a.link[disabled] {
   opacity: 0.4;
@@ -664,7 +664,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Spline Sans Mono";
+  font-family: "Spline Sans Mono", serif;
   text-align: center;
   font-weight: 200;
   color: #fb54a8;
@@ -687,7 +687,7 @@ h3 {
   font-size: 1.25em;
   margin: 0;
   padding: 32px 0 8px 0;
-  font-family: "Spline Sans Mono";
+  font-family: "Spline Sans Mono", serif;
   font-weight: 300;
   color: #fb54a8;
 }
@@ -697,7 +697,7 @@ h4 {
   margin: 0 0 4px 0;
   font-weight: 200;
   color: #ffff74;
-  font-family: "Spline Sans Mono";
+  font-family: "Spline Sans Mono", serif;
 }
 
 h5 {
@@ -714,11 +714,10 @@ ul {
 
 p,
 li {
-  margin: 0 0 14px 0;
-  font-size: 0.98em;
-  line-height: 23px;
+  margin: 0 0 16px 0;
+  line-height: 1.45;
   font-weight: 200;
-  color: #f9f9f9;
+  color: #eeeeee;
 }
 p.center,
 li.center {
@@ -731,7 +730,7 @@ ol {
 }
 
 li {
-  margin-left: 16px;
+  margin-left: 18px;
   margin-bottom: 8px;
 }
 
@@ -760,32 +759,23 @@ details li {
 }
 
 #hero h2 {
-  color: #f9f9f9;
+  color: #eeeeee;
   margin: 0;
-  font-family: "Spline Sans Mono";
+  font-family: "Spline Sans Mono", serif;
   font-size: 2em;
   text-align: center;
   line-height: 1.3em;
-  word-spacing: 1px;
 }
 #hero h2 .name {
-  font-weight: 500;
   color: #fb54a8;
   text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
   padding: 0 4px;
+  letter-spacing: 2px;
 }
 #hero h2 .highlight {
   color: #fb54a8;
   text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
-  font-family: "DM Serif Display";
-  letter-spacing: 2px;
   font-style: italic;
-  font-size: 1.1em;
-}
-@media only screen and (min-width: 481px) {
-  #hero h2 .highlight {
-    font-size: 1.2em;
-  }
 }
 @media only screen and (min-width: 481px) {
   #hero h2 {
@@ -1254,6 +1244,17 @@ details li {
 .resume-grid .resume-column {
   padding: 0 24px 32px 24px;
 }
+.resume-grid li {
+  margin: 12px 0 0 11px;
+}
+.resume-grid li span {
+  position: relative;
+  left: 4px;
+}
+.resume-grid li::marker {
+  font-size: 0.6em;
+  color: #7d7d7d;
+}
 .resume-grid .wrapper-education,
 .resume-grid .wrapper-skill {
   margin-bottom: 8px;
@@ -1293,10 +1294,10 @@ details li {
   padding: 24px 0;
 }
 .experience-grid .wrapper-experience .wrapper-experience-header {
-  margin: 24px 0 16px 0;
+  margin: 24px 0 8px 0;
 }
-.experience-grid .wrapper-experience .wrapper-experience-header p {
-  margin-bottom: 4px;
+.experience-grid .wrapper-experience .wrapper-experience-header h4 {
+  margin-bottom: 20px;
 }
 .experience-grid .wrapper-experience .exp-company-dates {
   display: flex;
@@ -1305,13 +1306,14 @@ details li {
 }
 .experience-grid .wrapper-experience .exp-company-dates p {
   font-size: 0.9em;
+  margin: 0;
 }
 .experience-grid .wrapper-experience .experience-company {
+  font-variant-caps: small-caps;
   text-transform: uppercase;
-  font-variant: small-caps;
 }
 .experience-grid .wrapper-experience .experience-dates {
-  font-weight: 200;
+  font-weight: 100;
 }
 @media only screen and (min-width: 481px) {
   .experience-grid {

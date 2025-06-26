@@ -5,15 +5,19 @@
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:ital,wght@0,300..900;1,300..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@100..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Oxygen:wght@300;400;700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 
 *::after,
 *,
+
 *::before {
     box-sizing: border-box;
     margin: 0;
@@ -22,12 +26,10 @@
 }
 
 // NUMERIC VALUES
-$max-text-width : 700px;
 // FONTS
-$heading-font: "Spline Sans Mono";
-//$body-font: "Be Vietnam Pro";
-$body-font: "Red Hat Text";
-$display-font: "DM Serif Display";
+$heading-font: "Spline Sans Mono", serif;
+$body-font: "Libre Franklin", sans-serif;
+$display-font: "Spline Sans Mono", serif;
 // COLORS
 $yellow020: rgba(228, 228, 10, 0.2);
 $yellow030: rgba(228, 228, 10, 0.3);
@@ -36,8 +38,10 @@ $yellow080: rgba(228, 228, 10, 0.8);
 $yellow100: #ffff74;
 $yellow110: rgb(255, 255, 230);
 $pink000: #fb54a8;
-$white000: #f9f9f9;
+$pink-shadow: #fb54a866;
+$white000: #eeeeee;
 $black: #0e0e0e;
+$bullet:  #7d7d7d;
 
 // DIMENSIONS
 @mixin mobile {
@@ -97,11 +101,14 @@ $black: #0e0e0e;
     color: red;
 }
 
+$max-text-width : 700px;
+
 //////////////////////
 //        BIG SECTIONS
 //////////////////////
 html,
 body {
+    font-feature-settings: "smcp" on;
     font-family: $body-font, sans-serif;
     font-weight: 200;
     background-color: $black;
@@ -147,7 +154,6 @@ nav {
     }
 
     a.link-home {
-        // display: inline-block;
         height: 46px;
         padding: 0;
 
@@ -239,7 +245,7 @@ footer {
     a.link.inline {
         color: $pink000;
         font-weight: 400;
-        text-transform: uppercase;
+        // text-transform: uppercase;
     }
 }
 
@@ -763,7 +769,7 @@ a.link {
     &.inline {
         padding: 0;
         font-size: 1em;
-        line-height: 1em;
+        height: 1em;
     }
 
     &:disabled,
@@ -909,9 +915,8 @@ ul {
 
 p,
 li {
-    margin: 0 0 14px 0;
-    font-size: .98em;
-    line-height: 23px;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
     font-weight: 200;
     color: $white000;
 
@@ -927,7 +932,7 @@ ol {
 }
 
 li {
-    margin-left: 16px;
+    margin-left: 18px;
     margin-bottom: 8px;
 
 }
@@ -965,30 +970,22 @@ details {
     h2 {
         color: $white000;
         margin: 0;
-        font-family: $heading-font;
+        font-family: $display-font;
         font-size: 2em;
         text-align: center;
         line-height: 1.3em;
-        word-spacing: 1px;
 
         .name {
-            font-weight: 500;
             color: $pink000;
-            text-shadow: 0 0 6px #fb54a866;
+            text-shadow: 0 0 6px $pink-shadow;
             padding: 0 4px;
+            letter-spacing: 2px;
         }
 
         .highlight {
             color: $pink000;
-            text-shadow: 0 0 6px #fb54a866;
-            font-family: $display-font;
-            letter-spacing: 2px;
+            text-shadow: 0 0 6px $pink-shadow;
             font-style: italic;
-            font-size: 1.1em;
-
-            @include tablet() {
-                font-size: 1.2em;
-            }
         }
 
         @include tablet {
@@ -1569,8 +1566,21 @@ details {
 }
 
 .resume-grid {
+    
     .resume-column {
         padding: 0 24px 32px 24px;
+    }
+    li {
+        margin: 12px 0 0 11px;
+        span {
+            position: relative;
+            left: 4px;
+        }
+
+        &::marker {
+            font-size: .6em;
+            color: $bullet;
+        }
     }
 
     .wrapper-education,
@@ -1621,17 +1631,22 @@ details {
     padding: 24px 0;
 
     .wrapper-experience {
-        .wrapper-experience-header {
-            margin: 24px 0 16px 0;
+        
+        
 
-            p {
-                margin-bottom: 4px;
+        .wrapper-experience-header {
+            margin: 24px 0 8px 0;
+
+            h4 {
+                margin-bottom: 20px;
             }
         }
 
         .exp-company-dates {
             p {
+
                 font-size: .9em;
+                margin: 0;
             }
 
             display: flex;
@@ -1640,12 +1655,12 @@ details {
         }
 
         .experience-company {
+            font-variant-caps: small-caps;
             text-transform: uppercase;
-            font-variant: small-caps;
         }
 
         .experience-dates {
-            font-weight: 200;
+            font-weight: 100;
         }
     }
 
@@ -1709,7 +1724,7 @@ details {
         p.language-p,
         h4.language-h4 {
             line-height: 20px;
-            
+
             margin: 0;
         }
 

@@ -8,6 +8,11 @@
   text-rendering: optimizeLegibility;
 }
 
+*::selection {
+  color: #0e0e0e;
+  background-color: #ffff74;
+}
+
 html,
 body {
   font-feature-settings: "smcp" on;
@@ -502,36 +507,43 @@ header.no-tag p.tag {
 }
 
 .wrapper-contacts {
-  width: auto;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  gap: 8px;
-  margin: 16px 0;
+  display: grid;
+  margin: 0 0 16px 0;
+  grid-template-areas: "label-email" "link-email" "label-linkedin" "link-linkedin";
 }
-.wrapper-contacts p.contact {
+.wrapper-contacts p {
   margin: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  padding: 0;
   width: auto;
+  text-align: center;
 }
-.wrapper-contacts p.contact .label-contact {
-  order: 1;
+.wrapper-contacts .label {
+  padding-bottom: 8px;
+}
+.wrapper-contacts .label-email {
+  grid-area: label-email;
+}
+.wrapper-contacts .link-email {
+  grid-area: link-email;
+}
+.wrapper-contacts .label-linkedin {
+  grid-area: label-linkedin;
+}
+.wrapper-contacts .link-linkedin {
+  grid-area: link-linkedin;
 }
 @media only screen and (min-width: 481px) {
   .wrapper-contacts {
-    flex-flow: column nowrap;
-    align-items: flex-start;
+    row-gap: 4px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "label-email link-email" "label-linkedin link-linkedin";
   }
-  .wrapper-contacts p.contact {
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: 8px;
+  .wrapper-contacts p {
+    text-align: left;
   }
-  .wrapper-contacts p.contact .label-contact {
-    order: 0;
-    width: 70px;
+  .wrapper-contacts .label {
+    padding: 0 16px 0 0;
   }
 }
 
@@ -684,20 +696,33 @@ h2 {
 }
 
 h3 {
-  font-size: 1.25em;
-  margin: 0;
-  padding: 32px 0 8px 0;
   font-family: "Spline Sans Mono", serif;
   font-weight: 300;
   color: #fb54a8;
+  font-size: 1.25em;
+  margin: 0;
+}
+
+p + h3 {
+  padding-top: 24px;
 }
 
 h4 {
   font-size: 1em;
-  margin: 0 0 4px 0;
   font-weight: 200;
   color: #ffff74;
   font-family: "Spline Sans Mono", serif;
+}
+
+h3 + h4,
+h3 + .div-h4 {
+  padding: 24px 0 4px 0;
+}
+
+p + h4,
+ol + h4,
+ul + h4 {
+  padding: 24px 0 4px 0;
 }
 
 h5 {
@@ -714,14 +739,18 @@ ul {
 
 p,
 li {
-  margin: 0 0 16px 0;
   line-height: 1.45;
   font-weight: 200;
   color: #eeeeee;
+  padding-bottom: 10px;
 }
 p.center,
 li.center {
   text-align: center;
+}
+
+h3 + p {
+  padding-top: 8px;
 }
 
 ul,
@@ -731,7 +760,6 @@ ol {
 
 li {
   margin-left: 18px;
-  margin-bottom: 8px;
 }
 
 .tag {
@@ -1180,6 +1208,7 @@ details li {
 .landing-grid h2 {
   text-align: center;
   margin-bottom: 16px;
+  margin-top: 8px;
 }
 
 .landing-grid {
@@ -1222,10 +1251,6 @@ details li {
   display: flex;
   flex-flow: column;
 }
-.resume-grid h3,
-.experience-grid h3 {
-  padding: 24px 0;
-}
 @media only screen and (min-width: 481px) {
   .resume-grid,
   .experience-grid {
@@ -1244,9 +1269,6 @@ details li {
 .resume-grid .resume-column {
   padding: 0 24px 32px 24px;
 }
-.resume-grid li {
-  margin: 12px 0 0 11px;
-}
 .resume-grid li span {
   position: relative;
   left: 4px;
@@ -1254,11 +1276,6 @@ details li {
 .resume-grid li::marker {
   font-size: 0.6em;
   color: #7d7d7d;
-}
-.resume-grid .wrapper-education,
-.resume-grid .wrapper-skill {
-  margin-bottom: 8px;
-  width: 100%;
 }
 @media only screen and (min-width: 481px) {
   .resume-grid {
@@ -1291,10 +1308,10 @@ details li {
 }
 
 .experience-grid {
-  padding: 24px 0;
+  padding: 60px 0 24px 0;
 }
 .experience-grid .wrapper-experience .wrapper-experience-header {
-  margin: 24px 0 8px 0;
+  padding: 24px 0 8px 0;
 }
 .experience-grid .wrapper-experience .wrapper-experience-header h4 {
   margin-bottom: 20px;
@@ -1367,11 +1384,10 @@ details li {
 .languages .languages-grid div p.language-p,
 .languages .languages-grid div h4.language-h4 {
   line-height: 20px;
-  margin: 0;
 }
 .languages .languages-grid div h4 {
   width: 68px;
-  font-size: 0.865em;
+  font-size: 0.87em;
 }
 .languages .languages-grid div p {
   width: 90px;
@@ -1390,7 +1406,6 @@ details li {
 }
 @media only screen and (min-width: 481px) {
   .languages .languages-grid {
-    row-gap: 8px;
     column-gap: 16px;
     grid-template-areas: "item1 item2" "item3 item4";
   }
@@ -1400,7 +1415,7 @@ details li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   padding: 32px 16px;
 }
 .cell-grid.top {
@@ -1463,6 +1478,59 @@ details li {
 .section-icon {
   height: 36px;
   width: 36px;
+}
+
+figure figcaption.desktop {
+  display: none;
+}
+@media only screen and (min-width: 481px) {
+  figure figcaption {
+    display: none;
+  }
+  figure figcaption.desktop {
+    display: block;
+  }
+}
+figure .pics-grid {
+  margin: 0 auto;
+}
+figure .pics-grid img {
+  width: 100%;
+  height: auto;
+}
+figure .pics-grid figcaption {
+  padding: 2px 0 4px 0;
+}
+@media only screen and (min-width: 481px) {
+  figure .pics-grid {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 132px auto;
+    grid-template-areas: "books horses frida" "books bird frida";
+  }
+  figure .pics-grid img {
+    margin: 0;
+    height: 100%;
+  }
+  figure .pics-grid figcaption {
+    display: none;
+  }
+  figure .pics-grid figcaption.desktop {
+    display: block;
+  }
+}
+figure .pics-grid .pic-books {
+  grid-area: books;
+}
+figure .pics-grid .pic-bird {
+  grid-area: bird;
+}
+figure .pics-grid .pic-horses {
+  grid-area: horses;
+}
+figure .pics-grid .pic-frida {
+  grid-area: frida;
 }
 
 /*# sourceMappingURL=style.css.map */

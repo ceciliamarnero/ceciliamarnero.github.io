@@ -25,6 +25,7 @@
     text-rendering: optimizeLegibility;
 }
 
+
 // NUMERIC VALUES
 // FONTS
 $heading-font: "Spline Sans Mono", serif;
@@ -41,8 +42,12 @@ $pink000: #fb54a8;
 $pink-shadow: #fb54a866;
 $white000: #eeeeee;
 $black: #0e0e0e;
-$bullet:  #7d7d7d;
+$bullet: #7d7d7d;
 
+*::selection {
+    color: $black;
+    background-color: $yellow100;
+}
 // DIMENSIONS
 @mixin mobile {
     @media only screen and (max-width: 480px) {
@@ -673,39 +678,56 @@ header {
 }
 
 .wrapper-contacts {
-    width: auto;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    gap: 8px;
-    margin: 16px 0;
+    display: grid;
+    margin: 0 0 16px 0;
 
-    p.contact {
+    grid-template-areas: "label-email"
+        "link-email"
+        "label-linkedin"
+        "link-linkedin";
+
+    p {
         margin: 0;
-        display: flex;
-        flex-flow: column nowrap; // no column-center bc needs to change on tablet
-        align-items: center;
+        padding: 0;
         width: auto;
-
-        .label-contact {
-            order: 1;
-        }
+        text-align: center;
     }
 
+    .label {
+        padding-bottom: 8px;
+    }
+
+    .label-email {
+        grid-area: label-email;
+    }
+
+    .link-email {
+        grid-area: link-email;
+    }
+
+    .label-linkedin {
+        grid-area: label-linkedin;
+    }
+
+    .link-linkedin {
+        grid-area: link-linkedin;
+    }
+
+
     @include tablet {
-        flex-flow: column nowrap;
-        align-items: flex-start;
-
-        p.contact {
-            flex-flow: row nowrap;
-            align-items: center;
-            gap: 8px;
-
-            .label-contact {
-                order: 0;
-                width: 70px;
-            }
+        p {
+            text-align: left;
         }
+
+        .label {
+            padding: 0 16px 0 0;
+        }
+
+        row-gap: 4px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "label-email link-email"
+        "label-linkedin link-linkedin";
     }
 }
 
@@ -885,21 +907,36 @@ h2 {
 }
 
 h3 {
-    font-size: 1.25em;
-    margin: 0;
-    padding: 32px 0 8px 0;
     font-family: $heading-font;
     font-weight: 300;
     color: $pink000;
+    font-size: 1.25em;
+    margin: 0;
 }
+
+p+h3 {
+    padding-top: 24px;
+}
+
 
 h4 {
     font-size: 1em;
-    margin: 0 0 4px 0;
     font-weight: 200;
     color: $yellow100;
     font-family: $heading-font;
 }
+
+h3+h4,
+h3+.div-h4 {
+    padding: 24px 0 4px 0;
+}
+
+p+h4,
+ol+h4,
+ul+h4 {
+    padding: 24px 0 4px 0;
+}
+
 
 h5 {
     font-size: 1em;
@@ -915,16 +952,21 @@ ul {
 
 p,
 li {
-    margin: 0 0 16px 0;
     line-height: 1.45;
     font-weight: 200;
     color: $white000;
+    padding-bottom: 10px;
 
     &.center {
         text-align: center;
     }
+
 }
 
+
+h3+p {
+    padding-top: 8px;
+}
 
 ul,
 ol {
@@ -933,8 +975,6 @@ ol {
 
 li {
     margin-left: 18px;
-    margin-bottom: 8px;
-
 }
 
 .tag {
@@ -1496,6 +1536,7 @@ details {
     h2 {
         text-align: center;
         margin-bottom: 16px;
+        margin-top: 8px;
     }
 }
 
@@ -1550,10 +1591,6 @@ details {
     display: flex;
     flex-flow: column;
 
-    h3 {
-        padding: 24px 0;
-    }
-
     @include tablet() {
         padding: 0;
         display: grid;
@@ -1566,12 +1603,12 @@ details {
 }
 
 .resume-grid {
-    
     .resume-column {
         padding: 0 24px 32px 24px;
     }
+
     li {
-        margin: 12px 0 0 11px;
+
         span {
             position: relative;
             left: 4px;
@@ -1581,12 +1618,6 @@ details {
             font-size: .6em;
             color: $bullet;
         }
-    }
-
-    .wrapper-education,
-    .wrapper-skill {
-        margin-bottom: 8px;
-        width: 100%;
     }
 
     @include tablet {
@@ -1628,14 +1659,11 @@ details {
 }
 
 .experience-grid {
-    padding: 24px 0;
+    padding: 60px 0 24px 0;
 
     .wrapper-experience {
-        
-        
-
         .wrapper-experience-header {
-            margin: 24px 0 8px 0;
+            padding: 24px 0 8px 0;
 
             h4 {
                 margin-bottom: 20px;
@@ -1720,25 +1748,22 @@ details {
     justify-items: start;
 
     div {
+        display: flex;
+        flex-flow: row wrap;
 
         p.language-p,
         h4.language-h4 {
             line-height: 20px;
-
-            margin: 0;
         }
 
         h4 {
             width: 68px;
-            font-size: 0.865em;
+            font-size: 0.87em;
         }
 
         p {
             width: 90px;
         }
-
-        display: flex;
-        flex-flow: row wrap;
     }
 
     .lang-item1 {
@@ -1764,7 +1789,6 @@ details {
 
 
     @include tablet() {
-        row-gap: 8px;
         column-gap: 16px;
         grid-template-areas:
             "item1 item2"
@@ -1776,7 +1800,7 @@ details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
 
     &.top {
         justify-content: flex-start;
@@ -1854,4 +1878,74 @@ details {
 .section-icon {
     height: 36px;
     width: 36px;
+}
+
+figure {
+    figcaption.desktop {
+        display: none;
+    }
+
+    @include tablet {
+        figcaption {
+            display: none;
+
+            &.desktop {
+                display: block;
+            }
+        }
+    }
+
+    .pics-grid {
+
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            //margin: 12px 0 0 0;
+        }
+
+        figcaption {
+            padding: 2px 0 4px 0;
+        }
+
+        @include tablet() {
+            display: grid;
+            gap: 4px;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 132px auto;
+            grid-template-areas: "books horses frida"
+                "books bird frida";
+
+            img {
+                margin: 0;
+                height: 100%;
+            }
+
+            figcaption {
+                display: none;
+
+                &.desktop {
+                    display: block;
+                }
+            }
+        }
+
+        .pic-books {
+            grid-area: books;
+        }
+
+        .pic-bird {
+            grid-area: bird;
+        }
+
+        .pic-horses {
+            grid-area: horses;
+        }
+
+        .pic-frida {
+            grid-area: frida;
+        }
+    }
+
 }

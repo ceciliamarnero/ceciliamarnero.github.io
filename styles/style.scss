@@ -1,18 +1,3 @@
-//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital@0;1&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:ital,wght@0,300..900;1,300..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@100..900&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Oxygen:wght@300;400;700&family=Spline+Sans+Mono:ital,wght@0,300;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 
 *::after,
@@ -25,8 +10,7 @@
     text-rendering: optimizeLegibility;
 }
 
-
-// NUMERIC VALUES
+// VARIABLES
 // FONTS
 $heading-font: "Spline Sans Mono", serif;
 $body-font: "Libre Franklin", sans-serif;
@@ -42,12 +26,6 @@ $pink000: #fb54a8;
 $pink-shadow: #fb54a866;
 $white000: #eeeeee;
 $black: #0e0e0e;
-$bullet: #7d7d7d;
-
-*::selection {
-    color: $black;
-    background-color: $yellow100;
-}
 
 // DIMENSIONS
 @mixin mobile {
@@ -91,13 +69,13 @@ $bullet: #7d7d7d;
     border-left-width: $borderWidth;
 }
 
-@mixin bottom-dashed ($borderWidth, $color) {
+@mixin border-1side-dashed ($borderTopWidth,$borderRightWidth,$borderBottomWidth,$borderLeftWidth, $color) {
     color: $color;
     border-style: dashed;
-    border-bottom-width: $borderWidth;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
+    border-top-width: $borderTopWidth;
+    border-right-width: $borderRightWidth;
+    border-bottom-width: $borderBottomWidth;
+    border-left-width: $borderLeftWidth;
 }
 
 @mixin border-test {
@@ -112,7 +90,10 @@ $max-text-width : 700px;
 //////////////////////
 //        BIG SECTIONS
 //////////////////////
-html,
+html{
+    height: 100%;
+}
+
 body {
     font-feature-settings: "smcp" on;
     font-family: $body-font, sans-serif;
@@ -136,9 +117,25 @@ body {
     width: 95%;
 }
 
+.wrapper-top {
+    flex-grow: 1;
+    //
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
 section {
     @include border-dashed(1px, $yellow030);
     padding: 32px 0px 48px 0px;
+}
+
+.center-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 nav {
@@ -201,7 +198,7 @@ nav {
     padding-bottom: 8px;
 
     &:not(.no-border) {
-        @include bottom-dashed(1px, $yellow030);
+        @include border-1side-dashed(0,0,1px,0, $yellow030);
     }
 
     .link {
@@ -229,6 +226,7 @@ footer {
     padding: 16px 8px;
     margin-top: 40px;
     text-align: center;
+    margin-top: 20px;
 
     p {
         font-family: $heading-font;
@@ -255,9 +253,11 @@ footer {
     }
 }
 
-.wrapper-top {
-    margin-bottom: 20px;
+*::selection {
+    color: $black;
+    background-color: $yellow100;
 }
+
 
 //      ANIMATIONS
 @keyframes bounce {
@@ -314,7 +314,8 @@ footer {
 //      STRUCTURES
 .overview-grid {
     display: grid;
-    gap: 8px;
+    column-gap: 8px;
+    row-gap: 4px;
     padding: 16px;
     @include border-dashed(1px, $yellow030);
     width: 100%;
@@ -325,6 +326,7 @@ footer {
         margin: 0;
         width: 100%;
         overflow-wrap: break-word;
+        padding: 0;
     }
 
     p.label {
@@ -332,6 +334,7 @@ footer {
         margin: 12px 0 2px 0;
         color: $pink000;
         width: 100%;
+        padding: 0;
     }
 
     grid-template-columns: auto;
@@ -398,7 +401,6 @@ footer {
     }
 
     @include tablet() {
-        //width: 80%;
         column-gap: 8px;
         margin: 0 0 16px 0;
         //4 to compensate padding of labels at the first row
@@ -422,14 +424,15 @@ footer {
             "data-client data-role data-team"
             "label-skills1 label-skills2 label-tools"
             "data-skills1 data-skills2 data-tools";
-        padding: 4px 24px 16px 24px;
+        padding: 16px;
         column-gap: 16px;
     }
 }
 
 .case-image {
+    display: block;
     height: 100px;
-    width: auto;
+    width: $max-text-width;
     max-width: $max-text-width;
     position: relative;
 
@@ -441,7 +444,7 @@ footer {
     }
 
     @include tablet {
-        width: 80%;
+        width: $max-text-width;
         height: auto;
 
         img {
@@ -474,10 +477,10 @@ footer {
 .card {
     @include border-dashed(1px, $yellow030);
     padding: 12px;
-    border-radius: 2xp;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+    border-radius: 2px;
 
     &.hide {
         display: none;
@@ -565,7 +568,7 @@ footer {
             }
 
             .tags {
-                height: 36px;
+                height: 48px;
             }
 
             .card-details {
@@ -583,7 +586,7 @@ footer {
     width: 98%;
     max-width: $max-text-width;
     padding: 0 8px 0 0;
-    margin: 8px 0;
+    margin: 16px 0;
 
     .card-process-image {
         border: 1px solid $yellow080;
@@ -591,10 +594,9 @@ footer {
         display: none;
     }
 
-    .card-process-text {
+    .text {
         width: 80%;
 
-        p.card-process-title,
         p.card-process-details {
             text-align: left;
             margin: 0;
@@ -602,23 +604,16 @@ footer {
             width: 100%;
         }
 
-        li.card-process-title {
-            text-align: left;
-            margin: 0 0 4px 16px;
-            padding: 0;
+        .card-title {
+            margin-top: 4px;
 
-            ::marker {
-                color: $yellow100;
-                font-weight: 400;
-
+            h5 {
+                padding: 0;
             }
+
         }
 
-        h4.card-process-details {
-            text-align: left;
-            margin: 0;
-            padding: 0;
-        }
+
     }
 
     @include tablet {
@@ -626,7 +621,7 @@ footer {
         flex-flow: row nowrap;
         gap: 8px;
         padding: 0;
-        margin: 8px 8px 8px 0;
+        margin: 16px 0;
         align-items: stretch;
         justify-content: center;
 
@@ -662,25 +657,10 @@ header {
     @include border-dashed(1px, $yellow030);
 }
 
-.wrapper-content {
-    gap: 16px;
-}
-
-.wrapper-text {
-    width: 98%;
-    padding: 0 8px;
-    max-width: $max-text-width;
-
-    img {
-        margin: 12px 0;
-        width: 100%;
-        height: auto;
-    }
-}
-
 .wrapper-contacts {
     display: grid;
     margin: 0 0 16px 0;
+    align-items: baseline;
 
     grid-template-areas: "label-email"
         "link-email"
@@ -850,6 +830,7 @@ a.link {
                 animation: bounce-out 0.8s infinite;
             }
         }
+        
     }
 }
 
@@ -921,35 +902,23 @@ p+h3 {
 
 
 h4 {
-    font-size: 1em;
+    font-size: 1.05em;
     font-weight: 200;
     color: $yellow100;
     font-family: $heading-font;
 }
 
-h3+h4,
-h3+.div-h4 {
-    padding: 24px 0 4px 0;
+h4,
+.div-h4 {
+    padding: 24px 0 2px 0;
 }
-
-p+h4,
-ol+h4,
-ul+h4 {
-    padding: 24px 0 4px 0;
-}
-
 
 h5 {
     font-size: 1em;
-    font-weight: 400;
-    margin: 4px 0 0 0;
+    font-weight: 300;
     color: $yellow100;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-}
 
 p,
 li {
@@ -964,7 +933,6 @@ li {
 
 }
 
-
 h3+p {
     padding-top: 8px;
 }
@@ -974,9 +942,24 @@ ol {
     margin: 0;
 }
 
+li ol,
+li ul {
+    margin-top: 12px;
+}
+
 li {
     margin-left: 14px;
+    padding-left: 8px;
+
+    &::marker {
+        color: $yellow050;
+    }
 }
+
+ul li::marker {
+    font-size: 0.8em;
+}
+
 
 .tag {
     display: inline-block;
@@ -997,43 +980,6 @@ li {
 
 strong {
     font-weight: 450;
-}
-
-details {
-
-    p,
-    li {
-        margin: 0 0 0 20px;
-    }
-}
-
-#hero {
-    h2 {
-        color: $white000;
-        margin: 0;
-        font-family: $display-font;
-        font-size: 2em;
-        text-align: center;
-        line-height: 1.3em;
-
-        .name {
-            color: $pink000;
-            text-shadow: 0 0 6px $pink-shadow;
-            padding: 0 4px;
-            letter-spacing: 2px;
-        }
-
-        .highlight {
-            color: $pink000;
-            text-shadow: 0 0 6px $pink-shadow;
-            font-style: italic;
-        }
-
-        @include tablet {
-            padding: 60px;
-            font-size: 3em;
-        }
-    }
 }
 
 // VISUALS
@@ -1498,16 +1444,6 @@ details {
     }
 }
 
-.case-study {
-    h3 {
-        padding: 40px 0 16px 0;
-    }
-
-    h4 {
-        margin: 24px 0 8px 0;
-    }
-}
-
 
 .resume {
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
@@ -1517,52 +1453,66 @@ details {
     }
 }
 
-// GRIDS
-.landing-grid {
-    #portfolio {
-        padding: 16px 4px;
-        justify-content: flex-start;
 
-        @include tablet {
-            padding: 32px 16px;
-            justify-content: flex-start;
-        }
-    }
-
-    #contact {
-        justify-content: center;
-        align-items: center;
-    }
-
-    h2 {
+.case-study .case-study-tltr,
+.case-study .case-study-full {
+    h3 {
+        margin-top: 32px;
         text-align: center;
-        margin-bottom: 16px;
-        margin-top: 8px;
     }
+    @include border-1side-dashed(1px,0,0,0, $yellow050);  
+    width: 100%;
 }
 
+.case-study-tltr {
+    width: 100%;      
+}
+
+.wrapper-text {
+    width: 98%;
+    max-width: $max-text-width;
+    padding: 0 8px;
+    margin: auto;
+    text-align: left;
+
+    h3:first-child {
+        padding: 36px 0 16px 0;
+    }
+
+    h3 {
+        text-align: left;
+        padding: 24px 0 16px 0;
+    }
+
+    h3+p {
+        padding-top: 0;
+    }
+
+    h4 {
+        padding: 16px 0 12px 0;
+    }
+
+    h5 {
+        padding: 8px 0 12px 0;
+    }
+
+    img {
+        margin: 12px 0;
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+// GRIDS
 .landing-grid {
     display: flex;
     flex-direction: column;
 
-    #hero {
-        grid-area: hero;
-    }
-
-    #portfolio {
-        grid-area: portfolio;
-    }
-
-    #short-resume {
-        grid-area: career;
-    }
-
-    #short-about-me {
-        grid-area: aboutme;
-    }
-
-    #contact {
-        grid-area: contact;
+    h2 {
+        text-align: center;
+        margin-bottom: 32px;
+        margin-top: 8px;
     }
 
     @include tablet {
@@ -1576,18 +1526,72 @@ details {
     }
 
     @include desktop {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1.4fr;
         grid-template-rows: auto auto auto;
-        grid-template-areas: "hero hero hero hero"
-            "portfolio portfolio portfolio portfolio"
-            "career aboutme contact contact";
+        grid-template-areas: "hero hero hero "
+            "portfolio portfolio portfolio "
+            "career aboutme contact ";
     }
 
+    #portfolio {
+        grid-area: portfolio;
+        padding: 16px 4px;
+        justify-content: flex-start;
+
+        @include tablet {
+            padding: 32px 16px;
+            justify-content: flex-start;
+        }
+    }
+
+    #contact {
+        grid-area: contact;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #hero {
+        grid-area: hero;
+
+        h2 {
+            color: $white000;
+            margin: 0;
+            font-family: $display-font;
+            font-size: 2em;
+            text-align: center;
+            line-height: 1.3em;
+
+            .name {
+                color: $pink000;
+                text-shadow: 0 0 6px $pink-shadow;
+                padding: 0 4px;
+                letter-spacing: 2px;
+            }
+
+            .highlight {
+                color: $pink000;
+                text-shadow: 0 0 6px $pink-shadow;
+                font-style: italic;
+            }
+
+            @include tablet {
+                padding: 60px;
+                font-size: 3em;
+            }
+        }
+    }
+
+    #short-resume {
+        grid-area: career;
+    }
+
+    #short-about-me {
+        grid-area: aboutme;
+    }
 }
 
-
 .resume-grid,
-.experience-grid {
+.experience {
     // this is only for the common structure only. Use .resume for text styles. 
     display: flex;
     flex-flow: column;
@@ -1604,22 +1608,22 @@ details {
 }
 
 .resume-grid {
+    section {
+        padding-top: 32px;
+        padding-bottom: 32px;
+        border: none;
+    }
+
     .resume-column {
-        padding: 0 24px 32px 24px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
-    li {
-
-        span {
-            position: relative;
-            left: 4px;
-        }
-
-        &::marker {
-            font-size: .6em;
-            color: $bullet;
-        }
+    img {
+        width: 48px;
+        margin: auto;
     }
+
 
     @include tablet {
         grid-template-columns: 1fr 1fr;
@@ -1634,10 +1638,10 @@ details {
         grid-template-rows: auto auto auto;
         grid-template-areas: "exp exp exp"
             "technical-skills soft-skills educ"
-            "technical-skills soft-skills lang"
+            "technical-skills lang educ"
     }
 
-    .experience-grid {
+    .experience {
         grid-area: exp;
     }
 
@@ -1649,21 +1653,19 @@ details {
         grid-area: lang;
     }
 
-    .wrapper-technical-skills {
+    .technical-skills {
         grid-area: technical-skills;
     }
 
-    .wrapper-soft-skills {
+    .soft-skills {
         grid-area: soft-skills;
     }
 
 }
 
-.experience-grid {
-    padding: 60px 0 24px 0;
-
+.experience {
     .wrapper-experience {
-        .wrapper-experience-header {
+        .header {
             padding: 24px 0 8px 0;
 
             h4 {
@@ -1671,9 +1673,8 @@ details {
             }
         }
 
-        .exp-company-dates {
+        .company-dates {
             p {
-
                 font-size: .9em;
                 margin: 0;
             }
@@ -1683,26 +1684,22 @@ details {
             justify-content: space-between;
         }
 
-        .experience-company {
+        .company {
             font-variant-caps: small-caps;
             text-transform: uppercase;
         }
 
-        .experience-dates {
+        .dates {
             font-weight: 100;
         }
     }
 
     @include tablet {
-        .wrapper-experience {
-            margin-bottom: 24px;
-        }
-
         grid-template-rows: auto auto;
         grid-template-areas: "title title"
-        "exp1 exp2"
-        "exp3 exp4"
-        "exp5 exp6";
+            "exp1 exp2"
+            "exp3 exp4"
+            "exp5 exp6";
     }
 
     @include desktop {
@@ -1712,7 +1709,7 @@ details {
             "exp4 exp5 exp6";
     }
 
-    h3 {
+    .section-header {
         grid-area: title;
     }
 
@@ -1741,59 +1738,29 @@ details {
     }
 }
 
-.languages .languages-grid {
-    max-width: 460px;
-    display: grid;
-    column-gap: 16px;
-    justify-content: start;
-    justify-items: start;
-
+.languages-grid {
     div {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
 
-        p.language-p,
-        h4.language-h4 {
-            line-height: 20px;
+        div p,
+        div h4 {
+            // to beat specificity of h4
+            line-height: 30px;
+            margin: 0;
+            padding: 0;
         }
 
-        h4 {
+        div h4 {
             width: 68px;
             font-size: 0.87em;
         }
 
-        p {
-            width: 90px;
+        div p {
+            width: 94px; // so they all have the same breakpoint.
         }
-    }
 
-    .lang-item1 {
-        grid-area: item1;
-    }
-
-    .lang-item2 {
-        grid-area: item2;
-    }
-
-    .lang-item3 {
-        grid-area: item3;
-    }
-
-    .lang-item4 {
-        grid-area: item4;
-    }
-
-    grid-template-areas: "item1"
-    "item2"
-    "item3"
-    "item4";
-
-
-    @include tablet() {
-        column-gap: 16px;
-        grid-template-areas:
-            "item1 item2"
-            "item3 item4"
     }
 }
 
@@ -1803,6 +1770,10 @@ details {
     justify-content: space-between;
     align-items: stretch;
 
+    &.center {
+        align-items: center;
+    }
+
     &.top {
         justify-content: flex-start;
 
@@ -1811,74 +1782,181 @@ details {
     padding: 32px 16px;
 
     @include tablet {
-        padding: 32px;
+        padding: 40px;
         row-gap: 4px;
+
+        &.languages {
+            padding: 32px;
+        }
     }
 }
 
-.casestudy-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.case-grid {
+    margin: 40px;
+    display: grid;
+
+    .short-item {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        img {
+            width: 50px;
+        }
+
+        h4 {
+            padding-top: 8px;
+            padding-bottom: 4px;
+            margin: 0;
+        }
+
+        a {
+            padding-left: 0;
+
+            bottom: 0;
+        }
+
+        li {
+            padding-left: 8px;
+        }
+    }
+
+    .item1 {
+        grid-area: item1;
+    }
+
+    .item2 {
+        grid-area: item2;
+    }
+
+    .item3 {
+        grid-area: item3;
+    }
+
+    .item4 {
+        grid-area: item4;
+    }
+
+    .item5 {
+        grid-area: item5;
+    }
+
+    .item6 {
+        grid-area: item6;
+    }
 
     @include tablet {
-        display: grid;
-        column-gap: 0;
-        grid-template-columns: 50% 50%;
+        column-gap: 40px;
+        row-gap: 60px;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
-        grid-template-areas: "brief findings"
-            "solution takeaways"
-            "results results";
+        grid-template-areas: "item1 item2"
+            "item3 item4"
+            "item5 item6";
     }
 
     @include desktop {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto auto;
-        grid-template-areas: "brief research findings"
-            "solution takeaways results";
+        grid-template-areas: "item1 item2 item3"
+            "item4 item5 item6";
     }
-
-    h4 {
-        margin-bottom: 16px;
-    }
-
-    ul,
-    ol {
-        ::marker {
-            color: $pink000;
-        }
-    }
-
-    #short-brief {
-        grid-area: brief;
-    }
-
-    #short-findings {
-        grid-area: findings;
-    }
-
-    #short-research {
-        grid-area: research;
-    }
-
-    #short-results {
-        grid-area: results;
-    }
-
-    #short-solution {
-        grid-area: solution;
-    }
-
-    #short-takeaways {
-        grid-area: takeaways;
-    }
-
 
 }
 
 .section-icon {
     height: 36px;
     width: 36px;
+}
+
+.aboutme-row {
+    margin: auto;
+
+    .aboutme-column {
+        //margin: auto;
+        padding: 24px 8px;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .aboutme-item {
+            margin: 24px 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                flex-shrink: 0;
+            }
+
+            .text {
+                padding: 0;
+                margin: 0;
+                flex-grow: 1;
+            }
+
+            &.special {
+                .icon {
+                    visibility: hidden;
+                    height: 0px; // so that's fully wide but zero height
+                }
+
+                .text {
+                    font-weight: 450;
+                }
+            }
+
+            &.frida {
+                img {
+                    width: 48px;
+                    flex-grow: 0;
+                }
+
+                gap:12px;
+            }
+        }
+    }
+
+    @include tablet {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        max-width: 1100px;
+        margin: auto;
+        column-gap: 100px;
+
+        .aboutme-column {
+            .aboutme-item {
+                max-width: 468px;
+                margin: 0 0 36px 0;
+
+                .icon {
+                    width: 78px;
+                    height: 78px;
+                }
+
+
+                &.frida {
+                    img {
+                        height: 90px;
+                        width: auto;
+                    }
+
+                    gap:52px;
+                }
+            }
+        }
+
+    }
 }
 
 figure {
@@ -1897,7 +1975,6 @@ figure {
     }
 
     .pics-grid {
-
         margin: 0 auto;
 
         img {
@@ -1949,119 +2026,4 @@ figure {
         }
     }
 
-}
-
-
-.aboutme-row {
-    margin: auto;
-    .aboutme-column {
-        margin: auto;
-        padding: 24px 8px;
-        h3 {
-            text-align: center;
-        }
-        .aboutme-item {
-            display: flex;
-            flex-flow: row nowrap;
-            gap: 16px;
-            margin: 24px 0;
-
-            .icon {
-                width: 48px;
-                height: 48px;
-                flex-shrink: 0;
-                svg{
-                    stroke-width: 8px;
-                }
-            }
-
-            .text {
-                //width: 340px;
-                padding: 0;
-                margin: 0;
-            }
-
-            &.special {
-                display: block;
-                padding-left:64px; // icon 36 + gap 16
-                .text {
-                    font-weight: 450;
-                }
-            }
-
-            &.frida {
-                img {
-                    width: 48px;
-                    flex-grow: 0;
-                }
-                gap:12px;
-            }
-        }
-    }
-
-    @include tablet {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        //width: 100%;
-        max-width: 1100px;
-        margin: auto;
-        column-gap: 60px;
-        .aboutme-column {
-            display: flex;
-            flex-flow: column nowrap;
-            margin: 0;
-            gap: 36px;
-            padding: 0;
-
-            h3 {
-                text-align: left;
-                padding-left: 128px;
-            }
-
-            .aboutme-item {
-                //gap: 50px;
-                max-width: 468px;
-                align-items: center;
-                justify-content: space-between;
-                margin: 0;
-                .icon {
-                    width: 78px;
-                    height: 78px;
-                    flex-shrink: 0;
-                }
-                .text {
-                    //width: 340px;
-                    padding: 0;
-                    margin: 0;
-                    flex-grow: 1;
-                }
-
-                &.frida {
-                    img {
-                        height: 90px;
-                        width: auto;
-                    }
-                    gap:52px;
-                }
-
-                &.special {
-                    display: flex;
-                    justify-content: flex-end;
-                    padding-left: 94px; // 78 + 16
-                    .text {
-                        font-weight: 450;
-                    }
-
-                    .icon {
-                        display: none;
-                    }
-                }
-
-            }
-        }
-
-    }
 }

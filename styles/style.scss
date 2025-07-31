@@ -12,20 +12,28 @@
 
 // VARIABLES
 // FONTS
-$heading-font: "Spline Sans Mono", serif;
+$heading-font: "Spline Sans Mono", sans-serif;
 $body-font: "Libre Franklin", sans-serif;
-$display-font: "Spline Sans Mono", serif;
+$display-font: "Spline Sans Mono", sans-serif;
 // COLORS
-$yellow020: rgba(228, 228, 10, 0.2);
+$yellow020: rgba(228,228,10,0.2);
 $yellow030: rgba(228, 228, 10, 0.3);
 $yellow050: rgba(228, 228, 10, 0.5);
 $yellow080: rgba(228, 228, 10, 0.8);
 $yellow100: #ffff74;
-$yellow110: rgb(255, 255, 230);
-$pink000: #fb54a8;
-$pink-shadow: #fb54a866;
-$white000: #eeeeee;
-$black: #0e0e0e;
+$yellow110: #ffffbb;
+$yellow170: rgba(255, 255, 230, 0.7);
+$pink100: #fb54a8;
+$pink040: rgba(251, 84, 168, 0.4);
+$white100: #eeeeee;
+$white080: rgba(255, 255, 255, 0.80);
+$white050: rgba(255, 255, 255, 0.50);
+$whiteFFF: rgba(255, 255, 255);
+$black100: #0e0e0e;
+
+
+
+
 
 // DIMENSIONS
 @mixin mobile {
@@ -49,13 +57,13 @@ $black: #0e0e0e;
 // BORDERS
 @mixin outline-dashed() {
     border-radius: 1px;
-    outline: 1px dashed $yellow050;
+    outline: 1px solid $yellow050;
     outline-offset: 4px;
 }
 
 @mixin outline-hover {
     border-radius: 1px;
-    outline: 1px solid $white000;
+    outline: 1px solid $white100;
     outline-offset: 4px;
 }
 
@@ -69,7 +77,7 @@ $black: #0e0e0e;
     border-left-width: $borderWidth;
 }
 
-@mixin border-1side-dashed ($borderTopWidth,$borderRightWidth,$borderBottomWidth,$borderLeftWidth, $color) {
+@mixin border-1side-dashed ($borderTopWidth, $borderRightWidth, $borderBottomWidth, $borderLeftWidth, $color) {
     color: $color;
     border-style: dashed;
     border-top-width: $borderTopWidth;
@@ -90,7 +98,7 @@ $max-text-width : 700px;
 //////////////////////
 //        BIG SECTIONS
 //////////////////////
-html{
+html {
     height: 100%;
 }
 
@@ -98,8 +106,8 @@ body {
     font-feature-settings: "smcp" on;
     font-family: $body-font, sans-serif;
     font-weight: 200;
-    background-color: $black;
-    color: $white000;
+    background-color: $black100;
+    color: $white100;
     font-size: 16px;
     width: 100%;
     height: 100%;
@@ -143,7 +151,6 @@ nav {
     flex-flow: column nowrap;
     align-items: center;
     fill: $yellow100;
-    color: $yellow100;
 
     @include tablet {
         flex-flow: row wrap;
@@ -198,7 +205,7 @@ nav {
     padding-bottom: 8px;
 
     &:not(.no-border) {
-        @include border-1side-dashed(0,0,1px,0, $yellow030);
+        @include border-1side-dashed(0, 0, 1px, 0, $yellow030);
     }
 
     .link {
@@ -247,14 +254,14 @@ footer {
     }
 
     a.link.inline {
-        color: $pink000;
+        color: $pink100;
         font-weight: 400;
         // text-transform: uppercase;
     }
 }
 
 *::selection {
-    color: $black;
+    color: $black100;
     background-color: $yellow100;
 }
 
@@ -320,6 +327,7 @@ footer {
     @include border-dashed(1px, $yellow030);
     width: 100%;
     max-width: $max-text-width;
+    align-items: baseline;
 
     p.data {
         line-height: 150%;
@@ -332,7 +340,7 @@ footer {
     p.label {
         line-height: 100%;
         margin: 12px 0 2px 0;
-        color: $pink000;
+        color: $yellow100;
         width: 100%;
         padding: 0;
     }
@@ -340,6 +348,10 @@ footer {
     grid-template-columns: auto;
     grid-template-areas: "label-client"
     "data-client"
+    "label-type"
+    "data-type"
+    "label-website"
+    "data-website"
     "label-role"
     "data-role"
     "label-team"
@@ -351,6 +363,23 @@ footer {
     "label-tools"
     "data-tools";
 
+
+    .label-type {
+        grid-area: label-type;
+    }
+
+    .data-type {
+        grid-area: data-type;
+    }
+
+    .label-website {
+        grid-area: label-website;
+    }
+
+    .data-website {
+        line-height: 1em;
+        grid-area: data-website;
+    }
 
     .label-client {
         grid-area: label-client;
@@ -401,29 +430,33 @@ footer {
     }
 
     @include tablet() {
-        column-gap: 8px;
         margin: 0 0 16px 0;
         //4 to compensate padding of labels at the first row
         padding: 4px 16px 16px 16px;
         //padding: 16px;
-        grid-template-columns: 49% 49%;
-        //grid-template-rows: auto auto 16px auto auto;
-        grid-template-areas:
-            "label-client label-role"
-            "data-client data-role"
-            "label-team label-tools"
-            "data-team data-tools"
+        grid-template-columns: auto auto;
+        grid-template-areas: "label-client label-type"
+            "data-client data-type"
+            
+            "label-website label-team"
+            "data-website data-team"
+            
+            "label-role label-tools"
+            "data-role  data-tools"
+
             "label-skills1 label-skills2"
             "data-skills1 data-skills2";
     }
 
     @include desktop() {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr .7fr;
         grid-template-rows: auto auto auto auto;
-        grid-template-areas: "label-client label-role label-team"
-            "data-client data-role data-team"
-            "label-skills1 label-skills2 label-tools"
-            "data-skills1 data-skills2 data-tools";
+        grid-template-areas: "label-client label-type label-website"
+        "data-client data-type data-website"    
+        "label-role label-role label-team"
+        "data-role data-role data-team"
+        "label-skills1 label-skills2 label-tools"
+        "data-skills1 data-skills2 data-tools";
         padding: 16px;
         column-gap: 16px;
     }
@@ -498,7 +531,7 @@ footer {
         gap: 4px;
 
         h3.card-title {
-            color: $pink000;
+            color: $yellow100;
             font-size: 1em;
             padding: 0;
             margin: 4px 0;
@@ -733,11 +766,13 @@ a.link {
     flex-flow: row nowrap;
     color: $yellow100;
     fill: $yellow100;
+    color: $yellow170;
+    fill: $yellow170;
     text-decoration: none;
     width: auto;
     flex-grow: 0;
     font-weight: 200;
-    letter-spacing: 1px;
+    //letter-spacing: 1px;
     font-size: 0.875em;
 
     &.link-nav-nav {
@@ -764,15 +799,15 @@ a.link {
         visibility: hidden;
     }
 
-    &.cta {
-        margin: 0 0 20px 0;
-        font-size: 28px;
+    .icon-top, .icon-below, .icon-new-page .icon-new-page-arrow, .icon-go-to{
+        fill: $pink100;
     }
 
     &.inline {
         padding: 0;
         font-size: 1em;
         //height: 1em;
+        color: $yellow110;
     }
 
     &:disabled,
@@ -785,11 +820,13 @@ a.link {
     &:hover:not(:disabled):not([disabled]) {
         color: $yellow110;
         fill: $yellow110;
+        color: $whiteFFF;
+        fill: $whiteFFF;
         text-decoration: underline;
         text-underline-position: under;
         text-underline-offset: 2px;
-        text-decoration-thickness: 2px;
-        text-decoration-color: $pink000;
+        text-decoration-thickness: 3px;
+        text-decoration-color: $yellow100;
 
         svg {
             visibility: visible;
@@ -830,7 +867,7 @@ a.link {
                 animation: bounce-out 0.8s infinite;
             }
         }
-        
+
     }
 }
 
@@ -873,7 +910,8 @@ h2 {
     font-family: $heading-font;
     text-align: center;
     font-weight: 300;
-    color: $pink000;
+    color: $pink100;
+    color: $yellow100;
     margin: 0;
 
     @include tablet {
@@ -891,8 +929,8 @@ h2 {
 h3 {
     font-family: $heading-font;
     font-weight: 300;
-    color: $pink000;
-    font-size: 1.25em;
+    color: $yellow100;
+    font-size: 1.4em;
     margin: 0;
 }
 
@@ -924,7 +962,7 @@ p,
 li {
     line-height: 1.45;
     font-weight: 200;
-    color: $white000;
+    color: $white100;
     padding-bottom: 12px;
 
     &.center {
@@ -969,7 +1007,7 @@ ul li::marker {
     font-size: 0.875em;
     margin: 0 4px 0 0;
     font-weight: 400;
-    color: $yellow080;
+    color: $white050;
 
     &:before {
         content: "#";
@@ -1008,7 +1046,7 @@ strong {
     p {
         margin: 0;
         padding: 0;
-        color: $black;
+        color: $black100;
     }
 
     ol,
@@ -1019,7 +1057,7 @@ strong {
 
     p,
     li {
-        color: $black;
+        color: $black100;
         font-size: 0.75em;
         line-height: 14px;
         margin-bottom: 0;
@@ -1460,12 +1498,19 @@ strong {
         margin-top: 32px;
         text-align: center;
     }
-    @include border-1side-dashed(1px,0,0,0, $yellow050);  
+
+    img.img-cycle{
+        height: 300px;
+        width: auto;
+        margin: auto;
+    }
+
+    @include border-1side-dashed(1px, 0, 0, 0, $yellow050);
     width: 100%;
 }
 
 .case-study-tltr {
-    width: 100%;      
+    width: 100%;
 }
 
 .wrapper-text {
@@ -1554,7 +1599,7 @@ strong {
         grid-area: hero;
 
         h2 {
-            color: $white000;
+            color: $white100;
             margin: 0;
             font-family: $display-font;
             font-size: 2em;
@@ -1562,15 +1607,16 @@ strong {
             line-height: 1.3em;
 
             .name {
-                color: $pink000;
-                text-shadow: 0 0 6px $pink-shadow;
+                color: $pink100;
+                text-shadow: 0 0 6px $pink040;
                 padding: 0 4px;
                 letter-spacing: 2px;
+                font-weight: 400;
             }
 
             .highlight {
-                color: $pink000;
-                text-shadow: 0 0 6px $pink-shadow;
+                color: $yellow100;
+                text-shadow: 0 0 6px $pink040;
                 font-style: italic;
             }
 
@@ -1614,6 +1660,9 @@ strong {
         border: none;
     }
 
+    .section-header{
+        padding-bottom: 16px;
+    }
     .resume-column {
         padding-left: 24px;
         padding-right: 24px;
@@ -1743,6 +1792,7 @@ strong {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
+        align-items: baseline;
 
         div p,
         div h4 {
@@ -1750,11 +1800,11 @@ strong {
             line-height: 30px;
             margin: 0;
             padding: 0;
+            font-size: 1rem;
         }
 
         div h4 {
-            width: 68px;
-            font-size: 0.87em;
+            width: 80px;
         }
 
         div p {
@@ -1802,12 +1852,12 @@ strong {
         justify-content: space-between;
 
         img {
-            width: 50px;
+            width: 50px;        
         }
 
         h4 {
             padding-top: 8px;
-            padding-bottom: 4px;
+            padding-bottom: 8px;
             margin: 0;
         }
 
@@ -1848,7 +1898,7 @@ strong {
 
     @include tablet {
         column-gap: 40px;
-        row-gap: 60px;
+        row-gap: 40px;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas: "item1 item2"
@@ -2026,4 +2076,8 @@ figure {
         }
     }
 
+}
+
+.icon-heading{
+    opacity: 50%;
 }

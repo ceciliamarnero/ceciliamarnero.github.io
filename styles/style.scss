@@ -16,7 +16,7 @@ $heading-font: "Spline Sans Mono", sans-serif;
 $body-font: "Libre Franklin", sans-serif;
 $display-font: "Spline Sans Mono", sans-serif;
 // COLORS
-$yellow020: rgba(228,228,10,0.2);
+$yellow020: rgba(228, 228, 10, 0.2);
 $yellow030: rgba(228, 228, 10, 0.3);
 $yellow050: rgba(228, 228, 10, 0.5);
 $yellow080: rgba(228, 228, 10, 0.8);
@@ -437,10 +437,10 @@ footer {
         grid-template-columns: auto auto;
         grid-template-areas: "label-client label-type"
             "data-client data-type"
-            
+
             "label-website label-team"
             "data-website data-team"
-            
+
             "label-role label-tools"
             "data-role  data-tools"
 
@@ -452,11 +452,11 @@ footer {
         grid-template-columns: 1fr 1fr .7fr;
         grid-template-rows: auto auto auto auto;
         grid-template-areas: "label-client label-type label-website"
-        "data-client data-type data-website"    
-        "label-role label-role label-team"
-        "data-role data-role data-team"
-        "label-skills1 label-skills2 label-tools"
-        "data-skills1 data-skills2 data-tools";
+            "data-client data-type data-website"
+            "label-role label-role label-team"
+            "data-role data-role data-team"
+            "label-skills1 label-skills2 label-tools"
+            "data-skills1 data-skills2 data-tools";
         padding: 16px;
         column-gap: 16px;
     }
@@ -784,6 +784,7 @@ a.link {
         fill: $yellow100;
     }
 
+
     &.disabled {
         color: $yellow050;
         cursor: not-allowed;
@@ -799,7 +800,10 @@ a.link {
         visibility: hidden;
     }
 
-    .icon-top, .icon-below, .icon-new-page .icon-new-page-arrow, .icon-go-to{
+    .icon-top,
+    .icon-below,
+    .icon-new-page .icon-new-page-arrow,
+    .icon-go-to {
         fill: $pink100;
     }
 
@@ -868,6 +872,32 @@ a.link {
             }
         }
 
+    }
+}
+
+
+
+.cta {
+    font-size: 24px;
+    color: $pink100;
+    padding: 20px 60px;
+    margin: auto;
+    text-decoration: none;
+    //border: .2px solid $pink100;
+    border-radius: 60px;
+
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 5px $pink100;
+        }
+
+        100% {
+            box-shadow: 0 0 10px $pink100;
+        }
+    }
+
+    &:hover {
+        animation: glow 1000ms ease-out forwards;
     }
 }
 
@@ -1499,7 +1529,7 @@ strong {
         text-align: center;
     }
 
-    img.img-cycle{
+    img.img-cycle {
         height: 300px;
         width: auto;
         margin: auto;
@@ -1602,7 +1632,7 @@ strong {
             color: $white100;
             margin: 0;
             font-family: $display-font;
-            font-size: 2em;
+            font-size: 2.3em;
             text-align: center;
             line-height: 1.3em;
 
@@ -1622,7 +1652,7 @@ strong {
 
             @include tablet {
                 padding: 60px;
-                font-size: 3em;
+                font-size: 3.3em;
             }
         }
     }
@@ -1660,9 +1690,10 @@ strong {
         border: none;
     }
 
-    .section-header{
+    .section-header {
         padding-bottom: 16px;
     }
+
     .resume-column {
         padding-left: 24px;
         padding-right: 24px;
@@ -1852,7 +1883,7 @@ strong {
         justify-content: space-between;
 
         img {
-            width: 50px;        
+            width: 50px;
         }
 
         h4 {
@@ -2078,6 +2109,50 @@ figure {
 
 }
 
-.icon-heading{
+.icon-heading {
     opacity: 50%;
+}
+
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    .headlines {
+        margin: 80px 0 20px 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 30px;
+
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .headline-wrapper {
+            max-width: 28%;
+
+            .headline-title {
+                font-weight: 500;
+                color: #ffffff;
+                padding-bottom: 8px;
+            }
+
+            .headline-desc {
+                color: $white080;
+            }
+
+            span {
+                color: $pink100;
+                //color: $yellow100;
+                font-weight: 800;
+                display: inline-block;
+                width: 8px;
+                text-align: center;
+            }
+
+        }
+    }
 }

@@ -601,7 +601,10 @@ a.link.disabled svg {
 a.link .hidden {
   visibility: hidden;
 }
-a.link .icon-top, a.link .icon-below, a.link .icon-new-page .icon-new-page-arrow, a.link .icon-go-to {
+a.link .icon-top,
+a.link .icon-below,
+a.link .icon-new-page .icon-new-page-arrow,
+a.link .icon-go-to {
   fill: #fb54a8;
 }
 a.link.inline {
@@ -651,6 +654,26 @@ a.link:focus-visible .icon-go-to, a.link:hover:not(:disabled):not([disabled]) .i
 }
 a.link:focus-visible .icon-new-page .icon-new-page-arrow, a.link:hover:not(:disabled):not([disabled]) .icon-new-page .icon-new-page-arrow {
   animation: bounce-out 0.8s infinite;
+}
+
+.cta {
+  font-size: 24px;
+  color: #fb54a8;
+  padding: 20px 60px;
+  margin: auto;
+  text-decoration: none;
+  border-radius: 60px;
+}
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #fb54a8;
+  }
+  100% {
+    box-shadow: 0 0 10px #fb54a8;
+  }
+}
+.cta:hover {
+  animation: glow 1000ms ease-out forwards;
 }
 
 .tags {
@@ -1267,7 +1290,7 @@ strong {
   color: #eeeeee;
   margin: 0;
   font-family: "Spline Sans Mono", sans-serif;
-  font-size: 2em;
+  font-size: 2.3em;
   text-align: center;
   line-height: 1.3em;
 }
@@ -1286,7 +1309,7 @@ strong {
 @media only screen and (min-width: 481px) {
   .landing-grid #hero h2 {
     padding: 60px;
-    font-size: 3em;
+    font-size: 3.3em;
   }
 }
 .landing-grid #short-resume {
@@ -1651,6 +1674,42 @@ figure .pics-grid .pic-frida {
 
 .icon-heading {
   opacity: 50%;
+}
+
+header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+header .headlines {
+  margin: 80px 0 20px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 30px;
+}
+header .headlines p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+header .headlines .headline-wrapper {
+  max-width: 28%;
+}
+header .headlines .headline-wrapper .headline-title {
+  font-weight: 500;
+  color: #ffffff;
+  padding-bottom: 8px;
+}
+header .headlines .headline-wrapper .headline-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+header .headlines .headline-wrapper span {
+  color: #fb54a8;
+  font-weight: 800;
+  display: inline-block;
+  width: 8px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

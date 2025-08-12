@@ -25,9 +25,9 @@ $yellow110: #ffffbb;
 $yellow170: rgba(255, 255, 230, 0.7);
 $pink100: #fb54a8;
 $pink040: rgba(251, 84, 168, 0.4);
-$white100: #eeeeee;
-$white080: rgba(255, 255, 255, 0.80);
-$white050: rgba(255, 255, 255, 0.50);
+$white100: rgb(238, 238, 238);
+$white080: rgba(238, 238, 238, 0.80);
+$white050: rgba(238, 238, 238, 0.50);
 $whiteFFF: rgba(255, 255, 255);
 $black100: #0e0e0e;
 
@@ -133,11 +133,7 @@ body {
     justify-content: flex-start;
 }
 
-section {
-    @include border-dashed(1px, $yellow030);
-    padding: 32px 0px 48px 0px;
-}
-
+//section
 .center-center {
     flex: 1;
     display: flex;
@@ -939,61 +935,81 @@ h1 {
 h2 {
     font-family: $heading-font;
     text-align: center;
-    font-weight: 300;
-    color: $pink100;
-    color: $yellow100;
+    font-weight: 700;
+    color: $white100;
     margin: 0;
+    font-size: 1.5rem;
 
     @include tablet {
         font-size: 2em;
-        margin-bottom: 24px;
+        margin-bottom: 32px;
     }
-}
-
-.landing h2 {
-    animation: appear ease-in;
-    animation-timeline: view();
-    animation-range: entry 0;
 }
 
 h3 {
     font-family: $heading-font;
-    font-weight: 300;
-    color: $yellow100;
-    font-size: 1.4em;
+    font-weight: 600;
+    color: $white100;
+    font-size: 1.375em; //22px
+    text-align: left;
     margin: 0;
+    padding-top: 16px;
 }
 
-p+h3 {
-    padding-top: 24px;
-}
+//p+h3 {
+//padding-top: 16px;
+//}
 
+h4.show-indent::before {
+    content: ">";
+    color: $yellow100;
+    display: inline-block;
+    margin-right: 8px;
+}
 
 h4 {
-    font-size: 1.05em;
-    font-weight: 200;
-    color: $yellow100;
-    font-family: $heading-font;
+    font-family: $body-font;
+    font-size: 1.125em; //18px
+    font-weight: 500;
+    color: $white100;
+    margin-bottom: 8px;
+
+    .highlight {
+        color: $yellow100;
+        font-weight: 900;
+        text-align: center;
+        margin: 0 2px;
+    }
 }
 
+/* 
 h4,
 .div-h4 {
     padding: 24px 0 2px 0;
+} */
+
+p+h4,
+ul+h4,
+ol+h4 {
+    padding-top: 22px;
 }
 
 h5 {
-    font-size: 1em;
-    font-weight: 300;
-    color: $yellow100;
+    font-size: 1.125em;
+    font-family: $body-font;
+    font-weight: 600;
+    color: $white080;
+    margin: 8px 0 2px 0;
 }
 
 
 p,
 li {
+    font-family: $body-font;
     line-height: 1.45;
     font-weight: 200;
-    color: $white100;
-    padding-bottom: 12px;
+    color: $white080;
+    padding-bottom: 8px;
 
     &.center {
         text-align: center;
@@ -1020,7 +1036,7 @@ li {
     padding-left: 8px;
 
     &::marker {
-        color: $yellow050;
+        color: $yellow050
     }
 }
 
@@ -1036,12 +1052,14 @@ ul li::marker {
     line-height: 14px;
     font-size: 0.875em;
     margin: 0 4px 0 0;
-    font-weight: 400;
-    color: $white050;
+    font-weight: 300;
+    color: $white080;
 
-    &:before {
-        content: "#";
-        margin: 0;
+    &:first-of-type {
+        ::before {
+            content: "•";
+            margin: 0 6px;
+        }
     }
 
 }
@@ -1515,19 +1533,11 @@ strong {
 
 .resume {
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
-
-    h3 {
-        text-align: center;
-    }
 }
 
 
 .case-study .case-study-tltr,
 .case-study .case-study-full {
-    h3 {
-        margin-top: 32px;
-        text-align: center;
-    }
 
     img.img-cycle {
         height: 300px;
@@ -1584,49 +1594,12 @@ strong {
     display: flex;
     flex-direction: column;
 
-    h2 {
-        text-align: center;
-        margin-bottom: 32px;
-        margin-top: 8px;
-    }
-
-    @include tablet {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "hero hero"
-            "portfolio portfolio"
-            "career aboutme"
-            "contact contact";
-    }
-
-    @include desktop {
-        grid-template-columns: 1fr 1fr 1.4fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "hero hero hero "
-            "portfolio portfolio portfolio "
-            "career aboutme contact ";
-    }
-
-    #portfolio {
-        grid-area: portfolio;
-        padding: 16px 4px;
-        justify-content: flex-start;
-
-        @include tablet {
-            padding: 32px 16px;
-            justify-content: flex-start;
-        }
-    }
-
-    #contact {
-        grid-area: contact;
-        justify-content: center;
-        align-items: center;
-    }
-
     #hero {
         grid-area: hero;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         h2 {
             color: $white100;
@@ -1635,6 +1608,7 @@ strong {
             font-size: 2.3em;
             text-align: center;
             line-height: 1.3em;
+            font-weight: 400;
 
             .name {
                 color: $pink100;
@@ -1644,7 +1618,7 @@ strong {
                 font-weight: 400;
             }
 
-            .highlight {
+            .highlight-hero {
                 color: $yellow100;
                 text-shadow: 0 0 6px $pink040;
                 font-style: italic;
@@ -1655,14 +1629,6 @@ strong {
                 font-size: 3.3em;
             }
         }
-    }
-
-    #short-resume {
-        grid-area: career;
-    }
-
-    #short-about-me {
-        grid-area: aboutme;
     }
 }
 
@@ -1684,6 +1650,7 @@ strong {
 }
 
 .resume-grid {
+    font-size: 16px;
     section {
         padding-top: 32px;
         padding-bottom: 32px;
@@ -1744,9 +1711,13 @@ strong {
 }
 
 .experience {
+    .section-header {
+        padding-left: 24px;
+    }
+
     .wrapper-experience {
         .header {
-            padding: 24px 0 8px 0;
+            padding: 0 0 8px 0;
 
             h4 {
                 margin-bottom: 20px;
@@ -1775,18 +1746,33 @@ strong {
     }
 
     @include tablet {
+
+        .experience1,
+        .experience2,
+        .experience3,
+        .experience4 {
+            padding-bottom: 40px;
+        }
+
         grid-template-rows: auto auto;
         grid-template-areas: "title title"
-            "exp1 exp2"
-            "exp3 exp4"
-            "exp5 exp6";
+        "exp1 exp2"
+        "exp3 exp4"
+        "exp5 exp6";
     }
 
     @include desktop {
+
+        .experience1,
+        .experience2,
+        .experience3 {
+            padding-bottom: 40px;
+        }
+
         grid-template-rows: auto auto auto;
         grid-template-areas: "title title title"
-            "exp1 exp2 exp3"
-            "exp4 exp5 exp6";
+        "exp1 exp2 exp3"
+        "exp4 exp5 exp6";
     }
 
     .section-header {
@@ -1822,7 +1808,6 @@ strong {
     div {
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
         align-items: baseline;
 
         div p,
@@ -1835,7 +1820,7 @@ strong {
         }
 
         div h4 {
-            width: 80px;
+            width: 84px;
         }
 
         div p {
@@ -1873,7 +1858,7 @@ strong {
 }
 
 .case-grid {
-    margin: 40px;
+    padding: 0 40px;
     display: grid;
 
     .short-item {
@@ -1928,8 +1913,8 @@ strong {
     }
 
     @include tablet {
-        column-gap: 40px;
-        row-gap: 40px;
+        column-gap: 60px;
+        row-gap: 60px;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas: "item1 item2"
@@ -2113,46 +2098,74 @@ figure {
     opacity: 50%;
 }
 
+.landing-list {
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 40px;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    .landing-wrapper {
+        max-width: 28%;
+
+        .h4 {
+            font-weight: 500;
+            color: $white100;
+            font-size: 1.25em;
+        }
+
+        .p {
+            color: $white080;
+            font-size: 1.125em;
+        }
+
+        span {
+            color: $yellow100;
+            font-weight: 800;
+            display: inline-block;
+            //width: 8px;
+            text-align: center;
+        }
+
+    }
+}
+
 header {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+}
 
-    .headlines {
-        margin: 80px 0 20px 0;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        gap: 30px;
+.separator-wrapper {
+    position: relative;
+    text-align: center;
+    height: 160px;
+}
 
-        p {
-            padding: 0;
-            margin: 0;
-            font-size: 0.9em;
-        }
+.separator-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: .5px;
+    background-color: $yellow100;
+    transform: translateY(-50%);
+}
 
-        .headline-wrapper {
-            max-width: 28%;
+.separator {
+    display: inline-block;
+    font-weight: 200;
+    font-style: italic;
+    padding: 65px 12px;
+    background-color: $black100;
+    position: relative;
+    z-index: 1;
 
-            .headline-title {
-                font-weight: 500;
-                color: #ffffff;
-                padding-bottom: 8px;
-            }
-
-            .headline-desc {
-                color: $white080;
-            }
-
-            span {
-                color: $pink100;
-                //color: $yellow100;
-                font-weight: 800;
-                display: inline-block;
-                width: 8px;
-                text-align: center;
-            }
-
-        }
-    }
 }

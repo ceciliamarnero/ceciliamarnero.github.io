@@ -43,6 +43,10 @@ body {
   justify-content: flex-start;
 }
 
+section {
+  padding: 40px 0;
+}
+
 .center-center {
   flex: 1;
   display: flex;
@@ -198,14 +202,7 @@ footer a.link.inline {
   display: grid;
   column-gap: 8px;
   row-gap: 4px;
-  padding: 16px;
-  color: rgba(228, 228, 10, 0.3);
-  border-radius: 1px;
-  border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
+  margin-bottom: 32px;
   width: 100%;
   max-width: 700px;
   align-items: baseline;
@@ -278,7 +275,6 @@ footer a.link.inline {
 @media only screen and (min-width: 481px) {
   .overview-grid {
     margin: 0 0 16px 0;
-    padding: 4px 16px 16px 16px;
     grid-template-columns: auto auto;
     grid-template-areas: "label-client label-type" "data-client data-type" "label-website label-team" "data-website data-team" "label-role label-tools" "data-role  data-tools" "label-skills1 label-skills2" "data-skills1 data-skills2";
   }
@@ -288,7 +284,6 @@ footer a.link.inline {
     grid-template-columns: 1fr 1fr 0.7fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: "label-client label-type label-website" "data-client data-type data-website" "label-role label-role label-team" "data-role data-role data-team" "label-skills1 label-skills2 label-tools" "data-skills1 data-skills2 data-tools";
-    padding: 16px;
     column-gap: 16px;
   }
 }
@@ -331,25 +326,23 @@ footer a.link.inline {
     margin-bottom: 16px;
     width: 100%;
     padding: 0;
-    gap: 24px;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
 .card {
   color: rgba(228, 228, 10, 0.3);
-  border-radius: 1px;
-  border-style: dashed;
+  border-radius: 8px;
+  border-style: solid;
   border-top-width: 1px;
   border-right-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
-  padding: 12px;
+  padding: 16px;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  border-radius: 2px;
 }
 .card.hide {
   display: none;
@@ -362,26 +355,38 @@ footer a.link.inline {
   flex-flow: column nowrap;
   align-items: stretch;
   justify-content: flex-start;
-  padding-bottom: 4px;
-  gap: 4px;
+  gap: 2px;
 }
 .card .card-top h3.card-title {
-  color: #ffff74;
   font-size: 1em;
   padding: 0;
-  margin: 4px 0;
+  margin: 0;
   text-align: left;
   width: 100%;
-  height: auto;
+  height: 60px;
+}
+.card .card-top .card-details {
+  text-align: left;
+  overflow-wrap: break-word;
+  width: 100%;
+  margin: 0;
   padding: 0;
 }
 .card .card-top .tags {
   text-align: left;
+  font-family: "Spline Sans Mono", sans-serif;
+  color: rgb(210, 210, 210);
   margin: 0;
-  line-height: 12px;
+  line-height: 20px;
+  font-weight: 300;
 }
 .card .card-top .tags .tag {
+  margin-right: 1px;
   font-size: 0.875em;
+}
+.card .card-top .tags .tag:not(:first-child)::before {
+  color: #ffff74;
+  content: "・";
 }
 .card .card-top .card-image {
   height: 140px;
@@ -394,24 +399,13 @@ footer a.link.inline {
   object-fit: cover;
   object-position: center;
 }
-.card .card-top .card-details {
-  text-align: left;
-  overflow-wrap: break-word;
-  width: 100%;
-  margin: 4px 0;
-}
-@media only screen and (min-width: 481px) {
-  .card .card-top .card-details {
-    min-height: 40px;
-  }
-}
 .card .card-button {
   margin: 0 auto;
   padding: 8px 0;
 }
 @media only screen and (min-width: 481px) {
   .card {
-    max-width: 260px;
+    max-width: 290px;
     width: 100%;
     justify-content: space-between;
   }
@@ -422,13 +416,13 @@ footer a.link.inline {
     justify-content: flex-start;
   }
   .card .card-top h3.card-title {
-    height: 40px;
+    min-height: 40px;
   }
   .card .card-top .tags {
     height: 48px;
   }
   .card .card-top .card-details {
-    height: 60px;
+    min-height: 76px;
   }
 }
 
@@ -564,10 +558,8 @@ a.link {
   justify-content: center;
   align-items: center;
   flex-flow: row nowrap;
-  color: #ffff74;
-  fill: #ffff74;
-  color: rgba(255, 255, 230, 0.7);
-  fill: rgba(255, 255, 230, 0.7);
+  color: #ffffbb;
+  fill: #ffffbb;
   text-decoration: none;
   width: auto;
   flex-grow: 0;
@@ -609,8 +601,6 @@ a.link:disabled, a.link[disabled] {
 a.link:focus-visible, a.link:hover:not(:disabled):not([disabled]) {
   color: #ffffbb;
   fill: #ffffbb;
-  color: rgb(255, 255, 255);
-  fill: rgb(255, 255, 255);
   text-decoration: underline;
   text-underline-position: under;
   text-underline-offset: 2px;
@@ -701,7 +691,7 @@ h1 {
 h2 {
   font-family: "Spline Sans Mono", sans-serif;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   color: rgb(238, 238, 238);
   margin: 0;
   font-size: 1.5rem;
@@ -715,7 +705,7 @@ h2 {
 
 h3 {
   font-family: "Spline Sans Mono", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   color: rgb(238, 238, 238);
   font-size: 1.375em;
   text-align: left;
@@ -733,15 +723,18 @@ h4.show-indent::before {
 h4 {
   font-family: "Libre Franklin", sans-serif;
   font-size: 1.125em;
-  font-weight: 500;
+  font-weight: 400;
   color: rgb(238, 238, 238);
   margin-bottom: 8px;
 }
 h4 .highlight {
-  color: #ffff74;
-  font-weight: 900;
+  color: #ffff00;
   text-align: center;
   margin: 0 2px;
+  font-weight: 900;
+}
+h4 .highlight.isText {
+  font-weight: 500;
 }
 
 /* 
@@ -753,13 +746,14 @@ p + h4,
 ul + h4,
 ol + h4 {
   padding-top: 22px;
+  margin-bottom: 0;
 }
 
 h5 {
   font-size: 1.125em;
   font-family: "Libre Franklin", sans-serif;
-  font-weight: 600;
-  color: rgba(238, 238, 238, 0.8);
+  font-weight: 500;
+  color: rgb(210, 210, 210);
   margin: 8px 0 2px 0;
 }
 
@@ -767,8 +761,8 @@ p,
 li {
   font-family: "Libre Franklin", sans-serif;
   line-height: 1.45;
-  font-weight: 200;
-  color: rgba(238, 238, 238, 0.8);
+  font-weight: 100;
+  color: rgb(210, 210, 210);
   padding-bottom: 8px;
 }
 p.center,
@@ -800,21 +794,6 @@ li::marker {
 
 ul li::marker {
   font-size: 0.8em;
-}
-
-.tag {
-  display: inline-block;
-  white-space: nowrap;
-  text-align: center;
-  line-height: 14px;
-  font-size: 0.875em;
-  margin: 0 4px 0 0;
-  font-weight: 300;
-  color: rgba(238, 238, 238, 0.8);
-}
-.tag:first-of-type ::before {
-  content: "•";
-  margin: 0 6px;
 }
 
 strong {
@@ -1187,17 +1166,15 @@ strong {
 }
 
 .resume {
+  padding-top: 32px;
   padding-bottom: 0;
+}
+.resume .separator-wrapper {
+  margin: 20px 0 8px 0;
 }
 
 .case-study .case-study-tltr,
 .case-study .case-study-full {
-  color: rgba(228, 228, 10, 0.5);
-  border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
   width: 100%;
 }
 .case-study .case-study-tltr img.img-cycle,
@@ -1229,10 +1206,14 @@ strong {
   padding-top: 0;
 }
 .wrapper-text h4 {
-  padding: 16px 0 12px 0;
+  padding: 22px 0 12px 0;
 }
 .wrapper-text h5 {
   padding: 8px 0 12px 0;
+}
+.wrapper-text .overview-grid h5 {
+  padding: 18px 0 2px 0;
+  margin: 0;
 }
 .wrapper-text img {
   margin: 12px 0;
@@ -1262,14 +1243,14 @@ strong {
 }
 .landing-grid #hero h2 .name {
   color: #fb54a8;
-  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
+  text-shadow: 0 0 6px #8f3a64;
   padding: 0 4px;
   letter-spacing: 2px;
   font-weight: 400;
 }
 .landing-grid #hero h2 .highlight-hero {
   color: #ffff74;
-  text-shadow: 0 0 6px rgba(251, 84, 168, 0.4);
+  text-shadow: 0 0 6px #8f3a64;
   font-style: italic;
 }
 @media only screen and (min-width: 481px) {
@@ -1283,6 +1264,7 @@ strong {
 .experience {
   display: flex;
   flex-flow: column;
+  gap: 60px;
 }
 @media only screen and (min-width: 481px) {
   .resume-grid,
@@ -1303,16 +1285,12 @@ strong {
   font-size: 16px;
 }
 .resume-grid section {
-  padding-top: 32px;
+  padding-top: 16px;
   padding-bottom: 32px;
   border: none;
 }
 .resume-grid .section-header {
   padding-bottom: 16px;
-}
-.resume-grid .resume-column {
-  padding-left: 24px;
-  padding-right: 24px;
 }
 .resume-grid img {
   width: 48px;
@@ -1348,9 +1326,6 @@ strong {
   grid-area: soft-skills;
 }
 
-.experience .section-header {
-  padding-left: 24px;
-}
 .experience .wrapper-experience .header {
   padding: 0 0 8px 0;
 }
@@ -1375,8 +1350,8 @@ strong {
 }
 @media only screen and (min-width: 481px) {
   .experience {
-    grid-template-rows: auto auto;
-    grid-template-areas: "title title" "exp1 exp2" "exp3 exp4" "exp5 exp6";
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "exp1 exp2" "exp3 exp4" "exp5 exp6";
   }
   .experience .experience1,
   .experience .experience2,
@@ -1387,17 +1362,14 @@ strong {
 }
 @media only screen and (min-width: 1400px) {
   .experience {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "title title title" "exp1 exp2 exp3" "exp4 exp5 exp6";
+    grid-template-rows: auto auto;
+    grid-template-areas: "exp1 exp2 exp3" "exp4 exp5 exp6";
   }
   .experience .experience1,
   .experience .experience2,
   .experience .experience3 {
     padding-bottom: 40px;
   }
-}
-.experience .section-header {
-  grid-area: title;
 }
 .experience .experience1 {
   grid-area: exp1;
@@ -1653,11 +1625,11 @@ figure .pics-grid .pic-frida {
 }
 
 .landing-list {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
 }
 .landing-list p {
@@ -1673,14 +1645,8 @@ figure .pics-grid .pic-frida {
   font-size: 1.25em;
 }
 .landing-list .landing-wrapper .p {
-  color: rgba(238, 238, 238, 0.8);
+  color: rgb(210, 210, 210);
   font-size: 1.125em;
-}
-.landing-list .landing-wrapper span {
-  color: #ffff74;
-  font-weight: 800;
-  display: inline-block;
-  text-align: center;
 }
 
 header {
@@ -1692,7 +1658,8 @@ header {
 .separator-wrapper {
   position: relative;
   text-align: center;
-  height: 160px;
+  height: 60px;
+  margin: 40px 0;
 }
 
 .separator-wrapper::before {
@@ -1710,7 +1677,7 @@ header {
   display: inline-block;
   font-weight: 200;
   font-style: italic;
-  padding: 65px 12px;
+  padding: 18px 12px;
   background-color: #0e0e0e;
   position: relative;
   z-index: 1;

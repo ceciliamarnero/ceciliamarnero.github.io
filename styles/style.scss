@@ -12,23 +12,20 @@
 
 // VARIABLES
 // FONTS
-$heading-font: "Spline Sans Mono", sans-serif;
 $body-font: "Libre Franklin", sans-serif;
 $display-font: "Spline Sans Mono", sans-serif;
 // COLORS
-$yellow020: rgba(228, 228, 10, 0.2);
-$yellow030: rgba(228, 228, 10, 0.3);
-$yellow050: rgba(228, 228, 10, 0.5);
-$yellow080: rgba(228, 228, 10, 0.8);
+$yellow030: rgba(228, 228, 10, .3);
+$yellow050: rgba(228, 228, 10, .5);
+$yellow080: rgba(228, 228, 10, .8);
 $yellow100: #ffff74;
+$yellow000: #ffff00;
 $yellow110: #ffffbb;
-$yellow170: rgba(255, 255, 230, 0.7);
-$pink100: #fb54a8;
-$pink040: rgba(251, 84, 168, 0.4);
+$white080: rgb(210, 210, 210);
 $white100: rgb(238, 238, 238);
-$white080: rgba(238, 238, 238, 0.80);
-$white050: rgba(238, 238, 238, 0.50);
 $whiteFFF: rgba(255, 255, 255);
+$pink100: #fb54a8;
+$pink040: #8f3a64;
 $black100: #0e0e0e;
 
 
@@ -71,6 +68,16 @@ $black100: #0e0e0e;
     color: $color;
     border-radius: 1px;
     border-style: dashed;
+    border-top-width: $borderWidth;
+    border-right-width: $borderWidth;
+    border-bottom-width: $borderWidth;
+    border-left-width: $borderWidth;
+}
+
+@mixin border-solid ($borderWidth, $radius, $color) {
+    color: $color;
+    border-radius: $radius;
+    border-style: solid;
     border-top-width: $borderWidth;
     border-right-width: $borderWidth;
     border-bottom-width: $borderWidth;
@@ -133,7 +140,10 @@ body {
     justify-content: flex-start;
 }
 
-//section
+section {
+    padding: 40px 0;
+}
+
 .center-center {
     flex: 1;
     display: flex;
@@ -232,7 +242,7 @@ footer {
     margin-top: 20px;
 
     p {
-        font-family: $heading-font;
+        font-family: $display-font;
     }
 
     .mate {
@@ -319,8 +329,9 @@ footer {
     display: grid;
     column-gap: 8px;
     row-gap: 4px;
-    padding: 16px;
-    @include border-dashed(1px, $yellow030);
+    margin-bottom: 32px;
+    //padding: 16px;
+    //@include border-dashed(1px, $yellow030);
     width: 100%;
     max-width: $max-text-width;
     align-items: baseline;
@@ -428,7 +439,7 @@ footer {
     @include tablet() {
         margin: 0 0 16px 0;
         //4 to compensate padding of labels at the first row
-        padding: 4px 16px 16px 16px;
+        //padding: 4px 16px 16px 16px;
         //padding: 16px;
         grid-template-columns: auto auto;
         grid-template-areas: "label-client label-type"
@@ -453,7 +464,7 @@ footer {
             "data-role data-role data-team"
             "label-skills1 label-skills2 label-tools"
             "data-skills1 data-skills2 data-tools";
-        padding: 16px;
+        //padding: 16px;
         column-gap: 16px;
     }
 }
@@ -497,19 +508,18 @@ footer {
         margin-bottom: 16px;
         width: 100%;
         padding: 0;
-        gap: 24px;
+        //gap: 24px;
         flex-flow: row wrap;
-        justify-content: center;
+        justify-content: space-between;
     }
 }
 
 .card {
-    @include border-dashed(1px, $yellow030);
-    padding: 12px;
+    @include border-solid(1px, 8px, $yellow030);
+    padding: 16px;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
-    border-radius: 2px;
 
     &.hide {
         display: none;
@@ -523,28 +533,45 @@ footer {
         flex-flow: column nowrap;
         align-items: stretch;
         justify-content: flex-start;
-        padding-bottom: 4px;
-        gap: 4px;
+        gap: 2px;
 
         h3.card-title {
-            color: $yellow100;
             font-size: 1em;
             padding: 0;
-            margin: 4px 0;
+            margin: 0;
             text-align: left;
             width: 100%;
-            height: auto;
+            height: 60px;
+        }
+
+        .card-details {
+            text-align: left;
+            overflow-wrap: break-word;
+            width: 100%;
+            margin: 0;
             padding: 0;
         }
 
         .tags {
             text-align: left;
+            font-family: $display-font;
+            color: $white080;
             margin: 0;
-            line-height: 12px;
+            line-height: 20px;
+            font-weight: 300;
 
             .tag {
+                //display: inline-block;
+                margin-right: 1px;
                 font-size: 0.875em;
+
+                &:not(:first-child)::before {
+                    color: $yellow100;
+                    content: "・";
+                }
             }
+
+
         }
 
         .card-image {
@@ -561,16 +588,7 @@ footer {
             }
         }
 
-        .card-details {
-            text-align: left;
-            overflow-wrap: break-word;
-            width: 100%;
-            margin: 4px 0;
 
-            @include tablet {
-                min-height: 40px;
-            }
-        }
     }
 
     .card-button {
@@ -579,7 +597,7 @@ footer {
     }
 
     @include tablet {
-        max-width: 260px;
+        max-width: 290px;
         width: 100%;
         justify-content: space-between;
         //animation: appear linear;
@@ -593,7 +611,7 @@ footer {
             justify-content: flex-start;
 
             h3.card-title {
-                height: 40px;
+                min-height: 40px;
             }
 
             .tags {
@@ -601,7 +619,7 @@ footer {
             }
 
             .card-details {
-                height: 60px;
+                min-height: 76px;
             }
         }
     }
@@ -760,15 +778,12 @@ a.link {
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    color: $yellow100;
-    fill: $yellow100;
-    color: $yellow170;
-    fill: $yellow170;
+    color: $yellow110;
+    fill: $yellow110;
     text-decoration: none;
     width: auto;
     flex-grow: 0;
     font-weight: 200;
-    //letter-spacing: 1px;
     font-size: 0.875em;
 
     &.link-nav-nav {
@@ -806,7 +821,6 @@ a.link {
     &.inline {
         padding: 0;
         font-size: 1em;
-        //height: 1em;
         color: $yellow110;
     }
 
@@ -820,8 +834,6 @@ a.link {
     &:hover:not(:disabled):not([disabled]) {
         color: $yellow110;
         fill: $yellow110;
-        color: $whiteFFF;
-        fill: $whiteFFF;
         text-decoration: underline;
         text-underline-position: under;
         text-underline-offset: 2px;
@@ -933,9 +945,9 @@ h1 {
 }
 
 h2 {
-    font-family: $heading-font;
+    font-family: $display-font;
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     color: $white100;
     margin: 0;
     font-size: 1.5rem;
@@ -947,8 +959,8 @@ h2 {
 }
 
 h3 {
-    font-family: $heading-font;
-    font-weight: 600;
+    font-family: $display-font;
+    font-weight: 400;
     color: $white100;
     font-size: 1.375em; //22px
     text-align: left;
@@ -970,15 +982,19 @@ h4.show-indent::before {
 h4 {
     font-family: $body-font;
     font-size: 1.125em; //18px
-    font-weight: 500;
+    font-weight: 400;
     color: $white100;
     margin-bottom: 8px;
 
     .highlight {
-        color: $yellow100;
-        font-weight: 900;
+        color: $yellow000;
         text-align: center;
         margin: 0 2px;
+        font-weight: 900;
+
+        &.isText {
+            font-weight: 500;
+        }
     }
 }
 
@@ -992,12 +1008,15 @@ p+h4,
 ul+h4,
 ol+h4 {
     padding-top: 22px;
+    margin-bottom: 0;
 }
+
+//div+h4
 
 h5 {
     font-size: 1.125em;
     font-family: $body-font;
-    font-weight: 600;
+    font-weight: 500;
     color: $white080;
     margin: 8px 0 2px 0;
 }
@@ -1007,7 +1026,7 @@ p,
 li {
     font-family: $body-font;
     line-height: 1.45;
-    font-weight: 200;
+    font-weight: 100;
     color: $white080;
     padding-bottom: 8px;
 
@@ -1044,25 +1063,6 @@ ul li::marker {
     font-size: 0.8em;
 }
 
-
-.tag {
-    display: inline-block;
-    white-space: nowrap;
-    text-align: center;
-    line-height: 14px;
-    font-size: 0.875em;
-    margin: 0 4px 0 0;
-    font-weight: 300;
-    color: $white080;
-
-    &:first-of-type {
-        ::before {
-            content: "•";
-            margin: 0 6px;
-        }
-    }
-
-}
 
 strong {
     font-weight: 450;
@@ -1532,7 +1532,12 @@ strong {
 
 
 .resume {
+    padding-top: 32px;
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
+
+.separator-wrapper {
+        margin: 20px 0 8px 0;
+    }
 }
 
 
@@ -1545,7 +1550,7 @@ strong {
         margin: auto;
     }
 
-    @include border-1side-dashed(1px, 0, 0, 0, $yellow050);
+    //@include border-1side-dashed(1px, 0, 0, 0, $yellow050);
     width: 100%;
 }
 
@@ -1574,11 +1579,16 @@ strong {
     }
 
     h4 {
-        padding: 16px 0 12px 0;
+        padding: 22px 0 12px 0;
     }
 
     h5 {
         padding: 8px 0 12px 0;
+    }
+
+    .overview-grid h5 {
+        padding: 18px 0 2px 0;
+        margin: 0;
     }
 
     img {
@@ -1638,6 +1648,8 @@ strong {
     display: flex;
     flex-flow: column;
 
+    gap: 60px;
+
     @include tablet() {
         padding: 0;
         display: grid;
@@ -1651,8 +1663,9 @@ strong {
 
 .resume-grid {
     font-size: 16px;
+
     section {
-        padding-top: 32px;
+        padding-top: 16px;
         padding-bottom: 32px;
         border: none;
     }
@@ -1661,10 +1674,10 @@ strong {
         padding-bottom: 16px;
     }
 
-    .resume-column {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
+    //.resume-column {
+        //padding-left: 24px;
+        //padding-right: 24px;
+    //}
 
     img {
         width: 48px;
@@ -1711,10 +1724,6 @@ strong {
 }
 
 .experience {
-    .section-header {
-        padding-left: 24px;
-    }
-
     .wrapper-experience {
         .header {
             padding: 0 0 8px 0;
@@ -1754,9 +1763,8 @@ strong {
             padding-bottom: 40px;
         }
 
-        grid-template-rows: auto auto;
-        grid-template-areas: "title title"
-        "exp1 exp2"
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "exp1 exp2"
         "exp3 exp4"
         "exp5 exp6";
     }
@@ -1769,14 +1777,9 @@ strong {
             padding-bottom: 40px;
         }
 
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "title title title"
-        "exp1 exp2 exp3"
+        grid-template-rows: auto auto;
+        grid-template-areas: "exp1 exp2 exp3"
         "exp4 exp5 exp6";
-    }
-
-    .section-header {
-        grid-area: title;
     }
 
     .experience1 {
@@ -2099,12 +2102,13 @@ figure {
 }
 
 .landing-list {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 40px;
+
 
     p {
         padding: 0;
@@ -2125,13 +2129,6 @@ figure {
             font-size: 1.125em;
         }
 
-        span {
-            color: $yellow100;
-            font-weight: 800;
-            display: inline-block;
-            //width: 8px;
-            text-align: center;
-        }
 
     }
 }
@@ -2145,7 +2142,9 @@ header {
 .separator-wrapper {
     position: relative;
     text-align: center;
-    height: 160px;
+    height: 60px;
+    margin: 40px 0;    
+    
 }
 
 .separator-wrapper::before {
@@ -2163,7 +2162,7 @@ header {
     display: inline-block;
     font-weight: 200;
     font-style: italic;
-    padding: 65px 12px;
+    padding: 18px 12px;
     background-color: $black100;
     position: relative;
     z-index: 1;

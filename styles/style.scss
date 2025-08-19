@@ -29,9 +29,6 @@ $pink040: #8f3a64;
 $black100: #0e0e0e;
 
 
-
-
-
 // DIMENSIONS
 @mixin mobile {
     @media only screen and (max-width: 480px) {
@@ -84,9 +81,9 @@ $black100: #0e0e0e;
     border-left-width: $borderWidth;
 }
 
-@mixin border-1side-dashed ($borderTopWidth, $borderRightWidth, $borderBottomWidth, $borderLeftWidth, $color) {
+@mixin border-1side-solid ($borderTopWidth, $borderRightWidth, $borderBottomWidth, $borderLeftWidth, $color) {
     color: $color;
-    border-style: dashed;
+    border-style: solid;
     border-top-width: $borderTopWidth;
     border-right-width: $borderRightWidth;
     border-bottom-width: $borderBottomWidth;
@@ -200,27 +197,47 @@ nav {
     }
 }
 
+.wrapper-jump-menu{
+    text-align: center;
+    margin: 40px 10px;
+}
 .jump-menu {
-    margin: 40px 0 0 0;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto;
+    display: inline-flex;
+    flex-flow: row wrap;    
     align-items: center;
-    gap: 4px;
+    justify-content: center;    
     padding-bottom: 8px;
-
-    &:not(.no-border) {
-        @include border-1side-dashed(0, 0, 1px, 0, $yellow030);
-    }
-
+    position: relative; 
     .link {
         padding: 0;
         width: 45%;
         height: 31px;
     }
 
-    @include tablet {
+    .icon-below{
+        visibility: visible;//always for mobile
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+    }
+
+    ::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: .1px;
+        background: $yellow030;
+        width: calc(100% - 31px);
+    }
+
+    @include tablet {        
+        gap: 4px;
         flex-flow: row nowrap;
         justify-content: center;
         gap: 16px;
@@ -229,6 +246,11 @@ nav {
 
         .link {
             width: auto;
+        }
+    }
+    @include desktop{
+        .icon-below{
+            visibility:hidden;
         }
     }
 
@@ -329,9 +351,7 @@ footer {
     display: grid;
     column-gap: 8px;
     row-gap: 4px;
-    margin-bottom: 32px;
-    //padding: 16px;
-    //@include border-dashed(1px, $yellow030);
+    margin-bottom: 12px;
     width: 100%;
     max-width: $max-text-width;
     align-items: baseline;
@@ -437,10 +457,7 @@ footer {
     }
 
     @include tablet() {
-        margin: 0 0 16px 0;
-        //4 to compensate padding of labels at the first row
-        //padding: 4px 16px 16px 16px;
-        //padding: 16px;
+        margin: 0 0 32px 0;
         grid-template-columns: auto auto;
         grid-template-areas: "label-client label-type"
             "data-client data-type"
@@ -486,6 +503,7 @@ footer {
     @include tablet {
         width: $max-text-width;
         height: auto;
+        margin: auto;
 
         img {
             width: 100%;
@@ -536,12 +554,11 @@ footer {
         gap: 2px;
 
         h3.card-title {
-            font-size: 1em;
+            font-size: 1.2em;
             padding: 0;
             margin: 0;
             text-align: left;
             width: 100%;
-            height: 60px;
         }
 
         .card-details {
@@ -611,7 +628,7 @@ footer {
             justify-content: flex-start;
 
             h3.card-title {
-                min-height: 40px;
+                min-height: 80px;
             }
 
             .tags {
@@ -768,7 +785,7 @@ header {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center;
+    //align-items: center;
     width: 100%;
 }
 
@@ -886,7 +903,7 @@ a.link {
 
 
 .cta {
-    font-size: 24px;
+    font-size: 32px;
     color: $pink100;
     padding: 20px 60px;
     margin: auto;
@@ -1007,7 +1024,7 @@ h4,
 p+h4,
 ul+h4,
 ol+h4 {
-    padding-top: 22px;
+    padding-top: 32px;
     margin-bottom: 0;
 }
 
@@ -1535,8 +1552,8 @@ strong {
     padding-top: 32px;
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
 
-.separator-wrapper {
-        margin: 20px 0 8px 0;
+    .separator-wrapper {
+        margin-bottom: 24px;
     }
 }
 
@@ -1552,6 +1569,8 @@ strong {
 
     //@include border-1side-dashed(1px, 0, 0, 0, $yellow050);
     width: 100%;
+
+    
 }
 
 .case-study-tltr {
@@ -1571,7 +1590,12 @@ strong {
 
     h3 {
         text-align: left;
-        padding: 24px 0 16px 0;
+        padding: 32px 0 16px 0;
+        font-size: .8em;
+
+        &.separator {
+            color: red;
+        }
     }
 
     h3+p {
@@ -1579,7 +1603,7 @@ strong {
     }
 
     h4 {
-        padding: 22px 0 12px 0;
+        padding: 24px 0 12px 0;
     }
 
     h5 {
@@ -1599,17 +1623,17 @@ strong {
 
 }
 
-// GRIDS
-.landing-grid {
+
+.landing-sections {
     display: flex;
     flex-direction: column;
 
     #hero {
-        grid-area: hero;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 60px 0;
 
         h2 {
             color: $white100;
@@ -1635,20 +1659,31 @@ strong {
             }
 
             @include tablet {
-                padding: 60px;
-                font-size: 3.3em;
+                padding: 60px 0;
+                font-size: 4em;
             }
         }
     }
-}
 
+    .separator {
+        color: red;
+        padding: 24px 12px;
+        font-size: 1.5em;
+
+        @include tablet {
+            padding: 12px 12px;
+            font-size: 2.3em;
+        }
+    }
+}
+// GRIDS
 .resume-grid,
-.experience {
-    // this is only for the common structure only. Use .resume for text styles. 
+.experience-grid {
+    // this is only for the common structure. Use .resume for text styles. 
     display: flex;
     flex-flow: column;
-
-    gap: 60px;
+    column-gap: 50px;
+    row-gap: 30px;
 
     @include tablet() {
         padding: 0;
@@ -1662,8 +1697,6 @@ strong {
 }
 
 .resume-grid {
-    font-size: 16px;
-
     section {
         padding-top: 16px;
         padding-bottom: 32px;
@@ -1675,15 +1708,14 @@ strong {
     }
 
     //.resume-column {
-        //padding-left: 24px;
-        //padding-right: 24px;
+    //padding-left: 24px;
+    //padding-right: 24px;
     //}
 
     img {
         width: 48px;
         margin: auto;
     }
-
 
     @include tablet {
         grid-template-columns: 1fr 1fr;
@@ -1723,7 +1755,7 @@ strong {
 
 }
 
-.experience {
+.experience-grid {
     .wrapper-experience {
         .header {
             padding: 0 0 8px 0;
@@ -1860,19 +1892,15 @@ strong {
     }
 }
 
-.case-grid {
+.case-tltr {
     padding: 0 40px;
-    display: grid;
 
-    .short-item {
+    &>li {
         display: flex;
         flex-flow: column nowrap;
         align-items: flex-start;
         justify-content: space-between;
-
-        img {
-            width: 50px;
-        }
+        margin-bottom: 24px;
 
         h4 {
             padding-top: 8px;
@@ -1882,8 +1910,12 @@ strong {
 
         a {
             padding-left: 0;
-
             bottom: 0;
+        }
+
+        ol,ul{
+            padding: 0;
+            margin: 0;
         }
 
         li {
@@ -1914,22 +1946,32 @@ strong {
     .item6 {
         grid-area: item6;
     }
+    .item7 {
+        border: 1px solid blue;
+        grid-area: item7;
+    }
 
     @include tablet {
-        column-gap: 60px;
-        row-gap: 60px;
+        display: grid;
+        gap: 0 40px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas: "item1 item2"
             "item3 item4"
-            "item5 item6";
+            "item5 item6"
+            "item7 item7";
+
+        .short-item {
+            margin-bottom: 0;
+        }
     }
 
     @include desktop {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto auto;
         grid-template-areas: "item1 item2 item3"
-            "item4 item5 item6";
+            "item4 item5 item6"
+            "item7 item7 item7";
     }
 
 }
@@ -1944,7 +1986,7 @@ strong {
 
     .aboutme-column {
         //margin: auto;
-        padding: 24px 8px;
+        padding: 0 8px;
 
         h3 {
             text-align: center;
@@ -1997,7 +2039,6 @@ strong {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        padding-top: 40px;
         padding-bottom: 40px;
         max-width: 1100px;
         margin: auto;
@@ -2101,24 +2142,27 @@ figure {
     opacity: 50%;
 }
 
+.landing-list,
+.gallery {
+    margin-top: 80px; // to compensate lack of separator bottom margin
+}
+
 .landing-list {
-    font-size: 1rem;
-    margin: 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     gap: 40px;
-
 
     p {
         padding: 0;
         margin: 0;
     }
 
-    .landing-wrapper {
+    li {
         max-width: 28%;
+        list-style: none;
 
-        .h4 {
+        h4 {
             font-weight: 500;
             color: $white100;
             font-size: 1.25em;
@@ -2128,8 +2172,6 @@ figure {
             color: $white080;
             font-size: 1.125em;
         }
-
-
     }
 }
 
@@ -2137,14 +2179,17 @@ header {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    padding-bottom: 40px;
 }
 
 .separator-wrapper {
     position: relative;
     text-align: center;
-    height: 60px;
-    margin: 40px 0;    
-    
+    height: 80px;
+
+    @include tablet {
+        margin: 60px 0 40px 0;
+    }
 }
 
 .separator-wrapper::before {
@@ -2160,11 +2205,18 @@ header {
 
 .separator {
     display: inline-block;
-    font-weight: 200;
-    font-style: italic;
-    padding: 18px 12px;
+    height: 80px;
     background-color: $black100;
     position: relative;
     z-index: 1;
+    font-weight: 200;
+    
+        padding: 30px 12px;
+        font-size: 1.2em;
 
+        @include tablet {
+            padding: 24px 12px;
+            font-size: 1.4rem;
+        }
+    
 }

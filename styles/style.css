@@ -741,7 +741,7 @@ h4.show-indent::before {
 
 h4 {
   font-family: "Libre Franklin", sans-serif;
-  font-size: 1.125em;
+  font-size: 1.3em;
   font-weight: 400;
   color: rgb(238, 238, 238);
   margin-bottom: 8px;
@@ -1189,18 +1189,53 @@ strong {
   padding-bottom: 0;
 }
 .resume .separator-wrapper {
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .case-study .case-study-tltr,
 .case-study .case-study-full {
   width: 100%;
 }
-.case-study .case-study-tltr img.img-cycle,
-.case-study .case-study-full img.img-cycle {
+.case-study .case-study-tltr .separator-wrapper,
+.case-study .case-study-full .separator-wrapper {
+  margin-bottom: 0;
+}
+.case-study .case-study-tltr img,
+.case-study .case-study-full img {
+  margin-bottom: 4px;
+  color: rgba(228, 228, 10, 0.5);
+  border-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-radius: 8px;
+}
+.case-study .case-study-tltr img.no-border,
+.case-study .case-study-full img.no-border {
+  border: none;
+}
+.case-study .case-study-tltr img.w300,
+.case-study .case-study-full img.w300 {
   height: 300px;
   width: auto;
   margin: auto;
+}
+.case-study .case-study-tltr figure, .case-study .case-study-tltr figcaption,
+.case-study .case-study-full figure,
+.case-study .case-study-full figcaption {
+  display: block;
+}
+.case-study .case-study-tltr img + img, .case-study .case-study-tltr img + p, .case-study .case-study-tltr img + h4, .case-study .case-study-tltr img + h5, .case-study .case-study-tltr figure + figure, .case-study .case-study-tltr figure + p, .case-study .case-study-tltr figure + h4, .case-study .case-study-tltr figure + h5,
+.case-study .case-study-full img + img,
+.case-study .case-study-full img + p,
+.case-study .case-study-full img + h4,
+.case-study .case-study-full img + h5,
+.case-study .case-study-full figure + figure,
+.case-study .case-study-full figure + p,
+.case-study .case-study-full figure + h4,
+.case-study .case-study-full figure + h5 {
+  margin-top: 16px;
 }
 
 .case-study-tltr {
@@ -1220,10 +1255,6 @@ strong {
 .wrapper-text h3 {
   text-align: left;
   padding: 32px 0 16px 0;
-  font-size: 0.8em;
-}
-.wrapper-text h3.separator {
-  color: red;
 }
 .wrapper-text h3 + p {
   padding-top: 0;
@@ -1242,6 +1273,13 @@ strong {
   margin: 12px 0;
   width: 100%;
   height: auto;
+}
+.wrapper-text details {
+  color: rgb(210, 210, 210);
+}
+.wrapper-text details summary {
+  color: rgb(210, 210, 210);
+  padding-bottom: 8px;
 }
 
 .landing-sections {
@@ -1283,7 +1321,6 @@ strong {
   }
 }
 .landing-sections .separator {
-  color: red;
   padding: 24px 12px;
   font-size: 1.5em;
 }
@@ -1509,7 +1546,6 @@ strong {
   grid-area: item6;
 }
 .case-tltr .item7 {
-  border: 1px solid blue;
   grid-area: item7;
 }
 @media only screen and (min-width: 481px) {

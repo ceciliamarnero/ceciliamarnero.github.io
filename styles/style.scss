@@ -88,6 +88,7 @@ $black100: #0e0e0e;
     border-right-width: $borderRightWidth;
     border-bottom-width: $borderBottomWidth;
     border-left-width: $borderLeftWidth;
+    border-radius: 8px;
 }
 
 @mixin border-test {
@@ -998,7 +999,7 @@ h4.show-indent::before {
 
 h4 {
     font-family: $body-font;
-    font-size: 1.125em; //18px
+    font-size: 1.3em; 
     font-weight: 400;
     color: $white100;
     margin-bottom: 8px;
@@ -1553,22 +1554,37 @@ strong {
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
 
     .separator-wrapper {
-        margin-bottom: 24px;
+        margin: 0;
     }
 }
 
 
 .case-study .case-study-tltr,
 .case-study .case-study-full {
-
-    img.img-cycle {
+    .separator-wrapper{
+        margin-bottom: 0;
+    }
+    width: 100%;
+    img{
+        margin-bottom: 4px;
+        @include border-1side-solid(1px,1px,1px,1px, $yellow050);
+        &.no-border{
+            border: none;
+        }
+    }
+    img.w300 {
         height: 300px;
         width: auto;
         margin: auto;
     }
-
-    //@include border-1side-dashed(1px, 0, 0, 0, $yellow050);
-    width: 100%;
+    figure, figcaption{
+        display: block;
+    }
+    img+img, img+p, img+h4, img+h5, figure+figure, figure+p, figure+h4, figure+h5{
+        //border: 1px solid red;
+        margin-top: 16px;
+    }
+    
 
     
 }
@@ -1591,11 +1607,7 @@ strong {
     h3 {
         text-align: left;
         padding: 32px 0 16px 0;
-        font-size: .8em;
-
-        &.separator {
-            color: red;
-        }
+        //font-size: .8em;
     }
 
     h3+p {
@@ -1619,6 +1631,14 @@ strong {
         margin: 12px 0;
         width: 100%;
         height: auto;
+    }
+
+    details {
+        color:$white080;
+        summary{
+            color:$white080;
+            padding-bottom: 8px;
+        }
     }
 
 }
@@ -1666,7 +1686,6 @@ strong {
     }
 
     .separator {
-        color: red;
         padding: 24px 12px;
         font-size: 1.5em;
 
@@ -1947,7 +1966,6 @@ strong {
         grid-area: item6;
     }
     .item7 {
-        border: 1px solid blue;
         grid-area: item7;
     }
 

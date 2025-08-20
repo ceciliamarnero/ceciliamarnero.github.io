@@ -1,23 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 
 *::after,
 *,
+
 *::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-rendering: optimizeLegibility;
 }
 
-// NUMERIC VALUES
-$max-text-width : 700px;
+// VARIABLES
+// FONTS
+$body-font: "Libre Franklin", sans-serif;
+$display-font: "Spline Sans Mono", sans-serif;
 // COLORS
-$yellow030: hsla(40, 97%, 63%, 0.30);
-$yellow050: hsla(40, 97%, 63%, 0.50);
-$yellow080: hsla(40, 97%, 63%, 0.80);
-$yellow100: #fcbf45;
-$yellow110: #fae3b6;
-$white000: #f9f9f9;
-$black: #010101;
+$yellow030: rgba(228, 228, 10, .3);
+$yellow050: rgba(228, 228, 10, .5);
+$yellow080: rgba(228, 228, 10, .8);
+$yellow100: #ffff74;
+$yellow000: #ffff00;
+$yellow110: #ffffbb;
+$white080: rgb(210, 210, 210);
+$white100: rgb(238, 238, 238);
+$whiteFFF: rgba(255, 255, 255);
+$pink100: #fb54a8;
+$pink040: #8f3a64;
+$black100: #0e0e0e;
+
 
 // DIMENSIONS
 @mixin mobile {
@@ -41,24 +51,44 @@ $black: #010101;
 // BORDERS
 @mixin outline-dashed() {
     border-radius: 1px;
-    outline: 1px dashed $yellow050;
+    outline: 1px solid $yellow050;
     outline-offset: 4px;
 }
 
 @mixin outline-hover {
     border-radius: 1px;
-    outline: 1px solid $white000;
+    outline: 1px solid $white100;
     outline-offset: 4px;
 }
 
-@mixin border-dashed ($border1, $border2, $border3, $border4) {
-    color: $yellow050;
+@mixin border-dashed ($borderWidth, $color) {
+    color: $color;
     border-radius: 1px;
     border-style: dashed;
-    border-top-width: $border1;
-    border-right-width: $border2;
-    border-bottom-width: $border3;
-    border-left-width: $border4;
+    border-top-width: $borderWidth;
+    border-right-width: $borderWidth;
+    border-bottom-width: $borderWidth;
+    border-left-width: $borderWidth;
+}
+
+@mixin border-solid ($borderWidth, $radius, $color) {
+    color: $color;
+    border-radius: $radius;
+    border-style: solid;
+    border-top-width: $borderWidth;
+    border-right-width: $borderWidth;
+    border-bottom-width: $borderWidth;
+    border-left-width: $borderWidth;
+}
+
+@mixin border-1side-solid ($borderTopWidth, $borderRightWidth, $borderBottomWidth, $borderLeftWidth, $color) {
+    color: $color;
+    border-style: solid;
+    border-top-width: $borderTopWidth;
+    border-right-width: $borderRightWidth;
+    border-bottom-width: $borderBottomWidth;
+    border-left-width: $borderLeftWidth;
+    border-radius: 8px;
 }
 
 @mixin border-test {
@@ -68,21 +98,26 @@ $black: #010101;
     color: red;
 }
 
+$max-text-width : 700px;
+
 //////////////////////
 //        BIG SECTIONS
 //////////////////////
-html,
+html {
+    height: 100%;
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    background-color: black;
-    color: $white000;
-    font-size: 14px;
+    font-feature-settings: "smcp" on;
+    font-family: $body-font, sans-serif;
+    font-weight: 200;
+    background-color: $black100;
+    color: $white100;
+    font-size: 16px;
     width: 100%;
     height: 100%;
     margin: 0;
     overflow-x: hidden;
-    //@include border-test;
 }
 
 .container {
@@ -95,44 +130,45 @@ body {
     width: 95%;
 }
 
+.wrapper-top {
+    flex-grow: 1;
+    //
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
 section {
-    @include border-dashed(1px, 1px, 1px, 1px);
-    row-gap: 8px;
-    padding: 16px 0px;
+    padding: 40px 0;
+}
 
-    .hero {
-        margin-bottom: 16px;
-
-        .name {
-            background-color: $yellow100;
-            color: #010101;
-            padding: 0 4px;
-        }
-    }
-
-    @include tablet {
-        row-gap: 16px;
-        padding: 48px 8px 32px 8px;
-
-        &.section-hero {
-            padding: 120px 8px 0 8px;
-        }
-    }
-
+.center-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 nav {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    padding: 16px 0;
+    flex-flow: column nowrap;
+    align-items: center;
     fill: $yellow100;
-    color: $yellow100;
 
-    //    
+    @include tablet {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+
+        h1 {
+            width: 202px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
+        }
+    }
+
     a.link-home {
-        display: block;
-        height: 38px;
+        height: 46px;
         padding: 0;
 
         .icon-home {
@@ -142,47 +178,67 @@ nav {
 
     .nav-contact {
         display: flex;
-        flex-flow: row wrap;
-        align-items: flex-end;
-        height: 100%;
+        align-items: center;
+        flex-flow: row nowrap;
         gap: 4px;
+        height: 100%;
     }
 
     .nav-nav {
         display: flex;
-        flex-flow: row wrap;
-        gap: 16px;
+        flex-flow: row nowrap;
+        gap: 24px;
 
         .link-nav-nav {
             @include tablet {
                 position: relative;
-                right: -4px; //to make the last text aligns with the exact edge of the whole container
+                right: -8px; //negative button padding: to align the end of the visible text to the exact edge of the container
             }
         }
     }
 }
 
+.wrapper-jump-menu{
+    text-align: center;
+    margin: 40px 10px;
+}
 .jump-menu {
-    //margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto;
+    display: inline-flex;
+    flex-flow: row wrap;    
     align-items: center;
-    gap: 4px;
+    justify-content: center;    
     padding-bottom: 8px;
-
-    &:not(.no-border) {
-        @include border-dashed (0, 0, 1px, 0);
-    }
-
+    position: relative; 
     .link {
         padding: 0;
         width: 45%;
-        height: 24px;
+        height: 31px;
     }
 
-    @include tablet {
+    .icon-below{
+        visibility: visible;//always for mobile
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+    }
+
+    ::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: .1px;
+        background: $yellow030;
+        width: calc(100% - 31px);
+    }
+
+    @include tablet {        
+        gap: 4px;
         flex-flow: row nowrap;
         justify-content: center;
         gap: 16px;
@@ -191,7 +247,11 @@ nav {
 
         .link {
             width: auto;
-            height: auto;
+        }
+    }
+    @include desktop{
+        .icon-below{
+            visibility:hidden;
         }
     }
 
@@ -202,7 +262,18 @@ footer {
     padding: 16px 8px;
     margin-top: 40px;
     text-align: center;
-    @include border-dashed (1px, 0, 0, 0);
+    margin-top: 20px;
+
+    p {
+        font-family: $display-font;
+    }
+
+    .mate {
+        width: 18px;
+        display: inline;
+        margin-right: 8px;
+        margin-bottom: -4px;
+    }
 
     .heart {
         display: inline;
@@ -210,108 +281,19 @@ footer {
         height: 100%;
         width: auto;
     }
-}
 
-.resume {
-    padding: 8px;
-    max-width: $max-text-width;
-    h3{
-        margin-bottom: 8px;
-    }
-    h4{
-        margin-bottom: 0;
-    }
-
-    .wrapper-education, .wrapper-skill{
-        margin-bottom: 4px;
-    }
-
-    .wrapper-experience {        
-        column-gap: 4px;
-        margin-bottom: 16px;
-
-        .wrapper-experience-header {
-            min-width: 240px;
-
-            .experience-role {
-                margin-bottom: 0px;
-                margin-top: 0px;
-            }
-
-            .experience-company {
-                margin: 0;
-                font-size: 16px;
-            }
-
-            .experience-dates {
-                font-size: 14px;
-                font-weight: 300;
-                margin-bottom: 0;
-            }
-        }
-        ul {
-            margin-top: 0;
-        }
-    }
-    // educ + lang
-    .resume-small {
-        border: none;
-
-        .education {
-            max-width: 400px;
-        }
-
-        .languages {
-            width: 100%;
-
-            h3 {
-                margin-bottom: 8px;
-            }
-
-            .language-p,
-            .language-h4 {
-                margin-bottom: 4px;
-                margin-top: 0px;
-                display: inline-block;
-                font-size: 14px;
-            }
-
-            .language-h4 {
-                min-width: 80px;
-            }
-
-        }
-    }
-    .jump-menu > .link > svg.icon-below {
-        display: none;
-    }
-
-    .resume-row {
-        display: flex;
-        flex-flow: column nowrap;
-
-        @include tablet {
-            flex-flow: row nowrap;
-            column-gap: 32px;
-            justify-content: flex-start;
-        }
-    }
-
-    @include tablet {
-        .resume-skills, .resume-small, .resume-experience{
-            margin-bottom: 16px;
-        }
-        padding: 0;
-
-        .wrapper-experience>.wrapper-experience-header>.experience-role {
-            margin-bottom: 8px;        
-        }
-
-        .jump-menu {
-            display: none;
-        }
+    a.link.inline {
+        color: $pink100;
+        font-weight: 400;
+        // text-transform: uppercase;
     }
 }
+
+*::selection {
+    color: $black100;
+    background-color: $yellow100;
+}
+
 
 //      ANIMATIONS
 @keyframes bounce {
@@ -348,7 +330,7 @@ footer {
     }
 
     50% {
-        transform: translate(12%, -20%);
+        transform: translate(7%, -9%);
     }
 
 }
@@ -366,18 +348,21 @@ footer {
 }
 
 //      STRUCTURES
-.table-case {
+.overview-grid {
     display: grid;
-    padding: 8px;
-    @include border-dashed(1px, 1px, 1px, 1px);
+    column-gap: 8px;
+    row-gap: 4px;
+    margin-bottom: 12px;
     width: 100%;
     max-width: $max-text-width;
+    align-items: baseline;
 
     p.data {
         line-height: 150%;
         margin: 0;
         width: 100%;
         overflow-wrap: break-word;
+        padding: 0;
     }
 
     p.label {
@@ -385,11 +370,16 @@ footer {
         margin: 12px 0 2px 0;
         color: $yellow100;
         width: 100%;
+        padding: 0;
     }
 
     grid-template-columns: auto;
     grid-template-areas: "label-client"
     "data-client"
+    "label-type"
+    "data-type"
+    "label-website"
+    "data-website"
     "label-role"
     "data-role"
     "label-team"
@@ -401,6 +391,23 @@ footer {
     "label-tools"
     "data-tools";
 
+
+    .label-type {
+        grid-area: label-type;
+    }
+
+    .data-type {
+        grid-area: data-type;
+    }
+
+    .label-website {
+        grid-area: label-website;
+    }
+
+    .data-website {
+        line-height: 1em;
+        grid-area: data-website;
+    }
 
     .label-client {
         grid-area: label-client;
@@ -451,40 +458,39 @@ footer {
     }
 
     @include tablet() {
-        width: 80%;
-        column-gap: 8px;
-        margin: auto;
-        margin-top: 0;
-        margin-bottom: 48px;
-        //4 to compensate padding of labels at the first row
-        padding: 4px 16px 16px 16px;
-        //padding: 16px;
-        grid-template-columns: 49% 49%;
-        //grid-template-rows: auto auto 16px auto auto;
-        grid-template-areas:
-            "label-client label-role"
-            "data-client data-role"
-            "label-team label-skills1"
-            "data-team data-skills1"
-            "label-skills2 label-tools"
-            "data-skills2 data-tools";
+        margin: 0 0 32px 0;
+        grid-template-columns: auto auto;
+        grid-template-areas: "label-client label-type"
+            "data-client data-type"
+
+            "label-website label-team"
+            "data-website data-team"
+
+            "label-role label-tools"
+            "data-role  data-tools"
+
+            "label-skills1 label-skills2"
+            "data-skills1 data-skills2";
     }
 
     @include desktop() {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr .7fr;
         grid-template-rows: auto auto auto auto;
-        grid-template-areas: "label-client label-role label-team"
-            "data-client data-role data-team"
+        grid-template-areas: "label-client label-type label-website"
+            "data-client data-type data-website"
+            "label-role label-role label-team"
+            "data-role data-role data-team"
             "label-skills1 label-skills2 label-tools"
             "data-skills1 data-skills2 data-tools";
-        padding: 4px 24px 16px 24px;
+        //padding: 16px;
         column-gap: 16px;
     }
 }
 
 .case-image {
+    display: block;
     height: 100px;
-    width: auto;
+    width: $max-text-width;
     max-width: $max-text-width;
     position: relative;
 
@@ -496,8 +502,9 @@ footer {
     }
 
     @include tablet {
-        width: 80%;
+        width: $max-text-width;
         height: auto;
+        margin: auto;
 
         img {
             width: 100%;
@@ -514,19 +521,21 @@ footer {
     flex-flow: column wrap;
     justify-content: flex-start;
     align-content: center;
-    margin: 4px auto;
-    gap: 16px;
-    width: 95%;
+    padding: 4px;
 
     @include tablet {
+        margin-bottom: 16px;
+        width: 100%;
+        padding: 0;
+        //gap: 24px;
         flex-flow: row wrap;
-        justify-content: center;
+        justify-content: space-between;
     }
 }
 
 .card {
-    @include outline-dashed;
-    padding: 8px;
+    @include border-solid(1px, 8px, $yellow030);
+    padding: 16px;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
@@ -542,95 +551,97 @@ footer {
         display: flex;
         flex-flow: column nowrap;
         align-items: stretch;
-        justify-content: space-between;
-        padding-bottom: 4px;
+        justify-content: flex-start;
+        gap: 2px;
 
         h3.card-title {
-            color: $white000;
+            font-size: 1.2em;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .card-details {
+            text-align: left;
+            overflow-wrap: break-word;
+            width: 100%;
+            margin: 0;
             padding: 0;
         }
 
         .tags {
+            text-align: left;
+            font-family: $display-font;
+            color: $white080;
             margin: 0;
-        }
-    }
+            line-height: 20px;
+            font-weight: 300;
 
-    .card-image {
-        height: 160px;
-        width: 100%;
-        overflow: hidden;
-        border: .5px solid $yellow030;
+            .tag {
+                //display: inline-block;
+                margin-right: 1px;
+                font-size: 0.875em;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-
-    .card-bottom {
-        width: 100%;
-        .card-details {
-            overflow-wrap: break-word;
-            width: 100%;
-            min-height: 60px;
-            margin: 8px 0;
-        }
-
-        .card-button {
-            margin: 0 auto;
-            padding: 8px 0;
-        }
-    }
-
-    @include tablet {
-        max-width: 280px;
-        width: 100%;
-
-        animation: appear linear;
-        animation-timeline: view();
-        animation-range: entry 0;
-
-        .card-top {
-            height: 80px;
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: stretch;
-            justify-content: center;
-
-            h3.card-title {
-                width: 100%;
-                height: auto;
-                margin: 0;
-                padding: 0;
-                text-align: left;
+                &:not(:first-child)::before {
+                    color: $yellow100;
+                    content: "・";
+                }
             }
 
-            .tags {
-                text-align: left;
-            }
+
         }
 
         .card-image {
-            height: 240px;
+            height: 140px;
             width: 100%;
-            flex-grow: 1;
+            overflow: hidden;
+            border: .5px solid $yellow030;
+
+            img {
+                //width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
 
-        .card-bottom {
-            
+
+    }
+
+    .card-button {
+        margin: 0 auto;
+        padding: 8px 0;
+    }
+
+    @include tablet {
+        max-width: 290px;
+        width: 100%;
+        justify-content: space-between;
+        //animation: appear linear;
+        //animation-timeline: view();
+        //animation-range: entry 0;
+
+        .card-top {
             display: flex;
             flex-flow: column nowrap;
-            align-items: center;
-            justify-content: space-between;
+            align-items: stretch;
+            justify-content: flex-start;
+
+            h3.card-title {
+                min-height: 80px;
+            }
+
+            .tags {
+                height: 48px;
+            }
+
+            .card-details {
+                min-height: 76px;
+            }
         }
     }
 
-}
-
-.card:hover {
-    @include outline-hover;
 }
 
 .card-process {
@@ -640,7 +651,7 @@ footer {
     width: 98%;
     max-width: $max-text-width;
     padding: 0 8px 0 0;
-    margin: 8px 0;
+    margin: 16px 0;
 
     .card-process-image {
         border: 1px solid $yellow080;
@@ -648,10 +659,9 @@ footer {
         display: none;
     }
 
-    .card-process-text {
+    .text {
         width: 80%;
 
-        p.card-process-title,
         p.card-process-details {
             text-align: left;
             margin: 0;
@@ -659,23 +669,16 @@ footer {
             width: 100%;
         }
 
-        li.card-process-title {
-            text-align: left;
-            margin: 0 0 4px 16px;
-            padding: 0;
+        .card-title {
+            margin-top: 4px;
 
-            ::marker {
-                color: $yellow100;
-                font-weight: 400;
-
+            h5 {
+                padding: 0;
             }
+
         }
 
-        h4.card-process-details {
-            text-align: left;
-            margin: 0;
-            padding: 0;
-        }
+
     }
 
     @include tablet {
@@ -683,7 +686,7 @@ footer {
         flex-flow: row nowrap;
         gap: 8px;
         padding: 0;
-        margin: 8px 8px 8px 0;
+        margin: 16px 0;
         align-items: stretch;
         justify-content: center;
 
@@ -698,6 +701,7 @@ footer {
             img {
                 object-fit: cover;
                 width: 100%;
+                display: block;
             }
         }
     }
@@ -715,132 +719,162 @@ header {
 
 // WRAPPERS 
 .wrapper-border {
-    @include border-dashed (1px, 1px, 1px, 1px);
-}
-
-.wrapper-content {
-    gap: 16px;
-}
-
-.wrapper-text {
-    width: 98%;
-    padding: 0 8px;
-    max-width: $max-text-width;
-
-    img {
-        margin: 12px 0;
-        width: 100%;
-        height: auto;
-    }
+    @include border-dashed(1px, $yellow030);
 }
 
 .wrapper-contacts {
-    width: auto;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
+    display: grid;
+    margin: 0 0 16px 0;
+    align-items: baseline;
 
-    p.contact {
+    grid-template-areas: "label-email"
+        "link-email"
+        "label-linkedin"
+        "link-linkedin";
+
+    p {
         margin: 0;
-        display: flex;
-        flex-flow: column nowrap; // no column-center bc needs to change on tablet
-        align-items: center;
+        padding: 0;
         width: auto;
-
-        .label-contact {
-            order: 1;
-        }
+        text-align: center;
     }
 
+    .label {
+        padding-bottom: 8px;
+    }
+
+    .label-email {
+        grid-area: label-email;
+    }
+
+    .link-email {
+        grid-area: link-email;
+    }
+
+    .label-linkedin {
+        grid-area: label-linkedin;
+    }
+
+    .link-linkedin {
+        grid-area: link-linkedin;
+    }
+
+
     @include tablet {
-        flex-flow: column nowrap;
-        align-items: flex-start;
-
-        p.contact {
-            flex-flow: row nowrap;
-            align-items: center;
-            gap: 8px;
-
-            .label-contact {
-                order: 0;
-                width: 70px;
-            }
+        p {
+            text-align: left;
         }
+
+        .label {
+            padding: 0 16px 0 0;
+        }
+
+        row-gap: 4px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "label-email link-email"
+        "label-linkedin link-linkedin";
     }
 }
 
 .wrapper-backTo {
     margin: 16px 0;
+    font-size: 1em;
 }
 
 .column-center {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center;
+    //align-items: center;
     width: 100%;
 }
 
 a.link {
-    padding: 4px;
+    padding: 8px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    color: $yellow100;
-    fill: $yellow100;
+    color: $yellow110;
+    fill: $yellow110;
     text-decoration: none;
     width: auto;
     flex-grow: 0;
-    font-weight: 400;
+    font-weight: 200;
+    font-size: 0.875em;
+
+    &.link-nav-nav {
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    &.link-home svg #logo-background {
+        fill: $yellow100;
+    }
+
+
+    &.disabled {
+        color: $yellow050;
+        cursor: not-allowed;
+
+        svg {
+            fill: $yellow050;
+        }
+    }
 
     .hidden {
         // some icons are hidden at every state, 
         // others are hidden by default but appear on hover
-        //&.icon-go-to,
-        //&.icon-new-page{
-        //display: none;
         visibility: hidden;
-        //}
     }
 
-    &.cta {
-        margin: 0 0 20px 0;
-        font-size: 28px;
+    .icon-top,
+    .icon-below,
+    .icon-new-page .icon-new-page-arrow,
+    .icon-go-to {
+        fill: $pink100;
     }
 
     &.inline {
         padding: 0;
-    }
-
-    &:focus-visible {
+        font-size: 1em;
         color: $yellow110;
-        outline-color: $yellow110;
-        outline-style: none;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-position: under;
-        text-underline-offset: 4px;
     }
 
-    &:hover {
+    &:disabled,
+    &[disabled] {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible,
+    &:hover:not(:disabled):not([disabled]) {
         color: $yellow110;
         fill: $yellow110;
         text-decoration: underline;
-        text-decoration-thickness: 1px;
         text-underline-position: under;
         text-underline-offset: 2px;
+        text-decoration-thickness: 3px;
+        text-decoration-color: $yellow100;
 
         svg {
             visibility: visible;
         }
 
         // icons have diff behaviours/animations
-        .icon-home #logo-background {
+        //#top > div > nav > h1 > a > svg > path:nth-child(6)
+        .icon-home {
+            path {
+                fill: initial;
+            }
+
             outline: solid 2px $yellow110;
-            fill: $yellow110;
+
+            #logo-background {
+                fill: $yellow110;
+            }
+
         }
 
         .icon-contact path {
@@ -863,6 +897,33 @@ a.link {
                 animation: bounce-out 0.8s infinite;
             }
         }
+
+    }
+}
+
+
+
+.cta {
+    font-size: 32px;
+    color: $pink100;
+    padding: 20px 60px;
+    margin: auto;
+    text-decoration: none;
+    //border: .2px solid $pink100;
+    border-radius: 60px;
+
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 5px $pink100;
+        }
+
+        100% {
+            box-shadow: 0 0 10px $pink100;
+        }
+    }
+
+    &:hover {
+        animation: glow 1000ms ease-out forwards;
     }
 }
 
@@ -896,135 +957,133 @@ img {
 
 // TEXT STYLES
 h1 {
-    height: 38px;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
 h2 {
-    font-size: 32px;
+    font-family: $display-font;
     text-align: center;
-    font-weight: 300;
-    color: $white000;
+    font-weight: 500;
+    color: $white100;
     margin: 0;
+    font-size: 1.5rem;
 
     @include tablet {
-        font-size: 54px;
+        font-size: 2em;
+        margin-bottom: 32px;
     }
-}
-
-.landing h2 {
-    animation: appear ease-in;
-    animation-timeline: view();
-    animation-range: entry 0;
-
 }
 
 h3 {
-    font-size: 22px;
+    font-family: $display-font;
+    font-weight: 400;
+    color: $white100;
+    font-size: 1.375em; //22px
+    text-align: left;
     margin: 0;
     padding-top: 16px;
-    font-weight: 300;
-    color: $white000;
+}
 
-    @include tablet {
-        font-size: 26px;
-    }
+//p+h3 {
+//padding-top: 16px;
+//}
+
+h4.show-indent::before {
+    content: ">";
+    color: $yellow100;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 h4 {
-    font-size: 20px;
-    margin: 8px 0 4px 0;
-    font-weight: 300;
-    color: $yellow100;
-}
-
-h5 {
-    font-size: 16px;
+    font-family: $body-font;
+    font-size: 1.3em; 
     font-weight: 400;
-    margin: 4px 0 0 0;
-    color: $yellow100;
-}
+    color: $white100;
+    margin-bottom: 8px;
 
-.hero-intro {
-    margin: 10px 0 36px 0;
-
-    strong.highlight {
-        color: $yellow100;
-        font-weight: 500;
-    }
-
-    p {
-        color: $white000;
-        margin: 0;
-
-        font-size: 32px;
+    .highlight {
+        color: $yellow000;
         text-align: center;
-        line-height: 40px;
+        margin: 0 2px;
+        font-weight: 900;
 
-        @include tablet {
-            line-height: 60px;
-            font-size: 54px;
+        &.isText {
+            font-weight: 500;
         }
     }
 }
 
-ul {
-    margin: 0;
-    padding: 0;
+/* 
+h4,
+.div-h4 {
+    padding: 24px 0 2px 0;
+} */
+
+p+h4,
+ul+h4,
+ol+h4 {
+    padding-top: 32px;
+    margin-bottom: 0;
 }
+
+//div+h4
+
+h5 {
+    font-size: 1.125em;
+    font-family: $body-font;
+    font-weight: 500;
+    color: $white080;
+    margin: 8px 0 2px 0;
+}
+
 
 p,
 li {
-    margin: 0 0 8px 0;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 300;
-    color: $white000;
+    font-family: $body-font;
+    line-height: 1.45;
+    font-weight: 100;
+    color: $white080;
+    padding-bottom: 8px;
 
     &.center {
         text-align: center;
     }
+
+}
+
+h3+p {
+    padding-top: 8px;
 }
 
 ul,
 ol {
-    margin: 12px 0;
+    margin: 0;
+}
+
+li ol,
+li ul {
+    margin-top: 12px;
 }
 
 li {
-    margin-left: 16px;
-}
+    margin-left: 14px;
+    padding-left: 8px;
 
-.tag {
-    display: inline-block;
-    white-space: nowrap;
-    text-align: center;
-    line-height: 14px;
-    font-size: 14px;
-    margin: 0 2px;
-    font-weight: 400;
-    color: $yellow080;
-
-    &:before {
-        content: "#";
-        margin: 0;
+    &::marker {
+        color: $yellow050
     }
-
 }
 
+ul li::marker {
+    font-size: 0.8em;
+}
 
 
 strong {
-    font-weight: 500;
-}
-
-details {
-
-    p,
-    li {
-        margin: 0 0 0 20px;
-    }
+    font-weight: 450;
 }
 
 // VISUALS
@@ -1053,7 +1112,7 @@ details {
     p {
         margin: 0;
         padding: 0;
-        color: $black;
+        color: $black100;
     }
 
     ol,
@@ -1064,8 +1123,8 @@ details {
 
     p,
     li {
-        color: $black;
-        font-size: 12px;
+        color: $black100;
+        font-size: 0.75em;
         line-height: 14px;
         margin-bottom: 0;
     }
@@ -1214,10 +1273,8 @@ details {
 .wrapper-symbols {
     .symbols {
         align-items: flex-start;
-
         flex-grow: 0;
         max-width: 500px;
-        //align-items: stretch;
 
         .symbol {
             align-items: center;
@@ -1489,4 +1546,695 @@ details {
         }
 
     }
+}
+
+
+.resume {
+    padding-top: 32px;
+    padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
+
+    .separator-wrapper {
+        margin: 0;
+    }
+}
+
+
+.case-study .case-study-tltr,
+.case-study .case-study-full {
+    .separator-wrapper{
+        margin-bottom: 0;
+    }
+    width: 100%;
+    img{
+        margin-bottom: 4px;
+        @include border-1side-solid(1px,1px,1px,1px, $yellow050);
+        &.no-border{
+            border: none;
+        }
+    }
+    img.w300 {
+        height: 300px;
+        width: auto;
+        margin: auto;
+    }
+    figure, figcaption{
+        display: block;
+    }
+    img+img, img+p, img+h4, img+h5, figure+figure, figure+p, figure+h4, figure+h5{
+        //border: 1px solid red;
+        margin-top: 16px;
+    }
+    
+
+    
+}
+
+.case-study-tltr {
+    width: 100%;
+}
+
+.wrapper-text {
+    width: 98%;
+    max-width: $max-text-width;
+    padding: 0 8px;
+    margin: auto;
+    text-align: left;
+
+    h3:first-child {
+        padding: 36px 0 16px 0;
+    }
+
+    h3 {
+        text-align: left;
+        padding: 32px 0 16px 0;
+        //font-size: .8em;
+    }
+
+    h3+p {
+        padding-top: 0;
+    }
+
+    h4 {
+        padding: 24px 0 12px 0;
+    }
+
+    h5 {
+        padding: 8px 0 12px 0;
+    }
+
+    .overview-grid h5 {
+        padding: 18px 0 2px 0;
+        margin: 0;
+    }
+
+    img {
+        margin: 12px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    details {
+        color:$white080;
+        summary{
+            color:$white080;
+            padding-bottom: 8px;
+        }
+    }
+
+}
+
+
+.landing-sections {
+    display: flex;
+    flex-direction: column;
+
+    #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 0;
+
+        h2 {
+            color: $white100;
+            margin: 0;
+            font-family: $display-font;
+            font-size: 2.3em;
+            text-align: center;
+            line-height: 1.3em;
+            font-weight: 400;
+
+            .name {
+                color: $pink100;
+                text-shadow: 0 0 6px $pink040;
+                padding: 0 4px;
+                letter-spacing: 2px;
+                font-weight: 400;
+            }
+
+            .highlight-hero {
+                color: $yellow100;
+                text-shadow: 0 0 6px $pink040;
+                font-style: italic;
+            }
+
+            @include tablet {
+                padding: 60px 0;
+                font-size: 4em;
+            }
+        }
+    }
+
+    .separator {
+        padding: 24px 12px;
+        font-size: 1.5em;
+
+        @include tablet {
+            padding: 12px 12px;
+            font-size: 2.3em;
+        }
+    }
+}
+// GRIDS
+.resume-grid,
+.experience-grid {
+    // this is only for the common structure. Use .resume for text styles. 
+    display: flex;
+    flex-flow: column;
+    column-gap: 50px;
+    row-gap: 30px;
+
+    @include tablet() {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include desktop() {
+        grid-template-columns: 1fr 1fr 1fr; // each grid defines their layout
+    }
+}
+
+.resume-grid {
+    section {
+        padding-top: 16px;
+        padding-bottom: 32px;
+        border: none;
+    }
+
+    .section-header {
+        padding-bottom: 16px;
+    }
+
+    //.resume-column {
+    //padding-left: 24px;
+    //padding-right: 24px;
+    //}
+
+    img {
+        width: 48px;
+        margin: auto;
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "exp exp"
+            "technical-skills soft-skills"
+            "educ lang"
+    }
+
+    @include desktop {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "exp exp exp"
+            "technical-skills soft-skills educ"
+            "technical-skills lang educ"
+    }
+
+    .experience {
+        grid-area: exp;
+    }
+
+    .education {
+        grid-area: educ;
+    }
+
+    .languages {
+        grid-area: lang;
+    }
+
+    .technical-skills {
+        grid-area: technical-skills;
+    }
+
+    .soft-skills {
+        grid-area: soft-skills;
+    }
+
+}
+
+.experience-grid {
+    .wrapper-experience {
+        .header {
+            padding: 0 0 8px 0;
+
+            h4 {
+                margin-bottom: 20px;
+            }
+        }
+
+        .company-dates {
+            p {
+                font-size: .9em;
+                margin: 0;
+            }
+
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        .company {
+            font-variant-caps: small-caps;
+            text-transform: uppercase;
+        }
+
+        .dates {
+            font-weight: 100;
+        }
+    }
+
+    @include tablet {
+
+        .experience1,
+        .experience2,
+        .experience3,
+        .experience4 {
+            padding-bottom: 40px;
+        }
+
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "exp1 exp2"
+        "exp3 exp4"
+        "exp5 exp6";
+    }
+
+    @include desktop {
+
+        .experience1,
+        .experience2,
+        .experience3 {
+            padding-bottom: 40px;
+        }
+
+        grid-template-rows: auto auto;
+        grid-template-areas: "exp1 exp2 exp3"
+        "exp4 exp5 exp6";
+    }
+
+    .experience1 {
+        grid-area: exp1;
+    }
+
+    .experience2 {
+        grid-area: exp2;
+    }
+
+    .experience3 {
+        grid-area: exp3;
+    }
+
+    .experience4 {
+        grid-area: exp4;
+    }
+
+    .experience5 {
+        grid-area: exp5;
+    }
+
+    .experience6 {
+        grid-area: exp6;
+    }
+}
+
+.languages-grid {
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: baseline;
+
+        div p,
+        div h4 {
+            // to beat specificity of h4
+            line-height: 30px;
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+
+        div h4 {
+            width: 84px;
+        }
+
+        div p {
+            width: 94px; // so they all have the same breakpoint.
+        }
+
+    }
+}
+
+.cell-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+
+    &.center {
+        align-items: center;
+    }
+
+    &.top {
+        justify-content: flex-start;
+
+    }
+
+    padding: 32px 16px;
+
+    @include tablet {
+        padding: 40px;
+        row-gap: 4px;
+
+        &.languages {
+            padding: 32px;
+        }
+    }
+}
+
+.case-tltr {
+    padding: 0 40px;
+
+    &>li {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 24px;
+
+        h4 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin: 0;
+        }
+
+        a {
+            padding-left: 0;
+            bottom: 0;
+        }
+
+        ol,ul{
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding-left: 8px;
+        }
+    }
+
+    .item1 {
+        grid-area: item1;
+    }
+
+    .item2 {
+        grid-area: item2;
+    }
+
+    .item3 {
+        grid-area: item3;
+    }
+
+    .item4 {
+        grid-area: item4;
+    }
+
+    .item5 {
+        grid-area: item5;
+    }
+
+    .item6 {
+        grid-area: item6;
+    }
+    .item7 {
+        grid-area: item7;
+    }
+
+    @include tablet {
+        display: grid;
+        gap: 0 40px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: "item1 item2"
+            "item3 item4"
+            "item5 item6"
+            "item7 item7";
+
+        .short-item {
+            margin-bottom: 0;
+        }
+    }
+
+    @include desktop {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "item1 item2 item3"
+            "item4 item5 item6"
+            "item7 item7 item7";
+    }
+
+}
+
+.section-icon {
+    height: 36px;
+    width: 36px;
+}
+
+.aboutme-row {
+    margin: auto;
+
+    .aboutme-column {
+        //margin: auto;
+        padding: 0 8px;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .aboutme-item {
+            margin: 24px 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                flex-shrink: 0;
+            }
+
+            .text {
+                padding: 0;
+                margin: 0;
+                flex-grow: 1;
+            }
+
+            &.special {
+                .icon {
+                    visibility: hidden;
+                    height: 0px; // so that's fully wide but zero height
+                }
+
+                .text {
+                    font-weight: 450;
+                }
+            }
+
+            &.frida {
+                img {
+                    width: 48px;
+                    flex-grow: 0;
+                }
+
+                gap:12px;
+            }
+        }
+    }
+
+    @include tablet {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding-bottom: 40px;
+        max-width: 1100px;
+        margin: auto;
+        column-gap: 100px;
+
+        .aboutme-column {
+            .aboutme-item {
+                max-width: 468px;
+                margin: 0 0 36px 0;
+
+                .icon {
+                    width: 78px;
+                    height: 78px;
+                }
+
+
+                &.frida {
+                    img {
+                        height: 90px;
+                        width: auto;
+                    }
+
+                    gap:52px;
+                }
+            }
+        }
+
+    }
+}
+
+figure {
+    figcaption.desktop {
+        display: none;
+    }
+
+    @include tablet {
+        figcaption {
+            display: none;
+
+            &.desktop {
+                display: block;
+            }
+        }
+    }
+
+    .pics-grid {
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            //margin: 12px 0 0 0;
+        }
+
+        figcaption {
+            padding: 2px 0 4px 0;
+        }
+
+        @include tablet() {
+            display: grid;
+            gap: 4px;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 132px auto;
+            grid-template-areas: "books horses frida"
+                "books bird frida";
+
+            img {
+                margin: 0;
+                height: 100%;
+            }
+
+            figcaption {
+                display: none;
+
+                &.desktop {
+                    display: block;
+                }
+            }
+        }
+
+        .pic-books {
+            grid-area: books;
+        }
+
+        .pic-bird {
+            grid-area: bird;
+        }
+
+        .pic-horses {
+            grid-area: horses;
+        }
+
+        .pic-frida {
+            grid-area: frida;
+        }
+    }
+
+}
+
+.icon-heading {
+    opacity: 50%;
+}
+
+.landing-list,
+.gallery {
+    margin-top: 80px; // to compensate lack of separator bottom margin
+}
+
+.landing-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 40px;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        max-width: 28%;
+        list-style: none;
+
+        h4 {
+            font-weight: 500;
+            color: $white100;
+            font-size: 1.25em;
+        }
+
+        .p {
+            color: $white080;
+            font-size: 1.125em;
+        }
+    }
+}
+
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.separator-wrapper {
+    position: relative;
+    text-align: center;
+    height: 80px;
+
+    @include tablet {
+        margin: 60px 0 40px 0;
+    }
+}
+
+.separator-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: .5px;
+    background-color: $yellow100;
+    transform: translateY(-50%);
+}
+
+.separator {
+    display: inline-block;
+    height: 80px;
+    background-color: $black100;
+    position: relative;
+    z-index: 1;
+    font-weight: 200;
+    
+        padding: 30px 12px;
+        font-size: 1.2em;
+
+        @include tablet {
+            padding: 24px 12px;
+            font-size: 1.4rem;
+        }
+    
 }

@@ -310,7 +310,7 @@ footer a.link.inline {
 
 .case-image {
   display: block;
-  height: 100px;
+  height: 50px;
   width: 700px;
   max-width: 700px;
   position: relative;
@@ -323,12 +323,14 @@ footer a.link.inline {
 }
 @media only screen and (min-width: 481px) {
   .case-image {
+    display: flex;
+    justify-content: center;
     width: 700px;
     height: auto;
     margin: auto;
   }
   .case-image img {
-    width: 100%;
+    width: 70%;
     height: 100%;
     object-fit: cover;
     object-position: center;

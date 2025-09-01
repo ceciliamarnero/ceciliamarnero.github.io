@@ -309,17 +309,14 @@ footer a.link.inline {
 }
 
 .case-image {
-  display: block;
-  height: 50px;
-  width: 700px;
-  max-width: 700px;
-  position: relative;
+  width: 60%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .case-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  display: block;
 }
 @media only screen and (min-width: 481px) {
   .case-image {
@@ -1511,9 +1508,6 @@ strong {
   }
 }
 
-.case-tltr {
-  padding: 0 40px;
-}
 .case-tltr > li {
   display: flex;
   flex-flow: column nowrap;
@@ -1538,6 +1532,26 @@ strong {
 .case-tltr > li li {
   padding-left: 8px;
 }
+@media only screen and (min-width: 481px) {
+  .case-tltr {
+    padding: 0 40px;
+    display: grid;
+    gap: 0 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "item1 item2" "item3 item4" "item5 item6" "item7 item7";
+  }
+  .case-tltr .short-item {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .case-tltr {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "item1 item2 item3" "item4 item5 item6" "item7 item7 item7";
+  }
+}
 .case-tltr .item1 {
   grid-area: item1;
 }
@@ -1558,25 +1572,6 @@ strong {
 }
 .case-tltr .item7 {
   grid-area: item7;
-}
-@media only screen and (min-width: 481px) {
-  .case-tltr {
-    display: grid;
-    gap: 0 40px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: "item1 item2" "item3 item4" "item5 item6" "item7 item7";
-  }
-  .case-tltr .short-item {
-    margin-bottom: 0;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .case-tltr {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "item1 item2 item3" "item4 item5 item6" "item7 item7 item7";
-  }
 }
 
 .section-icon {
@@ -1822,7 +1817,13 @@ header {
   border-radius: 0;
   border: none;
 }
+.protos .protos-users {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
 .protos .protos-users .protos-user {
+  padding-top: 16px;
   display: flex;
   flex-flow: column nowrap;
   row-gap: 8px;
@@ -1860,14 +1861,8 @@ header {
   padding: 0;
 }
 @media only screen and (min-width: 481px) {
-  .protos .protos-users .protos-user {
-    display: flex;
-    flex-flow: column wrap;
-  }
-}
-@media only screen and (min-width: 481px) {
   .protos .protos-users {
-    display: flex;
+    padding-top: 0;
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;

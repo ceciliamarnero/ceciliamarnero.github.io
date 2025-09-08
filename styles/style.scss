@@ -2312,7 +2312,7 @@ header {
         display: flex;
         flex-flow: column wrap;
         align-items: center;
-        
+
         .protos-user {
             padding-top: 16px;
             display: flex;
@@ -2331,12 +2331,12 @@ header {
                     padding: 0;
                 }
             }
-            
+
             .items {
                 display: flex;
                 flex-flow: column;
                 row-gap: 16px;
-            }                       
+            }
 
             img {
                 width: 28px;
@@ -2358,8 +2358,8 @@ header {
             }
         }
 
-        @include tablet {    
-            padding-top: 0;        
+        @include tablet {
+            padding-top: 0;
             flex-flow: row wrap;
             align-items: flex-start;
             justify-content: center;

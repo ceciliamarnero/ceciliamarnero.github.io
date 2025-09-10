@@ -1705,16 +1705,23 @@ figure .pics-grid .pic-frida {
   opacity: 50%;
 }
 
-.landing-list,
-.gallery {
-  margin-top: 80px;
+@media only screen and (min-width: 481px) {
+  .landing-list,
+  .gallery {
+    margin-top: 80px;
+  }
 }
 
 .landing-list {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
+}
+@media only screen and (min-width: 481px) {
+  .landing-list {
+    gap: 40px;
+  }
 }
 .landing-list p {
   padding: 0;
@@ -1749,6 +1756,7 @@ header {
   position: relative;
   text-align: center;
   height: 80px;
+  margin: 20px 0;
 }
 @media only screen and (min-width: 481px) {
   .separator-wrapper {
@@ -1775,7 +1783,6 @@ header {
   z-index: 1;
   font-weight: 200;
   padding: 30px 12px;
-  font-size: 1.2em;
 }
 @media only screen and (min-width: 481px) {
   .separator {

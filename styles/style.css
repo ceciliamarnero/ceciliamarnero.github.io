@@ -112,6 +112,7 @@ nav .nav-nav {
   justify-content: center;
   padding-bottom: 8px;
   position: relative;
+  height: 26px;
 }
 .jump-menu .link {
   padding: 0;
@@ -126,15 +127,6 @@ nav .nav-nav {
   padding: 0;
   width: 50%;
 }
-.jump-menu ::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 0.1px;
-  background: rgba(228, 228, 10, 0.3);
-  width: calc(100% - 31px);
-}
 @media only screen and (min-width: 481px) {
   .jump-menu {
     gap: 4px;
@@ -143,6 +135,15 @@ nav .nav-nav {
     gap: 16px;
     border: none;
     padding: 0;
+  }
+  .jump-menu ::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.1px;
+    background: rgba(228, 228, 10, 0.3);
+    width: calc(100% - 31px);
   }
   .jump-menu .link {
     width: auto;
@@ -1188,7 +1189,7 @@ strong {
   padding-bottom: 0;
 }
 .resume .separator-wrapper {
-  margin: 0;
+  margin: 20px 0 8px 0;
 }
 
 .case-study .case-study-tltr,
@@ -1342,12 +1343,13 @@ strong {
 .experience-grid {
   display: flex;
   flex-flow: column;
-  column-gap: 50px;
-  row-gap: 30px;
+  row-gap: 16px;
 }
 @media only screen and (min-width: 481px) {
   .resume-grid,
   .experience-grid {
+    column-gap: 50px;
+    row-gap: 30px;
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1708,7 +1710,7 @@ figure .pics-grid .pic-frida {
 @media only screen and (min-width: 481px) {
   .landing-list,
   .gallery {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }
 
@@ -1752,15 +1754,29 @@ header {
   padding-bottom: 40px;
 }
 
+.separator {
+  display: inline-block;
+  background-color: #0e0e0e;
+  position: relative;
+  z-index: 1;
+  font-weight: 200;
+  padding: 30px 12px;
+}
+@media only screen and (min-width: 481px) {
+  .separator {
+    padding: 24px 12px;
+    font-size: 1.4rem;
+  }
+}
+
 .separator-wrapper {
   position: relative;
   text-align: center;
-  height: 80px;
   margin: 20px 0;
 }
 @media only screen and (min-width: 481px) {
   .separator-wrapper {
-    margin: 60px 0 40px 0;
+    margin: 40px 0;
   }
 }
 
@@ -1773,22 +1789,6 @@ header {
   height: 0.5px;
   background-color: #ffff74;
   transform: translateY(-50%);
-}
-
-.separator {
-  display: inline-block;
-  height: 80px;
-  background-color: #0e0e0e;
-  position: relative;
-  z-index: 1;
-  font-weight: 200;
-  padding: 30px 12px;
-}
-@media only screen and (min-width: 481px) {
-  .separator {
-    padding: 24px 12px;
-    font-size: 1.4rem;
-  }
 }
 
 .protos {

@@ -212,6 +212,7 @@ nav {
     justify-content: center;
     padding-bottom: 8px;
     position: relative;
+    height: 26px;
 
     .link {
         padding: 0;
@@ -229,17 +230,18 @@ nav {
         width: 50%;
     }
 
-    ::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: .1px;
-        background: $yellow030;
-        width: calc(100% - 31px);
-    }
-
     @include tablet {
+
+        ::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: .1px;
+            background: $yellow030;
+            width: calc(100% - 31px);
+        }
+
         gap: 4px;
         flex-flow: row nowrap;
         justify-content: center;
@@ -1559,7 +1561,7 @@ strong {
     padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
 
     .separator-wrapper {
-        margin: 0;
+        margin: 20px 0 8px 0;
     }
 }
 
@@ -1721,10 +1723,11 @@ strong {
     // this is only for the common structure. Use .resume for text styles. 
     display: flex;
     flex-flow: column;
-    column-gap: 50px;
-    row-gap: 30px;
-
+    row-gap: 16px;
+    
     @include tablet() {
+        column-gap: 50px;
+        row-gap: 30px;
         padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2186,7 +2189,7 @@ figure {
 .landing-list,
 .gallery {
     @include tablet {
-        margin-top: 80px; // to compensate lack of separator bottom margin
+        margin-top: 40px; // to compensate lack of separator bottom margin
     }
 }
 
@@ -2207,6 +2210,7 @@ figure {
 
     li {
         list-style: none;
+
         @include tablet() {
             max-width: 28%;
         }
@@ -2231,13 +2235,29 @@ header {
     padding-bottom: 40px;
 }
 
+.separator {
+    display: inline-block;
+    background-color: $black100;
+    position: relative;
+    z-index: 1;
+    font-weight: 200;
+
+    padding: 30px 12px;
+
+    @include tablet {
+        padding: 24px 12px;
+        font-size: 1.4rem;
+    }
+
+}
+
 .separator-wrapper {
     position: relative;
     text-align: center;
-    height: 80px;
     margin: 20px 0;
+
     @include tablet {
-        margin: 60px 0 40px 0;
+        margin: 40px 0;
     }
 }
 
@@ -2252,23 +2272,6 @@ header {
     transform: translateY(-50%);
 }
 
-.separator {
-    display: inline-block;
-    height: 80px;
-    background-color: $black100;
-    position: relative;
-    z-index: 1;
-    font-weight: 200;
-
-    padding: 30px 12px;
-    //    font-size: 1.2em;
-
-    @include tablet {
-        padding: 24px 12px;
-        font-size: 1.4rem;
-    }
-
-}
 
 .protos {
     padding: 40px 8px;

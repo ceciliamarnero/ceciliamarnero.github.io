@@ -1721,8 +1721,12 @@ figure .pics-grid .pic-frida {
   margin: 0;
 }
 .landing-list li {
-  max-width: 28%;
   list-style: none;
+}
+@media only screen and (min-width: 481px) {
+  .landing-list li {
+    max-width: 28%;
+  }
 }
 .landing-list li h4 {
   font-weight: 500;

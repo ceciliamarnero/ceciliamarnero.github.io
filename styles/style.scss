@@ -2201,7 +2201,9 @@ figure {
     }
 
     li {
-        max-width: 28%;
+        @include tablet(){
+            max-width: 28%;
+        }
         list-style: none;
 
         h4 {

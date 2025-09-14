@@ -2196,11 +2196,12 @@ figure {
 .landing-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
+    font-size: 20px;
 
     @include tablet() {
-        gap: 40px;
+        gap: 60px;
     }
 
     p {
@@ -2210,6 +2211,8 @@ figure {
 
     li {
         list-style: none;
+        padding-left: 0;
+        margin-left: 0;
 
         @include tablet() {
             max-width: 28%;
@@ -2223,7 +2226,7 @@ figure {
 
         .p {
             color: $white080;
-            font-size: 1.125em;
+            font-size: 1em;
         }
     }
 }

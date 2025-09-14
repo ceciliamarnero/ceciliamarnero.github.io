@@ -1717,12 +1717,13 @@ figure .pics-grid .pic-frida {
 .landing-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
+  font-size: 20px;
 }
 @media only screen and (min-width: 481px) {
   .landing-list {
-    gap: 40px;
+    gap: 60px;
   }
 }
 .landing-list p {
@@ -1731,6 +1732,8 @@ figure .pics-grid .pic-frida {
 }
 .landing-list li {
   list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 @media only screen and (min-width: 481px) {
   .landing-list li {
@@ -1744,7 +1747,7 @@ figure .pics-grid .pic-frida {
 }
 .landing-list li .p {
   color: rgb(210, 210, 210);
-  font-size: 1.125em;
+  font-size: 1em;
 }
 
 header {

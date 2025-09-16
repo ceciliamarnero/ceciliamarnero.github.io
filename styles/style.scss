@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 *::after,
 *,
@@ -13,7 +15,7 @@
 // VARIABLES
 // FONTS
 $body-font: "Libre Franklin", sans-serif;
-$display-font: "Spline Sans Mono", sans-serif;
+$display-font: "PT Serif", sans-serif;
 // COLORS
 $yellow030: rgba(228, 228, 10, .3);
 $yellow050: rgba(228, 228, 10, .5);
@@ -562,6 +564,7 @@ footer {
         gap: 2px;
 
         h3.card-title {
+            font-family: $body-font;
             font-size: 1.2em;
             padding: 0;
             margin: 0;
@@ -579,7 +582,7 @@ footer {
 
         .tags {
             text-align: left;
-            font-family: $display-font;
+            font-family: $body-font;
             color: $white080;
             margin: 0;
             line-height: 20px;
@@ -978,7 +981,7 @@ h2 {
     font-size: 1.5rem;
 
     @include tablet {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-bottom: 32px;
     }
 }
@@ -987,15 +990,11 @@ h3 {
     font-family: $display-font;
     font-weight: 400;
     color: $white100;
-    font-size: 1.375em; //22px
+    font-size: 1.7em; //22px
     text-align: left;
     margin: 0;
     padding-top: 16px;
 }
-
-//p+h3 {
-//padding-top: 16px;
-//}
 
 h4.show-indent::before {
     content: ">";
@@ -1006,7 +1005,7 @@ h4.show-indent::before {
 
 h4 {
     font-family: $body-font;
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 400;
     color: $white100;
     margin-bottom: 8px;
@@ -1039,7 +1038,7 @@ ol+h4 {
 //div+h4
 
 h5 {
-    font-size: 1.125em;
+    font-size: 1.15em;
     font-family: $body-font;
     font-weight: 500;
     color: $white080;
@@ -1053,7 +1052,7 @@ li {
     line-height: 1.45;
     font-weight: 100;
     color: $white080;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
 
     &.center {
         text-align: center;
@@ -1680,7 +1679,7 @@ strong {
             color: $white100;
             margin: 0;
             font-family: $display-font;
-            font-size: 2.3em;
+            font-size: 4.5em;
             text-align: center;
             line-height: 1.3em;
             font-weight: 400;
@@ -1724,7 +1723,7 @@ strong {
     display: flex;
     flex-flow: column;
     row-gap: 16px;
-    
+
     @include tablet() {
         column-gap: 50px;
         row-gap: 30px;
@@ -1801,16 +1800,16 @@ strong {
     .wrapper-experience {
         .header {
             padding: 0 0 8px 0;
-
-            h4 {
-                margin-bottom: 20px;
-            }
         }
 
         .company-dates {
             p {
-                font-size: .9em;
                 margin: 0;
+                padding-bottom: 0;
+            }
+
+            .company {
+                font-style: italic;
             }
 
             display: flex;
@@ -1818,14 +1817,6 @@ strong {
             justify-content: space-between;
         }
 
-        .company {
-            font-variant-caps: small-caps;
-            text-transform: uppercase;
-        }
-
-        .dates {
-            font-weight: 100;
-        }
     }
 
     @include tablet {
@@ -2243,13 +2234,10 @@ header {
     background-color: $black100;
     position: relative;
     z-index: 1;
-    font-weight: 200;
-
     padding: 30px 12px;
 
     @include tablet {
         padding: 24px 12px;
-        font-size: 1.4rem;
     }
 
 }

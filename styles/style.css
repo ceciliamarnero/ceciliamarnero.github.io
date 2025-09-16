@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 *::after,
 *,
 *::before {
@@ -163,7 +163,7 @@ footer {
   margin-top: 20px;
 }
 footer p {
-  font-family: "Spline Sans Mono", sans-serif;
+  font-family: "PT Serif", sans-serif;
 }
 footer .mate {
   width: 18px;
@@ -379,6 +379,7 @@ footer a.link.inline {
   gap: 2px;
 }
 .card .card-top h3.card-title {
+  font-family: "Libre Franklin", sans-serif;
   font-size: 1.2em;
   padding: 0;
   margin: 0;
@@ -394,7 +395,7 @@ footer a.link.inline {
 }
 .card .card-top .tags {
   text-align: left;
-  font-family: "Spline Sans Mono", sans-serif;
+  font-family: "Libre Franklin", sans-serif;
   color: rgb(210, 210, 210);
   margin: 0;
   line-height: 20px;
@@ -708,7 +709,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Spline Sans Mono", sans-serif;
+  font-family: "PT Serif", sans-serif;
   text-align: center;
   font-weight: 500;
   color: rgb(238, 238, 238);
@@ -717,16 +718,16 @@ h2 {
 }
 @media only screen and (min-width: 481px) {
   h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 32px;
   }
 }
 
 h3 {
-  font-family: "Spline Sans Mono", sans-serif;
+  font-family: "PT Serif", sans-serif;
   font-weight: 400;
   color: rgb(238, 238, 238);
-  font-size: 1.375em;
+  font-size: 1.7em;
   text-align: left;
   margin: 0;
   padding-top: 16px;
@@ -741,7 +742,7 @@ h4.show-indent::before {
 
 h4 {
   font-family: "Libre Franklin", sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 400;
   color: rgb(238, 238, 238);
   margin-bottom: 8px;
@@ -769,7 +770,7 @@ ol + h4 {
 }
 
 h5 {
-  font-size: 1.125em;
+  font-size: 1.15em;
   font-family: "Libre Franklin", sans-serif;
   font-weight: 500;
   color: rgb(210, 210, 210);
@@ -782,7 +783,7 @@ li {
   line-height: 1.45;
   font-weight: 100;
   color: rgb(210, 210, 210);
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 p.center,
 li.center {
@@ -1304,8 +1305,8 @@ strong {
 .landing-sections #hero h2 {
   color: rgb(238, 238, 238);
   margin: 0;
-  font-family: "Spline Sans Mono", sans-serif;
-  font-size: 2.3em;
+  font-family: "PT Serif", sans-serif;
+  font-size: 4.5em;
   text-align: center;
   line-height: 1.3em;
   font-weight: 400;
@@ -1407,24 +1408,17 @@ strong {
 .experience-grid .wrapper-experience .header {
   padding: 0 0 8px 0;
 }
-.experience-grid .wrapper-experience .header h4 {
-  margin-bottom: 20px;
-}
 .experience-grid .wrapper-experience .company-dates {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
 .experience-grid .wrapper-experience .company-dates p {
-  font-size: 0.9em;
   margin: 0;
+  padding-bottom: 0;
 }
-.experience-grid .wrapper-experience .company {
-  font-variant-caps: small-caps;
-  text-transform: uppercase;
-}
-.experience-grid .wrapper-experience .dates {
-  font-weight: 100;
+.experience-grid .wrapper-experience .company-dates .company {
+  font-style: italic;
 }
 @media only screen and (min-width: 481px) {
   .experience-grid {
@@ -1762,13 +1756,11 @@ header {
   background-color: #0e0e0e;
   position: relative;
   z-index: 1;
-  font-weight: 200;
   padding: 30px 12px;
 }
 @media only screen and (min-width: 481px) {
   .separator {
     padding: 24px 12px;
-    font-size: 1.4rem;
   }
 }
 

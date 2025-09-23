@@ -365,10 +365,11 @@ footer {
         padding: 0;
     }
 
-    p.label {
+    h5.label {
         line-height: 100%;
         margin: 12px 0 2px 0;
-        color: $candy-yellow;
+        color: $candy-pink150;
+        font-weight: 400;
         width: 100%;
         padding: 0;
     }
@@ -2316,21 +2317,19 @@ figure {
 
 #sticker-brain{
     position: absolute;
-    height: 60px;
+    height: 100px;
     width: auto;
-    top: 90%;
+    top: 75%;
     left: 50%;
-   // transform: translate(-50%, -50%);
-    transform: rotate(-45deg);
 }
 
 #sticker-happy{
     position: absolute;
     height: 90px;
     width: auto;
-    top: 80%;
-    left: 90%;
-    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 80%;
+    
 }
 
 #sticker-bolt{
@@ -2338,6 +2337,33 @@ figure {
     height: 90px;
     width: auto;
     top: 60%;
-    left: 3%;
-    transform: translate(-50%, -50%);
+    left: 2%;
 }
+
+#card1{
+    position: relative;
+}
+#sticker-new{
+    position: absolute;
+    height: 90px;
+    width: auto;
+    top: -8%;
+    left: 70%;
+}
+#sticker-teamwork{
+    position: absolute;
+    height: 100px;
+    width: auto;
+    rotate: (15deg);
+    top: 80%;
+    left: 90%;
+}
+
+#sticker-rocket{
+    position: absolute;
+    width: auto;
+    height: 150px;
+    top: -10%;
+    left: 90%;
+}
+

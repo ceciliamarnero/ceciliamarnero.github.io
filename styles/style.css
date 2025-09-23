@@ -46,7 +46,7 @@ body {
 
 section {
   padding: 80px 20px;
-  outline: 6px solid #222222;
+  border: 6px solid #222222;
   border-radius: 40px;
   margin-top: 80px;
   width: 100%;

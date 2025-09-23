@@ -9,13 +9,14 @@
     text-rendering: optimizeLegibility;
 }
 
-// VARIABLES
-// FONTS
+/// VARIABLES
+// Fonts
 $display-font: "Lemon", serif;
 $body-font: "IBM Plex Sans", sans-serif;
 /* Color styles */
 $candy-white: #FFFEFA;
 $candy-black: #222222;
+$candy-black080: #464646;
 $candy-background: #FFFBE7;
 $candy-pink050: #FBDBE5;
 $candy-pink: #F5B7CA;
@@ -30,41 +31,8 @@ $candy-link-inline: #2B40D9;
 $candy-purple: #A541D1;
 $candy-fucsia: #D406A1;
 
-/* Text-size styles 
---candy---h2: 60px;
---candy---h3: 26px;
---candy---h4: 22px;
---candy---h5: 20px;
---candy--p: 18px;
---candy--tag: 14px;
---candy--link--link-hover: 16px;
---candy--link--nav: 20px;
---candy--button--label: 20px;
-*/
-/* Effect styles 
---area: inset -4px -4px 8px rgba(255, 255, 255, 0.4),inset 4px 4px 12px rgba(0, 0, 0, 0.25);
---button-shadow:  0px 8px 8px rgba(0, 0, 0, 0.25);
---card-shadow:  0px 4px 4px rgba(120, 120, 120, 0.25);
---section--h2-shadow:  0px 2px 2px rgba(0, 0, 0, 0.5);
---sticker-shadow:  0px 10px 8px rgba(0, 0, 0, 0.25);*/
-
 //shadows
 $button-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-
-// COLORS
-$yellow030: rgba(228, 228, 10, .3);
-$yellow050: rgba(228, 228, 10, .5);
-$yellow080: rgba(228, 228, 10, .8);
-$yellow100: #4f4f94;
-$yellow000: #271d94;
-$yellow110: #464608;
-$white080: rgb(210, 210, 210);
-$white100: rgb(238, 238, 238);
-$whiteFFF: rgba(255, 255, 255);
-$pink100: #fb54a8;
-$pink040: #8f3a64;
-$black100: #0e0e0e;
-
 
 // DIMENSIONS
 @mixin mobile {
@@ -86,38 +54,6 @@ $black100: #0e0e0e;
 }
 
 // BORDERS
-@mixin outline-dashed() {
-    border-radius: 1px;
-    outline: 1px solid $yellow050;
-    outline-offset: 4px;
-}
-
-@mixin outline-hover {
-    border-radius: 1px;
-    outline: 1px solid $white100;
-    outline-offset: 4px;
-}
-
-@mixin border-dashed ($borderWidth, $color) {
-    color: $color;
-    border-radius: 1px;
-    border-style: dashed;
-    border-top-width: $borderWidth;
-    border-right-width: $borderWidth;
-    border-bottom-width: $borderWidth;
-    border-left-width: $borderWidth;
-}
-
-@mixin border-solid ($borderWidth, $radius, $color) {
-    color: $color;
-    border-radius: $radius;
-    border-style: solid;
-    border-top-width: $borderWidth;
-    border-right-width: $borderWidth;
-    border-bottom-width: $borderWidth;
-    border-left-width: $borderWidth;
-}
-
 @mixin border-1side-solid ($borderTopWidth, $borderRightWidth, $borderBottomWidth, $borderLeftWidth, $color) {
     color: $color;
     border-style: solid;
@@ -432,7 +368,7 @@ footer {
     p.label {
         line-height: 100%;
         margin: 12px 0 2px 0;
-        color: $yellow100;
+        color: $candy-yellow;
         width: 100%;
         padding: 0;
     }
@@ -700,7 +636,7 @@ footer {
     margin: 16px 0;
 
     .card-process-image {
-        border: 1px solid $yellow080;
+        border: 1px solid $candy-yellow150;
         min-width: 40px;
         display: none;
     }
@@ -755,9 +691,7 @@ footer {
 
 
 // WRAPPERS 
-.wrapper-border {
-    @include border-dashed(1px, $yellow030);
-}
+
 
 .wrapper-contacts {
     display: grid;
@@ -928,11 +862,11 @@ a.link {
     }
 
     &.disabled {
-        color: $yellow050;
+        color: #777;
         cursor: not-allowed;
 
         svg {
-            fill: $yellow050;
+            fill: #777;
         }
     }
 
@@ -1052,7 +986,7 @@ a.link {
 
 figcaption,
 details summary {
-    color: $yellow080;
+    color: $candy-yellow150
 }
 
 img {
@@ -1214,7 +1148,7 @@ strong {
     p {
         margin: 0;
         padding: 0;
-        color: $black100;
+        color: $candy-black;
     }
 
     ol,
@@ -1225,7 +1159,7 @@ strong {
 
     p,
     li {
-        color: $black100;
+        color: $candy-black;
         font-size: 0.75em;
         line-height: 14px;
         margin-bottom: 0;
@@ -1662,7 +1596,7 @@ strong {
 
     img {
         margin-bottom: 4px;
-        @include border-1side-solid(1px, 1px, 1px, 1px, $yellow050);
+        @include border-1side-solid(1px, 1px, 1px, 1px, $candy-yellow150);
 
         &.no-border {
             border: none;
@@ -1740,7 +1674,7 @@ strong {
     }
 
     details {
-        color: $white080;
+        color: $candy-black;
 
         summary {
             color: $candy-black;
@@ -1749,8 +1683,6 @@ strong {
     }
 
 }
-
-
 
 
 // GRIDS
@@ -1790,11 +1722,6 @@ strong {
     .section-header {
         padding-bottom: 16px;
     }
-
-    //.resume-column {
-    //padding-left: 24px;
-    //padding-right: 24px;
-    //}
 
     img {
         width: 48px;
@@ -2247,7 +2174,7 @@ figure {
         }
 
         .p {
-            color: $white080;
+            color: $candy-black;
             font-size: 1em;
         }
     }
@@ -2273,9 +2200,9 @@ figure {
     }
 
     p.label {
-        font-size: .8em;
+        font-size: .9em;
         font-style: italic;
-        
+        color: $candy-pink150;        
     }
 
     .protos-header {

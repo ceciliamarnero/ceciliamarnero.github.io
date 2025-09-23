@@ -9,23 +9,6 @@
 }
 
 /* Color styles */
-/* Text-size styles 
---candy---h2: 60px;
---candy---h3: 26px;
---candy---h4: 22px;
---candy---h5: 20px;
---candy--p: 18px;
---candy--tag: 14px;
---candy--link--link-hover: 16px;
---candy--link--nav: 20px;
---candy--button--label: 20px;
-*/
-/* Effect styles 
---area: inset -4px -4px 8px rgba(255, 255, 255, 0.4),inset 4px 4px 12px rgba(0, 0, 0, 0.25);
---button-shadow:  0px 8px 8px rgba(0, 0, 0, 0.25);
---card-shadow:  0px 4px 4px rgba(120, 120, 120, 0.25);
---section--h2-shadow:  0px 2px 2px rgba(0, 0, 0, 0.5);
---sticker-shadow:  0px 10px 8px rgba(0, 0, 0, 0.25);*/
 html {
   height: 100%;
 }
@@ -279,7 +262,7 @@ footer {
 .overview-grid p.label {
   line-height: 100%;
   margin: 12px 0 2px 0;
-  color: #4f4f94;
+  color: #FCC047;
   width: 100%;
   padding: 0;
 }
@@ -481,7 +464,7 @@ footer {
   margin: 16px 0;
 }
 .card-process .card-process-image {
-  border: 1px solid rgba(228, 228, 10, 0.8);
+  border: 1px solid #B87E0A;
   min-width: 40px;
   display: none;
 }
@@ -523,16 +506,6 @@ footer {
     width: 100%;
     display: block;
   }
-}
-
-.wrapper-border {
-  color: rgba(228, 228, 10, 0.3);
-  border-radius: 1px;
-  border-style: dashed;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
 }
 
 .wrapper-contacts {
@@ -672,11 +645,11 @@ a.link.link-nav-nav {
   font-weight: 700;
 }
 a.link.disabled {
-  color: rgba(228, 228, 10, 0.5);
+  color: #777;
   cursor: not-allowed;
 }
 a.link.disabled svg {
-  fill: rgba(228, 228, 10, 0.5);
+  fill: #777;
 }
 a.link .hidden {
   visibility: hidden;
@@ -769,7 +742,7 @@ a.link:focus-visible .icon-house, a.link:hover:not(:disabled):not([disabled]) .i
 
 figcaption,
 details summary {
-  color: rgba(228, 228, 10, 0.8);
+  color: #B87E0A;
 }
 
 img {
@@ -919,7 +892,7 @@ strong {
 .wrapper-visual p {
   margin: 0;
   padding: 0;
-  color: #0e0e0e;
+  color: #222222;
 }
 .wrapper-visual ol,
 .wrapper-visual ul {
@@ -927,7 +900,7 @@ strong {
 }
 .wrapper-visual p,
 .wrapper-visual li {
-  color: #0e0e0e;
+  color: #222222;
   font-size: 0.75em;
   line-height: 14px;
   margin-bottom: 0;
@@ -1271,7 +1244,7 @@ strong {
 .case-study .case-study-tltr img,
 .case-study .case-study-full img {
   margin-bottom: 4px;
-  color: rgba(228, 228, 10, 0.5);
+  color: #B87E0A;
   border-style: solid;
   border-top-width: 1px;
   border-right-width: 1px;
@@ -1351,7 +1324,7 @@ strong {
   height: auto;
 }
 .wrapper-text details {
-  color: rgb(210, 210, 210);
+  color: #222222;
 }
 .wrapper-text details summary {
   color: #222222;
@@ -1749,7 +1722,7 @@ figure .pics-grid .pic-frida {
   font-size: 1.5em;
 }
 .landing-list li .p {
-  color: rgb(210, 210, 210);
+  color: #222222;
   font-size: 1em;
 }
 
@@ -1769,8 +1742,9 @@ figure .pics-grid .pic-frida {
   padding: 0;
 }
 .protos p.label {
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-style: italic;
+  color: #D96689;
 }
 .protos .protos-header {
   display: flex;

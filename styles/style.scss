@@ -1,7 +1,4 @@
-//@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lemon&display=swap');
 *::after,
 *,
 
@@ -14,15 +11,53 @@
 
 // VARIABLES
 // FONTS
-$body-font: "Libre Franklin", sans-serif;
-$display-font: "PT Serif", sans-serif;
+$display-font: "Lemon", serif;
+$body-font: "IBM Plex Sans", sans-serif;
+/* Color styles */
+$candy-white: #FFFEFA;
+$candy-black: #222222;
+$candy-background: #FFFBE7;
+$candy-pink050: #FBDBE5;
+$candy-pink: #F5B7CA;
+$candy-pink150: #D96689;
+$candy-green050: #D4FAF0;
+$candy-green: #A4ECDA;
+$candy-green150: #4DB79C;
+$candy-yellow050: #FFDC95;
+$candy-yellow: #FCC047;
+$candy-yellow150: #B87E0A;
+$candy-link-inline: #2B40D9;
+$candy-purple: #A541D1;
+$candy-fucsia: #D406A1;
+
+/* Text-size styles 
+--candy---h2: 60px;
+--candy---h3: 26px;
+--candy---h4: 22px;
+--candy---h5: 20px;
+--candy--p: 18px;
+--candy--tag: 14px;
+--candy--link--link-hover: 16px;
+--candy--link--nav: 20px;
+--candy--button--label: 20px;
+*/
+/* Effect styles 
+--area: inset -4px -4px 8px rgba(255, 255, 255, 0.4),inset 4px 4px 12px rgba(0, 0, 0, 0.25);
+--button-shadow:  0px 8px 8px rgba(0, 0, 0, 0.25);
+--card-shadow:  0px 4px 4px rgba(120, 120, 120, 0.25);
+--section--h2-shadow:  0px 2px 2px rgba(0, 0, 0, 0.5);
+--sticker-shadow:  0px 10px 8px rgba(0, 0, 0, 0.25);*/
+
+//shadows
+$button-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+
 // COLORS
 $yellow030: rgba(228, 228, 10, .3);
 $yellow050: rgba(228, 228, 10, .5);
 $yellow080: rgba(228, 228, 10, .8);
-$yellow100: #ffff74;
-$yellow000: #ffff00;
-$yellow110: #ffffbb;
+$yellow100: #4f4f94;
+$yellow000: #271d94;
+$yellow110: #464608;
 $white080: rgb(210, 210, 210);
 $white100: rgb(238, 238, 238);
 $whiteFFF: rgba(255, 255, 255);
@@ -110,16 +145,16 @@ html {
 }
 
 body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: $candy-background;
     font-feature-settings: "smcp" on;
     font-family: $body-font, sans-serif;
-    font-weight: 200;
-    background-color: $black100;
-    color: $white100;
-    font-size: 16px;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow-x: hidden;
+    font-weight: 300;
+    font-size: 18px;
+    color: $candy-black;
 }
 
 .container {
@@ -132,17 +167,71 @@ body {
     width: 95%;
 }
 
-.wrapper-top {
-    flex-grow: 1;
-    //
+.flex-col-center-top {
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     justify-content: flex-start;
 }
 
 section {
-    padding: 40px 0;
+    padding: 80px 20px;
+    outline: 6px solid $candy-black;
+    border-radius: 40px;
+    margin-top: 80px;
+    width: 100%;
+    position: relative;
+
+    &#hero {
+        margin-top: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        height: 80vh;
+
+        h2 {
+            margin-top: 100px;
+            display: block;
+            max-width: 900px;
+            color: $candy-black;
+            font-family: $display-font;
+            font-size: 4.5em;
+            text-align: left;
+
+            .name {
+                color: $candy-pink150;
+            }
+
+            .highlight-hero {
+                color: $candy-yellow;
+            }
+
+            @include tablet {
+                font-size: 4em;
+            }
+        }
+    }
 }
+
+.bg-white {
+    background-color: $candy-white;
+}
+
+.bg-pink {
+    background-color: $candy-pink;
+}
+
+.bg-green {
+    background-color: $candy-green;
+}
+
+.bg-yellow {
+    background-color: $candy-yellow;
+}
+
 
 .center-center {
     flex: 1;
@@ -154,29 +243,21 @@ section {
 
 nav {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: center;
-    fill: $yellow100;
+    padding: 24px 0 60px 0;
 
     @include tablet {
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
-        padding: 16px 0;
 
         h1 {
-            width: 202px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
+            width: 174px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
         }
     }
 
-    a.link-home {
-        height: 46px;
-        padding: 0;
 
-        .icon-home {
-            fill: $yellow100;
-        }
-    }
 
     .nav-contact {
         display: flex;
@@ -189,7 +270,7 @@ nav {
     .nav-nav {
         display: flex;
         flex-flow: row nowrap;
-        gap: 24px;
+        gap: 16px;
 
         .link-nav-nav {
             @include tablet {
@@ -240,7 +321,7 @@ nav {
             bottom: 0;
             left: 0;
             height: .1px;
-            background: $yellow030;
+            background: $candy-pink150;
             width: calc(100% - 31px);
         }
 
@@ -265,40 +346,15 @@ nav {
 }
 
 footer {
+    align-items: center;
     max-width: 100%;
-    padding: 16px 8px;
-    margin-top: 40px;
+    padding: 60px 0 16px 0;
     text-align: center;
-    margin-top: 20px;
-
-    p {
-        font-family: $display-font;
-    }
-
-    .mate {
-        width: 18px;
-        display: inline;
-        margin-right: 8px;
-        margin-bottom: -4px;
-    }
-
-    .heart {
-        display: inline;
-        margin-right: 4px;
-        height: 100%;
-        width: auto;
-    }
-
-    a.link.inline {
-        color: $pink100;
-        font-weight: 400;
-        // text-transform: uppercase;
-    }
 }
 
 *::selection {
-    color: $black100;
-    background-color: $yellow100;
+    color: $candy-white;
+    background-color: $candy-fucsia;
 }
 
 
@@ -536,122 +592,99 @@ footer {
         margin-bottom: 16px;
         width: 100%;
         padding: 0;
-        //gap: 24px;
+        gap: 0px;
         flex-flow: row wrap;
         justify-content: space-between;
     }
 }
 
 .card {
-    @include border-solid(1px, 8px, $yellow030);
+    background-color: $candy-yellow050;
+    border-radius: 16px;
     padding: 16px;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 2px;
 
     &.hide {
         display: none;
     }
 
-    .card-top {
-        height: auto;
-        text-align: center;
+    h3.card-title {
+        padding: 0;
+        margin: 0;
+        text-align: left;
         width: 100%;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 2px;
+    }
 
-        h3.card-title {
-            font-family: $body-font;
-            font-size: 1.2em;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-            width: 100%;
+    .card-details {
+        text-align: left;
+        overflow-wrap: break-word;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tags {
+        margin: 4px 0;
+        min-height: 80px;
+    }
+
+    .tag {
+        display: inline-block;
+        text-align: center;
+        font-family: $body-font;
+        color: $candy-black;
+        padding: 4px 8px;
+        font-weight: 300;
+        font-size: 0.8em;
+        background-color: $candy-yellow050 ;
+        border: 1px solid $candy-yellow150;
+        border-radius: 16px;
+        margin: 0 4px 8px 0;
+    }
+
+    .card-image {
+        height: 140px;
+        width: 100%;
+        overflow: hidden;
+        border: .5px solid $candy-yellow150;
+
+        img {
+            //width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
-
-        .card-details {
-            text-align: left;
-            overflow-wrap: break-word;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .tags {
-            text-align: left;
-            font-family: $body-font;
-            color: $white080;
-            margin: 0;
-            line-height: 20px;
-            font-weight: 300;
-
-            .tag {
-                //display: inline-block;
-                margin-right: 1px;
-                font-size: 0.875em;
-
-                &:not(:first-child)::before {
-                    color: $yellow100;
-                    content: "・";
-                }
-            }
-
-
-        }
-
-        .card-image {
-            height: 140px;
-            width: 100%;
-            overflow: hidden;
-            border: .5px solid $yellow030;
-
-            img {
-                //width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-
     }
 
     .card-button {
         margin: 0 auto;
         padding: 8px 0;
+        width: auto;
+        font-size: 14px;
     }
 
     @include tablet {
-        max-width: 290px;
+        max-width: 280px;
+        gap: 4px;
         width: 100%;
         justify-content: space-between;
-        //animation: appear linear;
-        //animation-timeline: view();
-        //animation-range: entry 0;
-
-        .card-top {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: stretch;
-            justify-content: flex-start;
-
-            h3.card-title {
-                min-height: 80px;
-            }
-
-            .tags {
-                height: 48px;
-            }
-
-            .card-details {
-                min-height: 76px;
-            }
+        h3.card-title {
+            min-height: 100px;
         }
-    }
 
+
+        .card-details {
+            min-height: 90px;
+        }
+
+
+
+    }
 }
 
 .card-process {
@@ -717,15 +750,6 @@ footer {
     }
 }
 
-header {
-    margin: 0;
-
-    &.no-tag {
-        p.tag {
-            display: none;
-        }
-    }
-}
 
 // WRAPPERS 
 .wrapper-border {
@@ -788,8 +812,8 @@ header {
 }
 
 .wrapper-backTo {
-    margin: 16px 0;
-    font-size: 1em;
+    margin: 60px 0 16px 0;
+    align-items: center;
 }
 
 .column-center {
@@ -800,29 +824,97 @@ header {
     width: 100%;
 }
 
-a.link {
-    padding: 8px;
+.btn {
     display: inline-flex;
+    // not all of them need flex
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    color: $yellow110;
-    fill: $yellow110;
     text-decoration: none;
-    width: auto;
+    background-color: $candy-white;
+    color: $candy-black;
+    outline: 1px solid $candy-black;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 1.2em;
+    gap: 10px;
+    padding: 12px 24px;
+    box-shadow: $button-shadow;
+
+    svg{
+        fill: $candy-black
+        ;
+    }
+
+    &:hover {
+        box-shadow: none;
+        text-decoration: none;
+
+        .icon-new-page {
+            .icon-new-page-arrow {
+                animation: bounce-out 0.8s infinite;
+                fill: $candy-fucsia;
+            }
+        }    
+
+        .icon-go-to{
+            animation: bounce-right 0.8s infinite;
+            fill: $candy-fucsia;
+        }
+
+        .icon-top,
+        .icon-below {
+            animation: bounce 0.8s infinite;
+            fill: $candy-fucsia;
+        }
+
+    }
+
+    &:active {
+        outline: 2px solid $candy-black;
+    }
+}
+
+.icon-top,
+.icon-below,
+.icon-new-page .icon-new-page-arrow,
+.icon-go-to {
+    fill: $candy-black;
+}
+
+a.link {
+    padding: 8px;
+    display: inline-flex;
+    // not all of them need flex
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    color: $candy-black;
+    fill: $candy-black;
+    text-decoration: none;
     flex-grow: 0;
-    font-weight: 200;
-    font-size: 0.875em;
+    font-weight: 700;
+
+    &.link-home {
+        height: 46px;
+
+        .icon-home {
+            .logo-front {
+                fill: $candy-black;
+            }
+            #logo-background {
+                fill: $candy-pink;
+            }
+        }
+
+    }
 
     &.link-nav-nav {
+        display: block;
         font-size: 1em;
-        font-weight: 300;
+        font-weight: 700;
     }
-
-    &.link-home svg #logo-background {
-        fill: $yellow100;
-    }
-
 
     &.disabled {
         color: $yellow050;
@@ -839,17 +931,15 @@ a.link {
         visibility: hidden;
     }
 
-    .icon-top,
-    .icon-below,
-    .icon-new-page .icon-new-page-arrow,
-    .icon-go-to {
-        fill: $pink100;
-    }
-
     &.inline {
         padding: 0;
-        font-size: 1em;
-        color: $yellow110;
+        color: $candy-link-inline;
+        font-weight: 400;
+
+        &:hover{
+            color:red;
+        }
+
     }
 
     &:disabled,
@@ -860,13 +950,18 @@ a.link {
 
     &:focus-visible,
     &:hover:not(:disabled):not([disabled]) {
-        color: $yellow110;
-        fill: $yellow110;
+        color: $candy-black;
+        fill: $candy-black;
         text-decoration: underline;
         text-underline-position: under;
         text-underline-offset: 2px;
-        text-decoration-thickness: 3px;
-        text-decoration-color: $yellow100;
+        text-decoration-thickness: 4px;
+        text-decoration-color: $candy-fucsia;
+        
+        &.inline{
+            text-decoration-color: $candy-link-inline;
+            color: $candy-link-inline;
+        }
 
         svg {
             visibility: visible;
@@ -875,65 +970,62 @@ a.link {
         // icons have diff behaviours/animations
         //#top > div > nav > h1 > a > svg > path:nth-child(6)
         .icon-home {
-            path {
-                fill: initial;
+            .logo-front {
+                fill: $candy-fucsia;
             }
-
-            outline: solid 2px $yellow110;
-
+            outline: solid 2px $candy-fucsia;            
             #logo-background {
-                fill: $yellow110;
+                fill: $candy-white;
             }
+        }
 
+        .icon-contact {
+            outline: 2px solid $candy-fucsia;
+            border-radius: 4px;
+        }
+
+        .icon-below {
+            animation: bounce 0.8s infinite;
+            fill: $candy-fucsia;
         }
 
         .icon-contact path {
-            fill: $yellow110;
-            stroke: $yellow110;
-            stroke-width: 0.5;
-        }
-
-        .icon-top,
-        .icon-below {
-            animation: bounce 0.8s infinite;
-        }
-
-        .icon-go-to {
-            animation: bounce-right 0.8s infinite;
+            fill: $candy-fucsia;
+            stroke: $candy-fucsia;
+            //stroke-width: 1px;            
         }
 
         .icon-new-page {
             .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
+                fill: $candy-fucsia;
             }
         }
-
     }
 }
 
 
-
 .cta {
-    font-size: 32px;
-    color: $pink100;
+    font-size: 2em;
+    font-family: $display-font;
+    color: $candy-white;
     padding: 20px 60px;
     margin: auto;
     text-decoration: none;
-    //border: .2px solid $pink100;
-    border-radius: 60px;
+    background-color: $candy-pink150;
+    border: 10px solid $candy-white;
+    border-radius: 5em;
+    box-shadow: $button-shadow;
 
-    @keyframes glow {
-        0% {
-            box-shadow: 0 0 5px $pink100;
-        }
-
-        100% {
-            box-shadow: 0 0 10px $pink100;
-        }
-    }
 
     &:hover {
-        animation: glow 1000ms ease-out forwards;
+        box-shadow: none;
+    }
+
+    &:active {
+        background-color: $candy-pink050;
+        color: $candy-pink150;
+        border: 10px solid $candy-pink150;
     }
 }
 
@@ -975,9 +1067,7 @@ h1 {
 h2 {
     font-family: $display-font;
     text-align: center;
-    font-weight: 500;
-    color: $white100;
-    margin: 0;
+    color: $candy-black;
     font-size: 1.5rem;
 
     @include tablet {
@@ -987,38 +1077,32 @@ h2 {
 }
 
 h3 {
-    font-family: $display-font;
-    font-weight: 400;
-    color: $white100;
-    font-size: 1.7em; //22px
-    text-align: left;
+    font-family: $body-font;
+    font-weight: 500;
+    color: $candy-black;
+    font-size: 1.44em; //26px
+    text-align: center;
     margin: 0;
-    padding-top: 16px;
+    padding: 60px 0 40px 0;
 }
 
 h4.show-indent::before {
     content: ">";
-    color: $yellow100;
+    color: $candy-white;
     display: inline-block;
     margin-right: 8px;
 }
 
 h4 {
     font-family: $body-font;
-    font-size: 1.2em;
-    font-weight: 400;
-    color: $white100;
+    font-size: 1.22em; //22px 
+    font-weight: 500;
     margin-bottom: 8px;
 
-    .highlight {
-        color: $yellow000;
+    .highlight {        
         text-align: center;
         margin: 0 2px;
-        font-weight: 900;
-
-        &.isText {
-            font-weight: 500;
-        }
+        font-weight: 700;
     }
 }
 
@@ -1038,10 +1122,10 @@ ol+h4 {
 //div+h4
 
 h5 {
-    font-size: 1.15em;
     font-family: $body-font;
+    font-size: 1.11em;
     font-weight: 500;
-    color: $white080;
+    color: $candy-black;
     margin: 8px 0 2px 0;
 }
 
@@ -1049,9 +1133,11 @@ h5 {
 p,
 li {
     font-family: $body-font;
-    line-height: 1.45;
-    font-weight: 100;
-    color: $white080;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    color: $candy-black;
     padding-bottom: 12px;
 
     &.center {
@@ -1075,11 +1161,11 @@ li ul {
 }
 
 li {
-    margin-left: 14px;
+    margin-left: 20px;
     padding-left: 8px;
 
     &::marker {
-        color: $yellow050
+        color: $candy-pink150;
     }
 }
 
@@ -1555,23 +1641,14 @@ strong {
 }
 
 
-.resume {
-    padding-top: 32px;
-    padding-bottom: 0; // to make an exception because the last sections should end on resume's last border too 
-
-    .separator-wrapper {
-        margin: 20px 0 8px 0;
-    }
-}
-
-
 .case-study .case-study-tltr,
 .case-study .case-study-full {
-    .separator-wrapper {
-        margin-bottom: 0;
-    }
-
     width: 100%;
+
+
+    h4.show-indent::before {
+        color: $candy-pink150;
+    }
 
     img {
         margin-bottom: 4px;
@@ -1656,7 +1733,7 @@ strong {
         color: $white080;
 
         summary {
-            color: $white080;
+            color: $candy-black;
             padding-bottom: 8px;
         }
     }
@@ -1664,57 +1741,7 @@ strong {
 }
 
 
-.landing-sections {
-    display: flex;
-    flex-direction: column;
 
-    #hero {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 60px 0;
-
-        h2 {
-            color: $white100;
-            margin: 0;
-            font-family: $display-font;
-            font-size: 4.5em;
-            text-align: center;
-            line-height: 1.3em;
-            font-weight: 400;
-
-            .name {
-                color: $pink100;
-                text-shadow: 0 0 6px $pink040;
-                padding: 0 4px;
-                letter-spacing: 2px;
-                font-weight: 400;
-            }
-
-            .highlight-hero {
-                color: $yellow100;
-                text-shadow: 0 0 6px $pink040;
-                font-style: italic;
-            }
-
-            @include tablet {
-                padding: 60px 0;
-                font-size: 4em;
-            }
-        }
-    }
-
-    .separator {
-        padding: 24px 12px;
-        font-size: 1.5em;
-
-        @include tablet {
-            padding: 12px 12px;
-            font-size: 2.3em;
-        }
-    }
-}
 
 // GRIDS
 .resume-grid,
@@ -1734,6 +1761,12 @@ strong {
 
     @include desktop() {
         grid-template-columns: 1fr 1fr 1fr; // each grid defines their layout
+    }
+}
+
+.resume {
+    .highlight, h4.show-indent::before {
+        color: $candy-pink150;
     }
 }
 
@@ -1803,18 +1836,14 @@ strong {
         }
 
         .company-dates {
-            p {
-                margin: 0;
-                padding-bottom: 0;
-            }
-
-            .company {
-                font-style: italic;
-            }
-
+            font-size: .9em;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
+
+            .dates {
+                font-weight: 300;
+            }
         }
 
     }
@@ -1912,6 +1941,8 @@ strong {
         justify-content: flex-start;
 
     }
+
+
 
     padding: 32px 16px;
 
@@ -2092,7 +2123,7 @@ strong {
 
                 &.frida {
                     img {
-                        height: 90px;
+                        height: 120px;
                         width: auto;
                     }
 
@@ -2177,33 +2208,23 @@ figure {
     opacity: 50%;
 }
 
-.landing-list,
-.gallery {
-    @include tablet {
-        margin-top: 40px; // to compensate lack of separator bottom margin
-    }
-}
-
 .landing-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
     font-size: 20px;
 
     @include tablet() {
-        gap: 60px;
+        column-gap: 40px;
+        row-gap: 20px;
     }
 
-    p {
-        padding: 0;
-        margin: 0;
-    }
 
     li {
         list-style: none;
-        padding-left: 0;
-        margin-left: 0;
+        padding: 0;
+        margin: 0;
 
         @include tablet() {
             max-width: 28%;
@@ -2211,8 +2232,8 @@ figure {
 
         h4 {
             font-weight: 500;
-            color: $white100;
-            font-size: 1.25em;
+            color: $candy-black;
+            font-size: 1.5em;
         }
 
         .p {
@@ -2222,51 +2243,12 @@ figure {
     }
 }
 
-header {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    padding-bottom: 40px;
-}
-
-.separator {
-    display: inline-block;
-    background-color: $black100;
-    position: relative;
-    z-index: 1;
-    padding: 30px 12px;
-
-    @include tablet {
-        padding: 24px 12px;
-    }
-
-}
-
-.separator-wrapper {
-    position: relative;
-    text-align: center;
-    margin: 20px 0;
-
-    @include tablet {
-        margin: 60px 0;
-    }
-}
-
-.separator-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: .5px;
-    background-color: $yellow100;
-    transform: translateY(-50%);
-}
 
 
 .protos {
     padding: 40px 8px;
-    font-size: 16px;
+    font-size: .9em;
+    color: $candy-black;
 
     p.main-label {
         font-size: 1.2em;
@@ -2280,12 +2262,10 @@ header {
         padding: 0;
     }
 
-
-
     p.label {
         font-size: .8em;
         font-style: italic;
-        color: $yellow050;
+        
     }
 
     .protos-header {
@@ -2295,7 +2275,6 @@ header {
 
         p {
             font-size: 1em;
-            color: $yellow000;
             font-weight: 400;
             padding: 0;
             margin: 0;
@@ -2347,13 +2326,11 @@ header {
 
             .user-name {
                 font-size: .9em;
-                color: $yellow000;
                 font-weight: 400;
             }
 
             .data {
                 font-size: .9em;
-                color: $yellow080;
                 margin: 0;
                 padding: 0;
             }
@@ -2367,4 +2344,12 @@ header {
             column-gap: 60px;
         }
     }
+}
+
+.img-h2 {
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

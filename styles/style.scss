@@ -189,29 +189,30 @@ section {
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
-        gap: 60px;
-        height: 80vh;
-
+        gap: 2vh;
+        
         h2 {
-            margin-top: 100px;
             display: block;
-            max-width: 900px;
+            margin-top: 1.5vw;
+            max-width: 80%;
             color: $candy-black;
             font-family: $display-font;
-            font-size: 4.5em;
+            font-size: 1.9em;
             text-align: left;
-
+            
             .name {
                 color: $candy-pink150;
             }
-
+            
             .highlight-hero {
                 color: $candy-yellow;
             }
-
-            @include tablet {
-                font-size: 4em;
+            
+            @include tablet(){
+                font-size: 3.5em;
+                
             }
+        
         }
     }
 }
@@ -348,7 +349,7 @@ nav {
 footer {
     align-items: center;
     max-width: 100%;
-    padding: 60px 0 16px 0;
+    padding: 10% 0 .5% 0;
     text-align: center;
 }
 
@@ -1015,10 +1016,10 @@ a.link {
 
 
 .cta {
-    font-size: 2em;
+    font-size: 2.5vw;
     font-family: $display-font;
     color: $candy-white;
-    padding: 20px 60px;
+    padding: 2% 5%;
     margin: auto;
     text-decoration: none;
     background-color: $candy-pink150;
@@ -1077,7 +1078,7 @@ h2 {
     font-family: $display-font;
     text-align: center;
     color: $candy-black;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 
     @include tablet {
         font-size: 2.5em;

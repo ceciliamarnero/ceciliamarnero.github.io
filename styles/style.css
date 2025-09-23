@@ -75,16 +75,15 @@ section#hero {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  gap: 60px;
-  height: 80vh;
+  gap: 2vh;
 }
 section#hero h2 {
-  margin-top: 100px;
   display: block;
-  max-width: 900px;
+  margin-top: 1.5vw;
+  max-width: 80%;
   color: #222222;
   font-family: "Lemon", serif;
-  font-size: 4.5em;
+  font-size: 1.9em;
   text-align: left;
 }
 section#hero h2 .name {
@@ -95,7 +94,7 @@ section#hero h2 .highlight-hero {
 }
 @media only screen and (min-width: 481px) {
   section#hero h2 {
-    font-size: 4em;
+    font-size: 3.5em;
   }
 }
 
@@ -218,7 +217,7 @@ nav .nav-nav {
 footer {
   align-items: center;
   max-width: 100%;
-  padding: 60px 0 16px 0;
+  padding: 10% 0 0.5% 0;
   text-align: center;
 }
 
@@ -737,10 +736,10 @@ a.link:focus-visible .icon-house, a.link:hover:not(:disabled):not([disabled]) .i
 }
 
 .cta {
-  font-size: 2em;
+  font-size: 2.5vw;
   font-family: "Lemon", serif;
   color: #FFFEFA;
-  padding: 20px 60px;
+  padding: 2% 5%;
   margin: auto;
   text-decoration: none;
   background-color: #D96689;
@@ -793,7 +792,7 @@ h2 {
   font-family: "Lemon", serif;
   text-align: center;
   color: #222222;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 @media only screen and (min-width: 481px) {
   h2 {

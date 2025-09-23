@@ -1850,7 +1850,6 @@ figure .pics-grid .pic-frida {
   width: auto;
   top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%);
   transform: rotate(-45deg);
 }
 

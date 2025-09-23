@@ -662,10 +662,10 @@ a.link.link-home {
   height: 46px;
 }
 a.link.link-home .icon-home .logo-front {
-  fill: #222222;
+  fill: #FFFEFA;
 }
 a.link.link-home .icon-home #logo-background {
-  fill: #F5B7CA;
+  fill: #D96689;
 }
 a.link.link-nav-nav {
   display: block;
@@ -708,13 +708,13 @@ a.link:focus-visible svg, a.link:hover:not(:disabled):not([disabled]) svg {
   visibility: visible;
 }
 a.link:focus-visible .icon-home, a.link:hover:not(:disabled):not([disabled]) .icon-home {
-  outline: solid 2px #D406A1;
+  outline: solid 4px #D406A1;
 }
 a.link:focus-visible .icon-home .logo-front, a.link:hover:not(:disabled):not([disabled]) .icon-home .logo-front {
   fill: #D406A1;
 }
 a.link:focus-visible .icon-home #logo-background, a.link:hover:not(:disabled):not([disabled]) .icon-home #logo-background {
-  fill: #FFFEFA;
+  fill: #FFFBE7;
 }
 a.link:focus-visible .icon-contact, a.link:hover:not(:disabled):not([disabled]) .icon-contact {
   outline: 2px solid #D406A1;

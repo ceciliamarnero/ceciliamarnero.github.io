@@ -911,10 +911,10 @@ a.link {
 
         .icon-home {
             .logo-front {
-                fill: $candy-black;
+                fill: $candy-white
             }
             #logo-background {
-                fill: $candy-pink;
+                fill: $candy-pink150;
             }
         }
 
@@ -975,12 +975,12 @@ a.link {
         // icons have diff behaviours/animations
         //#top > div > nav > h1 > a > svg > path:nth-child(6)
         .icon-home {
+            outline: solid 4px $candy-fucsia;            
             .logo-front {
                 fill: $candy-fucsia;
             }
-            outline: solid 2px $candy-fucsia;            
             #logo-background {
-                fill: $candy-white;
+                fill: $candy-background;
             }
         }
 

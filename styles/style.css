@@ -862,7 +862,6 @@ li ul {
 
 li {
   margin-left: 20px;
-  padding-left: 8px;
 }
 li::marker {
   color: #D96689;
@@ -873,7 +872,7 @@ ul li::marker {
 }
 
 strong {
-  font-weight: 450;
+  font-weight: 600;
 }
 
 .wrapper-visual {

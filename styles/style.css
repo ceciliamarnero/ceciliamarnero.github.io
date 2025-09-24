@@ -142,7 +142,7 @@ nav .nav-nav {
 
 .wrapper-jump-menu {
   text-align: center;
-  margin: 40px 10px;
+  margin: 40px 0;
 }
 
 .jump-menu {
@@ -152,14 +152,20 @@ nav .nav-nav {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  row-gap: 16px;
   padding-bottom: 8px;
+  margin-bottom: 16px;
   position: relative;
-  height: 26px;
 }
 .jump-menu .link {
   padding: 0;
-  width: 45%;
-  height: 31px;
+  width: 48%;
+}
+@media only screen and (min-width: 481px) {
+  .jump-menu .link {
+    height: 31px;
+    width: auto;
+  }
 }
 .jump-menu .icon-below {
   visibility: visible;
@@ -171,6 +177,7 @@ nav .nav-nav {
 }
 @media only screen and (min-width: 481px) {
   .jump-menu {
+    height: 26px;
     gap: 4px;
     flex-flow: row nowrap;
     justify-content: center;
@@ -185,7 +192,7 @@ nav .nav-nav {
     left: 0;
     height: 0.1px;
     background: #D96689;
-    width: calc(100% - 31px);
+    width: calc(100% - 35px);
   }
   .jump-menu .link {
     width: auto;

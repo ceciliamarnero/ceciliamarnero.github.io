@@ -220,7 +220,7 @@ nav {
 
 .wrapper-jump-menu {
     text-align: center;
-    margin: 40px 10px;
+    margin: 40px 0;
 }
 
 .jump-menu {
@@ -230,28 +230,33 @@ nav {
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    row-gap: 16px;
     padding-bottom: 8px;
+    margin-bottom: 16px;
     position: relative;
-    height: 26px;
-
+    
     .link {
         padding: 0;
-        width: 45%;
-        height: 31px;
+        width: 48%;
+        
+        @include tablet{
+            height: 31px;
+            width: auto;
+        }
     }
-
+    
     .icon-below {
         visibility: visible; //always for mobile
     }
-
+    
     li {
         margin: 0;
         padding: 0;
         width: 50%;
     }
-
-    @include tablet {
-
+    
+    @include tablet {        
+        height: 26px;
         ::after {
             content: "";
             position: absolute;
@@ -259,7 +264,7 @@ nav {
             left: 0;
             height: .1px;
             background: $candy-pink150;
-            width: calc(100% - 31px);
+            width: calc(100% - (31px + 4px)); // width covers everything but the last icon (31px with) and the space in between (4px)
         }
 
         gap: 4px;

@@ -1095,6 +1095,7 @@ li {
     font-weight: 400;
     color: $candy-black;
     padding-bottom: 12px;
+    
 
     &.center {
         text-align: center;
@@ -1118,7 +1119,7 @@ li ul {
 
 li {
     margin-left: 20px;
-
+    padding-left: 8px;
     &::marker {
         color: $candy-pink150;
     }

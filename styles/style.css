@@ -862,6 +862,7 @@ li ul {
 
 li {
   margin-left: 20px;
+  padding-left: 8px;
 }
 li::marker {
   color: #D96689;

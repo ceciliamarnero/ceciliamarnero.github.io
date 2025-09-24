@@ -126,7 +126,7 @@ section {
         align-items: center;
         justify-content: center;
         gap: 2vh;
-        
+
         h2 {
             display: block;
             margin-top: 1.5vw;
@@ -135,20 +135,20 @@ section {
             font-family: $display-font;
             font-size: 1.9em;
             text-align: left;
-            
+
             .name {
                 color: $candy-pink150;
             }
-            
+
             .highlight-hero {
                 color: $candy-yellow;
             }
-            
-            @include tablet(){
+
+            @include tablet() {
                 font-size: 3.5em;
-                
+
             }
-        
+
         }
     }
 }
@@ -234,29 +234,30 @@ nav {
     padding-bottom: 8px;
     margin-bottom: 16px;
     position: relative;
-    
+
     .link {
         padding: 0;
         width: 48%;
-        
-        @include tablet{
+
+        @include tablet {
             height: 31px;
             width: auto;
         }
     }
-    
+
     .icon-below {
         visibility: visible; //always for mobile
     }
-    
+
     li {
         margin: 0;
         padding: 0;
         width: 50%;
     }
-    
-    @include tablet {        
+
+    @include tablet {
         height: 26px;
+
         ::after {
             content: "";
             position: absolute;
@@ -615,6 +616,7 @@ footer {
         row-gap: 4px;
         width: 100%;
         justify-content: space-between;
+
         h3.card-title {
             min-height: 100px;
         }
@@ -623,7 +625,7 @@ footer {
             min-height: 90px;
         }
 
-        .tags{
+        .tags {
             min-height: 80px;
         }
 
@@ -725,6 +727,7 @@ footer {
 
     .link-email {
         grid-area: link-email;
+
         .link {
             padding: 0;
         }
@@ -736,6 +739,7 @@ footer {
 
     .link-linkedin {
         grid-area: link-linkedin;
+
         .link {
             padding: 0;
         }
@@ -744,6 +748,7 @@ footer {
 
     @include tablet {
         margin: 0 0 32px 0;
+
         p {
             text-align: left;
         }
@@ -791,9 +796,8 @@ footer {
     padding: 12px 24px;
     box-shadow: $button-shadow;
 
-    svg{
-        fill: $candy-black
-        ;
+    svg {
+        fill: $candy-black ;
     }
 
     &:hover {
@@ -805,9 +809,9 @@ footer {
                 animation: bounce-out 0.8s infinite;
                 fill: $candy-fucsia;
             }
-        }    
+        }
 
-        .icon-go-to{
+        .icon-go-to {
             animation: bounce-right 0.8s infinite;
             fill: $candy-fucsia;
         }
@@ -853,6 +857,7 @@ a.link {
             .logo-front {
                 fill: $candy-white
             }
+
             #logo-background {
                 fill: $candy-pink150;
             }
@@ -902,8 +907,8 @@ a.link {
         text-underline-offset: 2px;
         text-decoration-thickness: 4px;
         text-decoration-color: $candy-fucsia;
-        
-        &.inline{
+
+        &.inline {
             text-decoration-color: $candy-link-inline;
             color: $candy-link-inline;
         }
@@ -915,10 +920,12 @@ a.link {
         // icons have diff behaviours/animations
         //#top > div > nav > h1 > a > svg > path:nth-child(6)
         .icon-home {
-            outline: solid 4px $candy-fucsia;            
+            outline: solid 4px $candy-fucsia;
+
             .logo-front {
                 fill: $candy-fucsia;
             }
+
             #logo-background {
                 fill: $candy-background;
             }
@@ -947,7 +954,7 @@ a.link {
             }
         }
 
-        .icon-house{
+        .icon-house {
             fill: $candy-fucsia;
         }
     }
@@ -1048,7 +1055,7 @@ h4 {
     font-weight: 500;
     margin-bottom: 8px;
 
-    .highlight {        
+    .highlight {
         text-align: center;
         margin: 0 2px;
         font-weight: 700;
@@ -1597,13 +1604,19 @@ strong {
         color: $candy-pink150;
     }
 
+
+
     img {
-        margin-bottom: 4px;
         @include border-1side-solid(1px, 1px, 1px, 1px, $candy-yellow150);
 
         &.no-border {
             border: none;
         }
+        margin-bottom: 0px;
+    }
+
+    img:not(:has(+ figcaption)) {
+        margin-bottom: 4px;
     }
 
     img.w300 {
@@ -1710,7 +1723,9 @@ strong {
 }
 
 .resume {
-    .highlight, h4.show-indent::before {
+
+    .highlight,
+    h4.show-indent::before {
         color: $candy-pink150;
     }
 }
@@ -1898,7 +1913,6 @@ strong {
 
 .case-tltr {
 
-
     &>li {
         display: flex;
         flex-flow: column nowrap;
@@ -1917,12 +1931,11 @@ strong {
             bottom: 0;
         }
 
-        ol,
-        ul {
+        h4+ol,
+        h4+ul {
             padding: 0;
             margin: 0;
         }
-
         li {
             padding-left: 8px;
         }
@@ -2076,6 +2089,10 @@ strong {
 }
 
 figure {
+    figcaption {
+        font-size: 0.8em;
+    }
+
     figcaption.desktop {
         display: none;
     }
@@ -2205,7 +2222,7 @@ figure {
     p.label {
         font-size: .9em;
         font-style: italic;
-        color: $candy-pink150;        
+        color: $candy-pink150;
     }
 
     .protos-header {
@@ -2294,7 +2311,7 @@ figure {
     transform: translate(-50%, -50%);
 }
 
-.screen-readers-only{
+.screen-readers-only {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -2307,7 +2324,7 @@ figure {
 }
 
 
-#sticker-css{
+#sticker-css {
     position: absolute;
     height: 60px;
     width: auto;
@@ -2317,7 +2334,7 @@ figure {
     transform: rotate(-45deg);
 }
 
-#sticker-brain{
+#sticker-brain {
     position: absolute;
     height: 100px;
     width: auto;
@@ -2325,16 +2342,16 @@ figure {
     left: 50%;
 }
 
-#sticker-happy{
+#sticker-happy {
     position: absolute;
     height: 90px;
     width: auto;
     top: 70%;
     left: 80%;
-    
+
 }
 
-#sticker-bolt{
+#sticker-bolt {
     position: absolute;
     height: 90px;
     width: auto;
@@ -2342,17 +2359,19 @@ figure {
     left: 2%;
 }
 
-#card1{
+#card1 {
     position: relative;
 }
-#sticker-new{
+
+#sticker-new {
     position: absolute;
     height: 90px;
     width: auto;
     top: -8%;
     left: 70%;
 }
-#sticker-teamwork{
+
+#sticker-teamwork {
     position: absolute;
     height: 100px;
     width: auto;
@@ -2361,11 +2380,10 @@ figure {
     left: 90%;
 }
 
-#sticker-rocket{
+#sticker-rocket {
     position: absolute;
     width: auto;
     height: 150px;
     top: -10%;
     left: 90%;
 }
-

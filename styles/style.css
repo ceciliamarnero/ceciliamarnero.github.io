@@ -1608,13 +1608,13 @@ strong {
   height: 0px;
 }
 .aboutme-row .aboutme-column .aboutme-item.special .text {
-  font-weight: 450;
+  font-weight: 600;
 }
 .aboutme-row .aboutme-column .aboutme-item.frida {
   gap: 12px;
 }
 .aboutme-row .aboutme-column .aboutme-item.frida img {
-  width: 48px;
+  width: 90px;
   flex-grow: 0;
 }
 @media only screen and (min-width: 481px) {

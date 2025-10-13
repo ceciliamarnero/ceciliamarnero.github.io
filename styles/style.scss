@@ -219,21 +219,21 @@ nav {
     }
 }
 
-.wrapper-jump-menu {
-    text-align: center;
-    margin: 40px 0;
+.jump-menu-wrapper{
+    display: flex;
+    align-items: center;
 }
 
 .jump-menu {
+    text-align: center;
+    margin: 40px auto;
     list-style: none;
-    margin: 0 auto;
     display: inline-flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     row-gap: 16px;
     padding-bottom: 8px;
-    margin-bottom: 16px;
     position: relative;
 
     .link {
@@ -975,7 +975,7 @@ a.link {
 
 figcaption,
 details summary {
-    color: --clr-candy-yellow150
+    color: var(--clr-candy-yellow150);
 }
 
 img {
@@ -1576,14 +1576,10 @@ strong {
 
 .case-study .case-study-tltr,
 .case-study .case-study-full {
-    width: 100%;
-
 
     h4.show-indent::before {
         color: var(--clr-candy-pink150);
     }
-
-
 
     img {
         @include border-1side-solid(1px, 1px, 1px, 1px, var(--clr-candy-yellow150));
@@ -1621,19 +1617,11 @@ strong {
         //border: 1px solid red;
         margin-top: 16px;
     }
-
-
-
-}
-
-.case-study-tltr {
-    width: 100%;
 }
 
 .wrapper-text {
     width: 98%;
     max-width: $max-text-width;
-    padding: 0 8px;
     margin: auto;
     text-align: left;
 
@@ -1651,29 +1639,25 @@ strong {
     }
 
     h4 {
-        padding: 24px 0 12px 0;
+        margin: 24px 0 12px 0;
     }
 
     h5 {
-        padding: 8px 0 12px 0;
+        margin: 8px 0 12px 0;
     }
 
     .overview-grid h5 {
-        padding: 18px 0 2px 0;
-        margin: 0;
+        margin: 18px 0 2px 0;
     }
 
     img {
         margin: 12px 0;
-        width: 100%;
-        height: auto;
     }
 
-    details {
+    details,summary {
         color: var(--clr-candy-black);
 
         summary {
-            color: var(--clr-candy-black);
             padding-bottom: 8px;
         }
     }

@@ -9,7 +9,7 @@
     text-rendering: optimizeLegibility;
 }
 
-:root{
+:root {
     //font families
     --ff-display: "Lemon", serif;
     --ff-body: "IBM Plex Sans", sans-serif;
@@ -113,12 +113,15 @@ body {
 }
 
 section {
-    padding: 80px 20px;
+    padding: 80px 32px;
     border: 6px solid var(--clr-candy-black);
     border-radius: 40px;
     margin-top: 80px;
-    width: 100%;
     position: relative;
+
+    &#portfolio {
+        padding: 80px 16px;
+    }
 
     &#hero {
         margin-top: 0;
@@ -219,14 +222,15 @@ nav {
     }
 }
 
-.jump-menu-wrapper{
+.jump-menu-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-block: 80px;
 }
 
 .jump-menu {
     text-align: center;
-    margin: 40px auto;
     list-style: none;
     display: inline-flex;
     flex-flow: row wrap;
@@ -502,79 +506,62 @@ footer {
 }
 
 .gallery {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-content: center;
-    padding: 4px;
-    row-gap: 8px;
-
-    @include tablet {
-        margin-bottom: 16px;
-        width: 100%;
-        padding: 0;
-        gap: 8px;
-        flex-flow: row wrap;
-        justify-content: space-between;
-    }
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
 }
-
+.tag {
+    display: inline-block;
+    text-align: center;
+    font-family: var(--ff-body);
+    color: var(--clr-candy-black);
+    padding: 4px 8px;
+    font-weight: 300;
+    font-size: 0.8em;
+    background-color: var(--clr-candy-yellow050);
+    border: 1px solid var(--clr-candy-yellow150);
+    border-radius: 16px;
+    margin: 0 4px 8px 0;
+}
 .card {
     background-color: var(--clr-candy-yellow050);
     border-radius: 16px;
     padding: 16px;
+    min-width: 280px;
+    max-width: 300px;
+    margin: auto;
     display: flex;
     flex-flow: column nowrap;
-    width: 100%;
     align-items: stretch;
     justify-content: flex-start;
     gap: 2px;
+    flex-grow: 1;
+    
+    &>*{
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
 
     &.hide {
         display: none;
     }
 
-    h3.card-title {
-        padding: 0;
-        margin: 0;
-        text-align: left;
-        width: 100%;
-    }
-
-    .card-details {
-        text-align: left;
+    .card-details { 
         overflow-wrap: break-word;
-        width: 100%;
-        margin: 0;
-        padding: 0;
     }
 
-    .tags {
-        margin: 4px 0;
-    }
-
-    .tag {
-        display: inline-block;
-        text-align: center;
-        font-family: var(--ff-body);
-        color: var(--clr-candy-black);
-        padding: 4px 8px;
-        font-weight: 300;
-        font-size: 0.8em;
-        background-color: var(--clr-candy-yellow050 );
-        border: 1px solid var(--clr-candy-yellow150);
-        border-radius: 16px;
-        margin: 0 4px 8px 0;
+    .card-tags{
+        padding-top: 12px;
     }
 
     .card-image {
         height: 140px;
-        width: 100%;
         overflow: hidden;
         border: .5px solid var(--clr-candy-yellow150);
 
         img {
-            //width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
@@ -582,31 +569,18 @@ footer {
     }
 
     .card-button {
-        margin: 0 auto;
-        padding: 8px 0;
-        width: auto;
-        font-size: 14px;
+        margin: auto;
+        padding: 20px;
+
+        a{
+            font-size: 14px;
+        }
     }
 
     @include tablet {
-        max-width: 280px;
         row-gap: 4px;
-        width: 100%;
-        justify-content: space-between;
-
-        h3.card-title {
-            min-height: 100px;
-        }
-
-        .card-details {
-            min-height: 90px;
-        }
-
-        .tags {
-            min-height: 80px;
-        }
-
-
+        display: grid;
+        grid-template-rows: 100px 90px 140px 100px auto;
     }
 }
 
@@ -644,7 +618,6 @@ footer {
 
         }
 
-
     }
 
     @include tablet {
@@ -675,70 +648,30 @@ footer {
 
 
 // WRAPPERS 
-
-
 .wrapper-contacts {
     display: grid;
-    margin: 0 0 16px 0;
+    margin: 0 0 40px 0;
     align-items: baseline;
-
-    grid-template-areas: "label-email"
-        "link-email"
-        "label-linkedin"
-        "link-linkedin";
+    gap: 4px 12px;
 
     p {
         margin: 0;
         padding: 0;
         width: auto;
         text-align: center;
+        height: 30px;
     }
 
     .label {
-        padding-bottom: 8px;
+        padding-top: 8px;
     }
-
-    .label-email {
-        grid-area: label-email;
-    }
-
-    .link-email {
-        grid-area: link-email;
-
-        .link {
-            padding: 0;
-        }
-    }
-
-    .label-linkedin {
-        grid-area: label-linkedin;
-    }
-
-    .link-linkedin {
-        grid-area: link-linkedin;
-
-        .link {
-            padding: 0;
-        }
-    }
-
 
     @include tablet {
-        margin: 0 0 32px 0;
-
         p {
             text-align: left;
         }
 
-        .label {
-            padding: 0 16px 0 0;
-        }
-
-        row-gap: 4px;
         grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
-        grid-template-areas: "label-email link-email"
-        "label-linkedin link-linkedin";
     }
 }
 
@@ -753,6 +686,7 @@ footer {
     justify-content: flex-start;
     //align-items: center;
     width: 100%;
+   
 }
 
 .btn {
@@ -774,7 +708,7 @@ footer {
     box-shadow: $button-shadow;
 
     svg {
-        fill: var(--clr-candy-black );
+        fill: var(--clr-candy-black);
     }
 
     &:hover {
@@ -832,7 +766,7 @@ a.link {
 
         .icon-home {
             .logo-front {
-                fill:  var(--clr-candy-white); 
+                fill: var(--clr-candy-white);
             }
 
             #logo-background {
@@ -1015,8 +949,8 @@ h3 {
     color: var(--clr-candy-black);
     font-size: 1.44em; //26px
     text-align: center;
-    margin: 0;
-    padding: 60px 0 40px 0;
+    padding: 0;
+    margin: 60px 0 40px 0;
 }
 
 h4.show-indent::before {
@@ -1039,20 +973,13 @@ h4 {
     }
 }
 
-/* 
-h4,
-.div-h4 {
-    padding: 24px 0 2px 0;
-} */
-
 p+h4,
 ul+h4,
 ol+h4 {
-    padding-top: 32px;
-    padding-bottom: 0;
+    margin-top: 32px;
+    margin-bottom: 0;
 }
 
-//div+h4
 
 h5 {
     font-family: var(--ff-body);
@@ -1588,17 +1515,16 @@ strong {
             border: none;
         }
 
-        margin-bottom: 0px;
+        margin: 0 auto;
     }
 
     img:not(:has(+ figcaption)) {
-        margin-bottom: 4px;
+        margin-bottom: 24px;
     }
 
-    img.w300 {
+    img.h300 {
         height: 300px;
         width: auto;
-        margin: auto;
     }
 
     figure,
@@ -1615,7 +1541,7 @@ strong {
     figure+h4,
     figure+h5 {
         //border: 1px solid red;
-        margin-top: 16px;
+        margin-top: 24px;
     }
 }
 
@@ -1626,24 +1552,23 @@ strong {
     text-align: left;
 
     h3:first-child {
-        padding: 36px 0 16px 0;
+        margin: 36px 0 16px 0;
     }
 
     h3 {
-        text-align: left;
-        padding: 32px 0 16px 0;
+        margin: 32px 0 16px 0;
     }
 
     h3+p {
-        padding-top: 0;
+        margin-top: 0;
     }
 
     h4 {
-        margin: 24px 0 12px 0;
+        margin: 60px 0 12px 0;
     }
 
     h5 {
-        margin: 8px 0 12px 0;
+        margin: 24px 0 12px 0;
     }
 
     .overview-grid h5 {
@@ -1654,7 +1579,8 @@ strong {
         margin: 12px 0;
     }
 
-    details,summary {
+    details,
+    summary {
         color: var(--clr-candy-black);
 
         summary {
@@ -1876,100 +1802,31 @@ strong {
 }
 
 .case-tltr {
+    display: grid;
+    gap: 40px 32px;
+    grid-template-columns: repeat(auto-fit,
+            minmax(min(300px, 100%), 1fr));
 
-    &>li {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-bottom: 24px;
-
-        h4 {
-            padding-top: 8px;
-            padding-bottom: 8px;
-            margin: 0;
-        }
-
-        a {
-            padding-left: 0;
-            bottom: 0;
-        }
-
-        h4+ol,
-        h4+ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            padding-left: 8px;
-        }
+    .full-width {
+        grid-column: 1 / -1;
     }
-
-    @include tablet {
-        padding: 0 40px;
-        display: grid;
-        gap: 0 40px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas: "item1 item2"
-            "item3 item4"
-            "item5 item6"
-            "item7 item7";
-
-        .short-item {
-            margin-bottom: 0;
-        }
-    }
-
-    @include desktop {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: "item1 item2 item3"
-            "item4 item5 item6"
-            "item7 item7 item7";
-    }
-
-    .item1 {
-        grid-area: item1;
-    }
-
-    .item2 {
-        grid-area: item2;
-    }
-
-    .item3 {
-        grid-area: item3;
-    }
-
-    .item4 {
-        grid-area: item4;
-    }
-
-    .item5 {
-        grid-area: item5;
-    }
-
-    .item6 {
-        grid-area: item6;
-    }
-
-    .item7 {
-        grid-area: item7;
-    }
-
 }
 
-.section-icon {
-    height: 36px;
-    width: 36px;
+.case-tltr>li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
 }
+
 
 .aboutme-row {
     margin: auto;
 
     .aboutme-column {
-        //margin: auto;
         padding: 0 8px;
 
         h3 {
@@ -2021,7 +1878,7 @@ strong {
 
     @include tablet {
         display: flex;
-        flex-flow: row wrap; 
+        flex-flow: row wrap;
         justify-content: center;
         padding-bottom: 40px;
         max-width: 1100px;
@@ -2134,23 +1991,15 @@ figure {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap: 20px;
     font-size: 20px;
-
-    @include tablet() {
-        column-gap: 40px;
-        row-gap: 20px;
-    }
+    gap: 20px 40px;
 
 
     li {
         list-style: none;
         padding: 0;
         margin: 0;
-
-        @include tablet() {
-            max-width: 28%;
-        }
+        max-width: 300px;
 
         h4 {
             font-weight: 500;

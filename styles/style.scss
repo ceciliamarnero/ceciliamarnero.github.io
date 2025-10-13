@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lemon&display=swap');
-*::after,
-*,
 
+*,
+*::after,
 *::before {
     box-sizing: border-box;
     margin: 0;
@@ -9,27 +9,28 @@
     text-rendering: optimizeLegibility;
 }
 
-/// VARIABLES
-// Fonts
-$display-font: "Lemon", serif;
-$body-font: "IBM Plex Sans", sans-serif;
-/* Color styles */
-$candy-white: #FFFEFA;
-$candy-black: #222222;
-$candy-black080: #464646;
-$candy-background: #FFFBE7;
-$candy-pink050: #FBDBE5;
-$candy-pink: #F5B7CA;
-$candy-pink150: #D96689;
-$candy-green050: #D4FAF0;
-$candy-green: #A4ECDA;
-$candy-green150: #4DB79C;
-$candy-yellow050: #FFDC95;
-$candy-yellow: #FCC047;
-$candy-yellow150: #B87E0A;
-$candy-link-inline: #2B40D9;
-$candy-purple: #A541D1;
-$candy-fucsia: #D406A1;
+:root{
+    //font families
+    --ff-display: "Lemon", serif;
+    --ff-body: "IBM Plex Sans", sans-serif;
+    //colors
+    --clr-candy-white: #FFFEFA;
+    --clr-candy-black: #222222;
+    --clr-candy-black080: #464646;
+    --clr-candy-background: #FFFBE7;
+    --clr-candy-pink050: #FBDBE5;
+    --clr-candy-pink: #F5B7CA;
+    --clr-candy-pink150: #D96689;
+    --clr-candy-green050: #D4FAF0;
+    --clr-candy-green: #A4ECDA;
+    --clr-candy-green150: #4DB79C;
+    --clr-candy-yellow050: #FFDC95;
+    --clr-candy-yellow: #FCC047;
+    --clr-candy-yellow150: #B87E0A;
+    --clr-candy-link-inline: #2B40D9;
+    --clr-candy-purple: #A541D1;
+    --clr-candy-fucsia: #D406A1;
+}
 
 //shadows
 $button-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
@@ -85,12 +86,12 @@ body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    background-color: $candy-background;
+    background-color: var(--clr-candy-background);
     font-feature-settings: "smcp" on;
-    font-family: $body-font, sans-serif;
+    font-family: var(--ff-body), sans-serif;
     font-weight: 300;
     font-size: 18px;
-    color: $candy-black;
+    color: var(--clr-candy-black)
 }
 
 .container {
@@ -113,7 +114,7 @@ body {
 
 section {
     padding: 80px 20px;
-    border: 6px solid $candy-black;
+    border: 6px solid var(--clr-candy-black);
     border-radius: 40px;
     margin-top: 80px;
     width: 100%;
@@ -131,17 +132,17 @@ section {
             display: block;
             margin-top: 1.5vw;
             max-width: 80%;
-            color: $candy-black;
-            font-family: $display-font;
+            color: var(--clr-candy-black);
+            font-family: var(--ff-display);
             font-size: 1.9em;
             text-align: left;
 
             .name {
-                color: $candy-pink150;
+                color: var(--clr-candy-pink150);
             }
 
             .highlight-hero {
-                color: $candy-yellow;
+                color: var(--clr-candy-yellow);
             }
 
             @include tablet() {
@@ -154,19 +155,19 @@ section {
 }
 
 .bg-white {
-    background-color: $candy-white;
+    background-color: var(--clr-candy-white);
 }
 
 .bg-pink {
-    background-color: $candy-pink;
+    background-color: var(--clr-candy-pink);
 }
 
 .bg-green {
-    background-color: $candy-green;
+    background-color: var(--clr-candy-green);
 }
 
 .bg-yellow {
-    background-color: $candy-yellow;
+    background-color: var(--clr-candy-yellow);
 }
 
 
@@ -264,7 +265,7 @@ nav {
             bottom: 0;
             left: 0;
             height: .1px;
-            background: $candy-pink150;
+            background: var(--clr-candy-pink150);
             width: calc(100% - (31px + 4px)); // width covers everything but the last icon (31px with) and the space in between (4px)
         }
 
@@ -296,8 +297,8 @@ footer {
 }
 
 *::selection {
-    color: $candy-white;
-    background-color: $candy-fucsia;
+    color: var(--clr-candy-white);
+    background-color: var(--clr-candy-fucsia);
 }
 
 
@@ -374,7 +375,7 @@ footer {
     h5.label {
         line-height: 100%;
         margin: 12px 0 2px 0;
-        color: $candy-pink150;
+        color: var(--clr-candy-pink150);
         font-weight: 400;
         width: 100%;
         padding: 0;
@@ -543,7 +544,7 @@ footer {
 }
 
 .card {
-    background-color: $candy-yellow050;
+    background-color: var(--clr-candy-yellow050);
     border-radius: 16px;
     padding: 16px;
     display: flex;
@@ -579,13 +580,13 @@ footer {
     .tag {
         display: inline-block;
         text-align: center;
-        font-family: $body-font;
-        color: $candy-black;
+        font-family: var(--ff-body);
+        color: var(--clr-candy-black);
         padding: 4px 8px;
         font-weight: 300;
         font-size: 0.8em;
-        background-color: $candy-yellow050 ;
-        border: 1px solid $candy-yellow150;
+        background-color: var(--clr-candy-yellow050 );
+        border: 1px solid var(--clr-candy-yellow150);
         border-radius: 16px;
         margin: 0 4px 8px 0;
     }
@@ -594,7 +595,7 @@ footer {
         height: 140px;
         width: 100%;
         overflow: hidden;
-        border: .5px solid $candy-yellow150;
+        border: .5px solid var(--clr-candy-yellow150);
 
         img {
             //width: 100%;
@@ -643,7 +644,7 @@ footer {
     margin: 16px 0;
 
     .card-process-image {
-        border: 1px solid $candy-yellow150;
+        border: 1px solid var(--clr-candy-yellow150);
         min-width: 40px;
         display: none;
     }
@@ -785,11 +786,11 @@ footer {
     align-items: center;
     flex-flow: row nowrap;
     text-decoration: none;
-    background-color: $candy-white;
-    color: $candy-black;
-    outline: 1px solid $candy-black;
+    background-color: var(--clr-candy-white);
+    color: var(--clr-candy-black);
+    outline: 1px solid var(--clr-candy-black);
     border-radius: 8px;
-    font-family: $body-font;
+    font-family: var(--ff-body);
     font-weight: 400;
     font-size: 1.2em;
     gap: 10px;
@@ -797,7 +798,7 @@ footer {
     box-shadow: $button-shadow;
 
     svg {
-        fill: $candy-black ;
+        fill: var(--clr-candy-black );
     }
 
     &:hover {
@@ -807,25 +808,25 @@ footer {
         .icon-new-page {
             .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
-                fill: $candy-fucsia;
+                fill: var(--clr-candy-fucsia);
             }
         }
 
         .icon-go-to {
             animation: bounce-right 0.8s infinite;
-            fill: $candy-fucsia;
+            fill: var(--clr-candy-fucsia);
         }
 
         .icon-top,
         .icon-below {
             animation: bounce 0.8s infinite;
-            fill: $candy-fucsia;
+            fill: var(--clr-candy-fucsia);
         }
 
     }
 
     &:active {
-        outline: 2px solid $candy-black;
+        outline: 2px solid var(--clr-candy-black);
     }
 }
 
@@ -833,7 +834,7 @@ footer {
 .icon-below,
 .icon-new-page .icon-new-page-arrow,
 .icon-go-to {
-    fill: $candy-black;
+    fill: var(--clr-candy-black);
 }
 
 a.link {
@@ -844,8 +845,8 @@ a.link {
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    color: $candy-black;
-    fill: $candy-black;
+    color: var(--clr-candy-black);
+    fill: var(--clr-candy-black);
     text-decoration: none;
     flex-grow: 0;
     font-weight: 700;
@@ -855,11 +856,11 @@ a.link {
 
         .icon-home {
             .logo-front {
-                fill: $candy-white
+                fill:  var(--clr-candy-white); 
             }
 
             #logo-background {
-                fill: $candy-pink150;
+                fill: var(--clr-candy-pink150);
             }
         }
 
@@ -888,7 +889,7 @@ a.link {
 
     &.inline {
         padding: 0;
-        color: $candy-link-inline;
+        color: var(--clr-candy-link-inline);
         font-weight: 400;
     }
 
@@ -900,17 +901,17 @@ a.link {
 
     &:focus-visible,
     &:hover:not(:disabled):not([disabled]) {
-        color: $candy-black;
-        fill: $candy-black;
+        color: var(--clr-candy-black);
+        fill: var(--clr-candy-black);
         text-decoration: underline;
         text-underline-position: under;
         text-underline-offset: 2px;
         text-decoration-thickness: 4px;
-        text-decoration-color: $candy-fucsia;
+        text-decoration-color: var(--clr-candy-fucsia);
 
         &.inline {
-            text-decoration-color: $candy-link-inline;
-            color: $candy-link-inline;
+            text-decoration-color: var(--clr-candy-link-inline);
+            color: var(--clr-candy-link-inline);
         }
 
         svg {
@@ -920,42 +921,42 @@ a.link {
         // icons have diff behaviours/animations
         //#top > div > nav > h1 > a > svg > path:nth-child(6)
         .icon-home {
-            outline: solid 4px $candy-fucsia;
+            outline: solid 4px var(--clr-candy-fucsia);
 
             .logo-front {
-                fill: $candy-fucsia;
+                fill: var(--clr-candy-fucsia);
             }
 
             #logo-background {
-                fill: $candy-background;
+                fill: var(--clr-candy-background);
             }
         }
 
         .icon-contact {
-            outline: 2px solid $candy-fucsia;
+            outline: 2px solid var(--clr-candy-fucsia);
             border-radius: 4px;
         }
 
         .icon-below {
             animation: bounce 0.8s infinite;
-            fill: $candy-fucsia;
+            fill: var(--clr-candy-fucsia);
         }
 
         .icon-contact path {
-            fill: $candy-fucsia;
-            stroke: $candy-fucsia;
+            fill: var(--clr-candy-fucsia);
+            stroke: var(--clr-candy-fucsia);
             //stroke-width: 1px;            
         }
 
         .icon-new-page {
             .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
-                fill: $candy-fucsia;
+                fill: var(--clr-candy-fucsia);
             }
         }
 
         .icon-house {
-            fill: $candy-fucsia;
+            fill: var(--clr-candy-fucsia);
         }
     }
 }
@@ -963,13 +964,13 @@ a.link {
 
 .cta {
     font-size: 2.5vw;
-    font-family: $display-font;
-    color: $candy-white;
+    font-family: var(--ff-display);
+    color: var(--clr-candy-white);
     padding: 2% 5%;
     margin: auto;
     text-decoration: none;
-    background-color: $candy-pink150;
-    border: 10px solid $candy-white;
+    background-color: var(--clr-candy-pink150);
+    border: 10px solid var(--clr-candy-white);
     border-radius: 5em;
     box-shadow: $button-shadow;
 
@@ -979,9 +980,9 @@ a.link {
     }
 
     &:active {
-        background-color: $candy-pink050;
-        color: $candy-pink150;
-        border: 10px solid $candy-pink150;
+        background-color: var(--clr-candy-pink050);
+        color: var(--clr-candy-pink150);
+        border: 10px solid var(--clr-candy-pink150);
     }
 }
 
@@ -998,7 +999,7 @@ a.link {
 
 figcaption,
 details summary {
-    color: $candy-yellow150
+    color: --clr-candy-yellow150
 }
 
 img {
@@ -1021,9 +1022,9 @@ h1 {
 }
 
 h2 {
-    font-family: $display-font;
+    font-family: var(--ff-display);
     text-align: center;
-    color: $candy-black;
+    color: var(--clr-candy-black);
     font-size: 1.5em;
 
     @include tablet {
@@ -1033,9 +1034,9 @@ h2 {
 }
 
 h3 {
-    font-family: $body-font;
+    font-family: var(--ff-body);
     font-weight: 500;
-    color: $candy-black;
+    color: var(--clr-candy-black);
     font-size: 1.44em; //26px
     text-align: center;
     margin: 0;
@@ -1044,13 +1045,13 @@ h3 {
 
 h4.show-indent::before {
     content: ">";
-    color: $candy-white;
+    color: var(--clr-candy-white);
     display: inline-block;
     margin-right: 8px;
 }
 
 h4 {
-    font-family: $body-font;
+    font-family: var(--ff-body);
     font-size: 1.22em; //22px 
     font-weight: 500;
     margin-bottom: 8px;
@@ -1078,24 +1079,24 @@ ol+h4 {
 //div+h4
 
 h5 {
-    font-family: $body-font;
+    font-family: var(--ff-body);
     font-size: 1.11em;
     font-weight: 500;
-    color: $candy-black;
+    color: var(--clr-candy-black);
     margin: 8px 0 2px 0;
 }
 
 
 p,
 li {
-    font-family: $body-font;
+    font-family: var(--ff-body);
     margin: 0;
     padding: 0;
     line-height: 1.5;
     font-weight: 400;
-    color: $candy-black;
+    color: var(--clr-candy-black);
     padding-bottom: 12px;
-    
+
 
     &.center {
         text-align: center;
@@ -1120,8 +1121,9 @@ li ul {
 li {
     margin-left: 20px;
     padding-left: 8px;
+
     &::marker {
-        color: $candy-pink150;
+        color: var(--clr-candy-pink150);
     }
 }
 
@@ -1159,7 +1161,7 @@ strong {
     p {
         margin: 0;
         padding: 0;
-        color: $candy-black;
+        color: var(--clr-candy-black);
     }
 
     ol,
@@ -1170,7 +1172,7 @@ strong {
 
     p,
     li {
-        color: $candy-black;
+        color: var(--clr-candy-black);
         font-size: 0.75em;
         line-height: 14px;
         margin-bottom: 0;
@@ -1602,17 +1604,18 @@ strong {
 
 
     h4.show-indent::before {
-        color: $candy-pink150;
+        color: var(--clr-candy-pink150);
     }
 
 
 
     img {
-        @include border-1side-solid(1px, 1px, 1px, 1px, $candy-yellow150);
+        @include border-1side-solid(1px, 1px, 1px, 1px, var(--clr-candy-yellow150));
 
         &.no-border {
             border: none;
         }
+
         margin-bottom: 0px;
     }
 
@@ -1691,10 +1694,10 @@ strong {
     }
 
     details {
-        color: $candy-black;
+        color: var(--clr-candy-black);
 
         summary {
-            color: $candy-black;
+            color: var(--clr-candy-black);
             padding-bottom: 8px;
         }
     }
@@ -1727,7 +1730,7 @@ strong {
 
     .highlight,
     h4.show-indent::before {
-        color: $candy-pink150;
+        color: var(--clr-candy-pink150);
     }
 }
 
@@ -1937,6 +1940,7 @@ strong {
             padding: 0;
             margin: 0;
         }
+
         li {
             padding-left: 8px;
         }
@@ -2190,12 +2194,12 @@ figure {
 
         h4 {
             font-weight: 500;
-            color: $candy-black;
+            color: var(--clr-candy-black);
             font-size: 1.5em;
         }
 
         .p {
-            color: $candy-black;
+            color: var(--clr-candy-black);
             font-size: 1em;
         }
     }
@@ -2206,7 +2210,7 @@ figure {
 .protos {
     padding: 40px 8px;
     font-size: .9em;
-    color: $candy-black;
+    color: var(--clr-candy-black);
 
     p.main-label {
         font-size: 1.2em;
@@ -2223,7 +2227,7 @@ figure {
     p.label {
         font-size: .9em;
         font-style: italic;
-        color: $candy-pink150;
+        color: var(--clr-candy-pink150);
     }
 
     .protos-header {

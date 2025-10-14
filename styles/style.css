@@ -27,6 +27,7 @@
   --clr-candy-link-inline: #2B40D9;
   --clr-candy-purple: #A541D1;
   --clr-candy-fucsia: #D406A1;
+  --shd-button: 0px 8px 8px rgba(0, 0, 0, 0.25);
 }
 
 html {
@@ -433,11 +434,10 @@ footer {
   height: auto;
 }
 .card .card-button {
-  margin: auto;
-  padding: 20px;
-}
-.card .card-button a {
-  font-size: 14px;
+  padding-block: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (min-width: 481px) {
   .card {
@@ -553,7 +553,7 @@ footer {
   font-size: 1.2em;
   gap: 10px;
   padding: 12px 24px;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shd-button);
 }
 .btn svg {
   fill: var(--clr-candy-black);
@@ -577,6 +577,9 @@ footer {
 }
 .btn:active {
   outline: 2px solid var(--clr-candy-black);
+}
+.btn.in-card {
+  font-size: 1em;
 }
 
 .icon-top,
@@ -687,7 +690,7 @@ a.link:focus-visible .icon-house, a.link:hover:not(:disabled):not([disabled]) .i
   background-color: var(--clr-candy-pink150);
   border: 10px solid var(--clr-candy-white);
   border-radius: 5em;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shd-button);
 }
 .cta:hover {
   box-shadow: none;
@@ -696,13 +699,6 @@ a.link:focus-visible .icon-house, a.link:hover:not(:disabled):not([disabled]) .i
   background-color: var(--clr-candy-pink050);
   color: var(--clr-candy-pink150);
   border: 10px solid var(--clr-candy-pink150);
-}
-
-.tags {
-  height: auto;
-  width: 100%;
-  overflow-wrap: break-word;
-  text-align: center;
 }
 
 .diagram {

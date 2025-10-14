@@ -1460,103 +1460,69 @@ figure figcaption.desktop {
   padding: 0;
   margin: 0;
   max-width: 300px;
+  color: var(--clr-candy-black);
 }
 .landing-list li h4 {
   font-weight: 500;
-  color: var(--clr-candy-black);
   font-size: 1.5em;
 }
 .landing-list li .p {
-  color: var(--clr-candy-black);
   font-size: 1em;
 }
 
 .protos {
-  padding: 40px 8px;
+  margin: 60px 8px;
   font-size: 0.9em;
   color: var(--clr-candy-black);
 }
-.protos p.main-label {
-  font-size: 1.2em;
-}
-.protos p.data,
-.protos p.label,
-.protos p.user-name,
-.protos .protos-header p.main-label {
-  margin: 0;
-  padding: 0;
-}
-.protos p.label {
-  font-size: 0.9em;
-  font-style: italic;
-  color: var(--clr-candy-pink150);
-}
-.protos .protos-header {
+.protos .flex-col {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
 }
-.protos .protos-header p {
-  font-size: 1em;
-  font-weight: 400;
-  padding: 0;
-  margin: 0;
-}
-.protos .protos-header img {
-  width: 46px;
+.protos .header .header-image {
+  width: auto;
   height: 34px;
+  margin-bottom: 4px;
   border-radius: 0;
-  border: none;
+}
+.protos .header .header-label {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.protos .header .header-label.main-label {
+  font-size: 1.2em;
 }
 .protos .protos-users {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
+  gap: 12px 60px;
 }
-.protos .protos-users .protos-user {
+.protos .protos-users > * {
   padding-top: 16px;
-  display: flex;
-  flex-flow: column nowrap;
   row-gap: 8px;
   max-width: 260px;
 }
-.protos .protos-users .protos-user .protos-u-header {
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-.protos .protos-users .protos-user .protos-u-header p.user-name {
-  margin: 0;
-  padding: 0;
-}
-.protos .protos-users .protos-user .items {
-  display: flex;
-  flex-flow: column;
+.protos .protos-users > * .items {
   row-gap: 16px;
 }
-.protos .protos-users .protos-user img {
-  width: 28px;
-  height: 34px;
-  border-radius: 0;
+.protos .protos-users > * .items > * {
+  width: 100%;
 }
-.protos .protos-users .protos-user .user-name {
-  font-size: 0.9em;
-  font-weight: 400;
-}
-.protos .protos-users .protos-user .data {
-  font-size: 0.9em;
+.protos .protos-users > * .items > * p.data,
+.protos .protos-users > * .items > * p.label {
   margin: 0;
   padding: 0;
+  font-size: 0.9em;
 }
-@media only screen and (min-width: 481px) {
-  .protos .protos-users {
-    padding-top: 0;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: center;
-    column-gap: 60px;
-  }
+.protos .protos-users > * .items > * p.label {
+  font-style: italic;
+  color: var(--clr-candy-pink150);
 }
 
 .img-h2 {

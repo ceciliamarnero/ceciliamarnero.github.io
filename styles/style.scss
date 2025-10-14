@@ -531,7 +531,7 @@ footer {
     border-radius: 16px;
     padding: 16px;
     min-width: 280px;
-    max-width: 300px;
+    max-width: 360px;
     margin: auto;
     display: flex;
     flex-flow: column nowrap;
@@ -563,10 +563,16 @@ footer {
         overflow: hidden;
         border: .5px solid var(--clr-candy-yellow150);
 
-        img {
+        img{
             height: 100%;
+            width: 100%;
             object-fit: cover;
             object-position: center;
+            display: block;
+
+            &.svg{
+                height: auto;
+            }
         }
     }
 

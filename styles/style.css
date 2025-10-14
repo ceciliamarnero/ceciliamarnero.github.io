@@ -1088,7 +1088,6 @@ figure figcaption.desktop {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  font-size: 20px;
   gap: 20px 40px;
 }
 .landing-list li {
@@ -1103,7 +1102,7 @@ figure figcaption.desktop {
   font-size: 1.5em;
 }
 .landing-list li .p {
-  font-size: 1em;
+  font-size: 1.4em;
 }
 
 .protos {

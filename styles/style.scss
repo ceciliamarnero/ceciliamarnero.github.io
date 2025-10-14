@@ -1592,89 +1592,27 @@ strong {
 
 
 // GRIDS
-.resume-grid,
-.experience-grid {
+.resume-grid{
     // this is only for the common structure. Use .resume for text styles. 
-    display: flex;
-    flex-flow: column;
-    row-gap: 16px;
-
-    @include tablet() {
-        column-gap: 50px;
-        row-gap: 30px;
-        padding: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    @include desktop() {
-        grid-template-columns: 1fr 1fr 1fr; // each grid defines their layout
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 }
 
 .resume {
-
     .highlight,
     h4.show-indent::before {
         color: var(--clr-candy-pink150);
     }
 }
 
-.resume-grid {
-    section {
-        padding-top: 16px;
-        padding-bottom: 32px;
-        border: none;
-    }
-
-    .section-header {
-        padding-bottom: 16px;
-    }
-
-    img {
-        width: 48px;
-        margin: auto;
-    }
-
-    @include tablet {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "exp exp"
-            "technical-skills soft-skills"
-            "educ lang"
-    }
-
-    @include desktop {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "exp exp exp"
-            "technical-skills soft-skills educ"
-            "technical-skills lang educ"
-    }
-
-    .experience {
-        grid-area: exp;
-    }
-
-    .education {
-        grid-area: educ;
-    }
-
-    .languages {
-        grid-area: lang;
-    }
-
-    .technical-skills {
-        grid-area: technical-skills;
-    }
-
-    .soft-skills {
-        grid-area: soft-skills;
-    }
-
+.grid-gaps-resume{  //to make sure grids gaps are equal
+    gap: 24px 40px;
 }
 
 .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+
     .wrapper-experience {
         .header {
             padding: 0 0 8px 0;
@@ -1692,113 +1630,43 @@ strong {
         }
 
     }
-
-    @include tablet {
-
-        .experience1,
-        .experience2,
-        .experience3,
-        .experience4 {
-            padding-bottom: 40px;
-        }
-
-        grid-template-rows: auto auto auto;
-        grid-template-areas: "exp1 exp2"
-        "exp3 exp4"
-        "exp5 exp6";
-    }
-
-    @include desktop {
-
-        .experience1,
-        .experience2,
-        .experience3 {
-            padding-bottom: 40px;
-        }
-
-        grid-template-rows: auto auto;
-        grid-template-areas: "exp1 exp2 exp3"
-        "exp4 exp5 exp6";
-    }
-
-    .experience1 {
-        grid-area: exp1;
-    }
-
-    .experience2 {
-        grid-area: exp2;
-    }
-
-    .experience3 {
-        grid-area: exp3;
-    }
-
-    .experience4 {
-        grid-area: exp4;
-    }
-
-    .experience5 {
-        grid-area: exp5;
-    }
-
-    .experience6 {
-        grid-area: exp6;
-    }
 }
 
 .languages-grid {
-    div {
+    display: grid;
+    margin: auto;
+    gap: 4px 8px;
+    align-items: baseline;
+    grid-template-columns: repeat(auto-fit,minmax(40%,1fr));
+
+    div{
         display: flex;
         flex-flow: row wrap;
-        align-items: baseline;
+        gap: 0 4px;
+        max-width: 240px;
 
-        div p,
-        div h4 {
-            // to beat specificity of h4
-            line-height: 30px;
-            margin: 0;
-            padding: 0;
-            font-size: 1rem;
+        h4.lang{
+            width: 64px;
         }
 
-        div h4 {
-            width: 84px;
+        p{
+            display: inline;
+            width: 94px;
         }
-
-        div p {
-            width: 94px; // so they all have the same breakpoint.
-        }
-
     }
+
+    p,
+    h4.lang{
+       // to beat specificity of h4
+       line-height: 20px;
+       margin: 0;
+       padding: 0;
+       font-size: 1rem;
+   }
 }
 
-.cell-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-
-    &.center {
-        align-items: center;
-    }
-
-    &.top {
-        justify-content: flex-start;
-
-    }
-
-
-
-    padding: 32px 16px;
-
-    @include tablet {
-        padding: 40px;
-        row-gap: 4px;
-
-        &.languages {
-            padding: 32px;
-        }
-    }
+.full-width {
+    grid-column: 1 / -1;
 }
 
 .case-tltr {
@@ -1806,10 +1674,7 @@ strong {
     gap: 40px 32px;
     grid-template-columns: repeat(auto-fit,
             minmax(min(300px, 100%), 1fr));
-
-    .full-width {
-        grid-column: 1 / -1;
-    }
+   
 }
 
 .case-tltr>li {
@@ -1929,58 +1794,6 @@ figure {
         }
     }
 
-    .pics-grid {
-        margin: 0 auto;
-
-        img {
-            width: 100%;
-            height: auto;
-            //margin: 12px 0 0 0;
-        }
-
-        figcaption {
-            padding: 2px 0 4px 0;
-        }
-
-        @include tablet() {
-            display: grid;
-            gap: 4px;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: 132px auto;
-            grid-template-areas: "books horses frida"
-                "books bird frida";
-
-            img {
-                margin: 0;
-                height: 100%;
-            }
-
-            figcaption {
-                display: none;
-
-                &.desktop {
-                    display: block;
-                }
-            }
-        }
-
-        .pic-books {
-            grid-area: books;
-        }
-
-        .pic-bird {
-            grid-area: bird;
-        }
-
-        .pic-horses {
-            grid-area: horses;
-        }
-
-        .pic-frida {
-            grid-area: frida;
-        }
-    }
-
 }
 
 .icon-heading {
@@ -1993,7 +1806,6 @@ figure {
     justify-content: center;
     font-size: 20px;
     gap: 20px 40px;
-
 
     li {
         list-style: none;

@@ -1281,27 +1281,9 @@ strong {
   padding-bottom: 8px;
 }
 
-.resume-grid,
-.experience-grid {
-  display: flex;
-  flex-flow: column;
-  row-gap: 16px;
-}
-@media only screen and (min-width: 481px) {
-  .resume-grid,
-  .experience-grid {
-    column-gap: 50px;
-    row-gap: 30px;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .resume-grid,
-  .experience-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .resume .highlight,
@@ -1309,48 +1291,14 @@ strong {
   color: var(--clr-candy-pink150);
 }
 
-.resume-grid section {
-  padding-top: 16px;
-  padding-bottom: 32px;
-  border: none;
-}
-.resume-grid .section-header {
-  padding-bottom: 16px;
-}
-.resume-grid img {
-  width: 48px;
-  margin: auto;
-}
-@media only screen and (min-width: 481px) {
-  .resume-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "exp exp" "technical-skills soft-skills" "educ lang";
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .resume-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "exp exp exp" "technical-skills soft-skills educ" "technical-skills lang educ";
-  }
-}
-.resume-grid .experience {
-  grid-area: exp;
-}
-.resume-grid .education {
-  grid-area: educ;
-}
-.resume-grid .languages {
-  grid-area: lang;
-}
-.resume-grid .technical-skills {
-  grid-area: technical-skills;
-}
-.resume-grid .soft-skills {
-  grid-area: soft-skills;
+.grid-gaps-resume {
+  gap: 24px 40px;
 }
 
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 .experience-grid .wrapper-experience .header {
   padding: 0 0 8px 0;
 }
@@ -1363,97 +1311,43 @@ strong {
 .experience-grid .wrapper-experience .company-dates .dates {
   font-weight: 300;
 }
-@media only screen and (min-width: 481px) {
-  .experience-grid {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "exp1 exp2" "exp3 exp4" "exp5 exp6";
-  }
-  .experience-grid .experience1,
-  .experience-grid .experience2,
-  .experience-grid .experience3,
-  .experience-grid .experience4 {
-    padding-bottom: 40px;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .experience-grid {
-    grid-template-rows: auto auto;
-    grid-template-areas: "exp1 exp2 exp3" "exp4 exp5 exp6";
-  }
-  .experience-grid .experience1,
-  .experience-grid .experience2,
-  .experience-grid .experience3 {
-    padding-bottom: 40px;
-  }
-}
-.experience-grid .experience1 {
-  grid-area: exp1;
-}
-.experience-grid .experience2 {
-  grid-area: exp2;
-}
-.experience-grid .experience3 {
-  grid-area: exp3;
-}
-.experience-grid .experience4 {
-  grid-area: exp4;
-}
-.experience-grid .experience5 {
-  grid-area: exp5;
-}
-.experience-grid .experience6 {
-  grid-area: exp6;
-}
 
+.languages-grid {
+  display: grid;
+  margin: auto;
+  gap: 4px 8px;
+  align-items: baseline;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+}
 .languages-grid div {
   display: flex;
   flex-flow: row wrap;
-  align-items: baseline;
+  gap: 0 4px;
+  max-width: 240px;
 }
-.languages-grid div div p,
-.languages-grid div div h4 {
-  line-height: 30px;
+.languages-grid div h4.lang {
+  width: 64px;
+}
+.languages-grid div p {
+  display: inline;
+  width: 94px;
+}
+.languages-grid p,
+.languages-grid h4.lang {
+  line-height: 20px;
   margin: 0;
   padding: 0;
   font-size: 1rem;
 }
-.languages-grid div div h4 {
-  width: 84px;
-}
-.languages-grid div div p {
-  width: 94px;
-}
 
-.cell-grid {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 32px 16px;
-}
-.cell-grid.center {
-  align-items: center;
-}
-.cell-grid.top {
-  justify-content: flex-start;
-}
-@media only screen and (min-width: 481px) {
-  .cell-grid {
-    padding: 40px;
-    row-gap: 4px;
-  }
-  .cell-grid.languages {
-    padding: 32px;
-  }
+.full-width {
+  grid-column: 1/-1;
 }
 
 .case-tltr {
   display: grid;
   gap: 40px 32px;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-}
-.case-tltr .full-width {
-  grid-column: 1/-1;
 }
 
 .case-tltr > li {
@@ -1548,47 +1442,6 @@ figure figcaption.desktop {
   figure figcaption.desktop {
     display: block;
   }
-}
-figure .pics-grid {
-  margin: 0 auto;
-}
-figure .pics-grid img {
-  width: 100%;
-  height: auto;
-}
-figure .pics-grid figcaption {
-  padding: 2px 0 4px 0;
-}
-@media only screen and (min-width: 481px) {
-  figure .pics-grid {
-    display: grid;
-    gap: 4px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 132px auto;
-    grid-template-areas: "books horses frida" "books bird frida";
-  }
-  figure .pics-grid img {
-    margin: 0;
-    height: 100%;
-  }
-  figure .pics-grid figcaption {
-    display: none;
-  }
-  figure .pics-grid figcaption.desktop {
-    display: block;
-  }
-}
-figure .pics-grid .pic-books {
-  grid-area: books;
-}
-figure .pics-grid .pic-bird {
-  grid-area: bird;
-}
-figure .pics-grid .pic-horses {
-  grid-area: horses;
-}
-figure .pics-grid .pic-frida {
-  grid-area: frida;
 }
 
 .icon-heading {

@@ -108,14 +108,14 @@ body {
 }
 
 section {
-    padding: 80px 32px;
+    padding: max(6vw, 60px) 6vw;
     border: 6px solid var(--clr-candy-black);
-    border-radius: 40px;
-    margin-top: 80px;
+    border-radius: 3vw;
+    margin-top: clamp(10vw, 20vw, 80px);
     position: relative;
 
     &#portfolio {
-        padding: 80px 16px;
+        padding-inline: min(2.5vw, 16px);
     }
 
     &#hero {
@@ -465,17 +465,22 @@ footer {
 }
 
 .gallery {
-    display: grid;
-    gap: 8px;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 16px;
 
-    grid-auto-rows: 120px max-content, 140px, auto auto; //for subgrid card
+    @include tablet {
+        display: grid;
+        gap: 8px;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-auto-rows: max-content max-content auto auto auto; //for subgrid card
+    }
 }
 
 .card {
     background-color: var(--clr-candy-yellow050);
-    border-radius: 16px;
+    border-radius: 1.5vw;
     padding: 16px;
     min-width: 280px;
 
@@ -508,7 +513,7 @@ footer {
     }
 
     .card-image {
-        height: 140px;
+        max-height: 220px;
         overflow: hidden;
         border: .5px solid var(--clr-candy-yellow150);
 
@@ -521,6 +526,7 @@ footer {
 
             &.svg {
                 height: auto;
+                object-position: center;
             }
         }
     }
@@ -802,6 +808,7 @@ a.link {
         padding: 0;
         color: var(--clr-candy-link-inline);
         font-weight: 400;
+        word-break: break-all;
     }
 
     //states

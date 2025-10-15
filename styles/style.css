@@ -929,7 +929,7 @@ strong {
 
 .experience-grid {
   display: grid;
-  grid-template-rows: min-content 40px auto;
+  grid-template-rows: min-content auto auto;
   gap: 8px;
 }
 .experience-grid .company-dates {
@@ -939,23 +939,16 @@ strong {
 }
 
 .languages-grid {
+  --_lang-width: 70px;
+  --_level-width: 96px;
   display: grid;
-  margin: auto;
   gap: 4px 8px;
   align-items: baseline;
-  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--_lang-width) + var(--_level-width)), 1fr));
 }
 .languages-grid div {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 4px;
-}
-.languages-grid div h4 {
-  width: 64px;
-}
-.languages-grid div p {
-  display: block;
-  width: 94px;
+  display: grid;
+  grid-template-columns: var(--_lang-width) var(--_level-width);
 }
 
 #languages > div > div p,

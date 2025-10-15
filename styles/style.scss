@@ -32,15 +32,11 @@
     --clr-candy-fucsia: #D406A1;
     //shadows
     --shd-button: 0px 8px 8px rgba(0, 0, 0, 0.25);
+    //accents
+    --clr-icon-accent: var(--clr-candy-pink150);
 }
 
 // DIMENSIONS
-@mixin mobile {
-    @media only screen and (max-width: 480px) {
-        @content;
-    }
-}
-
 @mixin tablet {
     @media only screen and (min-width: 481px) {
         @content;
@@ -172,7 +168,6 @@ section {
     background-color: var(--clr-candy-yellow);
 }
 
-
 .center-center {
     flex: 1;
     display: flex;
@@ -196,8 +191,6 @@ nav {
             width: 174px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
         }
     }
-
-
 
     .nav-contact {
         display: flex;
@@ -229,8 +222,6 @@ nav {
 }
 
 .jump-menu {
-    text-align: center;
-    list-style: none;
     display: inline-flex;
     flex-flow: row wrap;
     align-items: center;
@@ -239,28 +230,20 @@ nav {
     padding-bottom: 8px;
     position: relative;
 
-    .link {
-        padding: 0;
-        width: 48%;
-
-        @include tablet {
-            height: 31px;
-            width: auto;
-        }
-    }
-
-    .icon-below {
-        visibility: visible; //always for mobile
-    }
-
     li {
+        list-style: none;
         margin: 0;
         padding: 0;
         width: 50%;
     }
 
     @include tablet {
+        flex-flow: row nowrap;
+        justify-content: center;
         height: 26px;
+        gap: 16px;
+        border: none;
+        padding: 0;
 
         ::after {
             content: "";
@@ -271,39 +254,29 @@ nav {
             background: var(--clr-candy-pink150);
             width: calc(100% - (31px + 4px)); // width covers everything but the last icon (31px with) and the space in between (4px)
         }
-
-        gap: 4px;
-        flex-flow: row nowrap;
-        justify-content: center;
-        gap: 16px;
-        border: none;
-        padding: 0;
-
-        .link {
-            width: auto;
-        }
     }
 
-    @include desktop {
-        .icon-below {
-            visibility: hidden;
-        }
-    }
+
+
+
 
 }
 
 footer {
     align-items: center;
-    max-width: 100%;
     padding: 10% 0 .5% 0;
     text-align: center;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 *::selection {
     color: var(--clr-candy-white);
     background-color: var(--clr-candy-fucsia);
 }
-
 
 //      ANIMATIONS
 @keyframes bounce {
@@ -343,18 +316,6 @@ footer {
         transform: translate(7%, -9%);
     }
 
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        //scale: 0.5;
-    }
-
-    to {
-        opacity: 1;
-        //scale: 1;
-    }
 }
 
 //      STRUCTURES
@@ -509,20 +470,8 @@ footer {
     gap: 8px;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
 
-.tag {
-    display: inline-block;
-    text-align: center;
-    font-family: var(--ff-body);
-    color: var(--clr-candy-black);
-    padding: 4px 8px;
-    font-weight: 300;
-    font-size: 0.8em;
-    background-color: var(--clr-candy-yellow050);
-    border: 1px solid var(--clr-candy-yellow150);
-    border-radius: 16px;
-    margin: 0 4px 8px 0;
+    grid-auto-rows: 120px max-content, 140px, auto auto; //for subgrid card
 }
 
 .card {
@@ -530,14 +479,13 @@ footer {
     border-radius: 16px;
     padding: 16px;
     min-width: 280px;
-    max-width: 360px;
-    margin: auto;
+
+    //mobile:
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 2px;
-    flex-grow: 1;
+    gap: 4px;
 
     &>* {
         text-align: left;
@@ -549,12 +497,15 @@ footer {
         display: none;
     }
 
-    .card-details {
-        overflow-wrap: break-word;
+    .card-tags{
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        gap: 4px;
     }
 
-    .card-tags {
-        padding-top: 12px;
+    .card-details {
+        overflow-wrap: break-word;
     }
 
     .card-image {
@@ -583,11 +534,26 @@ footer {
     }
 
     @include tablet {
-        row-gap: 4px;
         display: grid;
-        grid-template-rows: 100px 90px 140px 100px auto;
+        //grid-template-rows: 100px 90px 140px 100px auto;
+        grid-row: span 5;
+        grid-template-rows: subgrid;
+        gap: 8px;
     }
 }
+.tag {
+    display: inline-block;
+    text-align: center;
+    font-family: var(--ff-body);
+    color: var(--clr-candy-black);
+    padding: 4px 8px;
+    font-weight: 300;
+    font-size: 0.8em;
+    background-color: var(--clr-candy-yellow050);
+    border: 1px solid var(--clr-candy-yellow150);
+    border-radius: 16px;
+}
+
 
 .card-process {
     display: flex;
@@ -651,7 +617,6 @@ footer {
     }
 }
 
-
 // WRAPPERS 
 .wrapper-contacts {
     display: grid;
@@ -702,15 +667,16 @@ footer {
     flex-flow: row nowrap;
     text-decoration: none;
     background-color: var(--clr-candy-white);
-    color: var(--clr-candy-black);
-    outline: 1px solid var(--clr-candy-black);
+    border: 1px solid var(--clr-candy-black);
     border-radius: 8px;
+    gap: 10px;
+    box-shadow: var(--shd-button);
+    //text 
+    color: var(--clr-candy-black);
     font-family: var(--ff-body);
     font-weight: 400;
     font-size: 1.2em;
-    gap: 10px;
     padding: 12px 24px;
-    box-shadow: var(--shd-button);
 
     svg {
         fill: var(--clr-candy-black);
@@ -723,19 +689,19 @@ footer {
         .icon-new-page {
             .icon-new-page-arrow {
                 animation: bounce-out 0.8s infinite;
-                fill: var(--clr-candy-fucsia);
+                fill: var(--clr-icon-accent);
             }
         }
 
         .icon-go-to {
             animation: bounce-right 0.8s infinite;
-            fill: var(--clr-candy-fucsia);
+            fill: var(--clr-icon-accent);
         }
 
         .icon-top,
         .icon-below {
             animation: bounce 0.8s infinite;
-            fill: var(--clr-candy-fucsia);
+            fill: var(--clr-icon-accent);
         }
 
     }
@@ -781,17 +747,18 @@ footer {
 }
 
 a.link {
-    padding: 8px;
     display: inline-flex;
-    column-gap: 4px;
-    // not all of them need flex
-    justify-content: center;
-    align-items: center;
     flex-flow: row nowrap;
-    color: var(--clr-candy-black);
-    fill: var(--clr-candy-black);
-    text-decoration: none;
+    padding: 8px;
+    justify-content: center;
+    column-gap: 4px;
+    align-items: center;
     flex-grow: 0;
+    // not all of them need flex
+    //text
+    fill: var(--clr-candy-black);
+    color: var(--clr-candy-black);
+    text-decoration: none;
     font-weight: 700;
 
     &.link-home {
@@ -815,6 +782,95 @@ a.link {
         font-weight: 700;
     }
 
+    &.link-jump {
+        font-weight: 400;
+        padding: 0;
+        width: 48%;
+
+        @include tablet {
+            height: 31px;
+            width: auto;
+        }
+
+        .icon-below {
+            visibility: visible; //always for mobile
+
+            @include desktop {
+                visibility: hidden;
+            }
+
+        }
+
+    }
+
+    &.link-inline {
+        padding: 0;
+        color: var(--clr-candy-link-inline);
+        font-weight: 400;
+    }
+
+    //states
+    &:focus-visible,
+    &:hover:not(:disabled):not([disabled]) {
+        color: var(--clr-candy-black);
+        fill: var(--clr-candy-black);
+        text-decoration: underline;
+        text-underline-position: under;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 4px;
+        text-decoration-color: var(--clr-candy-pink150);
+
+        &.inline {
+            text-decoration-color: var(--clr-candy-link-inline);
+            color: var(--clr-candy-link-inline);
+        }
+
+        svg {
+            visibility: visible;
+        }
+
+        // icons have diff behaviours/animations
+        //#top > div > nav > h1 > a > svg > path:nth-child(6)
+        .icon-home {
+            outline: solid 4px var(--clr-icon-accent);
+
+            .logo-front {
+                fill: var(--clr-icon-accent);
+            }
+
+            #logo-background {
+                fill: var(--clr-candy-background);
+            }
+        }
+
+        .icon-contact {
+            outline: 2px solid var(--clr-icon-accent);
+            border-radius: 4px;
+        }
+
+        .icon-below {
+            animation: bounce 0.8s infinite;
+            fill: var(--clr-icon-accent);
+        }
+
+        .icon-contact path {
+            fill: var(--clr-icon-accent);
+            stroke: var(--clr-icon-accent);
+            //stroke-width: 1px;            
+        }
+
+        .icon-new-page {
+            .icon-new-page-arrow {
+                animation: bounce-out 0.8s infinite;
+                fill: var(--clr-candy-pink150);
+            }
+        }
+
+        .icon-house {
+            fill: var(--clr-icon-accent);
+        }
+    }
+
     &.disabled {
         color: #777;
         cursor: not-allowed;
@@ -830,77 +886,10 @@ a.link {
         visibility: hidden;
     }
 
-    &.inline {
-        padding: 0;
-        color: var(--clr-candy-link-inline);
-        font-weight: 400;
-    }
-
     &:disabled,
     &[disabled] {
         opacity: .4;
         cursor: not-allowed;
-    }
-
-    &:focus-visible,
-    &:hover:not(:disabled):not([disabled]) {
-        color: var(--clr-candy-black);
-        fill: var(--clr-candy-black);
-        text-decoration: underline;
-        text-underline-position: under;
-        text-underline-offset: 2px;
-        text-decoration-thickness: 4px;
-        text-decoration-color: var(--clr-candy-fucsia);
-
-        &.inline {
-            text-decoration-color: var(--clr-candy-link-inline);
-            color: var(--clr-candy-link-inline);
-        }
-
-        svg {
-            visibility: visible;
-        }
-
-        // icons have diff behaviours/animations
-        //#top > div > nav > h1 > a > svg > path:nth-child(6)
-        .icon-home {
-            outline: solid 4px var(--clr-candy-fucsia);
-
-            .logo-front {
-                fill: var(--clr-candy-fucsia);
-            }
-
-            #logo-background {
-                fill: var(--clr-candy-background);
-            }
-        }
-
-        .icon-contact {
-            outline: 2px solid var(--clr-candy-fucsia);
-            border-radius: 4px;
-        }
-
-        .icon-below {
-            animation: bounce 0.8s infinite;
-            fill: var(--clr-candy-fucsia);
-        }
-
-        .icon-contact path {
-            fill: var(--clr-candy-fucsia);
-            stroke: var(--clr-candy-fucsia);
-            //stroke-width: 1px;            
-        }
-
-        .icon-new-page {
-            .icon-new-page-arrow {
-                animation: bounce-out 0.8s infinite;
-                fill: var(--clr-candy-fucsia);
-            }
-        }
-
-        .icon-house {
-            fill: var(--clr-candy-fucsia);
-        }
     }
 }
 
@@ -1131,7 +1120,7 @@ strong {
     // this is only for the common structure. Use .resume for text styles. 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px 40px;
+    gap: 32px 40px;
 }
 
 .resume {
@@ -1140,22 +1129,25 @@ strong {
     h4.show-indent::before {
         color: var(--clr-candy-pink150);
     }
-}
-
-.wrapper-experiences>* {
-    .header {
-        padding: 0 0 8px 0;
-    }
 
     .company-dates {
         font-size: .9em;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
 
         .dates {
             font-weight: 300;
         }
+    }
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-rows: min-content 40px auto;
+    gap: 8px;
+
+    .company-dates {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
     }
 }
 
@@ -1165,25 +1157,24 @@ strong {
     gap: 4px 8px;
     align-items: baseline;
     grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-}
 
-.languages {
-    div  > div
-    {
+    div {
         display: flex;
         flex-flow: row wrap;
         gap: 4px;
-    }
 
-    h4 {
-        width: 64px;
-    }
+        h4 {
+            width: 64px;
+        }
 
-    p {
-        display: block;
-        width: 94px;
+        p {
+            display: block;
+            width: 94px;
+        }
     }
+}
 
+#languages>div>div {
     p,
     h4 {
         // to beat specificity of h4
@@ -1217,17 +1208,23 @@ strong {
 
 .aboutme-row {
     margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+    max-width: 1100px;
+    gap: 40px 100px;
 
     .aboutme-column {
-        padding: 0 8px;
 
         h3 {
             text-align: center;
             margin-bottom: 16px;
         }
 
-        .aboutme-item {
+        >div {
             margin: 24px 0;
+            max-width: 468px;
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
@@ -1238,6 +1235,11 @@ strong {
                 width: 48px;
                 height: 48px;
                 flex-shrink: 0;
+
+                @include tablet {
+                    width: 78px;
+                    height: 78px;
+                }
             }
 
             .text {
@@ -1264,31 +1266,8 @@ strong {
                 }
 
                 gap:12px;
-            }
-        }
-    }
 
-    @include tablet {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        padding-bottom: 40px;
-        max-width: 1100px;
-        margin: auto;
-        column-gap: 100px;
-
-        .aboutme-column {
-            .aboutme-item {
-                max-width: 468px;
-                margin: 0 0 36px 0;
-
-                .icon {
-                    width: 78px;
-                    height: 78px;
-                }
-
-
-                &.frida {
+                @include tablet {
                     img {
                         height: 120px;
                         width: auto;
@@ -1298,7 +1277,6 @@ strong {
                 }
             }
         }
-
     }
 }
 
@@ -1334,7 +1312,6 @@ figure {
         padding: 0;
         margin: 0;
         max-width: 300px;
-        color: var(--clr-candy-black);
 
         h4 {
             font-weight: 500;
@@ -1355,19 +1332,24 @@ figure {
     .flex-col {
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
+        align-items: stretch;
+        justify-content: flex-start;
     }
 
     .header {
+        align-self: center;
+        margin-bottom: 8px;
+
         .header-image {
             width: auto;
+            margin: auto;
             height: 34px;
             margin-bottom: 4px;
             border-radius: 0;
         }
 
         .header-label {
+            text-align: center;
             margin: 0;
             padding: 0;
             font-size: .9em;
@@ -1388,14 +1370,12 @@ figure {
 
         &>* {
             padding-top: 16px;
-            row-gap: 8px;
             max-width: 260px;
 
             .items {
                 row-gap: 16px;
 
                 &>* {
-                    width: 100%;
 
                     p.data,
                     p.label {

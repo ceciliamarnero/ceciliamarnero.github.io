@@ -920,7 +920,17 @@ strong {
 .resume h4.show-indent::before {
   color: var(--clr-candy-pink150);
 }
+.resume .role {
+  align-self: start;
+  line-height: 1.2;
+  display: block;
+}
+.resume .role span {
+  display: inline-block;
+  line-height: 1.2;
+}
 .resume .company-dates {
+  line-height: 1.8;
   font-size: 0.9em;
 }
 .resume .company-dates .dates {
@@ -929,7 +939,7 @@ strong {
 
 .experience-grid {
   display: grid;
-  grid-template-rows: min-content auto auto;
+  grid-template-rows: max-content max-content auto;
   gap: 8px;
 }
 .experience-grid .company-dates {

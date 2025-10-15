@@ -240,7 +240,6 @@ nav {
     @include tablet {
         flex-flow: row nowrap;
         justify-content: center;
-        height: 26px;
         gap: 16px;
         border: none;
         padding: 0;
@@ -497,7 +496,7 @@ footer {
         display: none;
     }
 
-    .card-tags{
+    .card-tags {
         display: flex;
         flex-flow: row wrap;
         align-content: flex-start;
@@ -541,6 +540,7 @@ footer {
         gap: 8px;
     }
 }
+
 .tag {
     display: inline-block;
     text-align: center;
@@ -784,12 +784,8 @@ a.link {
     &.link-jump {
         font-weight: 400;
         padding: 0;
-        width: 48%;
 
-        @include tablet {
-            height: 31px;
-            width: auto;
-        }
+
 
         .icon-below {
             visibility: visible; //always for mobile
@@ -899,6 +895,7 @@ a.link {
 figcaption,
 details summary {
     color: var(--clr-candy-yellow150);
+    font-size: 0.8em;
 }
 
 img {
@@ -1047,7 +1044,7 @@ strong {
     }
 
     img.h300 {
-        height: 300px;
+        max-height: 300px;
         width: auto;
     }
 
@@ -1114,50 +1111,84 @@ strong {
 
 }
 
-// GRIDS
-.resume-grid {
-    // this is only for the common structure. Use .resume for text styles. 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px 40px;
-}
-
 .resume {
+    h3 {
+        margin-bottom: 24px;
+    }
+
+    h4 {
+        margin-top: 16px;
+    }
 
     .highlight,
     h4.show-indent::before {
         color: var(--clr-candy-pink150);
     }
 
-    .role{
+    .role {
+        h4 {
+            margin: 0;
+        }
+
         align-self: start;
         line-height: 1.2;
-        display: block;  
+
         span {
-            display: inline-block;
+            display: inline-block; //to make size explicit and prevent issues with grids track size
             line-height: 1.2;
-          }
-    }
-
-    .company-dates {
-        line-height: 1.8;
-        font-size: .9em;
-
-        .dates {
-            font-weight: 300;
         }
     }
+
+    .company-dates p {
+        padding: 0;
+        margin: 0;
+        line-height: 1.8;
+        font-size: .9em;
+    }
+
+    .company-dates .dates {
+        font-weight: 300;
+    }
+
+    #languages>div>div {
+
+        p,
+        h4 {
+            // to beat specificity of h4
+            line-height: 20px;
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+
+    }
+}
+
+// GRIDS
+.resume-grid {
+    --_grid-resume-col-gap: 40px;
+    // this is only for the structure. Use .resume for text styles. 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px var(--_grid-resume-col-gap);
 }
 
 .experience-grid {
     display: grid;
-    grid-template-rows: max-content  max-content  auto;
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: max-content max-content auto;
+    gap: 4px var(--_grid-resume-col-gap);
 
-    .company-dates {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+    &>* {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+
+        .company-dates {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -1167,24 +1198,12 @@ strong {
     display: grid;
     gap: 4px 8px;
     align-items: baseline;
-    grid-template-columns: repeat(auto-fit,minmax(calc(var(--_lang-width) + var(--_level-width)),1fr));
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--_lang-width) + var(--_level-width)), 1fr));
 
     div {
         display: grid;
         grid-template-columns: var(--_lang-width) var(--_level-width);
     }
-}
-
-#languages>div>div {
-    p,
-    h4 {
-        // to beat specificity of h4
-        line-height: 20px;
-        margin: 0;
-        padding: 0;
-        font-size: 1rem;
-    }
-
 }
 
 .full-width {
@@ -1224,6 +1243,7 @@ strong {
         }
 
         >div {
+            //each chunk of icon + text
             margin: 24px 0;
             max-width: 468px;
             display: flex;
@@ -1281,26 +1301,6 @@ strong {
     }
 }
 
-figure {
-    figcaption {
-        font-size: 0.8em;
-    }
-
-    figcaption.desktop {
-        display: none;
-    }
-
-    @include tablet {
-        figcaption {
-            display: none;
-
-            &.desktop {
-                display: block;
-            }
-        }
-    }
-
-}
 
 .landing-list {
     display: flex;

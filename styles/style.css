@@ -190,7 +190,6 @@ nav .nav-nav {
   .jump-menu {
     flex-flow: row nowrap;
     justify-content: center;
-    height: 26px;
     gap: 16px;
     border: none;
     padding: 0;
@@ -614,13 +613,6 @@ a.link.link-nav-nav {
 a.link.link-jump {
   font-weight: 400;
   padding: 0;
-  width: 48%;
-}
-@media only screen and (min-width: 481px) {
-  a.link.link-jump {
-    height: 31px;
-    width: auto;
-  }
 }
 a.link.link-jump .icon-below {
   visibility: visible;
@@ -701,6 +693,7 @@ a.link:disabled, a.link[disabled] {
 figcaption,
 details summary {
   color: var(--clr-candy-yellow150);
+  font-size: 0.8em;
 }
 
 img {
@@ -846,7 +839,7 @@ strong {
 }
 .case-study .case-study-tltr img.h300,
 .case-study .case-study-full img.h300 {
-  height: 300px;
+  max-height: 300px;
   width: auto;
 }
 .case-study .case-study-tltr figure,
@@ -910,12 +903,12 @@ strong {
   padding-bottom: 8px;
 }
 
-.resume-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px 40px;
+.resume h3 {
+  margin-bottom: 24px;
 }
-
+.resume h4 {
+  margin-top: 16px;
+}
 .resume .highlight,
 .resume h4.show-indent::before {
   color: var(--clr-candy-pink150);
@@ -923,26 +916,50 @@ strong {
 .resume .role {
   align-self: start;
   line-height: 1.2;
-  display: block;
+}
+.resume .role h4 {
+  margin: 0;
 }
 .resume .role span {
   display: inline-block;
   line-height: 1.2;
 }
-.resume .company-dates {
+.resume .company-dates p {
+  padding: 0;
+  margin: 0;
   line-height: 1.8;
   font-size: 0.9em;
 }
 .resume .company-dates .dates {
   font-weight: 300;
 }
+.resume #languages > div > div p,
+.resume #languages > div > div h4 {
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.resume-grid {
+  --_grid-resume-col-gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px var(--_grid-resume-col-gap);
+}
 
 .experience-grid {
   display: grid;
-  grid-template-rows: max-content max-content auto;
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: max-content max-content auto;
+  gap: 4px var(--_grid-resume-col-gap);
 }
-.experience-grid .company-dates {
+.experience-grid > * {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+.experience-grid > * .company-dates {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -959,14 +976,6 @@ strong {
 .languages-grid div {
   display: grid;
   grid-template-columns: var(--_lang-width) var(--_level-width);
-}
-
-#languages > div > div p,
-#languages > div > div h4 {
-  line-height: 20px;
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
 }
 
 .full-width {
@@ -1048,21 +1057,6 @@ strong {
   .aboutme-row .aboutme-column > div.frida img {
     height: 120px;
     width: auto;
-  }
-}
-
-figure figcaption {
-  font-size: 0.8em;
-}
-figure figcaption.desktop {
-  display: none;
-}
-@media only screen and (min-width: 481px) {
-  figure figcaption {
-    display: none;
-  }
-  figure figcaption.desktop {
-    display: block;
   }
 }
 

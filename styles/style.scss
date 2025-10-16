@@ -322,112 +322,24 @@ footer {
 //      STRUCTURES
 .overview-grid {
     display: grid;
-    column-gap: 8px;
-    row-gap: 4px;
+    gap: 4px 8px;
     margin-bottom: 12px;
-    width: 100%;
     max-width: $max-text-width;
     align-items: baseline;
+    grid-template-columns: auto;
 
     p.data {
         line-height: 150%;
         margin: 0;
-        width: 100%;
-        overflow-wrap: break-word;
         padding: 0;
+        overflow-wrap: break-word;
     }
 
     h5.label {
-        line-height: 100%;
         margin: 12px 0 2px 0;
         color: var(--clr-candy-pink150);
         font-weight: 400;
-        width: 100%;
         padding: 0;
-    }
-
-    grid-template-columns: auto;
-    grid-template-areas: "label-client"
-    "data-client"
-    "label-type"
-    "data-type"
-    "label-website"
-    "data-website"
-    "label-role"
-    "data-role"
-    "label-team"
-    "data-team"
-    "label-skills1"
-    "data-skills1"
-    "label-skills2"
-    "data-skills2"
-    "label-tools"
-    "data-tools";
-
-
-    .label-type {
-        grid-area: label-type;
-    }
-
-    .data-type {
-        grid-area: data-type;
-    }
-
-    .label-website {
-        grid-area: label-website;
-    }
-
-    .data-website {
-        line-height: 1em;
-        grid-area: data-website;
-    }
-
-    .label-client {
-        grid-area: label-client;
-    }
-
-    .data-client {
-        grid-area: data-client;
-    }
-
-    .label-role {
-        grid-area: label-role;
-    }
-
-    .data-role {
-        grid-area: data-role;
-    }
-
-    .label-team {
-        grid-area: label-team;
-    }
-
-    .data-team {
-        grid-area: data-team;
-    }
-
-    .label-skills1 {
-        grid-area: label-skills1;
-    }
-
-    .data-skills1 {
-        grid-area: data-skills1;
-    }
-
-    .label-skills2 {
-        grid-area: label-skills2;
-    }
-
-    .data-skills2 {
-        grid-area: data-skills2;
-    }
-
-    .label-tools {
-        grid-area: label-tools;
-    }
-
-    .data-tools {
-        grid-area: data-tools;
     }
 
     @include tablet() {
@@ -435,28 +347,89 @@ footer {
         grid-template-columns: auto auto;
         grid-template-areas: "label-client label-type"
             "data-client data-type"
-
             "label-website label-team"
             "data-website data-team"
-
             "label-role label-tools"
             "data-role  data-tools"
-
             "label-skills1 label-skills2"
             "data-skills1 data-skills2";
+
+        .label-type {
+            grid-area: label-type;
+        }
+
+        .data-type {
+            grid-area: data-type;
+        }
+
+        .label-website {
+            grid-area: label-website;
+        }
+
+        .data-website {
+            line-height: 1em;
+            grid-area: data-website;
+        }
+
+        .label-client {
+            grid-area: label-client;
+        }
+
+        .data-client {
+            grid-area: data-client;
+        }
+
+        .label-role {
+            grid-area: label-role;
+        }
+
+        .data-role {
+            grid-area: data-role;
+        }
+
+        .label-team {
+            grid-area: label-team;
+        }
+
+        .data-team {
+            grid-area: data-team;
+        }
+
+        .label-skills1 {
+            grid-area: label-skills1;
+        }
+
+        .data-skills1 {
+            grid-area: data-skills1;
+        }
+
+        .label-skills2 {
+            grid-area: label-skills2;
+        }
+
+        .data-skills2 {
+            grid-area: data-skills2;
+        }
+
+        .label-tools {
+            grid-area: label-tools;
+        }
+
+        .data-tools {
+            grid-area: data-tools;
+        }
+
     }
 
     @include desktop() {
-        grid-template-columns: 1fr 1fr .7fr;
-        grid-template-rows: auto auto auto auto;
+        column-gap: 16px;
+        grid-template-columns: 1fr 1fr 1.2fr;
         grid-template-areas: "label-client label-type label-website"
             "data-client data-type data-website"
             "label-role label-role label-team"
             "data-role data-role data-team"
             "label-skills1 label-skills2 label-tools"
             "data-skills1 data-skills2 data-tools";
-        //padding: 16px;
-        column-gap: 16px;
     }
 }
 
@@ -1234,6 +1207,10 @@ strong {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 16px;
+
+    &>a {
+        padding-left: 0;
+    }
 }
 
 .aboutme-row {

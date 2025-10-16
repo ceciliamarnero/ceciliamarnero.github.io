@@ -399,6 +399,7 @@ footer p {
 .card .card-image img.svg {
   height: auto;
   object-position: center;
+  object-fit: contain;
 }
 .card .card-button {
   padding-block: 20px;
@@ -1008,61 +1009,62 @@ strong {
 }
 
 .aboutme-row {
-  margin: auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-bottom: 40px;
-  max-width: 1100px;
-  gap: 40px 100px;
+  column-gap: 40px;
 }
-.aboutme-row .aboutme-column h3 {
+.aboutme-row h3 {
   text-align: center;
-  margin-bottom: 16px;
+}
+.aboutme-row .aboutme-column {
+  margin-top: 24px;
+  grid-area: col;
+  display: grid;
+  grid-template-rows: auto;
+  grid-auto-columns: auto auto;
+  gap: 30px 10px;
+  max-width: 400px;
 }
 .aboutme-row .aboutme-column > div {
-  margin: 24px 0;
-  max-width: 468px;
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
+  justify-items: center;
 }
-.aboutme-row .aboutme-column > div .icon {
+.aboutme-row .aboutme-column > div img {
   width: 48px;
   height: 48px;
-  flex-shrink: 0;
 }
 @media only screen and (min-width: 481px) {
-  .aboutme-row .aboutme-column > div .icon {
+  .aboutme-row .aboutme-column > div img {
     width: 78px;
     height: 78px;
   }
 }
-.aboutme-row .aboutme-column > div .text {
+.aboutme-row .aboutme-column > div p {
   padding: 0;
   margin: 0;
-  flex-grow: 1;
+  grid-column: 2;
+  justify-self: flex-start;
 }
-.aboutme-row .aboutme-column > div.special .icon {
+.aboutme-row .aboutme-column > div.special div {
   visibility: hidden;
   height: 0px;
 }
-.aboutme-row .aboutme-column > div.special .text {
+.aboutme-row .aboutme-column > div.special p {
   font-weight: 600;
 }
 .aboutme-row .aboutme-column > div.frida {
   gap: 12px;
 }
 .aboutme-row .aboutme-column > div.frida img {
-  width: 90px;
+  height: 90px;
+  width: auto;
   flex-grow: 0;
 }
 @media only screen and (min-width: 481px) {
-  .aboutme-row .aboutme-column > div.frida {
-    gap: 52px;
-  }
   .aboutme-row .aboutme-column > div.frida img {
     height: 120px;
     width: auto;

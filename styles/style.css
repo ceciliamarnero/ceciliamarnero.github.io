@@ -385,7 +385,7 @@ footer p {
   overflow-wrap: break-word;
 }
 .card .card-image {
-  max-height: 220px;
+  max-height: 200px;
   overflow: hidden;
   border: 0.5px solid var(--clr-candy-yellow150);
 }
@@ -1019,7 +1019,6 @@ strong {
 }
 .aboutme-row .aboutme-column {
   margin-top: 24px;
-  grid-area: col;
   display: grid;
   grid-template-rows: auto;
   grid-auto-columns: auto auto;
@@ -1049,15 +1048,8 @@ strong {
   grid-column: 2;
   justify-self: flex-start;
 }
-.aboutme-row .aboutme-column > div.special div {
-  visibility: hidden;
-  height: 0px;
-}
 .aboutme-row .aboutme-column > div.special p {
   font-weight: 600;
-}
-.aboutme-row .aboutme-column > div.frida {
-  gap: 12px;
 }
 .aboutme-row .aboutme-column > div.frida img {
   height: 90px;

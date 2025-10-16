@@ -182,7 +182,7 @@ nav {
     align-items: center;
     padding: 24px 0 60px 0;
 
-    
+
 
     @include tablet {
         flex-flow: row wrap;
@@ -515,7 +515,7 @@ footer {
     }
 
     .card-image {
-        max-height: 220px;
+        max-height: 200px;
         overflow: hidden;
         border: .5px solid var(--clr-candy-yellow150);
 
@@ -1248,7 +1248,6 @@ strong {
 
     .aboutme-column {
         margin-top: 24px;
-        grid-area: col;
         display: grid;
         grid-template-rows: auto;
         grid-auto-columns: auto auto;
@@ -1265,7 +1264,6 @@ strong {
             img {
                 width: 48px;
                 height: 48px;
-                //justify-self: end;
 
                 @include tablet {
                     width: 78px;
@@ -1280,15 +1278,8 @@ strong {
                 justify-self: flex-start
             }
 
-            &.special {
-                div {
-                    visibility: hidden;
-                    height: 0px; // so that's fully wide but zero height
-                }
-
-                p {
-                    font-weight: 600;
-                }
+            &.special p {
+                font-weight: 600;
             }
 
             &.frida {
@@ -1302,9 +1293,6 @@ strong {
                         width: auto;
                     }
                 }
-
-                gap:12px;
-
 
             }
         }

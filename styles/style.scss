@@ -92,7 +92,8 @@ body {
 .container {
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     max-width: 1200px;
     margin: 0 auto;
@@ -107,7 +108,20 @@ body {
     justify-content: flex-start;
 }
 
+section,
+.wrapper-top {
+    width: 100%;
+}
+
 section {
+    padding: max(6vw, 60px) 4vw;
+    border: 6px solid var(--clr-candy-black);
+    border-radius: 3vw;
+    margin-top: clamp(10vw, 20vw, 80px);
+    position: relative;
+}
+
+.landing section {
     padding: max(6vw, 60px) 6vw;
     border: 6px solid var(--clr-candy-black);
     border-radius: 3vw;
@@ -180,39 +194,33 @@ nav {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
     padding: 24px 0 60px 0;
-
-
+    width: 100%;
 
     @include tablet {
         flex-flow: row wrap;
         justify-content: space-between;
-        align-items: center;
 
-        h1 {
-            width: 174px; // = nav.contant.width this is so that the nav left side is the same with as the right one, and the middle aligns to the middle of the container
+        .nav-nav {
+            position: relative;
+            right: -8px; //negative button padding: to align the end of the visible text to the exact edge of the container
         }
     }
 
-    .nav-contact {
+    &>* {
         display: flex;
         align-items: center;
         flex-flow: row nowrap;
-        gap: 4px;
         height: 100%;
     }
 
-    .nav-nav {
-        display: flex;
-        flex-flow: row nowrap;
-        gap: 16px;
+    .nav-contact {
+        gap: 4px;
+    }
 
-        .link-nav-nav {
-            @include tablet {
-                position: relative;
-                right: -8px; //negative button padding: to align the end of the visible text to the exact edge of the container
-            }
-        }
+    .nav-nav {
+        gap: 16px;
     }
 }
 
@@ -257,16 +265,12 @@ nav {
         }
     }
 
-
-
-
-
 }
 
 footer {
-    align-items: center;
-    padding: 10% 0 .5% 0;
+    padding: 5vh 0 1vh 0;
     text-align: center;
+    flex: 0 0 auto;
 
     p {
         padding: 0;
@@ -458,13 +462,10 @@ footer {
     border-radius: 1.5vw;
     padding: 16px;
     min-width: 280px;
-
-    //mobile:
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 4px;
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    gap: 8px;
 
     &>* {
         text-align: left;
@@ -488,11 +489,13 @@ footer {
     }
 
     .card-image {
+        min-height: 100px;
         max-height: 200px;
         overflow: hidden;
         border: .5px solid var(--clr-candy-yellow150);
-
+        
         img {
+            border-radius: 0px;
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -514,13 +517,9 @@ footer {
         align-items: center;
     }
 
-    @include tablet {
-        display: grid;
-        //grid-template-rows: 100px 90px 140px 100px auto;
-        grid-row: span 5;
-        grid-template-rows: subgrid;
-        gap: 8px;
-    }
+
+
+
 }
 
 .tag {
@@ -688,7 +687,7 @@ footer {
     }
 
     &:active {
-        outline: 2px solid var(--clr-candy-black);
+        border: 2px solid var(--clr-candy-black);
     }
 
     &.in-card {
@@ -698,16 +697,16 @@ footer {
 }
 
 .cta {
-    font-size: 2.5vw;
+    font-size: 1.5rem;
     font-family: var(--ff-display);
     color: var(--clr-candy-white);
-    padding: 2% 5%;
+    padding: 1rem 2rem;
     margin: auto;
     text-decoration: none;
     background-color: var(--clr-candy-pink150);
-    border: 10px solid var(--clr-candy-white);
-    border-radius: 5em;
+    border: .5rem solid var(--clr-candy-white);
     box-shadow: var(--shd-button);
+
 
     &:hover {
         box-shadow: none;
@@ -716,7 +715,7 @@ footer {
     &:active {
         background-color: var(--clr-candy-pink050);
         color: var(--clr-candy-pink150);
-        border: 10px solid var(--clr-candy-pink150);
+        border-color: var(--clr-candy-pink150);
     }
 }
 
@@ -744,6 +743,7 @@ a.link {
 
     &.link-home {
         height: 46px;
+        padding-inline: 0;
 
         .icon-home {
             .logo-front {
@@ -766,8 +766,6 @@ a.link {
     &.link-jump {
         font-weight: 400;
         padding: 0;
-
-
 
         .icon-below {
             visibility: visible; //always for mobile
@@ -808,7 +806,6 @@ a.link {
         }
 
         // icons have diff behaviours/animations
-        //#top > div > nav > h1 > a > svg > path:nth-child(6)
         .icon-home {
             outline: solid 4px var(--clr-icon-accent);
 
@@ -822,7 +819,7 @@ a.link {
         }
 
         .icon-contact {
-            outline: 2px solid var(--clr-icon-accent);
+            border: 2px solid var(--clr-icon-accent);
             border-radius: 4px;
         }
 
@@ -1217,7 +1214,7 @@ strong {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    column-gap: 40px;
+    column-gap: 5%;
 
     h3 {
         text-align: center;

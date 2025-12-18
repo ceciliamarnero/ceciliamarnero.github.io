@@ -697,7 +697,7 @@ footer {
 }
 
 .cta {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: var(--ff-display);
     color: var(--clr-candy-white);
     padding: 1rem 2rem;
@@ -705,6 +705,7 @@ footer {
     text-decoration: none;
     background-color: var(--clr-candy-pink150);
     border: .5rem solid var(--clr-candy-white);
+    border-radius: 70px;
     box-shadow: var(--shd-button);
 
 

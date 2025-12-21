@@ -908,14 +908,17 @@ h2 {
     }
 }
 
-h3 {
+h3,h4,h5,h6{
     font-family: var(--ff-body);
-    font-weight: 500;
     color: var(--clr-candy-black);
-    font-size: 1.44em; //26px
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 2em; //36px scale:1.1892
     text-align: center;
     padding: 0;
-    margin: 60px 0 40px 0;
+    margin: 2.5rem 0 2rem 0;
 }
 
 h4.show-indent::before {
@@ -926,10 +929,9 @@ h4.show-indent::before {
 }
 
 h4 {
-    font-family: var(--ff-body);
-    font-size: 1.22em; //22px 
+    font-size: 1.682em; //22px 
     font-weight: 500;
-    margin-bottom: 8px;
+    margin: 2.3rem 0 1.8rem 0;
 
     .highlight {
         text-align: center;
@@ -947,11 +949,14 @@ ol+h4 {
 
 
 h5 {
-    font-family: var(--ff-body);
-    font-size: 1.11em;
+    font-size: 1.414em;
     font-weight: 500;
-    color: var(--clr-candy-black);
-    margin: 8px 0 2px 0;
+    margin: 2rem 0 1.5rem 0;
+}
+h6 {
+    font-size: 1.189em;
+    font-weight: 500;
+    margin: 1.5rem 0 1.3rem 0;
 }
 
 
@@ -1066,11 +1071,11 @@ strong {
     }
 
     h4 {
-        margin: 60px 0 12px 0;
+        margin: 1.4rem 0 1rem 0;
     }
 
     h5 {
-        margin: 24px 0 12px 0;
+        margin: 1.3rem 0 1rem 0;
     }
 
     .overview-grid h5 {

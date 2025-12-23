@@ -719,19 +719,17 @@ h1 {
   padding: 0;
 }
 
-h2 {
-  font-family: var(--ff-display);
-  text-align: center;
-  color: var(--clr-candy-black);
-  font-size: 1.5em;
-}
-@media only screen and (min-width: 481px) {
-  h2 {
-    font-size: 2.5em;
-    margin-bottom: 32px;
-  }
-}
+/* h2 {
+    font-family: var(--ff-display);
+    text-align: center;
+    color: var(--clr-candy-black);
+    font-size: 1.5em;
 
+    @include tablet {
+        font-size: 2.5em;
+        margin-bottom: 32px;
+    }
+} */
 h3,
 h4,
 h5,
@@ -1112,6 +1110,10 @@ strong {
   border: 0;
 }
 
+.case-studylbj1 header {
+  margin-bottom: 4rem;
+}
+
 .grid2rows {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1125,8 +1127,55 @@ strong {
   grid-row: span 2;
 }
 
-.grid-profile {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.proto {
+  color: var(--clr-candy-yellow150);
+  border-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-radius: 8px;
+  padding: 1.2rem;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr auto auto;
+  grid-template-areas: "name name" "img profile" "role role" "jtbd jtbd";
+  gap: 12px;
+}
+.proto h5 {
+  grid-area: name;
+  font-size: 2rem;
+  text-align: center;
+}
+.proto .img {
+  grid-area: img;
+}
+.proto .img img {
+  border: none;
+}
+.proto .profile {
+  grid-area: profile;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.proto .role, .proto .jtbd {
+  padding: 16px;
+  background-color: var(--clr-candy-white);
+  border-radius: 8px;
+}
+.proto .role {
+  grid-area: role;
+}
+.proto .jtbd {
+  grid-area: jtbd;
+}
+.proto h6 {
+  margin-block: 4px;
+}
+.proto li {
+  padding-block: 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

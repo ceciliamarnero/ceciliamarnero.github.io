@@ -896,7 +896,7 @@ h1 {
     padding: 0;
 }
 
-h2 {
+/* h2 {
     font-family: var(--ff-display);
     text-align: center;
     color: var(--clr-candy-black);
@@ -906,7 +906,7 @@ h2 {
         font-size: 2.5em;
         margin-bottom: 32px;
     }
-}
+} */
 
 h3,
 h4,
@@ -1330,6 +1330,14 @@ strong {
 
 
 // styles for LBJ case 1
+
+.case-studylbj1{
+    header{
+        //this value depends on how tall the image of the title is
+        margin-bottom: 4rem;
+    }
+}
+//
 .grid2rows {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1344,6 +1352,51 @@ strong {
     }
 }
 
-.grid-profile {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.proto {
+    @include border-1side-solid(1px, 1px, 1px, 1px, var(--clr-candy-yellow150));
+    padding: 1.2rem;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr auto auto;
+    grid-template-areas: "name name"
+    "img profile"
+    "role role"
+    "jtbd jtbd";
+    gap: 12px;
+    h5{
+        grid-area: name;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .img{
+        img{
+            border: none;
+        }
+        grid-area: img;
+    }
+    .profile{
+        grid-area: profile;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+    .role,.jtbd{
+        padding: 16px;
+        background-color: var(--clr-candy-white);
+        border-radius: 8px;
+    }
+    .role{
+        grid-area: role;
+    }
+    .jtbd{
+        grid-area: jtbd;
+    }
+
+    h6{
+        margin-block: 4px;
+    }
+    li{
+        padding-block: 2px;
+    }
 }

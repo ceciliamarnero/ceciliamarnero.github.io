@@ -1323,154 +1323,275 @@ strong {
 .case-studylbj1 {
     header {
         //this value depends on how tall the image of the title is
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
-}
 
-//
-.grid2rows {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: auto auto;
-    align-items: start;
-    column-gap: 24px;
 
-    &>div {
+    //
+    .grid2rows {
         display: grid;
-        grid-template-rows: subgrid;
-        grid-row: span 2;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: auto auto;
+        align-items: start;
+        column-gap: 24px;
+
+        &>div {
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 2;
+        }
+    }
+
+    .proto {
+        @include border-1side-solid(1px, 1px, 1px, 1px, var(--clr-candy-yellow150));
+        padding: 1.2rem;
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr auto auto;
+        grid-template-areas: "name name"
+            "img profile"
+            "role role"
+            "jtbd jtbd";
+        column-gap: 24px;
+
+        h5 {
+            grid-area: name;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .img {
+            img {
+                border: none;
+            }
+
+            grid-area: img;
+        }
+
+        .profile {
+            font-size: .9rem;
+            grid-area: profile;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+        }
+
+        .role,
+        .jtbd {
+            padding: 16px;
+            //background-color: var(--clr-candy-white);
+            border-radius: 8px;
+        }
+
+        .role {
+            grid-area: role;
+        }
+
+        .jtbd {
+            grid-area: jtbd;
+        }
+
+        h6 {
+            margin-block: 4px;
+        }
+
+        li {
+            padding-block: 2px;
+        }
+    }
+
+    .pillar1 {
+        --_pillar-color: var(--clr-candy-purple);
+    }
+
+    .pillar2 {
+        --_pillar-color: var(--clr-candy-green150);
+    }
+
+    .pillar3 {
+        --_pillar-color: var(--clr-candy-orange);
+    }
+
+    .pillars {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        column-gap: 16px;
+    }
+
+    .pillars>li,
+    .decisions>li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .decisions h6,
+    .pillars h6 {
+        display: block;
+        border-bottom: 4px solid var(--_pillar-color);
+        padding-bottom: 2px;
+        margin: 16px 0 8px 0;
+    }
+
+    .decisions ol li {
+        &::marker {
+            color: var(--_pillar-color);
+        }
     }
 }
 
-.proto {
-    @include border-1side-solid(1px, 1px, 1px, 1px, var(--clr-candy-yellow150));
-    padding: 1.2rem;
-    border-radius: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr auto auto;
-    grid-template-areas: "name name"
-        "img profile"
-        "role role"
-        "jtbd jtbd";
-    gap: 12px;
+.stop {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    border: 2px solid var(--clr-candy-fucsia);
+    border-radius: 10px;
+    padding: 8vh;
+    max-width: calc($max-text-width + 8vh);
+    min-height: 80vh;
+    margin: auto;
 
-    h5 {
-        grid-area: name;
-        font-size: 2rem;
+    h3{
+        margin-top: 0;
+    }
+    h4{
         text-align: center;
     }
 
-    .img {
-        img {
-            border: none;
-        }
+    backdrop-filter: blur(10px);
+    scroll-snap-align: center;
+    /* Locks the middle of the stop to the middle of the screen */
+    scroll-snap-stop: always;
+    /* Prevents the user from accidentally skipping slides */
 
-        grid-area: img;
+    /* Make sure the box is tall enough to feel like a slide */
+    margin-bottom: 15vh;
+    /* This gap ensures the snap point is distinct */
+    view-timeline: --foco-stop block;
+    animation: entrar-y-salir linear both;
+    animation-timeline: --foco-stop;
+
+    /* We start focusing earlier and stay focused longer */
+    animation-range: entry 0% exit 100%;
+
+    &.long-jump {
+        margin-top: 90px;
     }
-
-    .profile {
-        grid-area: profile;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-    }
-
-    .role,
-    .jtbd {
-        padding: 16px;
-        background-color: var(--clr-candy-white);
-        border-radius: 8px;
-    }
-
-    .role {
-        grid-area: role;
-    }
-
-    .jtbd {
-        grid-area: jtbd;
-    }
-
-    h6 {
-        margin-block: 4px;
-    }
-
-    li {
-        padding-block: 2px;
-    }
-}
-
-.pillar1 {
-    --_pillar-color: var(--clr-candy-purple);
-}
-
-.pillar2 {
-    --_pillar-color: var(--clr-candy-green150);
-}
-
-.pillar3 {
-    --_pillar-color: var(--clr-candy-orange);
-}
-
-.pillars {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    column-gap: 16px;
-}
-
-.pillars>li,
-.decisions>li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.decisions h6,
-.pillars h6 {
-    display: block;
-    border-bottom: 4px solid var(--_pillar-color);
-    padding-bottom: 2px;
-    margin: 16px 0 8px 0;
-}
-
-.decisions ol li {
-    &::marker {
-        color: var(--_pillar-color);
-    }
-}
-
-
-
-
-.stop {
-    border: 2px solid red;
-    border-radius: 10px;
-    padding: 40px;
-    max-width: 740px;
-    margin: auto;
-
 
     p,
     h3,
     h4,
     h5,
     h6,
-    li {
+    li,
+    .eyebrow,
+    .proto {
         max-width: $max-text-width;
     }
+
+    .eyebrow+h4,
+    .eyebrow+h5,
+    .eyebrow+h6 {
+        margin-top: 0;
+    }
+
 
     .eyebrow {
         font-size: 0.95rem;
         text-transform: uppercase;
         margin: 0;
 
-        &+h4,
-        &+h5,
-        &+h6 {
-            margin-top: 0;
-        }
-
         span {
-            margin-inline: 2px;
+            margin-inline: 4px;
+        }
+    }
+    .eyebrow:has(+ h4) {
+        text-align: center;
+      }
+}
+
+
+.case-study-full {
+    background: transparent;
+    position: relative;
+    scroll-snap-type: y mandatory;
+    /* Forces snapping on the Y axis */
+    height: 90vh;
+    /* It needs a height to scroll and snap internally */
+    overflow-y: auto;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+
+.case-study-full::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    /* Alineada con el inicio de tus cajas */
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.1) 5%,
+            rgba(255, 255, 255, 0.1) 95%,
+            transparent);
+    z-index: 0;
+}
+
+@keyframes entrar-y-salir {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.98);
+        filter: blur(8px);
+    }
+
+    /* The "Stay Clear" zone: from 20% to 80% of the movement */
+    20%,
+    80% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.98);
+        filter: blur(8px);
+    }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .stop {
+        animation: none !important;
+        view-timeline: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    /* 2. Aseguramos que el scroll sea instantáneo o muy discreto */
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    .stop {
+        border: none;
+        padding-block: 16px;
+        margin-block: 0;
+        opacity: 1;
+        transform: translateY(0);
+
+        .eyebrow {
+            display: none;
         }
     }
 }

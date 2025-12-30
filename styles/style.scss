@@ -757,7 +757,8 @@ a.link {
     &.link-nav-nav {
         display: block;
         font-size: 1em;
-        font-weight: 700;
+        font-weight: 600;
+        text-transform: uppercase;
     }
 
     &.link-jump {
@@ -1000,7 +1001,6 @@ strong {
     font-weight: 600;
 }
 
-.case-study .case-study-tltr,
 .case-study .case-study-full {
 
     h4.show-indent::before {
@@ -1446,7 +1446,7 @@ strong {
     justify-content: center;
     align-items: stretch;
     border: 2px solid var(--clr-candy-fucsia);
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 8vh;
     max-width: calc($max-text-width + 8vh);
     min-height: 80vh;
@@ -1459,6 +1459,10 @@ strong {
         text-align: center;
     }
 
+    &.lesspadding{
+        padding: 8px;
+    }
+
     backdrop-filter: blur(10px);
     scroll-snap-align: center;
     /* Locks the middle of the stop to the middle of the screen */
@@ -1469,7 +1473,7 @@ strong {
     margin-bottom: 15vh;
     /* This gap ensures the snap point is distinct */
     view-timeline: --foco-stop block;
-    animation: entrar-y-salir linear both;
+    animation: in-and-out linear both;
     animation-timeline: --foco-stop;
 
     /* We start focusing earlier and stay focused longer */
@@ -1509,8 +1513,11 @@ strong {
     .eyebrow:has(+ h4) {
         text-align: center;
       }
-}
 
+}
+.case-study-full .stop figure img{
+    border: none;
+}
 
 .case-study-full {
     background: transparent;
@@ -1545,7 +1552,7 @@ strong {
     z-index: 0;
 }
 
-@keyframes entrar-y-salir {
+@keyframes in-and-out {
     0% {
         opacity: 0;
         transform: translateY(100px) scale(0.98);
@@ -1567,8 +1574,6 @@ strong {
     }
 }
 
-
-
 @media (prefers-reduced-motion: reduce) {
     .stop {
         animation: none !important;
@@ -1578,7 +1583,6 @@ strong {
         filter: none !important;
     }
 
-    /* 2. Aseguramos que el scroll sea instantáneo o muy discreto */
     html {
         scroll-behavior: auto !important;
     }

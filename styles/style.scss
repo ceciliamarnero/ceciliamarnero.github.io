@@ -1296,7 +1296,6 @@ strong {
     }
 }
 
-
 .img-h2 {
     width: auto;
     position: absolute;
@@ -1319,13 +1318,11 @@ strong {
 
 
 // styles for LBJ case 1
-
 .case-studylbj1 {
     header {
         //this value depends on how tall the image of the title is
         margin-bottom: 3rem;
     }
-
 
     //
     .grid2rows {
@@ -1362,11 +1359,8 @@ strong {
         }
 
         .img {
-            img {
-                border: none;
-            }
-
             grid-area: img;
+            
         }
 
         .profile {
@@ -1380,7 +1374,6 @@ strong {
         .role,
         .jtbd {
             padding: 16px;
-            //background-color: var(--clr-candy-white);
             border-radius: 8px;
         }
 
@@ -1413,189 +1406,26 @@ strong {
         --_pillar-color: var(--clr-candy-orange);
     }
 
-    .pillars {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        column-gap: 16px;
-    }
+    .pillars,
+    .decisions {
+        &>li {
+            padding: 0;
+            margin: 0 0 0 24px;
+            list-style: none;
+        }
 
-    .pillars>li,
-    .decisions>li {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
+        h6 {
+            display: block;
+            border-bottom: 4px solid var(--_pillar-color);
+            padding-bottom: 2px;
+            margin-bottom: 0;
+        }
 
-    .decisions h6,
-    .pillars h6 {
-        display: block;
-        border-bottom: 4px solid var(--_pillar-color);
-        padding-bottom: 2px;
-        margin: 16px 0 8px 0;
-    }
-
-    .decisions ol li {
-        &::marker {
-            color: var(--_pillar-color);
+        ol li {
+            &::marker {
+                color: var(--_pillar-color);
+            }
         }
     }
-}
 
-.stop {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: stretch;
-    border: 2px solid var(--clr-candy-fucsia);
-    border-radius: 20px;
-    padding: 8vh;
-    max-width: calc($max-text-width + 8vh);
-    min-height: 80vh;
-    margin: auto;
-
-    h3{
-        margin-top: 0;
-    }
-    h4{
-        text-align: center;
-    }
-
-    &.lesspadding{
-        padding: 8px;
-    }
-
-    backdrop-filter: blur(10px);
-    scroll-snap-align: center;
-    /* Locks the middle of the stop to the middle of the screen */
-    scroll-snap-stop: always;
-    /* Prevents the user from accidentally skipping slides */
-
-    /* Make sure the box is tall enough to feel like a slide */
-    margin-bottom: 15vh;
-    /* This gap ensures the snap point is distinct */
-    view-timeline: --foco-stop block;
-    animation: in-and-out linear both;
-    animation-timeline: --foco-stop;
-
-    /* We start focusing earlier and stay focused longer */
-    animation-range: entry 0% exit 100%;
-
-    &.long-jump {
-        margin-top: 90px;
-    }
-
-    p,
-    h3,
-    h4,
-    h5,
-    h6,
-    li,
-    .eyebrow,
-    .proto {
-        max-width: $max-text-width;
-    }
-
-    .eyebrow+h4,
-    .eyebrow+h5,
-    .eyebrow+h6 {
-        margin-top: 0;
-    }
-
-
-    .eyebrow {
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        margin: 0;
-
-        span {
-            margin-inline: 4px;
-        }
-    }
-    .eyebrow:has(+ h4) {
-        text-align: center;
-      }
-
-}
-.case-study-full .stop figure img{
-    border: none;
-}
-
-.case-study-full {
-    background: transparent;
-    position: relative;
-    scroll-snap-type: y mandatory;
-    /* Forces snapping on the Y axis */
-    height: 90vh;
-    /* It needs a height to scroll and snap internally */
-    overflow-y: auto;
-    /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  
-  scrollbar-width: none;
-}
-
-.case-study-full::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 2rem;
-    /* Alineada con el inicio de tus cajas */
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(to bottom,
-            transparent,
-            rgba(255, 255, 255, 0.1) 5%,
-            rgba(255, 255, 255, 0.1) 95%,
-            transparent);
-    z-index: 0;
-}
-
-@keyframes in-and-out {
-    0% {
-        opacity: 0;
-        transform: translateY(100px) scale(0.98);
-        filter: blur(8px);
-    }
-
-    /* The "Stay Clear" zone: from 20% to 80% of the movement */
-    20%,
-    80% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-100px) scale(0.98);
-        filter: blur(8px);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .stop {
-        animation: none !important;
-        view-timeline: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-    }
-
-    html {
-        scroll-behavior: auto !important;
-    }
-
-    .stop {
-        border: none;
-        padding-block: 16px;
-        margin-block: 0;
-        opacity: 1;
-        transform: translateY(0);
-
-        .eyebrow {
-            display: none;
-        }
-    }
 }
